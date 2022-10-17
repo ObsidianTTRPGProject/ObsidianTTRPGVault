@@ -1,5 +1,6 @@
 {
   "readableLineLength": false,
   "livePreview": false,
-  "promptDelete": false
+  "promptDelete": false,
+  "attachmentFolderPath": "z_Assets"
 }

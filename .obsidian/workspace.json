@@ -25,14 +25,50 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DnD5e/Bestiary/TTRPG Statblock Data/Instructions.md",
+                "file": "Tutorials/1. Basic Markdown/Obsidian Markdown Formatting.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "9b0b72439372cd44",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DnD5e/How To - Obtain Images.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "0df824bfb4e51fd7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/Theme - ITS - Examples/Image Adjustments.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "ba7d1d1bb052e2f2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/Theme - ITS - Examples/Call Outs.md",
                 "mode": "preview",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -98,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DnD5e/Bestiary/TTRPG Statblock Data/Instructions.md",
+                "file": "Tutorials/Theme - ITS - Examples/Call Outs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DnD5e/Bestiary/TTRPG Statblock Data/Instructions.md",
+                "file": "Tutorials/Theme - ITS - Examples/Call Outs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DnD5e/Bestiary/TTRPG Statblock Data/Instructions.md"
+                "file": "Tutorials/Theme - ITS - Examples/Call Outs.md"
               }
             }
           }
@@ -152,17 +188,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "f5cb58e84f1f78cd",
+  "active": "ba7d1d1bb052e2f2",
   "lastOpenFiles": [
+    "Tutorials/Theme - ITS - Examples/Image Adjustments.md",
+    "Tutorials/Theme - ITS - Examples/Call Outs.md",
+    "DnD5e/How To - Obtain Images.md",
+    "z_Assets/Pasted image 20221017215831.png",
+    "DnD5e/Bestiary/TTRPG Statblock Data/Instructions.md",
+    "DnD5e/Spells/PHB/Acid Splash.md",
+    "Tutorials/1. Basic Markdown/Mermaid Graph Examples.md",
+    "Tutorials/1. Basic Markdown/Obsidian Markdown Formatting.md",
     "DnD5e/Classes/Artificer/Battle Smith.md",
-    "DnD5e/Classes/Artificer/Artillerist.md",
-    "DnD5e/Classes/Artificer/Artificer.md",
-    "DnD5e/Classes/Artificer/Armorer.md",
-    "DnD5e/Classes/Artificer/Alchemist.md",
-    "README.md",
-    "DnD5e/Spells/PHB/Antilife Shell.md",
-    "DnD5e/Spells/PHB/Animal Messenger.md",
-    "DnD5e/Dangers/Traps/Grasping Arms.md",
-    "DnD5e/Dangers/Traps/Fiery Blast Trap.md"
+    "DnD5e/Classes/Artificer/Artillerist.md"
   ]
 }
