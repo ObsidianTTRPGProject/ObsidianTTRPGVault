@@ -66,9 +66,53 @@
                 "source": true
               }
             }
+          },
+          {
+            "id": "7626a3795560afcc",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "77feb1e1e5405359",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/Timelines/Timelines.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "acf48b1e5df3d16d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/Timelines/Timeline Note 2.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "ae36f0d0cd0bbcfc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": true
+              }
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 8
       }
     ],
     "direction": "vertical"
@@ -134,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/Theme - ITS - Examples/Call Outs.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/Theme - ITS - Examples/Call Outs.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,7 +218,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/Theme - ITS - Examples/Call Outs.md"
+                "file": "README.md"
               }
             }
           }
@@ -188,17 +232,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "ba7d1d1bb052e2f2",
+  "active": "ae36f0d0cd0bbcfc",
   "lastOpenFiles": [
-    "Tutorials/Theme - ITS - Examples/Image Adjustments.md",
+    "Tutorials/YouTube Series/Timelines/Timelines.md",
+    "Tutorials/YouTube Series/Timelines/Timeline Note 2.md",
+    "Tutorials/YouTube Series/Timelines/Timeline Note 1.md",
+    "z_Assets/Pasted image 20221017221239.png",
+    "Tutorials/YouTube Series/Timelinesz.md",
     "Tutorials/Theme - ITS - Examples/Call Outs.md",
+    "Tutorials/Theme - ITS - Examples/Image Adjustments.md",
     "DnD5e/How To - Obtain Images.md",
     "z_Assets/Pasted image 20221017215831.png",
-    "DnD5e/Bestiary/TTRPG Statblock Data/Instructions.md",
-    "DnD5e/Spells/PHB/Acid Splash.md",
-    "Tutorials/1. Basic Markdown/Mermaid Graph Examples.md",
-    "Tutorials/1. Basic Markdown/Obsidian Markdown Formatting.md",
-    "DnD5e/Classes/Artificer/Battle Smith.md",
-    "DnD5e/Classes/Artificer/Artillerist.md"
+    "DnD5e/Bestiary/TTRPG Statblock Data/Instructions.md"
   ]
 }

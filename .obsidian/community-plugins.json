@@ -1,4 +1,8 @@
 [
   "table-editor-obsidian",
-  "obsidian-excel-to-markdown-table"
+  "obsidian-excel-to-markdown-table",
+  "templater-obsidian",
+  "folder-note-core",
+  "alx-folder-note",
+  "obsidian-timelines"
 ]
