@@ -141,14 +141,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
+                "file": "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md",
                 "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "74954ff1061cbe2f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/Basic Tool Usage/How To - Install Plugin.md",
+                "mode": "source",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 11
+        "currentTab": 12
       }
     ],
     "direction": "vertical"
@@ -214,7 +226,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
+                "file": "Tutorials/Basic Tool Usage/How To - Install Plugin.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -231,7 +243,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
+                "file": "Tutorials/Basic Tool Usage/How To - Install Plugin.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -254,7 +266,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md"
+                "file": "Tutorials/Basic Tool Usage/How To - Install Plugin.md"
               }
             }
           }
@@ -268,17 +280,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "21f29d98726b200a",
+  "active": "74954ff1061cbe2f",
   "lastOpenFiles": [
-    "Tutorials/YouTube Series/Timelines/Timelines.md",
-    "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
-    "Tutorials/Basic Markdown/Mermaid Graph Examples.md",
     "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md",
-    "README.md",
-    "Untitled.md",
-    "DnD5e/Bestiary/TTRPG Statblock Data/Instructions.md",
-    "DnD5e/Backgrounds/Backgrounds.md",
+    "Tutorials/Basic Tool Usage/How To - Install Plugin.md",
+    "Tutorials/Basic Markdown/Mermaid Graph Examples.md",
+    "Tutorials/Basic Markdown/Obsidian Markdown Formatting.md",
+    "Tutorials/Theme - ITS - Examples/Image Adjustments.md",
     "Tutorials/Theme - ITS - Examples/Call Outs.md",
-    "Tutorials/Theme - ITS - Examples/Image Adjustments.md"
+    "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
+    "Tutorials/YouTube Series/Timelines/Timelines.md",
+    "README.md",
+    "Untitled.md"
   ]
 }
