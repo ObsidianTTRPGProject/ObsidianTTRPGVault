@@ -2,5 +2,6 @@
   "readableLineLength": false,
   "livePreview": false,
   "promptDelete": false,
-  "attachmentFolderPath": "z_Assets"
+  "attachmentFolderPath": "z_Assets",
+  "showUnsupportedFiles": true
 }

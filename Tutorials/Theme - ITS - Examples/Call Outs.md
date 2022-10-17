@@ -21,6 +21,35 @@ See Radme: https://github.com/SlRvb/Obsidian--ITS-Theme/blob/main/Guide/Callouts
 > [!kanban|no-title txt-c]
 > [!caption|left]
 
-> [!recite]
-> Text
+> [!infobox]
+> This is a recite callout
 
+> [!captions]
+> This is a captions callout
+
+> [!kanban]
+> This is a kanban callout
+
+> [!grid]
+> This is a grid callout
+
+> [!recite]
+> This is a captions callout
+
+> [!metadata]
+> This is a kanban callout
+
+> [!cards]
+> This is a kanban callout
+
+> [!table]
+> This is a grid callout
+
+> [!aside]
+> This is a captions callout
+
+> [!timeline]
+> This is a kanban callout
+
+> [!column]
+> This is a kanban callout
