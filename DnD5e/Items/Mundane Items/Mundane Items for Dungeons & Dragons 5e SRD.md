@@ -1,0 +1,211 @@
+---
+ImportedOn: Wednesday, 15 December 2021 7:59:18 AM
+Tags: Category/General-Equipment-Article
+parent:
+  - Equipment for Dungeons & Dragons 5e SRD
+up:
+  - Equipment for Dungeons & Dragons 5e SRD
+next:
+  - Mundane Armor_Shields for Dungeons & Dragons 5e SRD
+down:
+  - Abacus
+  - Acid (vial)
+  - Alchemist's fire (flask)
+  - Antitoxin (vial)
+  - Backpack
+  - Ball bearings (bag of 1,000)
+  - Barrel
+  - Basket
+  - Bedroll
+  - Bell
+  - Blanket
+  - Block and Tackle
+  - Book
+  - Bucket
+  - Bullseye Lantern
+  - Caltrops
+  - Candle
+  - Chain
+  - Chalk
+  - Chest
+  - Climber's Kit
+  - Common Clothes
+  - Component Pouch
+  - Costume
+  - Crossbow Bolt Case
+  - Crowbar
+  - Fine Clothes
+  - Fishing Tackle
+  - Flask of Holy Water
+  - Flask of Oil
+  - Flask or Tankard
+  - Glass Bottle
+  - Grappling hook
+  - Hammer
+  - Healer's Kit
+  - Hempen Rope
+  - Herbalism Kit
+  - Hooded Lantern
+  - Hourglass
+  - Hunting trap
+  - Ink
+  - Ink pen
+  - Iron Pot
+  - Iron Spikes
+  - Jug or Pitcher
+  - Ladder
+  - Lamp
+  - Lock
+  - Magnifying glass
+  - Manacles
+  - Map Case
+  - Merchant's Scale
+  - Mess kit
+  - Miner's Pick
+  - Mirror
+  - Navigator's Tools
+  - Paper
+  - Parchment
+  - Piton
+  - Poisoner's Kit
+  - Pole
+  - Portable Ram
+  - Potion of healing
+  - Pouch
+  - Quiver
+  - Rations
+  - Robes
+  - Sack
+  - Sealing wax
+  - Shovel
+  - Signal whistle
+  - Signet ring
+  - Silk Rope
+  - Sledge Hammer
+  - Soap
+  - Spellbook
+  - Spyglass
+  - Tent
+  - Thieves' Tools
+  - Tinderbox
+  - Torch
+  - Traveler's Clothes
+  - Vehicles (land or water)
+  - Vial
+  - Vial of Basic Poison
+  - Vial of Perfume
+  - Waterskin
+  - Whetstone
+  - Arcane Focus
+  - Druidic Focus
+  - Holy Symbol
+  - Ammunition
+  - Artisan's Tools
+  - Gaming Set
+  - Musical Instrument
+RWtopicId: Topic_72
+---
+# Mundane Items for Dungeons & Dragons 5e SRD
+
+## Overview
+The articles in this grouping comprise the new mundane items introduced in Dungeons & Dragons 5e SRD.
+
+
+
+---
+## Governed Content
+- [[Abacus]]
+- [[Acid (vial)]]
+- [[Alchemist's fire (flask)]]
+- [[Ammunition]]
+- [[Antitoxin (vial)]]
+- [[Arcane Focus]]
+- [[Artisan's Tools]]
+- [[Backpack]]
+- [[Ball bearings (bag of 1,000)]]
+- [[Barrel]]
+- [[Basket]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Bedroll]]
+- [[Bell]]
+- [[Blanket]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Block and Tackle]]
+- [[Book]]
+- [[Bucket]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Bullseye Lantern]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Caltrops]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Candle]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Chain]]
+- [[Chalk]]
+- [[Chest]]
+- [[Climber's Kit]]
+- [[Common Clothes]]
+- [[Component Pouch]]
+- [[Costume]]
+- [[Crossbow Bolt Case]]
+- [[Crowbar]]
+- [[Druidic Focus]]
+- [[Fine Clothes]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Fishing Tackle]]
+- [[Flask of Holy Water]]
+- [[Flask of Oil]]
+- [[Flask or Tankard]]
+- [[Gaming Set]]
+- [[Glass Bottle]]
+- [[Grappling hook]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Hammer]]
+- [[Healer's Kit]]
+- [[Hempen Rope]]
+- [[Herbalism Kit]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Holy Symbol/Holy Symbol]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Hooded Lantern]]
+- [[Hourglass]]
+- [[Hunting trap]]
+- [[Ink]]
+- [[Ink pen]]
+- [[Iron Pot]]
+- [[Iron Spikes]]
+- [[Jug or Pitcher]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Ladder]]
+- [[Lamp]]
+- [[Lock]]
+- [[Magnifying glass]]
+- [[Manacles]]
+- [[Map Case]]
+- [[Merchant's Scale]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Mess kit]]
+- [[Miner's Pick]]
+- [[Mirror]]
+- [[Musical Instrument]]
+- [[Navigator's Tools]]
+- [[Paper]]
+- [[Parchment]]
+- [[Piton]]
+- [[Poisoner's Kit]]
+- [[Pole]]
+- [[Portable Ram]]
+- [[Potion of healing]]
+- [[Pouch]]
+- [[Quiver]]
+- [[Rations]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Robes]]
+- [[Sack]]
+- [[Sealing wax]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Shovel]]
+- [[Signal whistle]]
+- [[Signet ring]]
+- [[Silk Rope]]
+- [[Sledge Hammer]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Soap]]
+- [[Spellbook]]
+- [[Spyglass]]
+- [[2. Mechanics Reference Almanac/Items/Mundane Items for Dungeons & Dragons 5e SRD/Tent]]
+- [[Thieves' Tools]]
+- [[Tinderbox]]
+- [[Torch]]
+- [[Traveler's Clothes]]
+- [[Vehicles (land or water)]]
+- [[Vial]]
+- [[Vial of Basic Poison]]
+- [[Vial of Perfume]]
+- [[Waterskin]]
+- [[Whetstone]]

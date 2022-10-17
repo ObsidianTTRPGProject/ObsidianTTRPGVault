@@ -1,0 +1,5 @@
+needs:
+
+common and uncommon glamerweave
+
+Imbued Wood Focus variations

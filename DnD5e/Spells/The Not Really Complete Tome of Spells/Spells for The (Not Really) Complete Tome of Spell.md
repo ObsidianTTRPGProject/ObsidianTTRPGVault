@@ -1,0 +1,963 @@
+---
+ImportedOn: Wednesday, 15 December 2021 7:59:18 AM
+Tags: Category/General-Abilities-Article
+parent:
+  - Abilities for The (Not Really) Complete Tome of Spell
+up:
+  - Abilities for The (Not Really) Complete Tome of Spell
+down:
+  - Acid Lash (TnrCTOS)
+  - Acid Storm (TnrCTOS)
+  - Adamantine Mace (TnrCTOS)
+  - Adhesion (TnrCTOS)
+  - Age Animal (TnrCTOS)
+  - Age Object (TnrCTOS)
+  - Agitate Wounds (TnrCTOS)
+  - Agra's Ambush (TnrCTOS)
+  - Airboat (TnrCTOS)
+  - Alert Vigil (TnrCTOS)
+  - Allergy Field (TnrCTOS)
+  - Alter Beast (TnrCTOS)
+  - Alter Instrument (TnrCTOS)
+  - Alter Path (TnrCTOS)
+  - Amanuensis (TnrCTOS)
+  - Amorphous Blob (TnrCTOS)
+  - Amulet (TnrCTOS)
+  - Ancestral Blessing (TnrCTOS)
+  - Ancient Curse (TnrCTOS)
+  - Anesthesia (TnrCTOS)
+  - Animal Animosity (TnrCTOS)
+  - Animal Transfer (TnrCTOS)
+  - Animal Trick (TnrCTOS)
+  - Animate Blood (TnrCTOS)
+  - Animate Flame (TnrCTOS)
+  - Archer's Redoubt (TnrCTOS)
+  - Arrow of Bone (TnrCTOS)
+  - Arrowflight (TnrCTOS)
+  - Assess Value (TnrCTOS)
+  - Astral Awareness (TnrCTOS)
+  - Augment Artistry (TnrCTOS)
+  - Bad Medicine (TnrCTOS)
+  - Ballant's Stonesplit (TnrCTOS)
+  - Ballant's Stonestrength (TnrCTOS)
+  - Bands of Sirellyn (TnrCTOS)
+  - Banish Blight (TnrCTOS)
+  - Banish Dazzle (TnrCTOS)
+  - Barrier Reaver (TnrCTOS)
+  - Battletide (TnrCTOS)
+  - Bearhug (TnrCTOS)
+  - Beastmask (TnrCTOS)
+  - Beneficence (TnrCTOS)
+  - Bestow Curse (TnrCTOS)
+  - Bestow Enchantment (TnrCTOS)
+  - Bigby's Bookworm Bane (TnrCTOS)
+  - Bigby's Dexterous Digits (TnrCTOS)
+  - Bigby's Force Sculpture (TnrCTOS)
+  - Biting Shadow (TnrCTOS)
+  - Black Blade of Disaster (TnrCTOS)
+  - Blacksteel (TnrCTOS)
+  - Blessed Abundance (TnrCTOS)
+  - Blessed Forgetfulness (TnrCTOS)
+  - Bliss (TnrCTOS)
+  - Blood Bond (TnrCTOS)
+  - Bloodbridge (TnrCTOS)
+  - Blossom (TnrCTOS)
+  - Body Blades (TnrCTOS)
+  - Body Link (TnrCTOS)
+  - Bolt of Glory (TnrCTOS)
+  - Bone Seize (TnrCTOS)
+  - Boon of Fortune (TnrCTOS)
+  - Break Limb (TnrCTOS)
+  - Breath of Death (TnrCTOS)
+  - Breath of Life (TnrCTOS)
+  - Burning Blood (TnrCTOS)
+  - Calder's Starry Sky (TnrCTOS)
+  - Call (TnrCTOS)
+  - Call of Despair (TnrCTOS)
+  - Call Society (TnrCTOS)
+  - Call Upon Faith (TnrCTOS)
+  - Candletrick (TnrCTOS)
+  - Castigate (TnrCTOS)
+  - Catching Chain (TnrCTOS)
+  - Chain Madness (TnrCTOS)
+  - Channel Flame (TnrCTOS)
+  - Chant (TnrCTOS)
+  - Chariot of Sustarre (TnrCTOS)
+  - Chilling Scythe (TnrCTOS)
+  - Chromatic Blade (TnrCTOS)
+  - Circle of Blindness (TnrCTOS)
+  - Circle of Privacy (TnrCTOS)
+  - Cloud of Purification (TnrCTOS)
+  - Cloud of Putrefaction (TnrCTOS)
+  - Color (TnrCTOS)
+  - Comfort (TnrCTOS)
+  - Compass (TnrCTOS)
+  - Conceal Item (TnrCTOS)
+  - Conjure Beast Spirits (TnrCTOS)
+  - Conjure Divine Minion (TnrCTOS)
+  - Control Temperature (TnrCTOS)
+  - Control Vapor (TnrCTOS)
+  - Converse (TnrCTOS)
+  - Cook (TnrCTOS)
+  - Copy (TnrCTOS)
+  - Corpse Host (TnrCTOS)
+  - Create Campsite (TnrCTOS)
+  - Create Darkenbeast (TnrCTOS)
+  - Creeping Darkness (TnrCTOS)
+  - Crown of Angels (TnrCTOS)
+  - Crystalbrittle (TnrCTOS)
+  - Curse of Lycanthropy (TnrCTOS)
+  - Curse Tablet (TnrCTOS)
+  - Cursed Image (TnrCTOS)
+  - Cyclone Chariot (TnrCTOS)
+  - Dancing Fire (TnrCTOS)
+  - Darkbolt (TnrCTOS)
+  - Darsson's Cooling Breeze (TnrCTOS)
+  - Darsson's Potion (TnrCTOS)
+  - Dead Man's Eyes (TnrCTOS)
+  - Death Candle (TnrCTOS)
+  - Death Pact (TnrCTOS)
+  - Death Prayer (TnrCTOS)
+  - Death Recall (TnrCTOS)
+  - Deathmaster's Vial (TnrCTOS)
+  - Decastave (TnrCTOS)
+  - Deepen Shadows (TnrCTOS)
+  - Deeppockets (TnrCTOS)
+  - Depress Resistance (TnrCTOS)
+  - Despair (TnrCTOS)
+  - Detect Charm (TnrCTOS)
+  - Detect Harmony (TnrCTOS)
+  - Detect Metals and Minerals (TnrCTOS)
+  - Detect Secret Passages and Portals (TnrCTOS)
+  - Diction (TnrCTOS)
+  - Dig (TnrCTOS)
+  - Dimensional Anchor (TnrCTOS)
+  - Dire Charm (TnrCTOS)
+  - Disarm (TnrCTOS)
+  - Disbelief (TnrCTOS)
+  - Distort Life (TnrCTOS)
+  - Distraction (TnrCTOS)
+  - Divine Truth (TnrCTOS)
+  - Doomhound (TnrCTOS)
+  - Dragon Breath (TnrCTOS)
+  - Draw Upon Holy Might (TnrCTOS)
+  - Drawmij's Breath of Life (TnrCTOS)
+  - Drawmij's Instant Exit (TnrCTOS)
+  - Drawmij's Light Step (TnrCTOS)
+  - Drawmij's Scent Mask (TnrCTOS)
+  - Drawmij's Swift Mount (TnrCTOS)
+  - Drenal's Stone Flame (TnrCTOS)
+  - Drought (TnrCTOS)
+  - Druidcraft (TnrCTOS)
+  - Duo-Dimension (TnrCTOS)
+  - Dusts of Death (TnrCTOS)
+  - Earthmaw (TnrCTOS)
+  - Ease Labor (TnrCTOS)
+  - Echoes (TnrCTOS)
+  - Electric Bow (TnrCTOS)
+  - Elminster's Effulgent Epuration (TnrCTOS)
+  - Elonia's Glamer (TnrCTOS)
+  - Elude Blow (TnrCTOS)
+  - Empathy (TnrCTOS)
+  - Encrypt (TnrCTOS)
+  - Endless Dance (TnrCTOS)
+  - Energy Drain (TnrCTOS)
+  - Enervation (TnrCTOS)
+  - Entomb (TnrCTOS)
+  - Erase (TnrCTOS)
+  - Erik's Quills (TnrCTOS)
+  - Estate Transference (TnrCTOS)
+  - Everfull Quiver (TnrCTOS)
+  - Evolve (TnrCTOS)
+  - Exorcism (TnrCTOS)
+  - Exterminate (TnrCTOS)
+  - False Tracks (TnrCTOS)
+  - False Vision (TnrCTOS)
+  - Fang Fist (TnrCTOS)
+  - Farspeaker (TnrCTOS)
+  - Favor of Amelioration (TnrCTOS)
+  - Favor of Good Luck (TnrCTOS)
+  - Favor of Ill Luck (TnrCTOS)
+  - Favor of Serendipity (TnrCTOS)
+  - Favor of the Earth (TnrCTOS)
+  - Favor of the Flying Horse (TnrCTOS)
+  - Favor of the Ocean Winds (TnrCTOS)
+  - Fertility (TnrCTOS)
+  - Fiery Eyes (TnrCTOS)
+  - Fiery Fists (TnrCTOS)
+  - Filth's Bane (TnrCTOS)
+  - Fire Arrows (TnrCTOS)
+  - Fire Aura (TnrCTOS)
+  - Fire Charm (TnrCTOS)
+  - Fire Truth (TnrCTOS)
+  - Fireproof (TnrCTOS)
+  - Firestaff (TnrCTOS)
+  - Fireward (TnrCTOS)
+  - First Strike (TnrCTOS)
+  - Fist of Stone (TnrCTOS)
+  - Flame Harvest (TnrCTOS)
+  - Flashpuff (TnrCTOS)
+  - Fool's Gold (TnrCTOS)
+  - Fool's Speech (TnrCTOS)
+  - Force Shapechange (TnrCTOS)
+  - Frost Fingers (TnrCTOS)
+  - Frost Whip (TnrCTOS)
+  - Frostfire (TnrCTOS)
+  - Gift of Speech (TnrCTOS)
+  - Glass Storm (TnrCTOS)
+  - Glassee (TnrCTOS)
+  - Glassteel (TnrCTOS)
+  - Glyph of Revealing (TnrCTOS)
+  - Glyph of Warding (TnrCTOS)
+  - Graft (TnrCTOS)
+  - Grassdart (TnrCTOS)
+  - Ground Trace (TnrCTOS)
+  - Guardian Seal (TnrCTOS)
+  - Guardian Weapon (TnrCTOS)
+  - Gullship (TnrCTOS)
+  - Gunther's Kaleidoscopic Strike (TnrCTOS)
+  - Hail of Stone (TnrCTOS)
+  - Hailstone (TnrCTOS)
+  - Hair (TnrCTOS)
+  - Handcandle (TnrCTOS)
+  - Handfang (TnrCTOS)
+  - Hard Water (TnrCTOS)
+  - Harp of War (TnrCTOS)
+  - Haunting (TnrCTOS)
+  - Heart Call (TnrCTOS)
+  - Heart of Stone (TnrCTOS)
+  - Heartseeker (TnrCTOS)
+  - Helping Hand (TnrCTOS)
+  - Hibernation (TnrCTOS)
+  - Hiding Place (TnrCTOS)
+  - Hold Portal (TnrCTOS)
+  - Holy Flail (TnrCTOS)
+  - Horn of Plenty (TnrCTOS)
+  - Hornung's Random Dispatcher (TnrCTOS)
+  - Hovering Road (TnrCTOS)
+  - Hurl Rock (TnrCTOS)
+  - Hurl Thunderbolt (TnrCTOS)
+  - Ice Blade (TnrCTOS)
+  - Idea (TnrCTOS)
+  - Ilyykur's Mantle (TnrCTOS)
+  - Imbue with Purpose (TnrCTOS)
+  - Immurk's Distraction (TnrCTOS)
+  - Impeding Permission (TnrCTOS)
+  - Impenetrable Falsehood (TnrCTOS)
+  - Instant Audience (TnrCTOS)
+  - Intensify Nature (TnrCTOS)
+  - Intensify Sensation (TnrCTOS)
+  - Invisibility Purge (TnrCTOS)
+  - Iron Maiden (TnrCTOS)
+  - Ironwood (TnrCTOS)
+  - Isolde's Answer (TnrCTOS)
+  - Ivy Siege (TnrCTOS)
+  - Javelin (TnrCTOS)
+  - Khelben's Blackstaff (TnrCTOS)
+  - Kiss of Torment (TnrCTOS)
+  - Know Customs (TnrCTOS)
+  - Ladder (TnrCTOS)
+  - Laeral's Cutting Hand (TnrCTOS)
+  - Laeral's Invisible Blade (TnrCTOS)
+  - Laughing Water (TnrCTOS)
+  - Leaf into Dagger (TnrCTOS)
+  - Legal Thoughts (TnrCTOS)
+  - Legerdemain (TnrCTOS)
+  - Leomund's Trap (TnrCTOS)
+  - Lifeblend (TnrCTOS)
+  - Lightning Curtain (TnrCTOS)
+  - Lightning Rod (TnrCTOS)
+  - Lightning Shield (TnrCTOS)
+  - Lightning Storm (TnrCTOS)
+  - Liquid Orb (TnrCTOS)
+  - Lizard Limbs (TnrCTOS)
+  - Log to Lizard (TnrCTOS)
+  - Longevity (TnrCTOS)
+  - Lorloveim's Creeping Shadow (TnrCTOS)
+  - Love Charm (TnrCTOS)
+  - Mage Tunnel (TnrCTOS)
+  - Magic Susceptibility (TnrCTOS)
+  - Magical Tether (TnrCTOS)
+  - Magnetism (TnrCTOS)
+  - Major Curse (TnrCTOS)
+  - Mass (TnrCTOS)
+  - Mass Contagion (TnrCTOS)
+  - Mass Dominate Person (TnrCTOS)
+  - Mass Jump (TnrCTOS)
+  - Mass Protection from Energy (TnrCTOS)
+  - Mass Protection from Evil and Good (TnrCTOS)
+  - Memory Read (TnrCTOS)
+  - Merchant's Glamer (TnrCTOS)
+  - Metal Shape (TnrCTOS)
+  - Mindkiller (TnrCTOS)
+  - Mirage (TnrCTOS)
+  - Mirage of Despair (TnrCTOS)
+  - Mistaken Missive (TnrCTOS)
+  - Moon Rune (TnrCTOS)
+  - Moonbow (TnrCTOS)
+  - Mordenkainen's Defense Against Beasts (TnrCTOS)
+  - Mordenkainen's Defense Against Ly-canthropes (TnrCTOS)
+  - Mordenkainen's Defense Against Slime (TnrCTOS)
+  - Music of the Spheres (TnrCTOS)
+  - Mystic Rope (TnrCTOS)
+  - Nap (TnrCTOS)
+  - Nature Call (TnrCTOS)
+  - Nature's Charm (TnrCTOS)
+  - Nchaser's Glowing Globe (TnrCTOS)
+  - Nectar (TnrCTOS)
+  - Needlestorm (TnrCTOS)
+  - Nerve Dance (TnrCTOS)
+  - Nightscar (TnrCTOS)
+  - Nymph's Beauty (TnrCTOS)
+  - Nystul's Blacklight Burst (TnrCTOS)
+  - Nystul's Radiant Baton (TnrCTOS)
+  - Oathbinding (TnrCTOS)
+  - Obedience (TnrCTOS)
+  - Obold's Brightness (TnrCTOS)
+  - Odeen's Magic Cloud (TnrCTOS)
+  - Odeen's Magic Tailor (TnrCTOS)
+  - Orison (TnrCTOS)
+  - Otiluke's Fire and Ice (TnrCTOS)
+  - Otiluke's Orb of Containment (TnrCTOS)
+  - Otiluke's Siege Sphere (TnrCTOS)
+  - Otto's Chime of Release (TnrCTOS)
+  - Otto's Drums (TnrCTOS)
+  - Otto's Soothing Vibrations (TnrCTOS)
+  - Pain (TnrCTOS)
+  - Phantom Arms and Armor (TnrCTOS)
+  - Phantom Plow (TnrCTOS)
+  - Pillar of Borogar (TnrCTOS)
+  - Pit (TnrCTOS)
+  - Poison (TnrCTOS)
+  - Pool of Deeds (TnrCTOS)
+  - Possess (TnrCTOS)
+  - Power Word Banish (TnrCTOS)
+  - Power Word Blind (TnrCTOS)
+  - Power Word Sleep (TnrCTOS)
+  - Preservation (TnrCTOS)
+  - Prismal's Handy Mirror (TnrCTOS)
+  - Prismal's Pictograph (TnrCTOS)
+  - Projected Magnification (TnrCTOS)
+  - Prophecy (TnrCTOS)
+  - Protective Amulet (TnrCTOS)
+  - Quench the Spirit (TnrCTOS)
+  - Rain of Blood (TnrCTOS)
+  - Rain of Terror (TnrCTOS)
+  - Rainshield (TnrCTOS)
+  - Rary's Replay (TnrCTOS)
+  - Rastor's Mystical Spy (TnrCTOS)
+  - Ray of Fatigue (TnrCTOS)
+  - Ray of Paralysis (TnrCTOS)
+  - Read Object (TnrCTOS)
+  - Reed Staff (TnrCTOS)
+  - Renew Deposit (TnrCTOS)
+  - Resist Magic (TnrCTOS)
+  - Resist Turning (TnrCTOS)
+  - Restore Earth (TnrCTOS)
+  - Return to Earth (TnrCTOS)
+  - Revenance (TnrCTOS)
+  - Right of Might (TnrCTOS)
+  - Rising Colossus (TnrCTOS)
+  - Rising Rot (TnrCTOS)
+  - Ritual Strength (TnrCTOS)
+  - Rusting Grasp (TnrCTOS)
+  - Sacred Guardian (TnrCTOS)
+  - Sacred Strike (TnrCTOS)
+  - Sand Gems (TnrCTOS)
+  - Sand Shroud (TnrCTOS)
+  - Sand Sword (TnrCTOS)
+  - Sap (TnrCTOS)
+  - Sarcophagus of Death (TnrCTOS)
+  - Sargasso (TnrCTOS)
+  - Scalding Spout (TnrCTOS)
+  - Scalesnare (TnrCTOS)
+  - Scapegoat (TnrCTOS)
+  - Scatterspray (TnrCTOS)
+  - Scent of Vengeance (TnrCTOS)
+  - Screen (TnrCTOS)
+  - Sea Sight (TnrCTOS)
+  - Seal Mouth (TnrCTOS)
+  - Seal of Destiny (TnrCTOS)
+  - Searing Song (TnrCTOS)
+  - Secret Page (TnrCTOS)
+  - Secret Signs (TnrCTOS)
+  - See Through Other Eyes (TnrCTOS)
+  - Seek Teleporter (TnrCTOS)
+  - Seeking (TnrCTOS)
+  - Segojan's Armor (TnrCTOS)
+  - Seven-Eyes (TnrCTOS)
+  - Shadow Blink (TnrCTOS)
+  - Shadow Dance (TnrCTOS)
+  - Shadow Play (TnrCTOS)
+  - Shadowcat (TnrCTOS)
+  - Shadowstrike (TnrCTOS)
+  - Shandaril's Tracer (TnrCTOS)
+  - Shape Wood (TnrCTOS)
+  - Shark Bolt (TnrCTOS)
+  - Sharptooth (TnrCTOS)
+  - Shellskin (TnrCTOS)
+  - Shoondal's Seeking (TnrCTOS)
+  - Shout (TnrCTOS)
+  - Simbul's Skeletal Deliquescence (TnrCTOS)
+  - Simulate Skill (TnrCTOS)
+  - Singing Stone (TnrCTOS)
+  - Sinister Surroundings (TnrCTOS)
+  - Siren Song (TnrCTOS)
+  - Skip Day (TnrCTOS)
+  - Skull Watch (TnrCTOS)
+  - Skycastle (TnrCTOS)
+  - Skyhook (TnrCTOS)
+  - Skylight Blade (TnrCTOS)
+  - Sleepwalking (TnrCTOS)
+  - Smite (TnrCTOS)
+  - Smoke Shape (TnrCTOS)
+  - Snapdragon (TnrCTOS)
+  - Snare (TnrCTOS)
+  - Song of Compulsion (TnrCTOS)
+  - Soul Anchor (TnrCTOS)
+  - Speak with Water (TnrCTOS)
+  - Special Effects (TnrCTOS)
+  - Spectral Beast (TnrCTOS)
+  - Sphere of Adaptation (TnrCTOS)
+  - Spirit Mask (TnrCTOS)
+  - Spirit of Flame (TnrCTOS)
+  - Splinter Wood (TnrCTOS)
+  - Spring (TnrCTOS)
+  - Squeaking Floor (TnrCTOS)
+  - Starharp (TnrCTOS)
+  - Sticks to Snakes (TnrCTOS)
+  - Stone Tell (TnrCTOS)
+  - Storm (TnrCTOS)
+  - Succor (TnrCTOS)
+  - Suffocate (TnrCTOS)
+  - Sunbolt (TnrCTOS)
+  - Sunscorch (TnrCTOS)
+  - Sustain Fire (TnrCTOS)
+  - Swim (TnrCTOS)
+  - Talon's Skitmaster (TnrCTOS)
+  - Talon's Soundmaster (TnrCTOS)
+  - Talon's Waterproof (TnrCTOS)
+  - Tame Animal (TnrCTOS)
+  - Tasirin's Haunted Sleep (TnrCTOS)
+  - Tattoo of Power (TnrCTOS)
+  - Telepathic Broadcast (TnrCTOS)
+  - Teleport Object (TnrCTOS)
+  - Tenfold Ironguard (TnrCTOS)
+  - Tenser's Hunting Hawk (TnrCTOS)
+  - Tentacle of Withering (TnrCTOS)
+  - Tentacles (TnrCTOS)
+  - Thief's Lament (TnrCTOS)
+  - Thornwrack (TnrCTOS)
+  - Throbbing Bones (TnrCTOS)
+  - Thump (TnrCTOS)
+  - Thunderball (TnrCTOS)
+  - Timed Stasis (TnrCTOS)
+  - Timelessness (TnrCTOS)
+  - Touch of the Styx (TnrCTOS)
+  - Transmute Bone to Steel (TnrCTOS)
+  - Transmute Rock (TnrCTOS)
+  - Trick (TnrCTOS)
+  - True Name (TnrCTOS)
+  - Unburn (TnrCTOS)
+  - Vaporize (TnrCTOS)
+  - Venomdust (TnrCTOS)
+  - Venomous Blade (TnrCTOS)
+  - Vision Stone (TnrCTOS)
+  - Wail of the Banshee (TnrCTOS)
+  - Warning Shout (TnrCTOS)
+  - Watching Shadow (TnrCTOS)
+  - Weapon of the Earth (TnrCTOS)
+  - Weapon Return (TnrCTOS)
+  - Weapon Shift (TnrCTOS)
+  - Web of Shadows (TnrCTOS)
+  - Whip of Flame (TnrCTOS)
+  - Whispers (TnrCTOS)
+  - Wing Gifting (TnrCTOS)
+  - Wingbind (TnrCTOS)
+  - Wolfjaws (TnrCTOS)
+  - Wyvern Watch (TnrCTOS)
+  - Year Stealing (TnrCTOS)
+  - Zone of Deception (TnrCTOS)
+RWtopicId: Topic_1938
+---
+# Spells for The (Not Really) Complete Tome of Spell
+
+## Overview
+The articles in this grouping comprise the new spells introduced in The (Not Really) Complete Tome of Spell.
+
+
+
+---
+## Governed Content
+- [[Acid Lash (TnrCTOS)]]
+- [[Acid Storm (TnrCTOS)]]
+- [[Adamantine Mace (TnrCTOS)]]
+- [[Adhesion (TnrCTOS)]]
+- [[Age Animal (TnrCTOS)]]
+- [[Age Object (TnrCTOS)]]
+- [[Agitate Wounds (TnrCTOS)]]
+- [[Agra's Ambush (TnrCTOS)]]
+- [[Airboat (TnrCTOS)]]
+- [[Alert Vigil (TnrCTOS)]]
+- [[Allergy Field (TnrCTOS)]]
+- [[Alter Beast (TnrCTOS)]]
+- [[Alter Instrument (TnrCTOS)]]
+- [[Alter Path (TnrCTOS)]]
+- [[Amanuensis (TnrCTOS)]]
+- [[Amorphous Blob (TnrCTOS)]]
+- [[Amulet (TnrCTOS)]]
+- [[Ancestral Blessing (TnrCTOS)]]
+- [[Ancient Curse (TnrCTOS)]]
+- [[Anesthesia (TnrCTOS)]]
+- [[Animal Animosity (TnrCTOS)]]
+- [[Animal Transfer (TnrCTOS)]]
+- [[Animal Trick (TnrCTOS)]]
+- [[Animate Blood (TnrCTOS)]]
+- [[Animate Flame (TnrCTOS)]]
+- [[Archer's Redoubt (TnrCTOS)]]
+- [[Arrow of Bone (TnrCTOS)]]
+- [[Arrowflight (TnrCTOS)]]
+- [[Assess Value (TnrCTOS)]]
+- [[Astral Awareness (TnrCTOS)]]
+- [[Augment Artistry (TnrCTOS)]]
+- [[Bad Medicine (TnrCTOS)]]
+- [[Ballant's Stonesplit (TnrCTOS)]]
+- [[Ballant's Stonestrength (TnrCTOS)]]
+- [[Bands of Sirellyn (TnrCTOS)]]
+- [[Banish Blight (TnrCTOS)]]
+- [[Banish Dazzle (TnrCTOS)]]
+- [[Barrier Reaver (TnrCTOS)]]
+- [[Battletide (TnrCTOS)]]
+- [[Bearhug (TnrCTOS)]]
+- [[Beastmask (TnrCTOS)]]
+- [[Beneficence (TnrCTOS)]]
+- [[Bestow Curse (TnrCTOS)]]
+- [[Bestow Enchantment (TnrCTOS)]]
+- [[Bigby's Bookworm Bane (TnrCTOS)]]
+- [[Bigby's Dexterous Digits (TnrCTOS)]]
+- [[Bigby's Force Sculpture (TnrCTOS)]]
+- [[Biting Shadow (TnrCTOS)]]
+- [[Black Blade of Disaster (TnrCTOS)]]
+- [[Blacksteel (TnrCTOS)]]
+- [[Blessed Abundance (TnrCTOS)]]
+- [[Blessed Forgetfulness (TnrCTOS)]]
+- [[Bliss (TnrCTOS)]]
+- [[Blood Bond (TnrCTOS)]]
+- [[Bloodbridge (TnrCTOS)]]
+- [[Blossom (TnrCTOS)]]
+- [[Body Blades (TnrCTOS)]]
+- [[Body Link (TnrCTOS)]]
+- [[Bolt of Glory (TnrCTOS)]]
+- [[Bone Seize (TnrCTOS)]]
+- [[Boon of Fortune (TnrCTOS)]]
+- [[Break Limb (TnrCTOS)]]
+- [[Breath of Death (TnrCTOS)]]
+- [[Breath of Life (TnrCTOS)]]
+- [[Burning Blood (TnrCTOS)]]
+- [[Calder's Starry Sky (TnrCTOS)]]
+- [[Call (TnrCTOS)]]
+- [[Call of Despair (TnrCTOS)]]
+- [[Call Society (TnrCTOS)]]
+- [[Call Upon Faith (TnrCTOS)]]
+- [[Candletrick (TnrCTOS)]]
+- [[Castigate (TnrCTOS)]]
+- [[Catching Chain (TnrCTOS)]]
+- [[Chain Madness (TnrCTOS)]]
+- [[Channel Flame (TnrCTOS)]]
+- [[Chant (TnrCTOS)]]
+- [[Chariot of Sustarre (TnrCTOS)]]
+- [[Chilling Scythe (TnrCTOS)]]
+- [[Chromatic Blade (TnrCTOS)]]
+- [[Circle of Blindness (TnrCTOS)]]
+- [[Circle of Privacy (TnrCTOS)]]
+- [[Cloud of Purification (TnrCTOS)]]
+- [[Cloud of Putrefaction (TnrCTOS)]]
+- [[Color (TnrCTOS)]]
+- [[Comfort (TnrCTOS)]]
+- [[Compass (TnrCTOS)]]
+- [[Conceal Item (TnrCTOS)]]
+- [[Conjure Beast Spirits (TnrCTOS)]]
+- [[Conjure Divine Minion (TnrCTOS)]]
+- [[Control Temperature (TnrCTOS)]]
+- [[Control Vapor (TnrCTOS)]]
+- [[Converse (TnrCTOS)]]
+- [[Cook (TnrCTOS)]]
+- [[Copy (TnrCTOS)]]
+- [[Corpse Host (TnrCTOS)]]
+- [[Create Campsite (TnrCTOS)]]
+- [[Create Darkenbeast (TnrCTOS)]]
+- [[Creeping Darkness (TnrCTOS)]]
+- [[Crown of Angels (TnrCTOS)]]
+- [[Crystalbrittle (TnrCTOS)]]
+- [[Curse of Lycanthropy (TnrCTOS)]]
+- [[Curse Tablet (TnrCTOS)]]
+- [[Cursed Image (TnrCTOS)]]
+- [[Cyclone Chariot (TnrCTOS)]]
+- [[Dancing Fire (TnrCTOS)]]
+- [[Darkbolt (TnrCTOS)]]
+- [[Darsson's Cooling Breeze (TnrCTOS)]]
+- [[Darsson's Potion (TnrCTOS)]]
+- [[Dead Man's Eyes (TnrCTOS)]]
+- [[Death Candle (TnrCTOS)]]
+- [[Death Pact (TnrCTOS)]]
+- [[Death Prayer (TnrCTOS)]]
+- [[Death Recall (TnrCTOS)]]
+- [[Deathmaster's Vial (TnrCTOS)]]
+- [[Decastave (TnrCTOS)]]
+- [[Deepen Shadows (TnrCTOS)]]
+- [[Deeppockets (TnrCTOS)]]
+- [[Depress Resistance (TnrCTOS)]]
+- [[Despair (TnrCTOS)]]
+- [[Detect Charm (TnrCTOS)]]
+- [[Detect Harmony (TnrCTOS)]]
+- [[Detect Metals and Minerals (TnrCTOS)]]
+- [[Detect Secret Passages and Portals (TnrCTOS)]]
+- [[Diction (TnrCTOS)]]
+- [[Dig (TnrCTOS)]]
+- [[Dimensional Anchor (TnrCTOS)]]
+- [[Dire Charm (TnrCTOS)]]
+- [[Disarm (TnrCTOS)]]
+- [[Disbelief (TnrCTOS)]]
+- [[Distort Life (TnrCTOS)]]
+- [[Distraction (TnrCTOS)]]
+- [[Divine Truth (TnrCTOS)]]
+- [[Doomhound (TnrCTOS)]]
+- [[Dragon Breath (TnrCTOS)]]
+- [[Draw Upon Holy Might (TnrCTOS)]]
+- [[Drawmij's Breath of Life (TnrCTOS)]]
+- [[Drawmij's Instant Exit (TnrCTOS)]]
+- [[Drawmij's Light Step (TnrCTOS)]]
+- [[Drawmij's Scent Mask (TnrCTOS)]]
+- [[Drawmij's Swift Mount (TnrCTOS)]]
+- [[Drenal's Stone Flame (TnrCTOS)]]
+- [[Drought (TnrCTOS)]]
+- [[Druidcraft (TnrCTOS)]]
+- [[Duo-Dimension (TnrCTOS)]]
+- [[Dusts of Death (TnrCTOS)]]
+- [[Earthmaw (TnrCTOS)]]
+- [[Ease Labor (TnrCTOS)]]
+- [[Echoes (TnrCTOS)]]
+- [[Electric Bow (TnrCTOS)]]
+- [[Elminster's Effulgent Epuration (TnrCTOS)]]
+- [[Elonia's Glamer (TnrCTOS)]]
+- [[Elude Blow (TnrCTOS)]]
+- [[Empathy (TnrCTOS)]]
+- [[Encrypt (TnrCTOS)]]
+- [[Endless Dance (TnrCTOS)]]
+- [[Energy Drain (TnrCTOS)]]
+- [[Enervation (TnrCTOS)]]
+- [[Entomb (TnrCTOS)]]
+- [[Erase (TnrCTOS)]]
+- [[Erik's Quills (TnrCTOS)]]
+- [[Estate Transference (TnrCTOS)]]
+- [[Everfull Quiver (TnrCTOS)]]
+- [[Evolve (TnrCTOS)]]
+- [[Exorcism (TnrCTOS)]]
+- [[Exterminate (TnrCTOS)]]
+- [[False Tracks (TnrCTOS)]]
+- [[False Vision (TnrCTOS)]]
+- [[Fang Fist (TnrCTOS)]]
+- [[Farspeaker (TnrCTOS)]]
+- [[Favor of Amelioration (TnrCTOS)]]
+- [[Favor of Good Luck (TnrCTOS)]]
+- [[Favor of Ill Luck (TnrCTOS)]]
+- [[Favor of Serendipity (TnrCTOS)]]
+- [[Favor of the Earth (TnrCTOS)]]
+- [[Favor of the Flying Horse (TnrCTOS)]]
+- [[Favor of the Ocean Winds (TnrCTOS)]]
+- [[Fertility (TnrCTOS)]]
+- [[Fiery Eyes (TnrCTOS)]]
+- [[Fiery Fists (TnrCTOS)]]
+- [[Filth's Bane (TnrCTOS)]]
+- [[Fire Arrows (TnrCTOS)]]
+- [[Fire Aura (TnrCTOS)]]
+- [[Fire Charm (TnrCTOS)]]
+- [[Fire Truth (TnrCTOS)]]
+- [[Fireproof (TnrCTOS)]]
+- [[Firestaff (TnrCTOS)]]
+- [[Fireward (TnrCTOS)]]
+- [[First Strike (TnrCTOS)]]
+- [[Fist of Stone (TnrCTOS)]]
+- [[Flame Harvest (TnrCTOS)]]
+- [[Flashpuff (TnrCTOS)]]
+- [[Fool's Gold (TnrCTOS)]]
+- [[Fool's Speech (TnrCTOS)]]
+- [[Force Shapechange (TnrCTOS)]]
+- [[Frost Fingers (TnrCTOS)]]
+- [[Frost Whip (TnrCTOS)]]
+- [[Frostfire (TnrCTOS)]]
+- [[Gift of Speech (TnrCTOS)]]
+- [[Glass Storm (TnrCTOS)]]
+- [[Glassee (TnrCTOS)]]
+- [[Glassteel (TnrCTOS)]]
+- [[Glyph of Revealing (TnrCTOS)]]
+- [[Glyph of Warding (TnrCTOS)]]
+- [[Graft (TnrCTOS)]]
+- [[Grassdart (TnrCTOS)]]
+- [[Ground Trace (TnrCTOS)]]
+- [[Guardian Seal (TnrCTOS)]]
+- [[Guardian Weapon (TnrCTOS)]]
+- [[Gullship (TnrCTOS)]]
+- [[Gunther's Kaleidoscopic Strike (TnrCTOS)]]
+- [[Hail of Stone (TnrCTOS)]]
+- [[Hailstone (TnrCTOS)]]
+- [[Hair (TnrCTOS)]]
+- [[Handcandle (TnrCTOS)]]
+- [[Handfang (TnrCTOS)]]
+- [[Hard Water (TnrCTOS)]]
+- [[Harp of War (TnrCTOS)]]
+- [[Haunting (TnrCTOS)]]
+- [[Heart Call (TnrCTOS)]]
+- [[Heart of Stone (TnrCTOS)]]
+- [[Heartseeker (TnrCTOS)]]
+- [[Helping Hand (TnrCTOS)]]
+- [[Hibernation (TnrCTOS)]]
+- [[Hiding Place (TnrCTOS)]]
+- [[Hold Portal (TnrCTOS)]]
+- [[Holy Flail (TnrCTOS)]]
+- [[Horn of Plenty (TnrCTOS)]]
+- [[Hornung's Random Dispatcher (TnrCTOS)]]
+- [[Hovering Road (TnrCTOS)]]
+- [[Hurl Rock (TnrCTOS)]]
+- [[Hurl Thunderbolt (TnrCTOS)]]
+- [[Ice Blade (TnrCTOS)]]
+- [[Idea (TnrCTOS)]]
+- [[Ilyykur's Mantle (TnrCTOS)]]
+- [[Imbue with Purpose (TnrCTOS)]]
+- [[Immurk's Distraction (TnrCTOS)]]
+- [[Impeding Permission (TnrCTOS)]]
+- [[Impenetrable Falsehood (TnrCTOS)]]
+- [[Instant Audience (TnrCTOS)]]
+- [[Intensify Nature (TnrCTOS)]]
+- [[Intensify Sensation (TnrCTOS)]]
+- [[Invisibility Purge (TnrCTOS)]]
+- [[Iron Maiden (TnrCTOS)]]
+- [[Ironwood (TnrCTOS)]]
+- [[Isolde's Answer (TnrCTOS)]]
+- [[Ivy Siege (TnrCTOS)]]
+- [[Javelin (TnrCTOS)]]
+- [[Khelben's Blackstaff (TnrCTOS)]]
+- [[Kiss of Torment (TnrCTOS)]]
+- [[Know Customs (TnrCTOS)]]
+- [[Ladder (TnrCTOS)]]
+- [[Laeral's Cutting Hand (TnrCTOS)]]
+- [[Laeral's Invisible Blade (TnrCTOS)]]
+- [[Laughing Water (TnrCTOS)]]
+- [[Leaf into Dagger (TnrCTOS)]]
+- [[Legal Thoughts (TnrCTOS)]]
+- [[Legerdemain (TnrCTOS)]]
+- [[Leomund's Trap (TnrCTOS)]]
+- [[Lifeblend (TnrCTOS)]]
+- [[Lightning Curtain (TnrCTOS)]]
+- [[Lightning Rod (TnrCTOS)]]
+- [[Lightning Shield (TnrCTOS)]]
+- [[Lightning Storm (TnrCTOS)]]
+- [[Liquid Orb (TnrCTOS)]]
+- [[Lizard Limbs (TnrCTOS)]]
+- [[Log to Lizard (TnrCTOS)]]
+- [[Longevity (TnrCTOS)]]
+- [[Lorloveim's Creeping Shadow (TnrCTOS)]]
+- [[Love Charm (TnrCTOS)]]
+- [[Mage Tunnel (TnrCTOS)]]
+- [[Magic Susceptibility (TnrCTOS)]]
+- [[Magical Tether (TnrCTOS)]]
+- [[Magnetism (TnrCTOS)]]
+- [[Major Curse (TnrCTOS)]]
+- [[Mass (TnrCTOS)]]
+- [[Mass Contagion (TnrCTOS)]]
+- [[Mass Dominate Person (TnrCTOS)]]
+- [[Mass Jump (TnrCTOS)]]
+- [[Mass Protection from Energy (TnrCTOS)]]
+- [[Mass Protection from Evil and Good (TnrCTOS)]]
+- [[Memory Read (TnrCTOS)]]
+- [[Merchant's Glamer (TnrCTOS)]]
+- [[Metal Shape (TnrCTOS)]]
+- [[Mindkiller (TnrCTOS)]]
+- [[Mirage (TnrCTOS)]]
+- [[Mirage of Despair (TnrCTOS)]]
+- [[Mistaken Missive (TnrCTOS)]]
+- [[Moon Rune (TnrCTOS)]]
+- [[Moonbow (TnrCTOS)]]
+- [[Mordenkainen's Defense Against Beasts (TnrCTOS)]]
+- [[Mordenkainen's Defense Against Ly-canthropes (TnrCTOS)]]
+- [[Mordenkainen's Defense Against Slime (TnrCTOS)]]
+- [[Music of the Spheres (TnrCTOS)]]
+- [[Mystic Rope (TnrCTOS)]]
+- [[Nap (TnrCTOS)]]
+- [[Nature Call (TnrCTOS)]]
+- [[Nature's Charm (TnrCTOS)]]
+- [[Nchaser's Glowing Globe (TnrCTOS)]]
+- [[Nectar (TnrCTOS)]]
+- [[Needlestorm (TnrCTOS)]]
+- [[Nerve Dance (TnrCTOS)]]
+- [[Nightscar (TnrCTOS)]]
+- [[Nymph's Beauty (TnrCTOS)]]
+- [[Nystul's Blacklight Burst (TnrCTOS)]]
+- [[Nystul's Radiant Baton (TnrCTOS)]]
+- [[Oathbinding (TnrCTOS)]]
+- [[Obedience (TnrCTOS)]]
+- [[Obold's Brightness (TnrCTOS)]]
+- [[Odeen's Magic Cloud (TnrCTOS)]]
+- [[Odeen's Magic Tailor (TnrCTOS)]]
+- [[Orison (TnrCTOS)]]
+- [[Otiluke's Fire and Ice (TnrCTOS)]]
+- [[Otiluke's Orb of Containment (TnrCTOS)]]
+- [[Otiluke's Siege Sphere (TnrCTOS)]]
+- [[Otto's Chime of Release (TnrCTOS)]]
+- [[Otto's Drums (TnrCTOS)]]
+- [[Otto's Soothing Vibrations (TnrCTOS)]]
+- [[Pain (TnrCTOS)]]
+- [[Phantom Arms and Armor (TnrCTOS)]]
+- [[Phantom Plow (TnrCTOS)]]
+- [[Pillar of Borogar (TnrCTOS)]]
+- [[Pit (TnrCTOS)]]
+- [[Poison (TnrCTOS)]]
+- [[Pool of Deeds (TnrCTOS)]]
+- [[Possess (TnrCTOS)]]
+- [[Power Word Banish (TnrCTOS)]]
+- [[Power Word Blind (TnrCTOS)]]
+- [[Power Word Sleep (TnrCTOS)]]
+- [[Preservation (TnrCTOS)]]
+- [[Prismal's Handy Mirror (TnrCTOS)]]
+- [[Prismal's Pictograph (TnrCTOS)]]
+- [[Projected Magnification (TnrCTOS)]]
+- [[Prophecy (TnrCTOS)]]
+- [[Protective Amulet (TnrCTOS)]]
+- [[Quench the Spirit (TnrCTOS)]]
+- [[Rain of Blood (TnrCTOS)]]
+- [[Rain of Terror (TnrCTOS)]]
+- [[Rainshield (TnrCTOS)]]
+- [[Rary's Replay (TnrCTOS)]]
+- [[Rastor's Mystical Spy (TnrCTOS)]]
+- [[Ray of Fatigue (TnrCTOS)]]
+- [[Ray of Paralysis (TnrCTOS)]]
+- [[Read Object (TnrCTOS)]]
+- [[Reed Staff (TnrCTOS)]]
+- [[Renew Deposit (TnrCTOS)]]
+- [[Resist Magic (TnrCTOS)]]
+- [[Resist Turning (TnrCTOS)]]
+- [[Restore Earth (TnrCTOS)]]
+- [[Return to Earth (TnrCTOS)]]
+- [[Revenance (TnrCTOS)]]
+- [[Right of Might (TnrCTOS)]]
+- [[Rising Colossus (TnrCTOS)]]
+- [[Rising Rot (TnrCTOS)]]
+- [[Ritual Strength (TnrCTOS)]]
+- [[Rusting Grasp (TnrCTOS)]]
+- [[Sacred Guardian (TnrCTOS)]]
+- [[Sacred Strike (TnrCTOS)]]
+- [[Sand Gems (TnrCTOS)]]
+- [[Sand Shroud (TnrCTOS)]]
+- [[Sand Sword (TnrCTOS)]]
+- [[Sap (TnrCTOS)]]
+- [[Sarcophagus of Death (TnrCTOS)]]
+- [[Sargasso (TnrCTOS)]]
+- [[Scalding Spout (TnrCTOS)]]
+- [[Scalesnare (TnrCTOS)]]
+- [[Scapegoat (TnrCTOS)]]
+- [[Scatterspray (TnrCTOS)]]
+- [[Scent of Vengeance (TnrCTOS)]]
+- [[Screen (TnrCTOS)]]
+- [[Sea Sight (TnrCTOS)]]
+- [[Seal Mouth (TnrCTOS)]]
+- [[Seal of Destiny (TnrCTOS)]]
+- [[Searing Song (TnrCTOS)]]
+- [[Secret Page (TnrCTOS)]]
+- [[Secret Signs (TnrCTOS)]]
+- [[See Through Other Eyes (TnrCTOS)]]
+- [[Seek Teleporter (TnrCTOS)]]
+- [[Seeking (TnrCTOS)]]
+- [[Segojan's Armor (TnrCTOS)]]
+- [[Seven-Eyes (TnrCTOS)]]
+- [[Shadow Blink (TnrCTOS)]]
+- [[Shadow Dance (TnrCTOS)]]
+- [[Shadow Play (TnrCTOS)]]
+- [[Shadowcat (TnrCTOS)]]
+- [[Shadowstrike (TnrCTOS)]]
+- [[Shandaril's Tracer (TnrCTOS)]]
+- [[Shape Wood (TnrCTOS)]]
+- [[Shark Bolt (TnrCTOS)]]
+- [[Sharptooth (TnrCTOS)]]
+- [[Shellskin (TnrCTOS)]]
+- [[Shoondal's Seeking (TnrCTOS)]]
+- [[Shout (TnrCTOS)]]
+- [[Simbul's Skeletal Deliquescence (TnrCTOS)]]
+- [[Simulate Skill (TnrCTOS)]]
+- [[Singing Stone (TnrCTOS)]]
+- [[Sinister Surroundings (TnrCTOS)]]
+- [[Siren Song (TnrCTOS)]]
+- [[Skip Day (TnrCTOS)]]
+- [[Skull Watch (TnrCTOS)]]
+- [[Skycastle (TnrCTOS)]]
+- [[Skyhook (TnrCTOS)]]
+- [[Skylight Blade (TnrCTOS)]]
+- [[Sleepwalking (TnrCTOS)]]
+- [[Smite (TnrCTOS)]]
+- [[Smoke Shape (TnrCTOS)]]
+- [[Snapdragon (TnrCTOS)]]
+- [[Snare (TnrCTOS)]]
+- [[Song of Compulsion (TnrCTOS)]]
+- [[Soul Anchor (TnrCTOS)]]
+- [[Speak with Water (TnrCTOS)]]
+- [[Special Effects (TnrCTOS)]]
+- [[Spectral Beast (TnrCTOS)]]
+- [[Sphere of Adaptation (TnrCTOS)]]
+- [[Spirit Mask (TnrCTOS)]]
+- [[Spirit of Flame (TnrCTOS)]]
+- [[Splinter Wood (TnrCTOS)]]
+- [[Spring (TnrCTOS)]]
+- [[Squeaking Floor (TnrCTOS)]]
+- [[Starharp (TnrCTOS)]]
+- [[Sticks to Snakes (TnrCTOS)]]
+- [[Stone Tell (TnrCTOS)]]
+- [[Storm (TnrCTOS)]]
+- [[Succor (TnrCTOS)]]
+- [[Suffocate (TnrCTOS)]]
+- [[Sunbolt (TnrCTOS)]]
+- [[Sunscorch (TnrCTOS)]]
+- [[Sustain Fire (TnrCTOS)]]
+- [[Swim (TnrCTOS)]]
+- [[Talon's Skitmaster (TnrCTOS)]]
+- [[Talon's Soundmaster (TnrCTOS)]]
+- [[Talon's Waterproof (TnrCTOS)]]
+- [[Tame Animal (TnrCTOS)]]
+- [[Tasirin's Haunted Sleep (TnrCTOS)]]
+- [[Tattoo of Power (TnrCTOS)]]
+- [[Telepathic Broadcast (TnrCTOS)]]
+- [[Teleport Object (TnrCTOS)]]
+- [[Tenfold Ironguard (TnrCTOS)]]
+- [[Tenser's Hunting Hawk (TnrCTOS)]]
+- [[Tentacle of Withering (TnrCTOS)]]
+- [[Tentacles (TnrCTOS)]]
+- [[Thief's Lament (TnrCTOS)]]
+- [[Thornwrack (TnrCTOS)]]
+- [[Throbbing Bones (TnrCTOS)]]
+- [[Thump (TnrCTOS)]]
+- [[Thunderball (TnrCTOS)]]
+- [[Timed Stasis (TnrCTOS)]]
+- [[Timelessness (TnrCTOS)]]
+- [[Touch of the Styx (TnrCTOS)]]
+- [[Transmute Bone to Steel (TnrCTOS)]]
+- [[Transmute Rock (TnrCTOS)]]
+- [[Trick (TnrCTOS)]]
+- [[True Name (TnrCTOS)]]
+- [[Unburn (TnrCTOS)]]
+- [[Vaporize (TnrCTOS)]]
+- [[Venomdust (TnrCTOS)]]
+- [[Venomous Blade (TnrCTOS)]]
+- [[Vision Stone (TnrCTOS)]]
+- [[Wail of the Banshee (TnrCTOS)]]
+- [[Warning Shout (TnrCTOS)]]
+- [[Watching Shadow (TnrCTOS)]]
+- [[Weapon of the Earth (TnrCTOS)]]
+- [[Weapon Return (TnrCTOS)]]
+- [[Weapon Shift (TnrCTOS)]]
+- [[Web of Shadows (TnrCTOS)]]
+- [[Whip of Flame (TnrCTOS)]]
+- [[Whispers (TnrCTOS)]]
+- [[Wing Gifting (TnrCTOS)]]
+- [[Wingbind (TnrCTOS)]]
+- [[Wolfjaws (TnrCTOS)]]
+- [[Wyvern Watch (TnrCTOS)]]
+- [[Year Stealing (TnrCTOS)]]
+- [[Zone of Deception (TnrCTOS)]]
