@@ -1,5 +1,9 @@
 ---
 ---
+
+Mermaid allows you to create graphs in your notes. This does not require a plugin as the functionality is included with Obsidian. 
+Personally though I find the Excalidraw plugin much easier to use. 
+
 ```mermaid
 graph LR
   %%==============%%

@@ -1,3 +1,9 @@
+---
+ContentType: YouTube
+ChallengeLevel: Easy
+PubishDate: 18/09/2022
+---
+
 <iframe width="1237" height="696" src="https://www.youtube.com/embed/Pf0M3IuudpM" title="Obsidian - DnDBeyond Character Sheets with Custom Frames" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Required Plugins or Config
