@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
+                "file": "DnD5e/Classes/Artificer/Battle Smith.md",
+                "mode": "preview",
+                "source": true
               }
             }
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "DnD5e/Classes/Artificer/Battle Smith.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "DnD5e/Classes/Artificer/Battle Smith.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "DnD5e/Classes/Artificer/Battle Smith.md"
               }
             }
           }
@@ -140,5 +140,16 @@
     "mostRecentAction": ""
   },
   "active": "c65664d38fde8e3c",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "DnD5e/Classes/Artificer/Artillerist.md",
+    "DnD5e/Classes/Artificer/Artificer.md",
+    "DnD5e/Classes/Artificer/Armorer.md",
+    "DnD5e/Classes/Artificer/Alchemist.md",
+    "README.md",
+    "DnD5e/Spells/PHB/Antilife Shell.md",
+    "DnD5e/Spells/PHB/Animal Messenger.md",
+    "DnD5e/Dangers/Traps/Grasping Arms.md",
+    "DnD5e/Dangers/Traps/Fiery Blast Trap.md",
+    "DnD5e/Dangers/Traps/Crushing Room.md"
+  ]
 }

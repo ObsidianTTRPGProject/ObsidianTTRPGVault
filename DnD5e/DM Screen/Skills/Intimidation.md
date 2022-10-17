@@ -1,0 +1,4 @@
+---
+alias: Intimidate
+---
+![[Skills#Intimidation]]

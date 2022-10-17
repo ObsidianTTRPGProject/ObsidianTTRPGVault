@@ -1,0 +1,5 @@
+When a number of individuals are trying to accomplish something as a group, the DM might ask for a group ability check. In such a situation, the characters who are skilled at a particular task help cover those who aren't.
+
+To make a group ability check, **everyone in the group makes the ability check. If at least half the group succeeds, the whole group succeeds.** Otherwise, the group fails.
+
+Group checks don’t come up very often, and they’re most useful when all the characters succeed or fail as a group. For example, when adventurers are navigating a swamp, the DM might call for a group Wisdom (Survival) check to see if the characters can avoid the quicksand, sinkholes, and other natural hazards of the environment. If at least half the group succeeds, the successful characters are able to guide their companions out of danger. Otherwise, the group stumbles into one of these hazards.

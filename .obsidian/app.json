@@ -1,1 +1,5 @@
-{}
+{
+  "readableLineLength": false,
+  "livePreview": false,
+  "promptDelete": false
+}

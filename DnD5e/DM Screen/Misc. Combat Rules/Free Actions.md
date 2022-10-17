@@ -1,0 +1,23 @@
+# Free Actions
+
+- draw or sheathe a sword 
+- open or close a door 
+- withdraw a potion from your backpack 
+- pick up a dropped axe 
+- take a bauble from a table 
+- remove a ring from your finger 
+- stuff some food into your mouth 
+- plant a banner in the ground 
+- fish a few coins from your belt pouch 
+- drink all the ale in a flagon 
+- throw a lever or a switch 
+- pull a torch from a sconce 
+- take a book from a shelf you can reach 
+- extinguish a small flame 
+- don a mask 
+- pull the hood of your cloak up and over your head 
+- put your ear to a door 
+- kick a small stone 
+- turn a key in a lock 
+- tap the floor with a 10-foot pole 
+- hand an item to another character
