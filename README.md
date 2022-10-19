@@ -6,11 +6,7 @@ This is a private vault of content designed to be used with Obsidian.md.
 ITS. I use this a lot and there are many things that will not work without it. If you don't want to use the ITS Theme then you should [[How To - Install Custom CSS|install the CSS Snippets seperately]]. 
 
 ### Required Plugins:
-- Dataview
-- Kanban
-- Advanced Tables
-- Timelines
-- 
+This vault is going to demonstrate how to use quite a few plugins. So while you will not need those plugins for everything, there will certainly be content that will not work unless the correct plugin is installed. Tutorials will have instrucitons on which plugins are required. 
 
 <div align="center">
   <h1>Obsidian5eVault</h1>
