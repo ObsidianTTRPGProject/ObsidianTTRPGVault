@@ -153,8 +153,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/Basic Tool Usage/How To - Install Plugin.md",
-                "mode": "source",
+                "file": "README.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -226,7 +226,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/Basic Tool Usage/How To - Install Plugin.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -243,7 +243,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/Basic Tool Usage/How To - Install Plugin.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -266,7 +266,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/Basic Tool Usage/How To - Install Plugin.md"
+                "file": "README.md"
               }
             }
           }
@@ -282,15 +282,15 @@
   },
   "active": "74954ff1061cbe2f",
   "lastOpenFiles": [
-    "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md",
-    "Tutorials/Basic Tool Usage/How To - Install Plugin.md",
-    "Tutorials/Basic Markdown/Mermaid Graph Examples.md",
-    "Tutorials/Basic Markdown/Obsidian Markdown Formatting.md",
-    "Tutorials/Theme - ITS - Examples/Image Adjustments.md",
-    "Tutorials/Theme - ITS - Examples/Call Outs.md",
-    "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
-    "Tutorials/YouTube Series/Timelines/Timelines.md",
-    "README.md",
-    "Untitled.md"
+    "DnD5e/compendium/bestiary/construct/animated-jade-serpent-wdmm.md",
+    "DnD5e/compendium/bestiary/fey/fey.md",
+    "DnD5e/compendium/bestiary/fiend/armanite-mpmm.md",
+    "DnD5e/compendium/bestiary/fiend/barghest-mpmm.md",
+    "DnD5e/compendium/bestiary/fiend/blue-abishai-mpmm.md",
+    "DnD5e/compendium/bestiary/fiend/demodand-kelubar-mabjov.md",
+    "DnD5e/rules/conditions.md",
+    "DnD5e/compendium/bestiary/construct/construct.md",
+    "DnD5e/compendium/bestiary/beast/beast.md",
+    "DnD5e/compendium/adventures/adventures-in-the-forgotten-realms-from-cyan-depths/5-appendix-c-artifacts.md"
   ]
 }

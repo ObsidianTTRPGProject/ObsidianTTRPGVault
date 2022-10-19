@@ -1,0 +1,101 @@
+---
+cssclass: json5e-monster
+tags:
+- compendium/src/oota
+- monster/size/medium
+- monster/type/monstrosity
+- monster/environment/underdark
+aliases: ["Juvenile Hook Horror"]
+statblock: true
+"name": "Juvenile Hook Horror"
+"size": "Medium"
+"type": "monstrosity"
+"alignment": "Neutral"
+"ac": !!int "13"
+"hp": !!int "39"
+"hit_dice": "6d8 + 12"
+"stats":
+- !!int "15"
+- !!int "10"
+- !!int "15"
+- !!int "6"
+- !!int "12"
+- !!int "7"
+"speed": "walk 20 ft., climb 20 ft."
+"skillsaves":
+  "Perception": !!int "3"
+"senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 13"
+"languages": "Hook Horror"
+"cr": "2"
+"traits":
+- !!dev.ebullient.json5e.qute.Trait
+  "desc": "The hook horror can't use its blindsight while [deafened](/rules/conditions.md#deafened)."
+  "name": "Echolocation"
+- !!dev.ebullient.json5e.qute.Trait
+  "desc": "The hook horror has advantage on Wisdom ([Perception](/rules/skills.md#Perception))\
+    \ checks that rely on hearing."
+  "name": "Keen Hearing"
+"actions":
+- !!dev.ebullient.json5e.qute.Trait
+  "desc": "The hook horror makes two hook attacks."
+  "name": "Multiattack"
+- !!dev.ebullient.json5e.qute.Trait
+  "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6\
+    \ + 2) piercing damage."
+  "name": "Hook"
+"source":
+- "OotA"
+name: Juvenile Hook Horror
+image: "[[Juvenile Hook Horror.png]]"
+---
+
+# Juvenile Hook Horror
+
+```statblock
+"name": "Juvenile Hook Horror"
+"size": "Medium"
+"type": "monstrosity"
+"alignment": "Neutral"
+"ac": !!int "13"
+"hp": !!int "39"
+"hit_dice": "6d8 + 12"
+"stats":
+- !!int "15"
+- !!int "10"
+- !!int "15"
+- !!int "6"
+- !!int "12"
+- !!int "7"
+"speed": "walk 20 ft., climb 20 ft."
+"skillsaves":
+  "Perception": !!int "3"
+"senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 13"
+"languages": "Hook Horror"
+"cr": "2"
+"traits":
+- !!dev.ebullient.json5e.qute.Trait
+  "desc": "The hook horror can't use its blindsight while [deafened](/rules/conditions.md#deafened)."
+  "name": "Echolocation"
+- !!dev.ebullient.json5e.qute.Trait
+  "desc": "The hook horror has advantage on Wisdom ([Perception](/rules/skills.md#Perception))\
+    \ checks that rely on hearing."
+  "name": "Keen Hearing"
+"actions":
+- !!dev.ebullient.json5e.qute.Trait
+  "desc": "The hook horror makes two hook attacks."
+  "name": "Multiattack"
+- !!dev.ebullient.json5e.qute.Trait
+  "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6\
+    \ + 2) piercing damage."
+  "name": "Hook"
+"source":
+- "OotA"
+"image": "[[Juvenile Hook Horror.png]]"
+```
+^statblock
+
+*Source: Out of the Abyss p. 34*
+
+## Environment
+
+underdark

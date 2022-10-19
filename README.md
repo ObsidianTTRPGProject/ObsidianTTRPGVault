@@ -44,3 +44,8 @@ Browse through the repository and identity the parts you are interested in using
 
 Once your download has completed simply extract the content into your Obsidian Vault Folder. Images are generally not hosted here and as such you will need to download them seperately. There are seperate Read Me Files within the various folders that contain specific instructions on how to do this. 
 </details>
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
