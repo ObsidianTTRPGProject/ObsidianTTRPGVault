@@ -1,4 +1,6 @@
-# ObsidianTTRPGVault
+<div align="center">
+  <h1>ObsidianTTRPGVault</h1>
+</div>
 
 This is a private vault of content designed to be used with Obsidian.md. 
 
@@ -9,7 +11,6 @@ ITS. I use this a lot and there are many things that will not work without it. I
 This vault is going to demonstrate how to use quite a few plugins. So while you will not need those plugins for everything, there will certainly be content that will not work unless the correct plugin is installed. Tutorials will have instrucitons on which plugins are required. 
 
 <div align="center">
-  <h1>Obsidian5eVault</h1>
   <a href="https://obsidian.md/"><img src="https://img.shields.io/badge/Obsidian-483699?style=for-the-badge&logo=Obsidian" alt="[System]"></a>
   <a href="https://discord.gg/8AF29UBUCa"><img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" alt="[Discord]"></a>
   <a href="https://www.facebook.com/groups/obsidianttrpgusers"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="[Facebook]"></a>
