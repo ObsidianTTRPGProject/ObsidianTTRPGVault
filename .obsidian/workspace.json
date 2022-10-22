@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
+                "file": "Shared Content/Forgotten Realms/Faerun/Faerun.md",
                 "mode": "preview",
                 "source": true
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
+                "file": "Shared Content/Forgotten Realms/Faerun/Faerun.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
+                "file": "Shared Content/Forgotten Realms/Faerun/Faerun.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md"
+                "file": "Shared Content/Forgotten Realms/Faerun/Faerun.md"
               }
             }
           }
@@ -154,15 +154,15 @@
   },
   "active": "e7ed10df57733776",
   "lastOpenFiles": [
-    "Tutorials/YouTube Series/Timelines/Timelines.md",
+    "Shared Content/Forgotten Realms/NPCs/Bren Tallsword.md",
+    "Shared Content/Forgotten Realms/Faerun/Faerun.md",
     "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
-    "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md",
     "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
+    "Tutorials/YouTube Series/Timelines/Timelines.md",
+    "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md",
     "Tutorials/YouTube Series/Custom CSS Files/Untitled.md",
     "Tutorials/Untitled/Untitled.md",
     "Tutorials/Untitled.md",
-    "Untitled.md",
-    "Icon1.png.md",
-    "README.md"
+    "Untitled.md"
   ]
 }
