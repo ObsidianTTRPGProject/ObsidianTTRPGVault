@@ -1,4 +1,6 @@
 {
   "accentColor": "",
-  "cssTheme": "ITS Theme"
+  "cssTheme": "",
+  "theme": "moonstone",
+  "enabledCssSnippets": []
 }

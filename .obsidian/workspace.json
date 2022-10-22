@@ -8,159 +8,31 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c65664d38fde8e3c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DnD5e/Classes/Artificer/Battle Smith.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "f5cb58e84f1f78cd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/Basic Markdown/Obsidian Markdown Formatting.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "9b0b72439372cd44",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DnD5e/How To - Obtain Images.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "0df824bfb4e51fd7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/Theme - ITS - Examples/Image Adjustments.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "ba7d1d1bb052e2f2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/Theme - ITS - Examples/Call Outs.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "7626a3795560afcc",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "77feb1e1e5405359",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/YouTube Series/Timelines/Timelines.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "acf48b1e5df3d16d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/YouTube Series/Timelines/Timeline Note 2.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "ae36f0d0cd0bbcfc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "f316fedd52a686c6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/YouTube Series/Timelines/Timelines.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "3e2264a67c315007",
+            "id": "12d8872180ab91e8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               }
             }
           },
           {
-            "id": "21f29d98726b200a",
+            "id": "e7ed10df57733776",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "74954ff1061cbe2f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
+                "file": "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
                 "mode": "preview",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 12
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -226,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -243,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -266,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md"
               }
             }
           }
@@ -280,17 +152,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "74954ff1061cbe2f",
+  "active": "e7ed10df57733776",
   "lastOpenFiles": [
-    "DnD5e/compendium/bestiary/construct/animated-jade-serpent-wdmm.md",
-    "DnD5e/compendium/bestiary/fey/fey.md",
-    "DnD5e/compendium/bestiary/fiend/armanite-mpmm.md",
-    "DnD5e/compendium/bestiary/fiend/barghest-mpmm.md",
-    "DnD5e/compendium/bestiary/fiend/blue-abishai-mpmm.md",
-    "DnD5e/compendium/bestiary/fiend/demodand-kelubar-mabjov.md",
-    "DnD5e/rules/conditions.md",
-    "DnD5e/compendium/bestiary/construct/construct.md",
-    "DnD5e/compendium/bestiary/beast/beast.md",
-    "DnD5e/compendium/adventures/adventures-in-the-forgotten-realms-from-cyan-depths/5-appendix-c-artifacts.md"
+    "Tutorials/YouTube Series/Timelines/Timelines.md",
+    "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
+    "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md",
+    "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
+    "Tutorials/YouTube Series/Custom CSS Files/Untitled.md",
+    "Tutorials/Untitled/Untitled.md",
+    "Tutorials/Untitled.md",
+    "Untitled.md",
+    "Icon1.png.md",
+    "README.md"
   ]
 }
