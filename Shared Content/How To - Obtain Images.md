@@ -47,7 +47,7 @@ Paste the folder URL per your desired content into the tool.
 | xge                 | Xanathar's Guide to Everything                     | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/XGE                 |
 
 > [!Adventures]-
-| CODE        | NAME                                                 | Column1                                                                                        |
+| CODE        | NAME                                                 | URL                                                                                        |
 |-------------|------------------------------------------------------|------------------------------------------------------------------------------------------------|
 | aitfr-avt   | AinFR - A Verdant Tomb                               | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/adventure/AITFR-AVT   |
 | aitfr-dn    | AinFR - Deepest Night                                | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/adventure/AITFR-DN    |
@@ -117,17 +117,33 @@ Paste the folder URL per your desired content into the tool.
 | xmts        | X Marks the Spot                                     | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/adventure/XMTS        |
 
 > [!Beasteries]-
-> 
-| CODE | NAME           | Column1                                                                              |
-| ---- | -------------- | ------------------------------------------------------------------------------------ |
-| MM   | Monster Manual | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/bestiary/MM | 
+> | CODE | NAME                        | URL                                                                               |
+| ---- | ---------------------------              | ------------------------------------------------------------------------------------- |
+| ---- | ---------------------------------------- | ------------------------------------------------------------------------------------- |
+| MM   | Monster Manual                           | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/bestiary/MM  |
+| BoBH | Book of Beautiful Horrors                | Included                                                                              |
+| CC   | Creature Codex                           | https://github.com/TheGiddyLimit/homebrew/tree/master/_img/CCodex                     |
+| FeF  | Fifth Edition Foes                       | https://github.com/TheGiddyLimit/homebrew/tree/master/_img/FEF                        |
+| MToF | Mordenkainen's Tome of Foes              | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/bestiary/MTF |
+| RoT  | Rise of Tiamat                           | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/bestiary/RoT |
+| ToB  | Tome of Beasts                           | https://github.com/TheGiddyLimit/homebrew/tree/master/_img/ToB                        |
+| ToB2 | Tome of Beasts 2                         | https://github.com/TheGiddyLimit/homebrew/tree/master/_img/ToB2                       |
+| ToBH | Tome of Blighted Horror                  | Included                                                                              |
+| VGtM | Volo's Guide to Monsters                 | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/bestiary/VGM |
+| MME1 | Monster Manual Expanded 1                | https://github.com/TheGiddyLimit/homebrew/tree/master/_img/MonsterManualExpanded      |
+| MME2 | Monster Manual Expanded 2                | https://github.com/TheGiddyLimit/homebrew/tree/master/_img/MonsterManualExpanded2     |
+| MME3 | Monster Manual Expanded 3                | https://github.com/TheGiddyLimit/homebrew/tree/master/_img/MonsterManualExpanded3     |
+| RotH | Ultimate Bestiary - Revenge of the Horde | Included                                                                              |
+| TDA  | Ultimate Bestiary - The Dreaded Accursed | Included                                                                              | 
+
+\* Some images were not stored in an accessible repository. In those cases the images are included for ease of use. 
 
 ## Images for Homebrew/3rd Party Content
 
 > [!Homebrew]-
 > Not all of the homebrew images is stored in a place we can access it in bulk downloads. Sadly for those sometimes you need to download them indivdiually from the source. 
 > 
-| CODE | NAME         | Column1                                                                  |
+| CODE | NAME         | URL                                                                  |
 | ---- | ------------ | ------------------------------------------------------------------------ |
 | All  | All Homebrew | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img |
 
