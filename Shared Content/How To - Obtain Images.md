@@ -52,77 +52,76 @@ Paste the folder URL per your desired content into the tool.
 > [!Adventures]-
 | CODE        | NAME                                                 | URL                                                                                        |
 |-------------|------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| aitfr-avt   | AinFR - A Verdant Tomb                               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AITFR-AVT   |
-| aitfr-dn    | AinFR - Deepest Night                                | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AITFR-DN    |
-| aitfr-fcd   | AinFR - From Cyan Depths                             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AITFR-FCD   |
-| aitfr-isf   | AinFR - In Scarlet Flames                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AITFR-ISF   |
-| aitfr-thp   | AinFR - The Hidden Page                              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AITFR-THP   |
-| azfyt       | Ravinca - A Zip for your Thoughts                    | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AZFYT       |
+| aitfr-avt   | AinFR - A Verdant Tomb                               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AitFR-AVT   |
+| aitfr-dn    | AinFR - Deepest Night                                | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AitFR-DN    |
+| aitfr-fcd   | AinFR - From Cyan Depths                             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AitFR-FCD   |
+| aitfr-isf   | AinFR - In Scarlet Flames                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AitFR-ISF   |
+| aitfr-thp   | AinFR - The Hidden Page                              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AitFR-THP   |
+| azfyt       | Ravinca - A Zip for your Thoughts                    | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/AZfyT       |
 | bgdia       | Baldur's Gate - Descent into Avernus                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/BGDIA       |
 | cm          | Candlekeep Mysteries                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/CM          |
-| cos         | Curse of Strahd                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/COS         |
-| crcotn      | Critical Role - Call of the Netherdeep               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/CRCOTN      |
+| cos         | Curse of Strahd                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/CoS         |
+| crcotn      | Critical Role - Call of the Netherdeep               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/CRCotN    |
 | dc          | Essentials Kit - Divine Contention                   | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/DC          |
-| dd          |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/DD          |
+| dd          |                                                      | ?          |
 | dip         | Essentials Kit - Dragon of Icespire Peak             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/DIP         |
-| dosi        | Dragons of Stormwreck Isle                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/DOSI        |
+| dosi        | Dragons of Stormwreck Isle                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/DoSI        |
 | efr         | Eberron - Forgotten Relics                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/EFR         |
 | fs          |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/FS          |
-| gos         | Ghosts of Saltmarsh                                  | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/GOS         |
-| hftt        | Stranger Things - Hunt for the Thessalhydra          | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/HFTT        |
-| hol         |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/HOL         |
-| hotdq       | Horde of the Dragon Queen                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/HOTDQ       |
-| idrotf      | Icewind Dale - Rime of the Frostmaiden               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/IDROTF      |
+| gos         | Ghosts of Saltmarsh                                  | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/GoS         |
+| hftt        | Stranger Things - Hunt for the Thessalhydra          | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/HftT        |
+| hol         |                                                      | ?         |
+| hotdq       | Horde of the Dragon Queen                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/HotDQ       |
+| idrotf      | Icewind Dale - Rime of the Frostmaiden               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/IDRotF      |
 | imr         | Extra Life - Infernal Machine Rebuild                | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/IMR         |
-| jttrc       | Journeys Throught The Radiant Citadel                | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/JTTRC       |
+| jttrc       | Journeys Throught The Radiant Citadel                | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/JttRC       |
 | kkw         | Ravinca - Krenko's Way                               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/KKW         |
 | llk         | Lost Laboratory of Kwalish                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/LLK         |
-| lmop        | Lost Mine of Phandelver                              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/LMOP        |
-| lox         | Spelljammer - Light of Xaryxis                       | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/LOX         |
+| lmop        | Lost Mine of Phandelver                              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/LMoP        |
+| lox         | Spelljammer - Light of Xaryxis                       | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/LoX         |
 | lr          | Extra Life - Locathah Rising                         | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/LR          |
-| mot-nss     | Mythin Odyssesys of Theros - Theros No Silent Secret | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/MOT-NSS     |
+| mot-nss     | Mythin Odyssesys of Theros - Theros No Silent Secret | ?    |
 | nrh-ass     | NERDS Restoring Harmony - A Sticky Situation         | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-ASS     |
 | nrh-at      | NERDS Restoring Harmony - Adventure Together         | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-AT      |
-| nrh-avitw   | NERDS Restoring Harmony - A Voice in the Wilderness  | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-AVITW   |
-| nrh-awol    | NERDS Restoring Harmony - A Web of Lies              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-AWOL    |
-| nrh-coi     | NERDS Restoring Harmony - Circus of Illusion         | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-COI     |
+| nrh-avitw   | NERDS Restoring Harmony - A Voice in the Wilderness  | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-AVitW   |
+| nrh-awol    | NERDS Restoring Harmony - A Web of Lies              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-AWoL    |
+| nrh-coi     | NERDS Restoring Harmony - Circus of Illusion         | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-CoI     |
 | nrh-tcmc    | NERDS Restoring Harmony - The Candy Mountain Caper   | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-TCMC    |
 | nrh-tlt     | NERDS Restoring Harmony - The Lost Tomb              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/NRH-TLT     |
-| oota        | Out of the Abyss                                     | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/OOTA        |
-| oow         | The Orrery of the Wanderer                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/OOW         |
-| pota        | Princes of the Apocalypse                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/POTA        |
+| oota        | Out of the Abyss                                     | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/OotA        |
+| oow         | The Orrery of the Wanderer                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/OoW         |
+| pota        | Princes of the Apocalypse                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/PotA        |
 | rmbre       |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/RMBRE       |
-| rot         | Rise of Tiamat                                       | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/ROT         |
-| rtg         |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/RTG         |
-| scc-arir    |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/SCC-ARIR    |
-| scc-ck      |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/SCC-CK      |
-| scc-hfmt    |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/SCC-HFMT    |
-| scc-tmm     |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/SCC-TMM     |
+| rot         | Rise of Tiamat                                       | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/RoT         |
+| rtg         |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/RtG        |
+| scc-arir    |                                                      | ?    |
+| scc-ck      |                                                      | ?    |
+| scc-hfmt    |                                                      | ?   |
+| scc-tmm     |                                                      | ?     |
 | sdw         | Essentials Kits - Sleeping Dragon's Wake             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/SDW         |
-| sja         |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/SJA         |
+| sja         |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/SjA         |
 | skt         | Storm King's Thunder                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/SKT         |
 | slw         | Essentials Kits - Storm Lord's Wrath                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/SLW         |
-| tftyp-atg   | TftYP - Against the Giants                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TFTYP-ATG   |
-| tftyp-dit   | TftYP - Dead in Thay                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TFTYP-DIT   |
-| tftyp-tfof  | TftYP - The Forge of Fury                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TFTYP-TFOF  |
-| tftyp-thsot | TftYP - The Hidden Shrine of Tamoachan               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TFTYP-THSOT |
-| tftyp-toh   | TftYP - Tome of Horrors                              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TFTYP-TOH   |
-| tftyp-tsc   | TftYP - The Sunless Citadel                          | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TFTYP-TSC   |
-| tftyp-wpm   | TftYP - White Plume Mountain                         | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TFTYP-WPM   |
+| tftyp-atg   | TftYP - Against the Giants                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TftYP-AtG   |
+| tftyp-dit   | TftYP - Dead in Thay                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TftYP-DiT   |
+| tftyp-tfof  | TftYP - The Forge of Fury                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TftYP-THSoT |
+| tftyp-thsot | TftYP - The Hidden Shrine of Tamoachan               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TftYP-THSoT |
+| tftyp-toh   | TftYP - Tome of Horrors                              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TftYP-ToH  |
+| tftyp-tsc   | TftYP - The Sunless Citadel                          | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TftYP-TSC   |
+| tftyp-wpm   | TftYP - White Plume Mountain                         | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TftYP-WPM   |
 | tlk         | Extra Life - The Lost Kenku                          | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TLK         |
-| toa         | Tomb of Annihilation                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TOA         |
-| tor         |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TOR         |
+| toa         | Tomb of Annihilation                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/ToA         |
+| tor         |                                                      | ?         |
 | ttp         | ToA - The Tortle Package                             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/TTP         |
-| us          |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/US          |
-| wbtw        |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/WBTW        |
+| us          |                                                      | ?          |
+| wbtw        |                                                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/WBtW        |
 | wdh         | Waterdeep - Dragon Heist                             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/WDH         |
 | wdmm        | Waterdeep - Dungeon of the Mad Mage                  | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/WDMM        |
-| xmts        | X Marks the Spot                                     | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/XMTS        |
+| xmts        | X Marks the Spot                                     | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/adventure/XMtS        |
 
 > [!Beasteries]-
 > | CODE | NAME                        | URL                                                                               |
 | ---- | ---------------------------              | ------------------------------------------------------------------------------------- |
-| ---- | ---------------------------------------- | ------------------------------------------------------------------------------------- |
 | MM   | Monster Manual                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/bestiary/MM  |
 | BoBH | Book of Beautiful Horrors                | Included                                                                              |
 | CC   | Creature Codex                           | https://github.com/TheGiddyLimit/homebrew/tree/master/_img/CCodex                     |
