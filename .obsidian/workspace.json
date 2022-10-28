@@ -30,6 +30,16 @@
                 "source": true
               }
             }
+          },
+          {
+            "id": "84afc181ae7ab88a",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.0.3"
+              }
+            }
           }
         ],
         "currentTab": 1
@@ -158,20 +168,17 @@
     "width": 300,
     "collapsed": true
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
   "active": "e7ed10df57733776",
   "lastOpenFiles": [
+    "Untitled.md",
     "Icon1.png.md",
+    "Shared Content/How To - Obtain Images.md",
+    "Shared Content/DM Screen/0. DM Screen.md",
     "Shared Content/Forgotten Realms/Faerun/Faerun.md",
     "Shared Content/Forgotten Realms/NPCs/Bren Tallsword.md",
     "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
     "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
     "Tutorials/YouTube Series/Timelines/Timelines.md",
-    "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md",
-    "Tutorials/YouTube Series/Custom CSS Files/Untitled.md",
-    "Tutorials/Untitled/Untitled.md",
-    "Tutorials/Untitled.md"
+    "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md"
   ]
 }

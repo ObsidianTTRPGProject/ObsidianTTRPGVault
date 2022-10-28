@@ -10,7 +10,7 @@ Paste the folder URL per your desired content into the tool.
 > [!BOOKS]-
 > 
 | CODE                | NAME                                               | URL                                                                                               |
-|---------------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| ------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | aag                 | Astrals Adventure Guide                            | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/AAG                 |
 | ai                  | Acquisitions Incorporated                          | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/AI                  |
 | al                  | Adventuers League                                  | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/AL                  |
@@ -27,7 +27,10 @@ Paste the folder URL per your desired content into the tool.
 | mpmm                | Mordenkainen Presents - Monsters of the Multiverse | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/MPMM                |
 | mtf                 | Mordenkainen's Tome of Foes                        | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/MTF                 |
 | oga                 | One Grung Above                                    | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/OGA                 |
-| phb                 | Player's Hand Book                                 | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/PHB                 |
+| phb                 | Player's Hand Book                                 | https://5e.tools/img/rules/                                                                       |
+| phb                 | Player's Hand Book                                 |  https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/spells/PHB             |
+| phb                 | Player's Hand Book                                 |  https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/languages/PHB            |
+| phb                 | Player's Hand Book                                 |  https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/conditionsdiseases/PHB            |
 | ps-a                | Plane Shift - Amonkhet                             | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/PS-A                |
 | ps-d                | Plane Shift - Dominaria                            | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/PS-D                |
 | ps-i                | Plane Shift - Innistrad                            | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/PS-I                |
@@ -38,9 +41,11 @@ Paste the folder URL per your desired content into the tool.
 | sac                 | Sage Advice Compendium                             | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/SAC                 |
 | scag                | Sword Coast Adventurers Guide                      | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/SCAG                |
 | scc                 | Strixhaven - A Curriculum of Chaos                 | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/SCC                 |
-| screen              | Dungeon Masters Screen                             | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/SCREEN              |
-| screendungeonkit    | Dungeon Masters Screen - Dungeon Kit               | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/SCREENDUNGEONKIT    |
-| screenwildernesskit | Dungeon Masters Screen - Wilderness Kit            | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/SCREENWILDERNESSKIT |
+| screen              | Dungeon Masters Screen                             | No Images            |
+| screendungeonkit    | Dungeon Masters Screen - Dungeon Kit               | https://5e.tools/img/book/ScreenDungeonKit/Cards-Conditions/    |
+| screendungeonkit    | Dungeon Masters Screen - Dungeon Kit               | https://5e.tools/img/book/ScreenDungeonKit/Cards-Initiative/   |
+| screendungeonkit    | Dungeon Masters Screen - Dungeon Kit               | https://5e.tools/img/book/ScreenDungeonKit/Cards-Geomorph/   |
+| screenwildernesskit | Dungeon Masters Screen - Wilderness Kit            | No Images |
 | tce                 | Tasha's Cauldron of Everything                     | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/TCE                 |
 | vgm                 | Volo's Guide to Monsters                           | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/VGM                 |
 | vrgr                | Van Richten's Guide to Ravenloft                   | https://github.com/TheGiddyLimit/TheGiddyLimit.github.io/tree/master/img/book/VRGR                |
