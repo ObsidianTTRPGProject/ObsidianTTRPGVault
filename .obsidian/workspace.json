@@ -13,32 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
+                "file": "Tutorials/YouTube Series/Buttons/Buttons.md",
                 "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "34c921973fbacd9f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "cf3f1dd92247cab0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
-                "mode": "preview",
                 "source": true
               }
             }
@@ -53,12 +29,8 @@
             "id": "d18e896ed3cc804f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
-                "mode": "preview",
-                "source": true
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -127,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
+                "file": "Tutorials/YouTube Series/Buttons/Buttons.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
+                "file": "Tutorials/YouTube Series/Buttons/Buttons.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md"
+                "file": "Tutorials/YouTube Series/Buttons/Buttons.md"
               }
             }
           },
@@ -189,9 +161,9 @@
   },
   "active": "4c4cb28f5cb0f3b6",
   "lastOpenFiles": [
+    "==/2. Mechanics/Non-Player Characters/==Buttons.md",
     "Tutorials/YouTube Series/Buttons/NPCs/Bob.md",
     "Tutorials/YouTube Series/Buttons/Locations/Radelaide.md",
-    "==/2. Mechanics/Non-Player Characters/==Buttons.md",
     "z_Templates/TemplateSettlement.md",
     "z_Templates/TemplateNPC.md",
     "z_Templates/6_Help Notes/Chart Examples (Mermaid).md",
