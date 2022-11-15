@@ -4,45 +4,64 @@
     "type": "split",
     "children": [
       {
-        "id": "ea2199fa6ee4be9a",
+        "id": "25bea2e507b0ac6a",
         "type": "tabs",
         "children": [
           {
-            "id": "12d8872180ab91e8",
+            "id": "4c4cb28f5cb0f3b6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
+                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
                 "mode": "source",
                 "source": true
               }
             }
           },
           {
-            "id": "e7ed10df57733776",
+            "id": "34c921973fbacd9f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shared Content/How To - Obtain Images.md",
-                "mode": "preview",
+                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
+                "mode": "source",
                 "source": true
               }
             }
           },
           {
-            "id": "84afc181ae7ab88a",
+            "id": "cf3f1dd92247cab0",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.0.3"
+                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
+                "mode": "preview",
+                "source": true
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
+      },
+      {
+        "id": "a83122bc514a588d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d18e896ed3cc804f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -71,7 +90,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Bob",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -108,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Shared Content/How To - Obtain Images.md",
+                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Shared Content/How To - Obtain Images.md",
+                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +167,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Shared Content/How To - Obtain Images.md"
+                "file": "==/2. Mechanics/Non-Player Characters/==Buttons.md"
               }
             }
           },
@@ -168,17 +187,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "e7ed10df57733776",
+  "active": "4c4cb28f5cb0f3b6",
   "lastOpenFiles": [
-    "Untitled.md",
-    "Icon1.png.md",
-    "Shared Content/How To - Obtain Images.md",
-    "Shared Content/DM Screen/0. DM Screen.md",
-    "Shared Content/Forgotten Realms/Faerun/Faerun.md",
-    "Shared Content/Forgotten Realms/NPCs/Bren Tallsword.md",
-    "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
-    "Tutorials/YouTube Series/Custom CSS Files/Custom CSS Files.md",
-    "Tutorials/YouTube Series/Timelines/Timelines.md",
-    "Tutorials/Basic Tool Usage/How To - Install Custom CSS.md"
+    "Tutorials/YouTube Series/Buttons/NPCs/Bob.md",
+    "Tutorials/YouTube Series/Buttons/Locations/Radelaide.md",
+    "==/2. Mechanics/Non-Player Characters/==Buttons.md",
+    "z_Templates/TemplateSettlement.md",
+    "z_Templates/TemplateNPC.md",
+    "z_Templates/6_Help Notes/Chart Examples (Mermaid).md",
+    "Tutorials/YouTubeSeries/Buttons/NPCs/Bob.md",
+    "YouTubeSeries/Buttons/NPCs/Bob.md",
+    "Acid Ball.md",
+    "z_Templates/3_Dataview Templates/Template - Spell.md"
   ]
 }

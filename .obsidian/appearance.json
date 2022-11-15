@@ -2,5 +2,6 @@
   "accentColor": "",
   "cssTheme": "",
   "theme": "moonstone",
-  "enabledCssSnippets": []
+  "enabledCssSnippets": [],
+  "baseFontSize": 15
 }

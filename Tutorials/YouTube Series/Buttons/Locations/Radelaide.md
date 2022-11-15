@@ -28,6 +28,9 @@ imports:
  - Something Else
 ---
 
+NewLocation
+
+
 > [!infobox]
 > # `=this.file.name`
 > ![[z_Assets/Misc/MapPlaceholder.png|cover hsmall]]
