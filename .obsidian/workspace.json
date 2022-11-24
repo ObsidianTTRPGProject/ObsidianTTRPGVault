@@ -18,8 +18,33 @@
                 "source": true
               }
             }
+          },
+          {
+            "id": "15a9c8722204fad0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/TTRPG Statblocks/TTRPG Statblocks.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "60663999c6425db3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "a83122bc514a588d",
@@ -99,7 +124,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Buttons/Buttons.md",
+                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +141,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Buttons/Buttons.md",
+                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Buttons/Buttons.md"
+                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md"
               }
             }
           },
@@ -148,6 +173,14 @@
             "type": "leaf",
             "state": {
               "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "45d2a3027590d799",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-view",
               "state": {}
             }
           }
@@ -159,17 +192,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "4c4cb28f5cb0f3b6",
+  "active": "60663999c6425db3",
   "lastOpenFiles": [
+    "Tutorials/YouTube Series/TTRPG Statblocks/TTRPG Statblocks.md",
+    "Tutorials/YouTube Series/Buttons/Buttons.md",
+    "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
+    "Tutorials/YouTube Series/Timelines/Timelines.md",
     "==/2. Mechanics/Non-Player Characters/==Buttons.md",
     "Tutorials/YouTube Series/Buttons/NPCs/Bob.md",
     "Tutorials/YouTube Series/Buttons/Locations/Radelaide.md",
     "z_Templates/TemplateSettlement.md",
     "z_Templates/TemplateNPC.md",
-    "z_Templates/6_Help Notes/Chart Examples (Mermaid).md",
-    "Tutorials/YouTubeSeries/Buttons/NPCs/Bob.md",
-    "YouTubeSeries/Buttons/NPCs/Bob.md",
-    "Acid Ball.md",
-    "z_Templates/3_Dataview Templates/Template - Spell.md"
+    "z_Templates/6_Help Notes/Chart Examples (Mermaid).md"
   ]
 }

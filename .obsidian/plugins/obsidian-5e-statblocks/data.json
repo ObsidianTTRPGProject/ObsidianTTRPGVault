@@ -1,0 +1,248 @@
+{
+  "monsters": [
+    [
+      "Apparition",
+      {
+        "name": "Apparition",
+        "layout": "GURPs",
+        "image": "Apparition.png",
+        "level": 20,
+        "size": "Medium",
+        "BMRType": "Biped",
+        "BMR": "12/NA",
+        "Initiative": 22,
+        "DB": 100,
+        "Hits": 135,
+        "Encountered": 1,
+        "Outlook": "Hostile",
+        "Treasure": "NN3N2",
+        "Stamina": 68,
+        "Will": 103,
+        "Magic": 99,
+        "actions": [
+          {
+            "name": "Ectoplasm Attack",
+            "desc": 134
+          },
+          {
+            "name": "Melee Weapon",
+            "desc": 124
+          },
+          {
+            "name": "Missile Weapon",
+            "desc": 114
+          }
+        ],
+        "source": "Homebrew"
+      }
+    ]
+  ],
+  "layouts": [
+    {
+      "name": "GURPs",
+      "blocks": [
+        {
+          "type": "inline",
+          "id": "192a8bb9c988",
+          "properties": [],
+          "nested": [
+            {
+              "type": "heading",
+              "id": "fada58a9c819",
+              "properties": [
+                "name"
+              ],
+              "fallback": "-"
+            },
+            {
+              "type": "image",
+              "id": "bb1a4929e80b",
+              "properties": [
+                "image"
+              ],
+              "fallback": "-",
+              "conditioned": true
+            }
+          ],
+          "hasRule": true
+        },
+        {
+          "type": "group",
+          "id": "aaf8abda78cb",
+          "properties": [],
+          "nested": [
+            {
+              "type": "text",
+              "id": "2849fa79d91b",
+              "properties": [],
+              "text": null,
+              "fallback": "",
+              "heading": "Stats"
+            },
+            {
+              "type": "property",
+              "id": "da0b1a981b8a",
+              "properties": [
+                "level"
+              ],
+              "fallback": "-",
+              "display": "Level"
+            },
+            {
+              "type": "property",
+              "id": "d9f9b97bd869",
+              "properties": [
+                "size"
+              ],
+              "fallback": "-",
+              "display": "Size"
+            },
+            {
+              "type": "property",
+              "id": "8848ba387b09",
+              "properties": [
+                "BMRType"
+              ],
+              "fallback": "-",
+              "display": "BMR Type"
+            },
+            {
+              "type": "property",
+              "id": "7908bb194a4b",
+              "properties": [
+                "BMR"
+              ],
+              "fallback": "-",
+              "display": "BMR"
+            },
+            {
+              "type": "property",
+              "id": "baf89878aac8",
+              "properties": [
+                "Initiative"
+              ],
+              "fallback": "-",
+              "display": "Initiative"
+            },
+            {
+              "type": "property",
+              "id": "e84a69e9bbc9",
+              "properties": [
+                "DB"
+              ],
+              "fallback": "-",
+              "display": "DB"
+            },
+            {
+              "type": "property",
+              "id": "3bda180acaaa",
+              "properties": [
+                "Hits"
+              ],
+              "fallback": "-",
+              "display": "Hits"
+            },
+            {
+              "type": "property",
+              "id": "f9085b49fa49",
+              "properties": [
+                "Encountered"
+              ],
+              "fallback": "-",
+              "display": "Encountered"
+            },
+            {
+              "type": "property",
+              "id": "88295bdbdb9a",
+              "properties": [
+                "Outlook"
+              ],
+              "fallback": "-",
+              "display": "Outlook"
+            },
+            {
+              "type": "property",
+              "id": "abfb782ab938",
+              "properties": [
+                "Treasure"
+              ],
+              "fallback": "-",
+              "display": "Treasure"
+            }
+          ],
+          "hasRule": true
+        },
+        {
+          "type": "inline",
+          "id": "6ae9cbba2be8",
+          "properties": [],
+          "nested": [
+            {
+              "type": "property",
+              "id": "684b6a286b19",
+              "properties": [
+                "Stamina"
+              ],
+              "fallback": "-",
+              "display": "Stamina"
+            },
+            {
+              "type": "property",
+              "id": "1919292afb4b",
+              "properties": [
+                "Will"
+              ],
+              "fallback": "-",
+              "display": "Will"
+            },
+            {
+              "type": "property",
+              "id": "59d81b3a3928",
+              "properties": [
+                "Magic"
+              ],
+              "fallback": "-",
+              "display": "Magic"
+            }
+          ],
+          "hasRule": true
+        },
+        {
+          "type": "group",
+          "id": "1bf958993a39",
+          "properties": [],
+          "nested": [
+            {
+              "type": "traits",
+              "id": "eb3a2938bb29",
+              "properties": [
+                "actions"
+              ],
+              "fallback": "-",
+              "heading": "Attacks",
+              "conditioned": true
+            }
+          ],
+          "hasRule": false
+        }
+      ]
+    }
+  ],
+  "default": "Basic 5e Layout",
+  "useDice": true,
+  "renderDice": false,
+  "export": true,
+  "showAdvanced": false,
+  "version": {
+    "major": 2,
+    "minor": 23,
+    "patch": 0
+  },
+  "paths": [
+    "/"
+  ],
+  "autoParse": false,
+  "disableSRD": false,
+  "tryToRenderLinks": true,
+  "debug": false
+}

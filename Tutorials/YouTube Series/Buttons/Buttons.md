@@ -5,7 +5,7 @@ PubishDate: 0/0/1990
 ---
 
 *Link to be updated once released*
-<iframe width="1237" height="696" src="https://www.youtube.com/embed/Pf0M3IuudpM" title="Obsidian - DnDBeyond Character Sheets with Custom Frames" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oqqKKZKo3Ak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Benefit 
 Buttons are cool because you can press them and when you press them things can happen. In this example the following will happen:
