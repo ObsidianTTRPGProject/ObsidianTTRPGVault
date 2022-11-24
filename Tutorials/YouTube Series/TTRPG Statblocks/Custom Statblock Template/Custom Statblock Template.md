@@ -4,8 +4,7 @@ ChallengeLevel: Medium
 PubishDate: 24/11/2022
 ---
 
-*Link to be updated once released*
-<iframe width="1237" height="696" src="https://www.youtube.com/embed/Pf0M3IuudpM" title="Obsidian - DnDBeyond Character Sheets with Custom Frames" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d7JPRXm84f0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Benefit 
 TTRPG Statblocks allows monster statblocks to be rendered in your Obsidian notes with a few lines of syntax. Out of the box the plugin comes with layouts for DnD5e and Fate but you can also create custom layouts which allow it to be used for any TTRPG System. 
