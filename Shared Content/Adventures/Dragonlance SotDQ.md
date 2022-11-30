@@ -6,7 +6,7 @@ Three hundred years ago, the Cataclysm brought ruin to the world of Krynn. In a 
 
 Then came the Dragon Armies, legions of soldiers devoted to the wicked god Takhisis the Dragon Queen, and the world faces ruin once more. The War of the Lance has begun, and in a conflict between gods and dragons, a wounded world hangs in the balance.
 
-[img/adventure/DSotDQ/000-00-001.becklin-letter.webp]
+![[000-00-001.becklin-letter.webp]]
 
 >>To the Council of Maelgoth:
 >>
@@ -37,7 +37,7 @@ Beyond these chapters, appendices support the adventure with equipment, magic it
 
 ## History of Krynn
 
-[img/adventure/DSotDQ/001-00-002.scholars.webp](Scholars and soldiers across Solamnia spread warnings of sinister forces rising beyond their nation's borders)
+![[001-00-002.scholars.webp]](Scholars and soldiers across Solamnia spread warnings of sinister forces rising beyond their nation's borders)
 
 While every world's history is vast and fractured, with missing pieces and forgotten perspectives, Krynn's tale has been shattered by the global catastrophe called the Cataclysm. The world of Krynn was forged and destroyed, yet—broken and scarred—it continued on. Most of its people, seeking merely to survive in their slowly healing lands, care little for eons past. But the sages who piece together fragments of the past focus on three periods: before the Cataclysm, the Cataclysm itself, and the dire age since.
 
@@ -49,7 +49,7 @@ Next came the Age of Dreams, a time when heroes battled the forces of evil. Many
 
 During a terrible conflict known as the Third Dragon War, the knight Huma Dragonbane was granted the first of the fabled *dragonlances*. He used it to defeat the evil god Takhisis the Dragon Queen and end the war, forcing the god and her dragons to leave Krynn. The good dragons of Krynn soon departed as well, leaving the world to mortals and the remaining gods.
 
-[img/adventure/DSotDQ/002-00-002.takhisis.webp](Takhisis the Dragon Queen in Her Human Guise)
+![[002-00-002.takhisis.webp]](Takhisis the Dragon Queen in Her Human Guise)
 
 During the thousand years before the Cataclysm, known as the Age of Might, several human nations flourished, conquering vast swaths of the continent of Ansalon in the name of good. But the triumph of the Age of Might sowed the seeds of its downfall.
 
@@ -63,7 +63,7 @@ A mountain of fire fell from the sky, destroying Istar. The Blood Sea—a new oc
 
 The gods and their blessings then faded from the world, and in time, even their names were all but forgotten.
 
-[img/adventure/DSotDQ/003-00-003.nikkas-letter.webp]
+![[003-00-003.nikkas-letter.webp]]
 
 >>The Cataclysm! It looms larger than any other event in the history of our world, forever dividing time into before and after. Even our calendar reflects this, marking our last four chaotic centuries in years After Cataclysm (AC), while the millennia before, stretching back into shrouded myth, are Pre-Cataclysm (PC).
 >>
@@ -147,7 +147,7 @@ With virtually all of eastern Ansalon under their control, the Dragon Armies hav
 
 In Neraka, zealots and black-robed mages devise magical plans to empower Dragon Army forces. One such plot, involving the ruins of an Istarian city, captures the imagination of Dragon Highlord Verminaard. He tasks his devotee, Kansaldi Fire-Eyes, with claiming a devastating new weapon for the Dragon Armies.
 
-[img/adventure/DSotDQ/004-00-004.ollen-letter.webp]
+![[004-00-004.ollen-letter.webp]]
 
 >>One week. One week since these creatures swept down on us in numbers too vast to count. It feels like a decade. Everything is upside down.
 >>
@@ -166,7 +166,7 @@ In Neraka, zealots and black-robed mages devise magical plans to empower Dragon 
 
 While Krynn holds many lands and cultures, the War of the Lance and adventures surrounding that conflict unfold on the continent of Ansalon. Here are a few details regarding everyday life there.
 
-[img/adventure/DSotDQ/005-00-005.gateway-splash.webp](Travelers approach the town of Gateway, a community sheltered amid the roots of a toppled Vallenwood tree)
+![[005-00-005.gateway-splash.webp]](Travelers approach the town of Gateway, a community sheltered amid the roots of a toppled Vallenwood tree)
 
 ### Languages
 
@@ -246,7 +246,7 @@ Since the Cataclysm, the harsh realities of daily survival leave little room for
 
 ### Rumors of War
 
-[img/adventure/DSotDQ/006-00-006.tiamat-splash.webp](Takhisis the Dragon Queen turns her attention from eastern Ansalon toward the city of Kalaman)
+![[006-00-006.tiamat-splash.webp]](Takhisis the Dragon Queen turns her attention from eastern Ansalon toward the city of Kalaman)
 
 Factual reports of war in eastern Ansalon and the Dragon Queen's return are slow to spread. Many of Ansalon's communities are isolated, and the Dragon Armies work to suppress information of their conquests. As a result, most people in Solamnia and west of the mountainous Taman Busuk region aren't aware of the Dragon Armies' threat beyond vague rumors.
 
@@ -274,7 +274,7 @@ Situated in the province of Nightlund in Solamnia's eastern reaches, Kalaman is 
 
 Kalaman began as a sleepy fishing village on the coast of the Turbidus Ocean. It might have remained so if not for the arrival of an Istarian trading mission centuries before the Cataclysm. Seeing the potential of a deep harbor so close to the mouth of a great river, the Empire of Istar invested heavily in the town, transforming it into a thriving trade hub. Solamnia soon found Istar's stranglehold on the booming port intolerable, and after a climactic battle on the plains west of the city, Istar ceded control of Kalaman.
 
-[img/adventure/DSotDQ/007-00-007.fallen-piece.webp]
+![[007-00-007.fallen-piece.webp]]
 
 Today, long after the fall of Istar and the trials of the Cataclysm, Kalaman remains a thriving port city surrounded by tall Istarian-built walls that have never been breached. In its busy harbor, vessels from all over Ansalon go about their business under the light of the city's two grand beacons, pre-Cataclysm marvels that have survived for generations. At the center of the city, the ancient Castle Kalaman rises intimidatingly on a sheer hill. The castle's architectural marvels include defenses yet to be recreated in the modern age. The city of Kalaman is further detailed in Chapter 4.
 
@@ -296,7 +296,7 @@ For generations, the Soths of Dargaard Keep—a family of Knights of Solamnia—
 
 **Lord Soth** and his defiance of the gods is detailed in chapter 4.
 
-[img/adventure/DSotDQ/008-00-008.letters.webp]
+![[008-00-008.letters.webp]]
 
 ## Religion and the Gods
 
@@ -338,7 +338,7 @@ The gods of Krynn loosely align with one another along the principles of good, n
 | **Sargonnas** |    LE     | Fire, vengeance             | Stylized red condor         |
 | **Zeboim**    |    CE     | Seas, storms                | Turtle shell                |
 
-[img/adventure/DSotDQ/009-00-009.rosamund-letter.webp]
+![[009-00-009.rosamund-letter.webp]]
 
 >>It's easy to blame the gods for the Cataclysm. They sent the Thirteen Warnings and the burning mountain that followed. They sank Istar beneath the waves, shattered the continent, and withdrew from the world. They chose to cause the immense suffering of the disaster and the centuries since.
 >>
@@ -405,7 +405,7 @@ Feats. Draw on the power of magic, honor, or the gods with this selection of fea
 
 Subclass Option. Tie your magic to Krynn's three mystical moons with the Lunar Sorcery sorcerer subclass.
 
-[img/adventure/DSotDQ/019-01-001.chapter-splash.webp](Adventuring defenders of Solamnia bring down a red dragon servant of the Dragon Queen)
+![[019-01-001.chapter-splash.webp]](Adventuring defenders of Solamnia bring down a red dragon servant of the Dragon Queen)
 
 ## Peoples of Krynn
 
@@ -415,7 +415,7 @@ The Dragon Armies threaten all the peoples of Krynn. This section presents infor
 
 While known for their great subterranean nations, dwarves have long traded and traveled among the peoples of Krynn's surface. The Cataclysm devastated many dwarven lands and destroyed some of their greatest underground kingdoms. Others, like the nation of Kayolin, were isolated from their allies as the New Sea flooded the land. And some, like the great dwarven realm of Thorbardin, turned inward and have yet to rejoin the world.
 
-[img/adventure/DSotDQ/020-01-002.dwarf-adventurer.webp](Dwarf Adventurer from the Nation of Thorbardin)
+![[020-01-002.dwarf-adventurer.webp]](Dwarf Adventurer from the Nation of Thorbardin)
 
 #### Thorbardin and the Dwarfgate War
 
@@ -455,7 +455,7 @@ As a Silvanesti high elf, you know what few in Ansalon do: the home of the elves
 
 #### Qualinesti High Elves
 
-[img/adventure/DSotDQ/021-01-003.qualinesti-scout.webp](In Qualinesti, a scout warns of threats encroaching on the elven city's borders)
+![[021-01-003.qualinesti-scout.webp]](In Qualinesti, a scout warns of threats encroaching on the elven city's borders)
 
 Long ago, a group of high elves left Silvanesti, desiring a more egalitarian society. They traveled far to the west and founded a new forested homeland called Qualinesti. Less hierarchical than their progenitors and more willing to deal with outsiders, Qualinesti elves even enjoyed good relations with the dwarves of Thorbardin. Since the Cataclysm, however, they've withdrawn from the world, and few outsiders dare approach their well-guarded borders.
 
@@ -486,7 +486,7 @@ As a gnome, you might be a tinker pursuing some niche scientific endeavor, coaxe
 
 The tinker gnomes of Mount Nevermind are the best-known gnome community on Krynn. Despite living in a world steeped in magical forces, many of these rock gnomes indulge in specialized scientific pursuits and create complicated inventions.
 
-[img/adventure/DSotDQ/022-01-004.tinker-gnome.webp](A tinker gnome from Mount Nevermind fine-tunes his latest invention)
+![[022-01-004.tinker-gnome.webp]](A tinker gnome from Mount Nevermind fine-tunes his latest invention)
 
 ### Humans
 
@@ -512,7 +512,7 @@ Once a mighty empire, Solamnia has fallen from the glory it knew. Though Solamni
 
 After the Cataclysm, the verdant plains of southern Ansalon wasted away, becoming the Plains of Dust. Coastlines shifted, and the city of Tarsis found itself a seaport without a sea. In the dry harbor, decrepit remnants of the city's famed ships list on waves of sand. The rest of the city clings to life as a trade hub for small communities and itinerant bands across the plains. Those who dwell here have adapted their ancestors' seafaring ways to their current arid environment, becoming hunters, scavengers, and traders.
 
-[img/adventure/DSotDQ/023-01-005.humans.webp](Humans from the Lands of Tarsis, Ergoth, and Abanasinia)
+![[023-01-005.humans.webp]](Humans from the Lands of Tarsis, Ergoth, and Abanasinia)
 
 #### Other Lands
 
@@ -532,7 +532,7 @@ Other parts of Ansalon are home to distinctive tribes of nomads and small, diver
 
 The kender is a race option for player characters in Dragonlance and other D&D settings.
 
-[img/adventure/DSotDQ/024-01-006.kender.webp](Kender adventurers follow their curiosity to their next adventure)
+![[024-01-006.kender.webp]](Kender adventurers follow their curiosity to their next adventure)
 
 ### Creating Your Character
 
@@ -582,7 +582,7 @@ Their power waning, the knights today are locked in a bitter internal feud: Is i
 
 #### The Oath and the Measure
 
-[img/adventure/DSotDQ/025-01-007.knights-solamnia.webp](Emblems Top to Bottom: Order of the Crown, Order of the Rose, and Order of the Sword)
+![[025-01-007.knights-solamnia.webp]](Emblems Top to Bottom: Order of the Crown, Order of the Rose, and Order of the Sword)
 
 The Knights of Solamnia follow a chivalric code with two parts: the Oath and the Measure, both inspired by the writings of Vinas Solamnus. The Oath is simple and aspirational—a star to navigate by—while the Measure lays out specific rules for the organization and conduct of the knighthood.
 
@@ -693,7 +693,7 @@ This section introduces feats related to the Knights of Solamnia and the Mages o
 
 A sorcerer has the Sorcerous Origin feature, which offers you the choice of a subclass. The following option is available when making that choice: Lunar Sorcery.
 
-[img/adventure/DSotDQ/028-01-010.human-sorcerer.webp](A human sorcerer draws on the magic of Krynn's moons)
+![[028-01-010.human-sorcerer.webp]](A human sorcerer draws on the magic of Krynn's moons)
 ---
 # Chapter 2: Prelude to War
 
@@ -701,7 +701,7 @@ The Dragon Queen's conquest of Ansalon has begun. The eastern half of the contin
 
 *Dragonlance: Shadow of the Dragon Queen* tells the tale of the Dragon Army's first strike into Solamnia and thrusts a group of heroes into the path of a world-altering war. This chapter provides an overview of the adventure presented in the chapters to come, as well as details on how to further involve the characters in the plot.
 
-[img/adventure/DSotDQ/029-02-001.chapter-splash.webp](Dragon Highmaster Kansaldi Fire-Eyes leads the Red Dragon Army to war against Solamnia)
+![[029-02-001.chapter-splash.webp]](Dragon Highmaster Kansaldi Fire-Eyes leads the Red Dragon Army to war against Solamnia)
 
 ## Overview
 
@@ -816,7 +816,7 @@ This chapter pits the characters and their allies against the full might of the 
 
 ## The Dragon Queen's Threat
 
-[img/adventure/DSotDQ/030-02-002.dragon-queen-followers.webp](After centuries of secrecy, the followers of the Dragon Queen emerge prepared for war)
+![[030-02-002.dragon-queen-followers.webp]](After centuries of secrecy, the followers of the Dragon Queen emerge prepared for war)
 
 Throughout this adventure, most of the characters' foes are servants of Takhisis the Dragon Queen, an evil god who seeks to conquer Krynn. Her agents are many, but her organized forces are known as the Dragon Armies. This book's introduction provides additional details on Takhisis and the Dragon Armies. As the adventure unfolds, the characters find themselves opposed by several of the Dragon Queen's agents. The characters' goal in this adventure isn't to lay low the entirety of the Dragon Armies or to stop the threat of the Dragon Queen herself. Rather, their deeds will oppose the Red Dragon Army's forces seeking to conquer the Kalaman region.
 
@@ -874,7 +874,7 @@ Ispin Greenshield wished to have his life celebrated in a simple way, with frien
 
 Each character has agreed to attend Ispin's funeral and has set off on the road to Vogler. The extent of this undertaking might vary for each character. Characters who travel by sea disembark at the port of Kalaman (detailed in chapter 4) and then travel by road to Vogler. The characters' travels are largely uneventful until the final leg of their journey (see the "Preludes" section). *Chapter 3* gives characters who have not been traveling together the opportunity to reunite and share details of their journeys.
 
-[img/adventure/DSotDQ/031-02-003.becklins-letter.webp](Handout 2.1)
+![[031-02-003.becklins-letter.webp]](Handout 2.1)
 
 >>Dear friend,
 >>
@@ -1001,7 +1001,7 @@ Read or paraphrase the following text to describe the vision the characters have
 >>You stand at the center of a forest clearing. Clashing steel echoes from the thicket beyond. As you look around, you realize piles of bodies cover the ground. One of the fallen clutches something against their chest. You're not sure what it is, but you feel the urge to reach for it. Before you can, the object glows and then flashes with intense light.
 >>
 
-[img/adventure/DSotDQ/032-02-004.kiri-jolith.webp](Kiri-Jolith, God of War, is one of many deities seeking followers to carry their faith back to Krynn)
+![[032-02-004.kiri-jolith.webp]](Kiri-Jolith, God of War, is one of many deities seeking followers to carry their faith back to Krynn)
 
 The characters wake after having the vision and find nothing out of the ordinary. They realize the object in the vision was an amulet. The amulet bears a design they might not recognize, but is the symbol of the god the character's player chose during character creation. The echoes of battle don't mean anything in particular to the characters but feel like a bad omen.
 
@@ -1077,7 +1077,7 @@ Characters who examine the tapestries recognize each of the three moons and thei
 
 A character who succeeds on a DC 10 Wisdom (Perception) check realizes that while the doors in the room should lead outside, no other entrances into the Barb were visible from the exterior.
 
-[img/adventure/DSotDQ/033-02-005.spellbook.webp](A Spellbook Emblazoned with the Symbol of the Mages of High Sorcery)
+![[033-02-005.spellbook.webp]](A Spellbook Emblazoned with the Symbol of the Mages of High Sorcery)
 
 #### Rules of the Trial
 
@@ -1115,7 +1115,7 @@ A character who casts *detect magic* sees the walls of the maze glow with auras 
 
 Upon completing the trial and passing through the door, the characters emerge into the atrium of the Barb. Rovina congratulates them on passing the challenge and deems their apprenticeship complete. They are now ready to take the next step on the path to becoming members of the Mages of High Sorcery.
 
-[img/adventure/DSotDQ/034-02-006.scroll-mcguffin.webp](After completing the Trial of the Barb, an adventurer receives this scroll and instructions to take it to Wyhan in Kalaman)
+![[034-02-006.scroll-mcguffin.webp]](After completing the Trial of the Barb, an adventurer receives this scroll and instructions to take it to Wyhan in Kalaman)
 
 Rovina hands each character an ornate scroll and a *spellbook* emblazoned with the symbol of the Mages of High Sorcery. She says the books are meant for the characters, either to use as spellbooks or to fill with their discoveries. The scrolls are meant for the mage who will lead the characters on the next step of their journey: a black-robed mage named Wyhan who resides in the city of Kalaman near Vogler. The characters have already received their invitation to Ispin Greenshield's funeral, and Kalaman is conveniently nearby.
 
@@ -1151,7 +1151,7 @@ Rhys doesn't know this, but the soldiers who hired him weren't merely solders—
 
 #### Fallen Caravan
 
-[img/adventure/DSotDQ/035-02-007.draconian-om-nom-nom.webp](A terrifying new enemy infiltrates the shadows of Solamnia: draconians)
+![[035-02-007.draconian-om-nom-nom.webp]](A terrifying new enemy infiltrates the shadows of Solamnia: draconians)
 
 Rhys leads the characters down the road. Once they approach the place where Rhys and the soldiers were ambushed, Rhys refuses to go any farther. He tells the characters the soldiers should be just ahead.
 
@@ -1184,7 +1184,7 @@ At the edge of the Solamnic province of Hinterlund lies the quiet fishing villag
 
 Before running this chapter, make sure each character has a reason for attending the funeral of Ispin Greenshield and experienced a fateful event during their journey to Vogler, as detailed in chapter 2.
 
-[img/adventure/DSotDQ/036-03-001.chapter-splash.webp](Draconians spy on the unsuspecting villagers of Vogler)
+![[036-03-001.chapter-splash.webp]](Draconians spy on the unsuspecting villagers of Vogler)
 
 ## Running This Chapter
 
@@ -1227,7 +1227,7 @@ The characters' visit to Vogler overlaps with the kickoff of the Kingfisher Fest
 
 While in Vogler, the characters might visit any of the locations in this section. These sites are marked on map 3.1.
 
-[img/adventure/DSotDQ/037-map-3.01-vogler.webp](Map 3.1: Vogler)[img/adventure/DSotDQ/038-map-3.01-vogler-player.webp](Player Version)
+![[037-map-3.01-vogler.webp]](Map 3.1: Vogler)![[038-map-3.01-vogler-player.webp]](Player Version)
 #### The Brass Crab
 
 The Brass Crab is a modest single-story inn on the village wharf, and its exterior vaguely resembles its namesake. Its proprietor, an Ergothian woman named Yalme (neutral good, human **commoner**), has an odd love of bad storytellers and inept musicians. One wall of the circular common room features a faded mural of two enormous crabs locked in combat, inlaid with brass details. The mural's origins are lost to time, but if asked, Yalme says she named the crabs Fancy and Gorgeous George. Four short halls branch off the common room, each lined with rooms for rent.
@@ -1299,7 +1299,7 @@ Once the characters have reconnected with one another and explored Vogler to the
 
 Becklin is hard to miss, as she's dressed in the full-plate armor and horned helmet of the Knights of Solamnia. Though she's never met the characters before, she recognizes one or more of them from Ispin's descriptions. Becklin introduces herself, offers her condolences, and invites the characters to come with her to the Brass Crab if they aren't already there. She explains that the service is meant to be a celebration of Ispin's life, and people will be encouraged to share over-the-top stories about him—like the inflated tales he was known for sharing.
 
-[img/adventure/DSotDQ/039-03-002.berklin-uth-viharin.webp](Becklin Uth Viharin)
+![[039-03-002.berklin-uth-viharin.webp]](Becklin Uth Viharin)
 
 #### Becklin Uth Viharin
 
@@ -1317,7 +1317,7 @@ The region's commonfolk generally don't hold the Knights of Solamnia in high reg
 
 ### Sending Off a Friend
 
-[img/adventure/DSotDQ/040-03-003.cudgel-and-becklin.webp](Cudgel Ironsmile and Becklin Uth Viharin send off their friend Ispin Greenshield)
+![[040-03-003.cudgel-and-becklin.webp]](Cudgel Ironsmile and Becklin Uth Viharin send off their friend Ispin Greenshield)
 
 The funeral takes place at dusk on the stage and dock extending from the rear of the Brass Crab. Becklin encourages the characters to linger near the dock, while many mourning locals in small fishing craft assemble in the nearby water. When you're ready for the funeral to begin, Becklin takes the stage next to a simple boat, within which rests the body of Ispin Greenshield. Read or paraphrase the following:
 
@@ -1352,7 +1352,7 @@ Characters are invited to participate in this comic tale telling. They're welcom
 
 During the storytelling, after one or two characters or others have told tales, a finely dressed local named Bakaris the Younger lets out an exaggerated yawn. If left to continue, he eventually blurts out, "We've heard this a thousand times!" or "You're telling it worse than he did!" Bakaris cares nothing for Ispin's death or the locals' mourning—he's only here for the free ale, which he claims is the worst he's ever tasted. The other mourners grumble, but nobody directly confronts the heckler.
 
-[img/adventure/DSotDQ/041-03-004.bakaris-the-younger.webp](Bakaris the Younger)
+![[041-03-004.bakaris-the-younger.webp]](Bakaris the Younger)
 
 ***Establishing Bakaris.*** Use this interaction to establish Bakaris the Younger as a cowardly cad. He and his father are local annoyances, and they'll further antagonize the characters later in the adventure. This encounter with Bakaris shouldn't come to violence, but it should give the characters an accurately negative impression of him.
 
@@ -1425,7 +1425,7 @@ Becklin sent Darrett to fetch baked hand pies from the Fishbowl for the two of t
 
 If the characters join him on the short walk, Darrett tells them he grew up in Vogler. He peppers the characters with questions about themselves, their travels, their weapons, and anything else about the world beyond Vogler. He knows all about the Kingfisher Festival and shares the following details:
 
-[img/adventure/DSotDQ/042-03-005.darrett-highwater.webp](Darrett Highwater)
+![[042-03-005.darrett-highwater.webp]](Darrett Highwater)
 
 - The annual festival celebrates the victory of a Knight of Solamnia, Lord Decater Vogler, over the forces of the Empire of Istar. This battle occurred hundreds of years ago, long before the Cataclysm, and sparked the village's founding.
 - Today's festivities include music, food, and games associated with the town's founding.
@@ -1488,7 +1488,7 @@ Vogler's village circle is the heart of the Kingfisher Festival's events. Here, 
 
 ### Festivities
 
-[img/adventure/DSotDQ/043-03-006.kingfisher-festival.webp](The people of Vogler celebrate during the Kingfisher Festival)
+![[043-03-006.kingfisher-festival.webp]](The people of Vogler celebrate during the Kingfisher Festival)
 
 Traditional Kingfisher Festival events commemorate Vogler's founding and history. Characters might participate in an annual competition, the season's inaugural fish catch, where fishers try to catch the biggest fish during a set period. Darrett and other friendly locals encourage the characters to participate.
 
@@ -1520,7 +1520,7 @@ Repeat these rolls for every 10 minutes a character participates in the fish cat
 |  19   |    15    | Greater cuirassed carp (5 ft. long)   |
 |  20   |    18    | Benebog the Line Breaker (8 ft. long) |
 
-[img/adventure/DSotDQ/044-03-007.raven-uth-vogler.webp](Raven Uth Vogler)
+![[044-03-007.raven-uth-vogler.webp]](Raven Uth Vogler)
 
 ***Benebog the Line Breaker.*** This enormous cuirassed carp is a Vogler legend. Even sighting Benebog is considered good luck, and catching it makes a fisher an instant town legend. Benebog can be caught only once. If a character rolls a 20 on the Fish to Catch table after Benebog has been caught, a greater cuirassed carp tugs on their line instead.
 
@@ -1604,7 +1604,7 @@ After these mercenaries are defeated, proceed with the "Gragonis Arrives" encoun
 
 #### High Hill Battlefield Features
 
-[img/adventure/DSotDQ/045-map-3.02-battle-of-high-hill.webp](Map 3.2: battle of high hill)[img/adventure/DSotDQ/046-map-3.02-battle-of-high-hill-player.webp](Player Version)The battlefield, shown on map 3.2, has the following features:
+![[045-map-3.02-battle-of-high-hill.webp]](Map 3.2: battle of high hill)![[046-map-3.02-battle-of-high-hill-player.webp]](Player Version)The battlefield, shown on map 3.2, has the following features:
 
 - **Fray** The 15-foot-wide area marked by the design at the edge of the map represents dozens of clashing combatants. This area and the battlefield beyond the map are *difficult terrain*. A creature that enters the Fray for the first time on a turn or starts its turn there must succeed on a DC 16 Dexterity saving throw or take 7 (2d6) slashing damage from opportunistic foes. The Fray can't be damaged and remains until the battle ends.
 - **Wall and Cart** Both the stone walls and the supply cart are *difficult terrain*. They grant *half cover* to creatures behind them.
@@ -1741,7 +1741,7 @@ Cudgel Ironsmile returns to Vogler accompanied by the lieutenant of her scouts, 
 - On her return, Cudgel found Jeyev and other loyal mercenaries had heard of the events at High Hill. They had restrained several soldiers loyal to Gragonis but who didn't have orders to participate in the reenactment.
 - During the night, Jeyev's scouts came across a large military force to the northwest of the village, much too large and organized to be a mere mercenary band. This is the same army the characters likely spotted, and Jeyev's scouts can confirm everything from the "Sighting the Enemy" section.
 
-[img/adventure/DSotDQ/047-03-008.jeyev-veldrews.webp](Jeyev Veldrews)
+![[047-03-008.jeyev-veldrews.webp]](Jeyev Veldrews)
 
 ### Vogler's Response
 
@@ -1795,7 +1795,7 @@ The area atop the cliffs is wooded, but an open field lies below and behind the 
 
 #### The Gnomeflinger
 
-[img/adventure/DSotDQ/048-03-009.gnomeflinger.webp](Gnomeflinger)
+![[048-03-009.gnomeflinger.webp]](Gnomeflinger)
 
 Thornwall Keep sits directly across from the Dragon Army soldiers' clifftop vantage. Atop Thornwall Keep sits the creation of the tinker gnome Than: a people-launching device called a gnomeflinger (described in *appendix A*). If using the gnomeflinger comes up, Becklin or Darrett suggests consulting with Than first.
 
@@ -2004,7 +2004,7 @@ The battlefield includes the following features:
 - **Burning Building** The Wharfinger's Office is on fire. A creature that enters the burning structure for the first time on a turn or starts its turn there must succeed on a DC 16 Constitution saving throw or take 5 (1d10) fire damage.
 - **Fray** The 15-foot-wide area marked by the design at the edge of the map represents draconians facing off against Vogler's remaining defenders. This area and the village beyond the map are *difficult terrain*. A creature that enters the Fray for the first time on a turn or starts its turn there must succeed on a DC 16 Dexterity saving throw or take 7 (2d6) slashing damage from opportunistic foes. The Fray can't be damaged and remains until the battle ends.
 
-[img/adventure/DSotDQ/049-map-3.03-escape-from-vogler.webp](Map 3.3: escape from vogler)[img/adventure/DSotDQ/050-map-3.03-escape-from-vogler-player.webp](Player Version)
+![[049-map-3.03-escape-from-vogler.webp]](Map 3.3: escape from vogler)![[050-map-3.03-escape-from-vogler-player.webp]](Player Version)
 #### Vogler Battlefield Events
 
 During this encounter, roll on the Vogler Battlefield Events table each round at initiative count 0. Also consider rolling on the table if a character enters the Fray or otherwise tries to leave the battlefield.
@@ -2030,7 +2030,7 @@ Fewmaster Gholcag is a low-ranking commander in the Red Dragon Army and the lead
 
 After Gholcag and the draconians are defeated, the battlefield encounter ends.
 
-[img/adventure/DSotDQ/051-03-010.fewmaster-gholcag.webp](Fewmaster Gholcag)
+![[051-03-010.fewmaster-gholcag.webp]](Fewmaster Gholcag)
 
 ### The Final Boat
 
@@ -2051,7 +2051,7 @@ A character who looks at the helmet he carries recognizes it's the helmet of a K
 
 #### Last Glimpse of Vogler
 
-[img/adventure/DSotDQ/052-03-011.evacuees-flee.webp](Evacuees flee the Dragon Army's invasion of Vogler)
+![[052-03-011.evacuees-flee.webp]](Evacuees flee the Dragon Army's invasion of Vogler)
 
 The characters escape Vogler on the last boat, a small fishing vessel barely large enough for the characters, Darrett, Mayor Raven, Jeyev, and a few other locals. Read or paraphrase the following as the characters leave Vogler behind:
 
@@ -2077,7 +2077,7 @@ As the Vingaard River carries the flotilla of boats from Vogler toward Kalaman, 
 
 Vogler is gone, devastated by the Red Dragon Army. After escaping the village by following the Vingaard River, the characters and other survivors seek refuge in the city of Kalaman. They carry with them a warning: war is coming for Kalaman. The city's leaders recruit the characters to help identify and resist the threat of the Red Dragon Army. As the characters travel the lands around Kalaman, they learn more about the Dragon Army's goals and the terrifying shadow behind this war.
 
-[img/adventure/DSotDQ/053-04-001.chapter-splash.webp](Kalaman's defenders march forth to confront the Dragon Army)
+![[053-04-001.chapter-splash.webp]](Kalaman's defenders march forth to confront the Dragon Army)
 
 ## Running This Chapter
 
@@ -2117,7 +2117,7 @@ Kalaman is led by the following three groups:
 
 While in Kalaman, the characters might visit any of the locations in this section. These sites appear on map 4.1.
 
-[img/adventure/DSotDQ/054-map-4.01-kalaman.webp](Map 4.1: kalaman)[img/adventure/DSotDQ/055-map-4.01-kalaman-player.webp](Player Version)
+![[054-map-4.01-kalaman.webp]](Map 4.1: kalaman)![[055-map-4.01-kalaman-player.webp]](Player Version)
 #### Castle Kalaman
 
 A symbol of the city, the age-old fortress of Castle Kalaman rises atop rugged cliffs, visible from anywhere within the city walls and for miles beyond. The city's governor dwells within the castle, and the ruling council holds its meetings here. Castle Kalaman also serves as the headquarters of Kalaman's military, and its barracks can house hundreds of troops. Extensive catacombs run beneath Castle Kalaman, but the entrances to these tunnels were closed long ago and remain magically sealed.
@@ -2235,7 +2235,7 @@ Along with Lord Bakaris and Governor Miat, the meeting includes guild leaders an
 
 It's clear from the governor's words and Lord Bakaris's expression that Bakaris is trying to advance his own agenda. Lord Bakaris told the council the villagers are taking up arms to retake their home. The characters know this isn't the case, though. Mayor Raven is focused on ensuring the villagers have food, security, and support in the days to come. And the characters are certain the refugees didn't appoint Lord Bakaris their leader.
 
-[img/adventure/DSotDQ/056-04-002.bakaris.webp](Lord Bakaris Uth Estide)
+![[056-04-002.bakaris.webp]](Lord Bakaris Uth Estide)
 
 #### Lord Bakaris Uth Estide
 
@@ -2359,7 +2359,7 @@ Don't share this with the character immediately—Wyhan's estimation comes up la
 
 Wyhan is skeptical of any character who expresses an interest in joining the Mages of High Sorcery. She asks them the following questions:
 
-[img/adventure/DSotDQ/057-04-003.wyhan.webp](Wyhan)
+![[057-04-003.wyhan.webp]](Wyhan)
 
 - Why do you think you're worthy of using magic?
 - Do you serve your magic, or does your magic serve you?
@@ -2482,7 +2482,7 @@ Characters who move adjacent to a goblin expose themselves to the out-of-control
 |  5  | A device fires a dart filled with glowing green fluid at the character (+4 to hit, 1 piercing damage on a hit). On a hit, the fluid is injected with an ominous hiss—but it proves harmless.                                                |
 |  6  | A mechanical chicken fires tin eggs at the character (+4 to hit, 1d4 bludgeoning damage on a hit). On a hit, the egg bursts in an oily mess, and the character has disadvantage on attack rolls until the end of the character's next turn. |
 
-[img/adventure/DSotDQ/058-04-004.tatina-defense.webp](The inventor Tatina Rookledust defends her home from Dragon Army goblins)
+![[058-04-004.tatina-defense.webp]](The inventor Tatina Rookledust defends her home from Dragon Army goblins)
 
 The goblins flee after half their number are defeated. The hobgoblin tries to make the goblins hold their ground but also flees if he finds himself outnumbered by the characters.
 
@@ -2664,7 +2664,7 @@ Wheelwatch Outpost has the following features:
 
 The following locations are keyed to map 4.2.
 
-[img/adventure/DSotDQ/059-map-4.02-wheelhouse-outpost.webp](Map 4.2: wheelhouse outpost)[img/adventure/DSotDQ/060-map-4.02-wheelhouse-outpost-player.webp](Player Version)
+![[059-map-4.02-wheelhouse-outpost.webp]](Map 4.2: wheelhouse outpost)![[060-map-4.02-wheelhouse-outpost-player.webp]](Player Version)
 #### W1: Courtyard
 
 >>The fort's courtyard holds several small structures with wooden roofs. Stairs climb from the dirt yard to the fort's west and east battlements. To the north and south stand solid wooden gates reinforced with iron bands. Along the wall next to each gate is a metal mechanism with a prominent winch.
@@ -2814,7 +2814,7 @@ The battlefield includes the following features:
 - **Stream** The chilly stream is 4 feet deep and is *difficult terrain*. The crossings aren't difficult terrain.
 - **Fray** The 15-foot-wide area marked by the design at the edge of the map represents directions from which creatures from the nearby battle might arrive, as detailed in the following section.
 
-[img/adventure/DSotDQ/061-map-4.03-retreat-from-steel-springs.webp](Map 4.3: retreat from steel springs)[img/adventure/DSotDQ/062-map-4.03-retreat-from-steel-springs-player.webp](Player Version)
+![[061-map-4.03-retreat-from-steel-springs.webp]](Map 4.3: retreat from steel springs)![[062-map-4.03-retreat-from-steel-springs-player.webp]](Player Version)
 #### Steel Springs Battlefield Events
 
 During this encounter, as long as there are still Dragon Army soldiers on the battlefield, roll on the Steel Springs Battlefield Events table each round on initiative count 0. Also consider rolling on the table if a character enters the Fray or a Kalaman soldier is killed. After you roll on this table, the wounded Kalaman soldiers move 15 feet south along the road unless an event says otherwise.
@@ -2863,7 +2863,7 @@ As the characters near the gates of Kalaman, read the following text:
 >>A crowd mills at the gate ahead, dozens of commoners murmuring and excitedly looking past the closed portcullis. "There's nothing to see!" shouts a guard, "Please move along."
 >>
 
-[img/adventure/DSotDQ/063-04-005.solamnic-knights.webp](Solamnic knights mysteriously arrive in Kalaman)
+![[063-04-005.solamnic-knights.webp]](Solamnic knights mysteriously arrive in Kalaman)
 
 The characters learn the following from a gate guard or anyone in the crowd:
 
@@ -2926,7 +2926,7 @@ When Soth rose as an Undead, Caradoc was similarly cursed, returning to life as 
 
 ***Flaw.*** "Who can resist a little drama?"
 
-[img/adventure/DSotDQ/064-04-006.caradoc.webp](Knight Caradoc carries a message to Kalaman's leaders)
+![[064-04-006.caradoc.webp]](Knight Caradoc carries a message to Kalaman's leaders)
 
 #### Caught in the Act
 
@@ -3033,7 +3033,7 @@ If the characters enter a room after all these scenes have played out, skeletal 
 
 Though the full truth of Lord Soth's tale remains vague, the characters might learn more when they encounter Leedara again in chapter 7.
 
-[img/adventure/DSotDQ/065-04-007.soth-memory.webp](Cataclysmic flames reveal glimpses of Lord Soth's memories)
+![[065-04-007.soth-memory.webp]](Cataclysmic flames reveal glimpses of Lord Soth's memories)
 
 ### Raided Catacombs Features
 
@@ -3047,7 +3047,7 @@ The catacombs beneath Castle Kalaman have the following features:
 
 The following locations are keyed to map 4.4.
 
-[img/adventure/DSotDQ/066-map-4.04-raided-catacombs.webp](Map 4.4: raided catacombs)[img/adventure/DSotDQ/067-map-4.04-raided-catacombs-player.webp](Player Version)
+![[066-map-4.04-raided-catacombs.webp]](Map 4.4: raided catacombs)![[067-map-4.04-raided-catacombs-player.webp]](Player Version)
 #### R1: Hall of Knights
 
 >>Stairs descend into a stone chamber engulfed in violet flames. In the fire stand four dignified statues of Knights of Solamnia. At the east end of the room lies an antechamber before a stone double door. There, a fifth statue depicts a bison-headed warrior.
@@ -3156,7 +3156,7 @@ Sarlamir speaks as he attacks, making it clear he's compelled by Soth's magic. I
 
 As soon as Sarlamir is defeated, the violet flames around his weapon and elsewhere in the catacombs dim, then vanish. Make sure Sarlamir mentions the City of Lost Names and the Northern Wastes, even if it's as a final gasp. The characters will learn more about these places in *chapter 5*.
 
-[img/adventure/DSotDQ/068-04-008.knight-sarlamir.webp](Knight Sarlamir)
+![[068-04-008.knight-sarlamir.webp]](Knight Sarlamir)
 
 ***North Passage.*** If the broken passage in the north wall hasn't already collapsed, it does so if a creature proceeds more than 5 feet down it. See area R3 for details on how the passage collapses. Characters caught in the collapse are forced into area R7 rather than R3.
 
@@ -3182,7 +3182,7 @@ Several hours later, Darrett arrives in Kalaman with Marshal Vendri, Lord Bakari
 
 Buried beneath the magically scarred reaches of the Northern Wastes lies an ancient ruin now known as the City of Lost Names. In a bygone age, the city was named Onyari. Built by the Kingpriest of Istar, it soared through the heavens, but it was brought low by enraged dragons who discovered its grim secret: its flight relied on the innate magic of the draconic graveyard it was built on. Now, Onyari's ruins draw the attention of the Red Dragon Army, whose leaders believe they can raise the city into the heavens once more. The black-robed mage Lohezet and the priest Belephaion lead an expedition to claim the city as a massive weapon of war. The death knight Lord Soth joins them, following whispers from the Dragon Queen to use the Cataclysmic fire from the depths of Castle Kalaman to raise the dead dragons buried in Onyari's foundations and bring them to her service.
 
-[img/adventure/DSotDQ/069-05-001.chapter-splash.webp](Soldiers from Kalaman struggle to survive amid the treacherous canyons of the Northern Wastes)
+![[069-05-001.chapter-splash.webp]](Soldiers from Kalaman struggle to survive amid the treacherous canyons of the Northern Wastes)
 
 ## Running This Chapter
 
@@ -3350,7 +3350,7 @@ Hostile Dragon Army patrols scour the Northern Wastes for pre-Cataclysm ruins to
 
 The characters find a stone archway lined with sigils. This gate used to be a teleportation gate—part of a magical transportation system created by Istarian mages. It once stood in Onyari before the city fell. As soon as a character approaches, magical energy swirls within the arch. The magic kicks up nearby debris that animates as a hostile **clay golem**.
 
-[img/adventure/DSotDQ/070-05-002.canyons-of-northern-wastes.webp](Few can survive the flood-prone canyons of the Northern Wastes)
+![[070-05-002.canyons-of-northern-wastes.webp]](Few can survive the flood-prone canyons of the Northern Wastes)
 
 ***Golem.*** The golem resembles a proud-looking human with fine robes and an aura of sunbeams around its head. The magic that animates the golem was designed to safeguard the gate, but it has malfunctioned. The golem goes berserk (as per its Berserk trait). The golem remains in that state as long as other creatures are visible.
 
@@ -3399,7 +3399,7 @@ As they travel the wastes, Darrett and his troops establish temporary camps. The
 
 As the characters venture into the Northern Wastes, they might want to explore the following areas.
 
-[img/adventure/DSotDQ/071-map-5.01-kalaman-and-northern-wastes.webp](Map 5.1: kalaman and northern wastes)[img/adventure/DSotDQ/072-map-5.01-kalaman-and-northern-wastes-player.webp](Player Version)
+![[071-map-5.01-kalaman-and-northern-wastes.webp]](Map 5.1: kalaman and northern wastes)![[072-map-5.01-kalaman-and-northern-wastes-player.webp]](Player Version)
 ### A: Wrecker's Edge
 
 After crossing Kalaman Bay, the ships carrying the characters and their allies arrive near Wrecker's Edge (location A on map 5.1). As the ships drop anchor near a rocky coast, read the following text:
@@ -3435,7 +3435,7 @@ Dalamar approaches the characters soon after they defeat the elementals or Kalam
 
 #### Dalamar
 
-[img/adventure/DSotDQ/073-05-003.dalamar.webp](Dalamar provides a glimpse of lost, ancient ruins)
+![[073-05-003.dalamar.webp]](Dalamar provides a glimpse of lost, ancient ruins)
 
 An ambitious elf magic-user, Dalamar (neutral elf **mage**) has an insatiable thirst for knowledge. This often puts him at odds with other Silvanesti mages, whose conservative methods wear on his patience.
 
@@ -3537,7 +3537,7 @@ Ishvern and the **sea elves** use the **scout** stat block with the following ch
 
 #### Ishvern Stargazer
 
-[img/adventure/DSotDQ/074-05-004.ishvern.webp](Ishvern)
+![[074-05-004.ishvern.webp]](Ishvern)
 
 Ishvern (neutral good, **sea elf scout**), the de facto leader of the Dimernesti group in their priest's absence, is pious, curious, and insightful. Having survived in the deadliest depths of the Turbidus Ocean for over a century, he knows better than to venture into mysterious places unprepared. He isn't eager to risk his companions' lives without the priest Yearkal's guidance. However, Ishvern fears Yearkal might be lost forever. If others might aid him in fulfilling her spiritual mission, he's eager for their help.
 
@@ -3570,7 +3570,7 @@ The shrine has the following features:
 
 The following locations are keyed to map 5.2.
 
-[img/adventure/DSotDQ/075-map-5.02-blue-phoenix-shrine.webp](Map 5.2: blue phoenix shrine)[img/adventure/DSotDQ/076-map-5.02-blue-phoenix-shrine-player.webp](Player Version)
+![[075-map-5.02-blue-phoenix-shrine.webp]](Map 5.2: blue phoenix shrine)![[076-map-5.02-blue-phoenix-shrine-player.webp]](Player Version)
 #### C1: Shrine Entrance
 
 The shrine's entrance is carved in the escarpment of the ravine. Once the characters reach the entrance, read the following text:
@@ -3702,7 +3702,7 @@ The ruin has the following features:
 
 The following locations are keyed to map 5.3.
 
-[img/adventure/DSotDQ/077-map-5.03-sunward-fortress.webp](Map 5.3: sunward fortress)[img/adventure/DSotDQ/078-map-5.03-sunward-fortress-player.webp](Player Version)
+![[077-map-5.03-sunward-fortress.webp]](Map 5.3: sunward fortress)![[078-map-5.03-sunward-fortress-player.webp]](Player Version)
 #### D1: Entry Chamber
 
 >>A ramp of packed clay descends from the surface through a gap in the ancient stone wall. It emerges into a chamber thick with dust and old air. Atop a low dais to the north stands an altar carved with candle sconces, a shallow basin, and stylized flames. To the south, a spiral stairwell winds downward. To the east, an archway leads to another chamber.
@@ -3766,7 +3766,7 @@ If the characters don't heal Rone, a **slaad tadpole** emerges 1 hour after the 
 
 The creature is a **red slaad** covered in five **slaad tadpoles**. These monsters attack as soon as they spot the characters. A character who succeeds on a DC 16 Intelligence (Arcana) check recognizes the monsters as slaadi, denizens of the plane of Limbo.
 
-[img/adventure/DSotDQ/079-05-005.red-slaad-covered-tadpoles.webp](A red slaad covered in slaad tadpoles)
+![[079-05-005.red-slaad-covered-tadpoles.webp]](A red slaad covered in slaad tadpoles)
 
 Hidden in the shadows south of the chasm is the mutated draconian Virruza (see below). He doesn't attack until someone tries to cross the chasm.
 
@@ -3819,7 +3819,7 @@ Exposure to Shadowfell magic has caused the upper levels of Wakenreth to deterio
 
 The ancient door here opens into area E1.
 
-[img/adventure/DSotDQ/080-map-5.04-wakenreth.webp](Map 5.4: wakenreth)[img/adventure/DSotDQ/081-map-5.04-wakenreth-player.webp](Player Version)
+![[080-map-5.04-wakenreth.webp]](Map 5.4: wakenreth)![[081-map-5.04-wakenreth-player.webp]](Player Version)
 #### Wakenreth Features
 
 The mystical tower has the following features:
@@ -3964,7 +3964,7 @@ The leader of a dwarf family and an enthusiast of gnomish engineering, Grasha we
 - **Bond** "I'll protect my family—their today and their tomorrow."
 - **Flaw** "Dangerous? My plans aren't dangerous—you just need to know where to stand."
 
-[img/adventure/DSotDQ/082-05-006.grasha.webp](Grasha)
+![[082-05-006.grasha.webp]](Grasha)
 
 #### An Honest Mistake
 
@@ -4003,7 +4003,7 @@ The cave is carved from igneous rock. Its entrance sports a cavernous 40-foot-hi
 
 The following locations are keyed to map 5.5.
 
-[img/adventure/DSotDQ/083-map-5.05-bluemaw-cave.webp](Map 5.5: bluemaw cave)[img/adventure/DSotDQ/084-map-5.05-bluemaw-cave-player.webp](Player Version)
+![[083-map-5.05-bluemaw-cave.webp]](Map 5.5: bluemaw cave)![[084-map-5.05-bluemaw-cave-player.webp]](Player Version)
 #### F1: Crystal Cave
 
 >>Blue crystal formations line the walls and floors of this cavern, so dense in places that they look engulfed in ice. The crystals glow sedately with a dim light.
@@ -4060,7 +4060,7 @@ Clystran (neutral good, human **scout**) is being pursued by five **giant spider
 
 After the spiders are defeated, Clystran proves friendly—and tremendously excited to meet strangers in the Northern Wastes.
 
-[img/adventure/DSotDQ/085-05-007.clystran.webp](Clystran)
+![[085-05-007.clystran.webp]](Clystran)
 
 #### Clystran
 
@@ -4088,7 +4088,7 @@ So long as the characters aren't hostile to Clystran, he wants to know all about
 
 Most structures in Heart's Hollow are carved out of the wall of a deep crater. Patchwork fabrics scavenged from the wastes decorate each home, and lanterns hang in every window. Detail the unique community of Heart's Hollow however you please, including the following locations and landmarks (appearing on map 5.6):
 
-[img/adventure/DSotDQ/086-map-5.06-hearts-hollow.webp](Map 5.6: hearts hollow)[img/adventure/DSotDQ/087-map-5.06-hearts-hollow-player.webp](Player Version)
+![[086-map-5.06-hearts-hollow.webp]](Map 5.6: hearts hollow)![[087-map-5.06-hearts-hollow-player.webp]](Player Version)
 - **Breakwater Landing** Breakwater Landing serves as the town square and bartering place. A slate column marked with chalk serves as a community message board.
 - **End's Odds** Run by Grandit "End" Pike (neutral good, hill dwarf **commoner**), End's Odds sells "slightly used" goods and equipment found in the wastes.
 - **The Fort** Secrecy is Heart's Hollow's greatest defense, but the town also maintains the Fort, a communal warehouse and armory. Should danger arise, the locals arm themselves here.
@@ -4169,7 +4169,7 @@ It's difficult to infiltrate Camp Carrionclay. Here are some ways the characters
 
 The following locations are keyed to map 5.7.
 
-[img/adventure/DSotDQ/088-map-5.07-camp-carrionclay.webp](Map 5.7: camp carrionclay)[img/adventure/DSotDQ/089-map-5.07-camp-carrionclay-player.webp](Player Version)
+![[088-map-5.07-camp-carrionclay.webp]](Map 5.7: camp carrionclay)![[089-map-5.07-camp-carrionclay-player.webp]](Player Version)
 #### I1: Wooden Bridge and Lake
 
 >>A wooden bridge crosses the marshy lake, which reeks with decay. The bridge ends at the camp's gate.
@@ -4324,7 +4324,7 @@ The battlefield, depicted on map 5.8, has the following features:
 - **Dragonnel Pens** A large cage encloses four spacious dragonnel pens and an equipment area. Its ceilings are 15 feet high.
 - **Fray** The 15-foot-wide area marked by the design at the edge of the map represents areas from which danger might appear.
 
-[img/adventure/DSotDQ/090-map-5.08-attack-on-winds-end.webp](Map 5.8: attack on winds end)[img/adventure/DSotDQ/091-map-5.08-attack-on-winds-end-player.webp](Player Version)
+![[090-map-5.08-attack-on-winds-end.webp]](Map 5.8: attack on winds end)![[091-map-5.08-attack-on-winds-end-player.webp]](Player Version)
 #### Wind's End Battlefield Events
 
 During each round of this encounter, roll on the Wind's End Battlefield Events table on initiative count 0. Also consider rolling on the table if a character enters the Fray or otherwise tries to leave the battlefield.
@@ -4347,13 +4347,13 @@ The characters entering the passage in Wind's End concludes this chapter and mak
 
 The characters will discover what dangers lie beyond this passage in *chapter 6*.
 
-[img/adventure/DSotDQ/092-05-008.dragon-army-blockade.webp](The Dragon Army blocks the path leading to the City of Lost Names)
+![[092-05-008.dragon-army-blockade.webp]](The Dragon Army blocks the path leading to the City of Lost Names)
 ---
 # Chapter 6: City of Lost Names
 
 The goal of the Red Dragon Army's invasion is not only conquering Kalaman, but also obtaining a weapon to aid it in conquering all of Solamnia. A contingent of the Dragon Army's forces seeks to restore the ancient magic of the City of Lost Names, raising it as a devastating, flying battle platform. With these forces go Lord Soth, who—following whispers from the Dragon Queen—seeks to raise an army of Undead dragons from the draconic graveyard beneath the city. While the characters' allies distract the enemy forces outside the ruined city, the characters infiltrate the City of Lost Names to discover the Dragon Army's plots and foil them.
 
-[img/adventure/DSotDQ/093-06-001.chapter-splash.webp](The City of Lost Names has known centuries of peace, but now the Dragon Army claims its streets and skies)
+![[093-06-001.chapter-splash.webp]](The City of Lost Names has known centuries of peace, but now the Dragon Army claims its streets and skies)
 
 ## Running This Chapter
 
@@ -4415,7 +4415,7 @@ The tunnels of the Path of Memories have the following features:
 
 The following locations are keyed to map 6.1.
 
-[img/adventure/DSotDQ/094-map-6.01-path-of-memories.webp](Map 6.1: path of memories)[img/adventure/DSotDQ/095-map-6.01-path-of-memories-player.webp](Player Version)
+![[094-map-6.01-path-of-memories.webp]](Map 6.1: path of memories)![[095-map-6.01-path-of-memories-player.webp]](Player Version)
 #### M1: Hall of Betrayal
 
 >>As you approach a fork in the tunnel, the walls burst into green flame that rushes toward you. Spectral dragon heads erupt from the flames, and the corridor fills with furious, hissed words.
@@ -4519,7 +4519,7 @@ If attacked, Demelin uses her robes to cast the *dimension door* spell, retreati
 
 ### Demelin
 
-[img/adventure/DSotDQ/096-06-002.demelin.webp](Demelin)
+![[096-06-002.demelin.webp]](Demelin)
 
 Demelin (neutral, elf **archmage**) is hundreds of years old, one of a handful of Silvanesti elves old enough to have lived through the Cataclysm. She commonly wears a bone mask that resembles a skull, and her red robes serve as a *cape of the mountebank*. Prior to the destruction of the world, Demelin was a prominent member of the Mages of High Sorcery, the high wizard of Onyari, and—along with the Kingpriest of Istar—one of the magic-users responsible for raising the city into the heavens. When the city fell, Demelin learned a lesson in hubris. The dispassionate mage has since dwelled in the city's ruins, guarding the city to ensure it never takes to the skies again.
 
@@ -4602,7 +4602,7 @@ Characters who aren't taking the test are generally unaware of what's transpirin
 
 ### Running the Test
 
-[img/adventure/DSotDQ/097-06-003.test-high-sorcery.webp](To conduct the Test of High Sorcery, the mage Demelin conjures a vision of Onyari's fall)
+![[097-06-003.test-high-sorcery.webp]](To conduct the Test of High Sorcery, the mage Demelin conjures a vision of Onyari's fall)
 
 When a test-taking character is ready to begin the test, Demelin instructs them to move to the center of the room. Read or paraphrase the following text, addressing the test-taking character alone:
 
@@ -4683,7 +4683,7 @@ Rookledust encourages the characters to find the Dragon Army's leaders within th
 
 The City of Lost Names lies in a ruin-filled crater. The northwestern district punctured a subterranean aquifer in its crash, flooding its streets, while fire raged through homes in the southwestern district. The western pleasure gardens have become an untamed jungle where descendants of the city's monstrous menageries hunt amid vine-choked streets. Meanwhile, the eastern blocks lie propped against the crater rim, the whole district tilted at an angle.
 
-[img/adventure/DSotDQ/098-map-6.02-city-of-last-names.webp](Map 6.2: city of lost names)[img/adventure/DSotDQ/099-map-6.02-city-of-last-names-player.webp](Player Version)
+![[098-map-6.02-city-of-last-names.webp]](Map 6.2: city of lost names)![[099-map-6.02-city-of-last-names-player.webp]](Player Version)
 ### Making a Plan
 
 Thanks to the party's initial vantage point on the rim of the crater and the information they learned from Demelin, the characters easily get a general sense of the city's layout. Provide them with a sense of the city's layout, informed by map 6.2. They can spot the Temple of Paladine across the crater, a glistening dome in the flooded northwestern district, along with the three points of interest listed in the "Dragon Army Activity" section.
@@ -4793,7 +4793,7 @@ The interior of the occupied mansion has the following features:
 
 The following locations are keyed to map 6.3.
 
-[img/adventure/DSotDQ/100-map-6.03-occupied-mansion.webp](Map 6.3: occupied mansion)[img/adventure/DSotDQ/101-map-6.03-occupied-mansion-player.webp](Player Version)
+![[100-map-6.03-occupied-mansion.webp]](Map 6.3: occupied mansion)![[101-map-6.03-occupied-mansion-player.webp]](Player Version)
 #### O1: Exterior
 
 >>At the end of a row of ruins stands a partially intact manor. Most of the manor's east side has collapsed, but the rest of the house has been cleared and made serviceable. In the southeast corner, an attached carriage house stands next to the front entrance.
@@ -4878,7 +4878,7 @@ The mansion's staircase connects this small hallway to area O4 on the ground flo
 >>This bedroom is well preserved, with a four-poster bed, a desk, and a small chest. A round turret to the southeast—with glass intact in its windows—provides a panoramic view of the neighborhood's wreckage. A door leads to a room to the east, and another door opens to the hallway to the north.
 >>
 
-[img/adventure/DSotDQ/102-06-004.captain-hask.webp](Captain Hask)
+![[102-06-004.captain-hask.webp]](Captain Hask)
 
 Captain Hask, an **aurak draconian** (see *appendix B*), is writing reports at the desk. Hask knows all the soldiers in his unit, and the characters can convince Hask they're Dragon Army soldiers only with a successful DC 22 Charisma (Deception) check. If Hask believes he's being tricked, he stands and attacks while calling for the soldiers in area O11, who arrive after 1 round. Hask is a devout servant of the Dragon Queen and fights to the death.
 
@@ -4930,7 +4930,7 @@ The area in and around the Temple of Paladine has the following features:
 
 The following locations are keyed to map 6.4.
 
-[img/adventure/DSotDQ/103-map-6.04-temple-of-paladine.webp](Map 6.4: temple of paladine)[img/adventure/DSotDQ/104-map-6.04-temple-of-paladine-player.webp](Player Version)
+![[103-map-6.04-temple-of-paladine.webp]](Map 6.4: temple of paladine)![[104-map-6.04-temple-of-paladine-player.webp]](Player Version)
 #### P1: Causeway
 
 As characters near the temple's grounds, read or paraphrase the following:
@@ -4951,7 +4951,7 @@ The neutral **treant** Duskwalker stands motionless amid trees whose branches be
 
 Unless a character openly displays a symbol of a god of nature—like Chislev, Habbakuk, or Zeboim—or is otherwise clearly a servant of nature, Duskwalker uses their Animate Trees action to ambush the characters, then follows the trees into battle. During combat, Duskwalker slowly bellows, "Each defiler you send to my gardens meets the same end. Begone!" A character being attacked by a tree notices a dead Dragon Army soldier amid its branches.
 
-[img/adventure/DSotDQ/105-06-005.duskwalker.webp](Duskwalker)
+![[105-06-005.duskwalker.webp]](Duskwalker)
 
 ***Talking with Duskwalker.*** A character can convince the treant to negotiate by succeeding on a DC 20 Charisma (Persuasion) check as an action or by revealing a symbol of a god of nature. If convinced to talk, Duskwalker reveals the following information:
 
@@ -5009,7 +5009,7 @@ This apartment once housed the temple's resident priest. A character who looks u
 
 The altar here bears the symbol of Paladine, while the sculptures depict him in his draconic form. A cleric of Paladine or a character who succeeds on a DC 12 Intelligence (Religion) check recognizes the symbol.
 
-[img/adventure/DSotDQ/106-06-006.dragonlance-restored.webp](By Paladine's might, a dragonlance is restored)
+![[106-06-006.dragonlance-restored.webp]](By Paladine's might, a dragonlance is restored)
 
 ***Restoring the Lance.*** As each character enters this area, they gain the distinct impression the dragon sculptures are watching them. Good-aligned characters feel suffused with a warm sense of righteousness. If a character approaches the altar, a column of dim light rises from it.
 
@@ -5052,7 +5052,7 @@ The areas inside the Threshold of the Heavens have the following features:
 
 The following locations are keyed to map 6.5.
 
-[img/adventure/DSotDQ/107-map-6.05-threshold-of-the-heavens.webp](Map 6.5: threshold of the heavens)[img/adventure/DSotDQ/108-map-6.05-threshold-of-the-heavens-player.webp](Player Version)
+![[107-map-6.05-threshold-of-the-heavens.webp]](Map 6.5: threshold of the heavens)![[108-map-6.05-threshold-of-the-heavens-player.webp]](Player Version)
 #### T1: Plaza
 
 Once characters reach the floating island of the Threshold of the Heavens, read the following:
@@ -5167,7 +5167,7 @@ Lohezet might make good on his word to leave, or he might ambush the characters 
 
 #### T10: Bridge
 
-[img/adventure/DSotDQ/109-06-007.belephaion-true-form.webp](At the Threshold of the Heavens, Belephaion reveals his true form)
+![[109-06-007.belephaion-true-form.webp]](At the Threshold of the Heavens, Belephaion reveals his true form)
 
 >>Enormous windows fill the walls of this room, granting a breathtaking view of the City of Lost Names. Lowered walkways line three walls like orchestra pits, while a dais in the center holds a bejeweled throne whose back is carved like the rays of the sun. Seated on the throne is a human man dressed in crimson robes and wearing a crown bearing the Dragon Queen's symbol.
 >>
@@ -5214,7 +5214,7 @@ The Threshold of the Heavens and the island it stands on are beginning to crumbl
 
 Characters who try to use the *flying citadel helm* can make a DC 10 Intelligence (Arcana) check. If they succeed, they realize it'd take several hours to attune to it and regain control of the city—and the tower isn't going to survive that long.
 
-[img/adventure/DSotDQ/110-06-008.draconian-wilhelm-scream.webp](A draconian fails to escape the City of Lost Names)
+![[110-06-008.draconian-wilhelm-scream.webp]](A draconian fails to escape the City of Lost Names)
 
 ### Soth's Ascent
 
@@ -5284,7 +5284,7 @@ After escaping the City of Lost Names, the characters advance to 10th level. *Ch
 
 The Red Dragon Army has failed to raise the City of Lost Names into the heavens. The characters have deprived the Dragon Army of its city-sized battle platform, but as the smoke clears, a citadel flies free of the ruins, its course set for Kalaman.
 
-[img/adventure/DSotDQ/111-07-001.chapter-splash.webp](With its flying citadel looming overhead, the Dragon Army prepares to lay siege to the city of Kalaman)
+![[111-07-001.chapter-splash.webp]](With its flying citadel looming overhead, the Dragon Army prepares to lay siege to the city of Kalaman)
 
 ## Running This Chapter
 
@@ -5322,7 +5322,7 @@ After the characters see the flying citadel, Darrett seeks them out. If they hav
 
 Darrett encourages the characters to rest, then set off for the coast as soon as they're ready. If **Clystran** (see chapter 5) is with Darrett's troops, he can guide them, hastening the characters' journey.
 
-[img/adventure/DSotDQ/112-07-002.darrett-highwater.webp](Darrett Highwater Wearing Solamnic Armor)
+![[112-07-002.darrett-highwater.webp]](Darrett Highwater Wearing Solamnic Armor)
 
 ### To the Coast
 
@@ -5479,7 +5479,7 @@ The people of Kalaman face a long, anxious night waiting for the Dragon Army's a
 | 3  | Testing the Defenses (see below)                                                                                                                 |
 | 4  | Highmaster's Message (see below)                                                                                                                 |
 
-[img/adventure/DSotDQ/113-07-003.sivak-draconian.webp](A sivak draconian swoops down to attack)
+![[113-07-003.sivak-draconian.webp]](A sivak draconian swoops down to attack)
 
 #### Testing the Defenses
 
@@ -5628,7 +5628,7 @@ The battlefield includes the following features:
 - **Burnt Ground and Trees** This area has recently been blasted with flames. It still smolders, and smoke *heavily obscures* this area. The smoke disperses after 5 minutes or if exposed to wind moving at least 10 miles an hour.
 - **Fray** The 15-foot-wide area marked by the design at the edge of the map represents areas from which dangers might appear.
 
-[img/adventure/DSotDQ/114-map-7.01-assault-on-hawkers-grove.webp](Map 7.1: assault on hawkers grove)[img/adventure/DSotDQ/115-map-7.01-assault-on-hawkers-grove-player.webp](Player Version)
+![[114-map-7.01-assault-on-hawkers-grove.webp]](Map 7.1: assault on hawkers grove)![[115-map-7.01-assault-on-hawkers-grove-player.webp]](Player Version)
 #### Hawker's Grove Battlefield Events
 
 During this battle, roll on the Hawker's Grove Battlefield Events table each round on initiative count 0. Also consider rolling on the table when a red dragon is slain or if a character enters the Fray or otherwise tries to leave the battlefield.
@@ -5664,7 +5664,7 @@ As the characters near the flying citadel, they must succeed on a DC 14 group De
 
 #### Red Ruin
 
-[img/adventure/DSotDQ/116-07-004.red-ruin.webp](The Dragon Army's ace dragonnel rider, Red Ruin, soars toward her target)
+![[116-07-004.red-ruin.webp]](The Dragon Army's ace dragonnel rider, Red Ruin, soars toward her target)
 
 After the characters avoid or contend with the dragonnels, Clystran breaks away from the Dragon Army flight path he had been following, rushing the characters toward the base of the flying citadel. Read the following text as the characters approach:
 
@@ -5731,7 +5731,7 @@ Maps 7.2 and *7.3* depict the flying citadel. Unless otherwise noted, the follow
 
 The lowest levels of the flying citadel are unworked tunnels. The characters find an entrance to these depths through a fissure in the citadel's base.
 
-[img/adventure/DSotDQ/117-map-7.02-flying-citadel-sublevels.webp](Map 7.2: flying citadel sublevels)[img/adventure/DSotDQ/118-map-7.02-flying-citadel-sublevels-player.webp](Player Version)
+![[117-map-7.02-flying-citadel-sublevels.webp]](Map 7.2: flying citadel sublevels)![[118-map-7.02-flying-citadel-sublevels-player.webp]](Player Version)
 #### S1: Tunnels
 
 As Clystran departs and the characters venture into the cave tunnels, read the following:
@@ -5754,7 +5754,7 @@ The Bastion of Takhisis had countless enemies, many of whom were interred in the
 
 This chamber is a crooked seam in the rock. The passage to the east splits, with both routes connecting to area S3. One path enters area S3 through a broken crypt in that room's wall, while the other descends 15 feet and leads to a gouge in the floor of that area.
 
-[img/adventure/DSotDQ/119-07-005.leedara.webp](Leedara)
+![[119-07-005.leedara.webp]](Leedara)
 
 The elf waiting here is **Leedara** (a neutral **ghost** detailed in chapter 3) in her guise as a living Silvanesti elf. She's here to aid the characters in confounding Lord Soth's plans and imparts the following information:
 
@@ -5864,7 +5864,7 @@ The doorway to this tomb can be accessed by pushing its statue aside with a succ
 
 A *detect magic* spell reveals the mirror on the ceiling radiates an aura of necromancy. If the characters return Cithcillion's bones to the slab, the reflection in the mirror is of him as he was in life. His reflected image opens its eyes and speaks:
 
-[img/adventure/DSotDQ/120-07-006.cithcillion.webp](Cithcillion)
+![[120-07-006.cithcillion.webp]](Cithcillion)
 
 >>"I am Cithcillion of Silvanost. I came here with two dear friends, Madar and Tenadria. Do you know what's become of them?"
 >>
@@ -5910,7 +5910,7 @@ The priests' quarters (depicted on *map 7.2*) are where many of the temple's fai
 
 The corridors on this level are guarded by two **skeletal knights** (see *appendix B*). The knights guard the door to the sanctuary (area S12), and they notice anyone using the southeast stairs to area S3.
 
-[img/adventure/DSotDQ/121-07-007.lorry-wanwillow.webp](Lorry Wanwillow)
+![[121-07-007.lorry-wanwillow.webp]](Lorry Wanwillow)
 
 #### S11: Rubble and Ruin
 
@@ -6026,7 +6026,7 @@ Lord Soth's servants use this room to store junk. Most of it has no value, but t
 
 The City of Lost Names was built on a foundation of pillaged dragon bones, which gave it much of its magic. The Bastion of Takhisis (depicted on map 7.3) now carries that magic's legacy, empowered by the Mourning Flame that burns in the Mourning Sanctum at the temple's heart.
 
-[img/adventure/DSotDQ/122-map-7.03-bastion-of-takhisis.webp](Map 7.3: bastion of takhisis)[img/adventure/DSotDQ/123-map-7.03-bastion-of-takhisis-player.webp](Player Version)
+![[122-map-7.03-bastion-of-takhisis.webp]](Map 7.3: bastion of takhisis)![[123-map-7.03-bastion-of-takhisis-player.webp]](Player Version)
 #### S21: Ruined Hall
 
 When the characters enter this area, read or paraphrase the following:
@@ -6065,7 +6065,7 @@ Regardless of how Caradoc interacts with the characters, use his warnings to rei
 
 #### S23: Mourning Sanctum
 
-[img/adventure/DSotDQ/124-07-008.werstern-kern.webp](Wersten Kern loyally serves Lord Soth and stands guard over the Mourning Sanctum)
+![[124-07-008.werstern-kern.webp]](Wersten Kern loyally serves Lord Soth and stands guard over the Mourning Sanctum)
 
 >>The interior of this mighty temple has been hollowed out, its roof and interior walls reduced to rubble, creating one great chamber. At the north of the ruins stands a menacing statue of the Dragon Queen with her five snarling draconic heads. Above the statue, deteriorating stone reveals a shadowy chamber in the wall forty feet up.
 >>
@@ -6093,7 +6093,7 @@ Two **skeletal knights** (see *appendix B*) stand guard in this room.
 
 A cleric of Sargonnas or a character who succeeds on a DC 12 Intelligence (Religion) check recognizes the images on the walls represent the god Sargonnas.
 
-[img/adventure/DSotDQ/125-07-009.lord-soth-glimpse.webp](Lord Soth glimpses his past betrayals in the Mirror of Reflected Pasts)
+![[125-07-009.lord-soth-glimpse.webp]](Lord Soth glimpses his past betrayals in the Mirror of Reflected Pasts)
 
 #### S25: Lord Soth's Throne Room
 
@@ -6134,7 +6134,7 @@ Allow the characters to decide how they're going to escape the citadel. If they 
 - **Plaza** This raised, 10-foot-high plaza provides a vantage of the surrounding chaos. Stairs descend to the south.
 - **Ruins** Ruined Istarian buildings lie scattered across the area.
 
-[img/adventure/DSotDQ/126-map-7.04-flying-citadel-surface.webp](Map 7.4: flying citadel surface)[img/adventure/DSotDQ/127-map-7.04-flying-citadel-surface-player.webp](Player Version)The hundreds of Dragon Army troops outside the citadel are largely too preoccupied with their own escape to pay the characters any attention.
+![[126-map-7.04-flying-citadel-surface.webp]](Map 7.4: flying citadel surface)![[127-map-7.04-flying-citadel-surface-player.webp]](Player Version)The hundreds of Dragon Army troops outside the citadel are largely too preoccupied with their own escape to pay the characters any attention.
 
 Whatever their path, before the characters manage to escape, highlight the flying citadel's deconstruction with events from the "Scenes of Destruction" section, then proceed with the "Karavarix's Revenge" section.
 
@@ -6155,7 +6155,7 @@ Before the characters escape, they're confronted by Karavarix, the first and mos
 
 Karavarix is a chaotic evil **greater death dragon** (see *appendix B*) who hasn't been affected by the destruction of the brazier in the Mourning Sanctum (area S23). In life, she was the gold dragon Sarlamir slew during his quest to the flying city of Onyari—and Karavarix still seeks revenge. Before she attacks, she roars, "Sarlamir! I won't be driven from the skies again. I'll have my revenge on you and all humans!" Characters who explored the catacombs beneath Castle Kalaman (detailed in chapter 4) recall the name Sarlamir, the dragon he slew, and the statue in his tomb with gold dragon features. Karavarix then fights until destroyed.
 
-[img/adventure/DSotDQ/128-07-010.karavarix.webp](Karavarix)
+![[128-07-010.karavarix.webp]](Karavarix)
 
 #### Escaping the Bastion
 
@@ -6181,7 +6181,7 @@ The characters land a quarter mile from Kalaman's west wall. There is little ris
 
 ### Clash of Fallen Flames
 
-[img/adventure/DSotDQ/129-07-011.dragon-highmaster-kansaldi.webp](Dragon Highmaster Kansaldi Fire-Eyes scours the battlefield astride the red dragon Ignia)
+![[129-07-011.dragon-highmaster-kansaldi.webp]](Dragon Highmaster Kansaldi Fire-Eyes scours the battlefield astride the red dragon Ignia)
 
 When the characters start their return to Kalaman, read the following text:
 
@@ -6214,7 +6214,7 @@ The battlefield includes the following features:
 - **Citadel Rubble and Dragon Skeletons** The squares with fallen rubble or bones of dead dragons are *difficult terrain*.
 - **Fray** The 15-foot-wide area marked by the design at the edge of the map represents dozens of Dragon Army troops trying to retreat. This area and the battlefield beyond the map are *difficult terrain*. A creature that starts its turn in the Fray or that enters the Fray for the first time during a turn must succeed on a DC 16 Dexterity saving throw or take 10 (3d6) slashing damage from attacks by opportunistic foes.
 
-[img/adventure/DSotDQ/130-map-7.05-clash-of-fallen-flames.webp](Map 7.5: clash of fallen flames)[img/adventure/DSotDQ/131-map-7.05-clash-of-fallen-flames-player.webp](Player Version)
+![[130-map-7.05-clash-of-fallen-flames.webp]](Map 7.5: clash of fallen flames)![[131-map-7.05-clash-of-fallen-flames-player.webp]](Player Version)
 #### Clash of Fallen Flames Events
 
 During this encounter, on initiative count 0 each round, roll on the Clash of Fallen Flames Events table. The encounter ends when both Kansaldi and Ignia are defeated.
@@ -6408,7 +6408,7 @@ A sidekick's level should always equal the average level of the adventuring part
 
 The NPCs here can join the characters as sidekicks. Each has a background in the lands of Ansalon, but you can customize these stories as suits your campaign. You can also play these characters as heroes in *Dragonlance: Warriors of Krynn*.
 
-[img/adventure/DSotDQ/155-10-007.representation-of-krynns-moons.webp](Representation of Krynn's Three Moons)
+![[155-10-007.representation-of-krynns-moons.webp]](Representation of Krynn's Three Moons)
 
 - **Andir Valmakos**
 - **Ayik Ur**
@@ -6421,34 +6421,34 @@ The NPCs here can join the characters as sidekicks. Each has a background in the
 
 The concept art in this appendix was created to inspire writers, artists, and Dungeon Masters exploring the world of Krynn.
 
-[img/adventure/DSotDQ/168-11-002.castle-kalaman.webp]
+![[168-11-002.castle-kalaman.webp]]
 
 Much of Castle Kalaman survived the Cataclysm and was restored over generations. It is now the center of Kalaman's government and stands as a feat of ancient engineering unmatched in modern times.
 
-[img/adventure/DSotDQ/169-11-001.solamnic-city.webp]
+![[169-11-001.solamnic-city.webp]]
 
 The symbol of the Solamnic city of Kalaman captures its impregnable walls and the light of its ancient beacons.
 
 Top-Down View of the Threshold of the Heavens.
 
-[img/adventure/DSotDQ/170-11-003.top-down-threshold-of-heavens.webp][img/adventure/DSotDQ/171-11-004.ancient-istarian-structure.webp]Ancient Istarian structures still stand in the City of Lost Names. The magic that once allowed the entire city to fly still sporadically affects the ruins, causing wondrous structures—like the Threshold of the Heavens—to float in defiance of gravity.
+![[170-11-003.top-down-threshold-of-heavens.webp]]![[171-11-004.ancient-istarian-structure.webp]]Ancient Istarian structures still stand in the City of Lost Names. The magic that once allowed the entire city to fly still sporadically affects the ruins, causing wondrous structures—like the Threshold of the Heavens—to float in defiance of gravity.
 
 The Bastion of Takhisis, a temple to the ancient gods of evil, survived the fall of the City of Lost Names. Employing magical flames from the Cataclysm, servants of the Dragon Queen raised the accursed structure as the first flying citadel.
 
-[img/adventure/DSotDQ/172-11-005.bastion-of-takhisis.webp][img/adventure/DSotDQ/173-11-006.order-of-the-rose.webp]Lord Soth once carried the symbol of the Solamnic Knights of the Order of the Rose, an emblem standing for wisdom and justice. Since his downfall, Soth carries a burnt, twisted vision of this symbol, leading him to be known as the Knight of the Black Rose.
+![[172-11-005.bastion-of-takhisis.webp]]![[173-11-006.order-of-the-rose.webp]]Lord Soth once carried the symbol of the Solamnic Knights of the Order of the Rose, an emblem standing for wisdom and justice. Since his downfall, Soth carries a burnt, twisted vision of this symbol, leading him to be known as the Knight of the Black Rose.
 
-[img/adventure/DSotDQ/174-11-007.tides-from-turbidus-ocean.webp]
+![[174-11-007.tides-from-turbidus-ocean.webp]]
 
 Tides from the Turbidus Ocean frequently sweep across the Northern Wastes, drowning the region's canyons in the unpredictable, salty waters known as the Wash.
 
 Dragon Highmaster Kansaldi Fire-Eyes leads the Red Dragon Army forces assaulting Solamnia. She's a fanatical follower of the Dragon Queen who replaced her left eye with a magical gem to prove her devotion.
 
-[img/adventure/DSotDQ/175-11-008.dragon-highmaster-kansaldi.webp][img/adventure/DSotDQ/176-11-009.kender-clothing.webp]Kender often adopt functional, patchwork clothing in their travels across Krynn. Every mismatched swatch carries its own story.
+![[175-11-008.dragon-highmaster-kansaldi.webp]]![[176-11-009.kender-clothing.webp]]Kender often adopt functional, patchwork clothing in their travels across Krynn. Every mismatched swatch carries its own story.
 
-[img/adventure/DSotDQ/177-11-010.red-ruin.webp]
+![[177-11-010.red-ruin.webp]]
 
 The dragonnel rider known as Red Ruin numbers among the Red Dragon Army's most infamous leaders. Those who face her in aerial combat inevitably fall in flames.
 ---
 # Appendix E: Maps
 
-[img/adventure/DSotDQ/178-map-12.01-kalaman-northern-wastes-player.webp](Unlabeled Version)[img/adventure/DSotDQ/179-map-12.01-kalaman-northern-wastes.webp](Map: Kalaman Northern Wastes (Player Version))[img/adventure/DSotDQ/180-map-12.02-ansalon-continent.webp](Map: The Continent of Ansalon)[img/adventure/DSotDQ/181-map-12.02-ansalon-continent-player.webp](Unlabeled Version)
+![[178-map-12.01-kalaman-northern-wastes-player.webp]](Unlabeled Version)![[179-map-12.01-kalaman-northern-wastes.webp]](Map: Kalaman Northern Wastes (Player Version))![[180-map-12.02-ansalon-continent.webp]](Map: The Continent of Ansalon)![[181-map-12.02-ansalon-continent-player.webp]](Unlabeled Version)

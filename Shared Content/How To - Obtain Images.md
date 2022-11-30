@@ -13,15 +13,16 @@ Paste the folder URL per your desired content into the tool.
 | ------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | aag                 | Astrals Adventure Guide                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/AAG               |
 | ai                  | Acquisitions Incorporated                          | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/AI                |
-| al                  | Adventuers League                                  |   https://github.com/TheGiddyLimit/homebrew/tree/master/_img/AL                                                                                                    |
+| al                  | Adventuers League                                  | https://github.com/TheGiddyLimit/homebrew/tree/master/_img/AL                                         |
 | bam                 | Boo's Astral Menagerie                             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/BAM               |
 | dmg                 | Dungeon Masters Guide                              | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/DMG               |
-| dod                 | Domains of Delight                                 |       https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/DoD                                                                                                 |
+| dod                 | Domains of Delight                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/DoD               |
+| DSotDQ              | Dragonlance: Shadow of the Dragon Queen            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/bestiary/DSotDQ        |
 | egw                 | Explorer's Guide to Wildermount                    | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/EGW               |
 | erlw                | Eberron - Rising from the Last War                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/ERLW              |
 | ftd                 | Fizban's Treasury of Dragons                       | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/FTD               |
 | ggr                 | Guildmasters' Guide to Ravnica                     | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/GGR               |
-| mabjov              | Minc and Boo's Journal of Villainy                 |    https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/MaBJoV                                                                                                   | 
+| mabjov              | Minc and Boo's Journal of Villainy                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/MaBJoV            |
 | mm                  | Monster Manual                                     |                                                                                                       |
 | mot                 | Mythic Odysseys of Theros                          | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/MOT               |
 | mpmm                | Mordenkainen Presents - Monsters of the Multiverse | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/MPMM              |
@@ -31,12 +32,12 @@ Paste the folder URL per your desired content into the tool.
 | phb                 | Player's Hand Book                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/spells/PHB             |
 | phb                 | Player's Hand Book                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/languages/PHB          |
 | phb                 | Player's Hand Book                                 | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/conditionsdiseases/PHB |
-| ps-a                | Plane Shift - Amonkhet                             |   https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSA                                                                                                    |
-| ps-d                | Plane Shift - Dominaria                            |   https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSD                                                                                                    |
-| ps-i                | Plane Shift - Innistrad                            |    https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSI                                                                                                   |
-| ps-k                | Plane Shift - Kaladesh                             |    https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSK                                                                                                   |
-| ps-x                | Plane Shift - Ixalan                               |    https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSX                                                                                                   |
-| ps-z                | Plane Shift - Zendikar                             |    https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSZ                                                                                                   |
+| ps-a                | Plane Shift - Amonkhet                             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSA                    |
+| ps-d                | Plane Shift - Dominaria                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSD                    |
+| ps-i                | Plane Shift - Innistrad                            | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSI                    |
+| ps-k                | Plane Shift - Kaladesh                             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSK                    |
+| ps-x                | Plane Shift - Ixalan                               | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSX                    |
+| ps-z                | Plane Shift - Zendikar                             | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/PSZ                    |
 | rmr                 | Rick and Morty - Basic Rules                       | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/RMR               |
 | sac                 | Sage Advice Compendium                             |                                                                                                       |
 | scag                | Sword Coast Adventurers Guide                      | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/SCAG              |
@@ -47,7 +48,7 @@ Paste the folder URL per your desired content into the tool.
 | tce                 | Tasha's Cauldron of Everything                     | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/TCE               |
 | vgm                 | Volo's Guide to Monsters                           | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/VGM               |
 | vrgr                | Van Richten's Guide to Ravenloft                   | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/book/VRGR              |
-| xge                 | Xanathar's Guide to Everything                     |   https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/variantrules                                                                                                    |
+| xge                 | Xanathar's Guide to Everything                     | https://github.com/5etools-mirror-1/5etools-mirror-1.github.io/tree/master/img/variantrules           |
 
 > [!Adventures]-
 | CODE        | NAME                                                 | URL                                                                                                  |
