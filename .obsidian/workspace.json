@@ -49,14 +49,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
+                "file": "Shared Content/How To - Obtain Images.md",
                 "mode": "preview",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
+                "file": "Shared Content/How To - Obtain Images.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
+                "file": "Shared Content/How To - Obtain Images.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md"
+                "file": "Shared Content/How To - Obtain Images.md"
               }
             }
           },
@@ -187,12 +187,12 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
-  "active": "c1db67cb3f1bebce",
+  "active": "60663999c6425db3",
   "lastOpenFiles": [
     "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
+    "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
     "Tutorials/YouTube Series/TTRPG Statblocks/TTRPG Statblocks.md",
     "Tutorials/YouTube Series/Buttons/Buttons.md",
     "Tutorials/YouTube Series/Timelines/Timelines.md",
@@ -200,7 +200,6 @@
     "Tutorials/YouTube Series/Buttons/NPCs/Bob.md",
     "Tutorials/YouTube Series/Buttons/Locations/Radelaide.md",
     "z_Templates/TemplateSettlement.md",
-    "z_Templates/TemplateNPC.md",
-    "z_Templates/6_Help Notes/Chart Examples (Mermaid).md"
+    "z_Templates/TemplateNPC.md"
   ]
 }
