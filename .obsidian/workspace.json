@@ -25,8 +25,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Statblocks/TTRPG Statblocks.md",
+                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
                 "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "c1db67cb3f1bebce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -110,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
+                "file": "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
+                "file": "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md"
+                "file": "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md"
               }
             }
           },
@@ -178,11 +190,11 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "60663999c6425db3",
+  "active": "c1db67cb3f1bebce",
   "lastOpenFiles": [
+    "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
     "Tutorials/YouTube Series/TTRPG Statblocks/TTRPG Statblocks.md",
     "Tutorials/YouTube Series/Buttons/Buttons.md",
-    "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
     "Tutorials/YouTube Series/Timelines/Timelines.md",
     "==/2. Mechanics/Non-Player Characters/==Buttons.md",
     "Tutorials/YouTube Series/Buttons/NPCs/Bob.md",
