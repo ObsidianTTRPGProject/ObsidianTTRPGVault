@@ -67,8 +67,12 @@ actions:
     desc: "134"
   - name: "Melee Weapon"
     desc: "124"
-  - name: "Missile Weapon"
-    desc: "114"
+  - name: "Universal Sphere"
+    desc: "[4] (4) 40"
+  - name: "Dispel Magic"
+    desc: "[4] (4) 40"
+  - name: "Minor Healing"
+    desc: "[3] (5) 45"
 ```
 ## Example Statblock 
 This section shows how to call the statblock into our notes once you have saved the monster using the 'Save To Beastiary' option. 

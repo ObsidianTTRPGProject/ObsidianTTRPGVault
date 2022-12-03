@@ -54,9 +54,45 @@
                 "source": true
               }
             }
+          },
+          {
+            "id": "832fe5c968a8d5b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "00cac66610318dc4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "z_Templates/5_Handlebar Templates/Monster Handle Bar Template.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "36a5f1af2776ad8f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -122,7 +158,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Shared Content/How To - Obtain Images.md",
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +175,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Shared Content/How To - Obtain Images.md",
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +198,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Shared Content/How To - Obtain Images.md"
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md"
               }
             }
           },
@@ -189,17 +225,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "active": "60663999c6425db3",
+  "active": "36a5f1af2776ad8f",
   "lastOpenFiles": [
-    "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
-    "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
-    "Tutorials/YouTube Series/TTRPG Statblocks/TTRPG Statblocks.md",
-    "Tutorials/YouTube Series/Buttons/Buttons.md",
-    "Tutorials/YouTube Series/Timelines/Timelines.md",
-    "==/2. Mechanics/Non-Player Characters/==Buttons.md",
-    "Tutorials/YouTube Series/Buttons/NPCs/Bob.md",
-    "Tutorials/YouTube Series/Buttons/Locations/Radelaide.md",
-    "z_Templates/TemplateSettlement.md",
-    "z_Templates/TemplateNPC.md"
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Townsville.md",
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Transportation.md",
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Transportation old.md",
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Lookup Table.md",
+    "z_Templates/3_Dataview Templates/Template - Scratch.md",
+    "z_Templates/3_Dataview Templates/Template - Spell.md",
+    "z_Templates/3_Dataview Templates/Dataview - Travel Table.md",
+    "z_Templates/3_Dataview Templates/Dataview - Query TTRPG Statblocks.md"
   ]
 }
