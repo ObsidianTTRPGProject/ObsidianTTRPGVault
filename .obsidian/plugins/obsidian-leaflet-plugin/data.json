@@ -10576,11 +10576,11 @@
   "long": -82.98333,
   "notePreview": true,
   "layerMarkers": true,
-  "previousVersion": "5.0.4",
+  "previousVersion": "5.1.1",
   "version": {
     "major": 5,
-    "minor": 0,
-    "patch": 4
+    "minor": 1,
+    "patch": 1
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,

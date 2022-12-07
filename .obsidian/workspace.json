@@ -4,95 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "25bea2e507b0ac6a",
+        "id": "827ffc39d5199fb4",
         "type": "tabs",
         "children": [
           {
-            "id": "4c4cb28f5cb0f3b6",
+            "id": "54ec576d5cdb26cc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/Buttons/Buttons.md",
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
                 "mode": "source",
                 "source": true
               }
             }
           },
           {
-            "id": "15a9c8722204fad0",
+            "id": "b604a3ba50f6a54a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Transportation.md",
                 "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "c1db67cb3f1bebce",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "60663999c6425db3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Shared Content/How To - Obtain Images.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "832fe5c968a8d5b3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "00cac66610318dc4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "z_Templates/5_Handlebar Templates/Monster Handle Bar Template.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "36a5f1af2776ad8f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
-                "mode": "preview",
                 "source": true
               }
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -158,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -175,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -198,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md"
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md"
               }
             }
           },
@@ -223,19 +162,34 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
-  "active": "36a5f1af2776ad8f",
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-custom-frames:Open Obsidian Forum": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-leaflet-plugin:Open Leaflet Map": false
+    }
+  },
+  "active": "54ec576d5cdb26cc",
   "lastOpenFiles": [
-    "Tutorials/YouTube Series/Dataview/Lookup Table/Townsville.md",
     "Tutorials/YouTube Series/Dataview/Lookup Table/Transportation.md",
-    "Tutorials/YouTube Series/Dataview/Lookup Table/Transportation old.md",
-    "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
     "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Location.md",
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
     "Tutorials/YouTube Series/Dataview/Lookup Table/Lookup Table.md",
-    "z_Templates/3_Dataview Templates/Template - Scratch.md",
-    "z_Templates/3_Dataview Templates/Template - Spell.md",
-    "z_Templates/3_Dataview Templates/Dataview - Travel Table.md",
-    "z_Templates/3_Dataview Templates/Dataview - Query TTRPG Statblocks.md"
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Party Travel Speed/Party Travel Speed.md",
+    "Shared Content/Adventures/Baldur's Gate - Descent into Avernus.md",
+    "Icon1.png.md",
+    "Acid Ball.md",
+    "Untitled 1.md"
   ]
 }
