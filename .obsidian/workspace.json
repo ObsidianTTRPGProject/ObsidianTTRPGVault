@@ -13,21 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
-                "mode": "source",
+                "file": "README.md",
+                "mode": "preview",
                 "source": true
               }
             }
           },
           {
-            "id": "b604a3ba50f6a54a",
+            "id": "9c93f512c4381285",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "release-notes",
               "state": {
-                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Transportation.md",
-                "mode": "source",
-                "source": true
+                "currentVersion": "1.1.4"
               }
             }
           }
@@ -97,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md"
+                "file": "README.md"
               }
             }
           },
@@ -154,6 +152,14 @@
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "699910a7d626f9c8",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
               "state": {}
             }
           }
@@ -179,17 +185,17 @@
       "obsidian-leaflet-plugin:Open Leaflet Map": false
     }
   },
-  "active": "54ec576d5cdb26cc",
+  "active": "2911de48d50d504c",
   "lastOpenFiles": [
-    "Tutorials/YouTube Series/Dataview/Lookup Table/Transportation.md",
+    "Tutorials/Basic Markdown/Obsidian Markdown Formatting.md",
+    "Tutorials/Basic Markdown/Mermaid Graph Examples.md",
+    "Tutorials/Theme - ITS - Examples/Image Adjustments.md",
+    "Tutorials/Theme - ITS - Examples/Call Outs.md",
     "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
-    "Tutorials/YouTube Series/Dataview/Lookup Table/Location.md",
-    "Tutorials/YouTube Series/Dataview/Lookup Table/Example.md",
-    "Tutorials/YouTube Series/Dataview/Lookup Table/Lookup Table.md",
-    "Tutorials/YouTube Series/Dataview/Lookup Table/Party Travel Speed/Party Travel Speed.md",
-    "Shared Content/Adventures/Baldur's Gate - Descent into Avernus.md",
-    "Icon1.png.md",
-    "Acid Ball.md",
-    "Untitled 1.md"
+    "Shared Content/rules/diseases.md",
+    "Shared Content/rules/conditions.md",
+    "Shared Content/compendium/adventures/candlekeep-mysteries/07-shemshimes-bedtime-rhyme.md",
+    "Shared Content/compendium/adventures/candlekeep-mysteries/05-book-of-the-raven.md",
+    "Shared Content/compendium/adventures/candlekeep-mysteries/02-candlekeep.md"
   ]
 }

@@ -26,3 +26,8 @@ It has a base speed of `= [[Transportation]].movement[this.transportation].base`
 `= [[Current Party]].exhaustionLevel`
 
 `= [[Current Party]].hoursPerDay`
+
+```statblock
+monster: Wraith
+columns: 2
+```
