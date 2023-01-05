@@ -52,26 +52,28 @@ These call out boxes come out of the box with Obsidian.
 
 Before Call Out Boxes were built into Obsidian, we used Admonitions which provided the same functionality. These days Admonitions is largely replaced but still comes in handy occassionally. 
 
-```ad-<type> # Admonition type. See below for a list of available types.
-title:                  # Admonition title.
-collapse:               # Create a collapsible admonition.
-icon:                   # Override the icon.
-color:                  # Override the color.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-```
-
-## Example
-```ad-note
-title: Title
-icon: ra-beetle
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-```
-
 ## How Is Admonitions Still Useful?
 
-Admonitions allows you to nest Call Out Boxes and Code Blocks within it. The most common use case for this is how can you align a statblock and image together? If you combine the Admonitions capability with the ITS Theme (Or another suitable image adjustment *.css) then you can achieve the desired outcome such as below. 
+Admonitions allows you to nest Call Out Boxes and Code Blocks within it. The most common use case for this is how can you align a statblock and image together? If you combine the Admonitions capability with the ITS Theme (Or another suitable image adjustment \*.css) then you can achieve the desired outcome such as below. 
 
+### Example of it not working
+![[Eadyan Falconmoon.png|right|300]]
+```statblock
+monster: Priest
+layout: DnD 5e
+name: Eadyan Falconmoon
+image: [[Eadyan Falconmoon.png]]
+spells:
+ - name: Spellcasting
+   desc: |
+        **Spellcasting.** The priest is a 5th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). The priest has the following cleric spells prepared:
+        - Cantrips (at will): [[Light]], [[Sacred Flame]], [[Spare the Dying]]
+        - 1st level (4 slots): [[cure wounds]], [[guiding bolt]], [[sanctuary]]
+        - 2nd level (3 slots): [[lesser restoration]], [[Prayer of Healing]]
+        - 3rd level (3 slots): [[dispel magic]], [[Mass Healing Word]]
+```
+
+### Example of it working by using Admonitions and ITS Theme (|right image adjustment)
 
 ![[Eadyan Falconmoon.png|right|300]]
 ```ad-tip
