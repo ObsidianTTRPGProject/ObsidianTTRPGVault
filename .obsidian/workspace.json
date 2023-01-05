@@ -18,8 +18,33 @@
                 "source": true
               }
             }
+          },
+          {
+            "id": "50163a02046a06ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/Front Matter (YAML) and Tags/Front Matter (YAML) and Tags.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "bc3234302ee7bcfc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled 2.md",
+                "mode": "source",
+                "source": true
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -48,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Bob",
+                "query": "tag:#RoT",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +90,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md",
+                "file": "Tutorials/YouTube Series/Front Matter (YAML) and Tags/Front Matter (YAML) and Tags.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md",
+                "file": "Tutorials/YouTube Series/Front Matter (YAML) and Tags/Front Matter (YAML) and Tags.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md"
+                "file": "Tutorials/YouTube Series/Front Matter (YAML) and Tags/Front Matter (YAML) and Tags.md"
               }
             }
           },
@@ -154,12 +180,11 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -175,17 +200,17 @@
       "obsidian-leaflet-plugin:Open Leaflet Map": false
     }
   },
-  "active": "45d0624950c888e9",
+  "active": "50163a02046a06ec",
   "lastOpenFiles": [
-    "z_Templates/4_Markdown/Call Out Boxes/Call Out Boxes.md",
+    "Untitled 2.md",
+    "Tutorials/YouTube Series/Front Matter (YAML) and Tags/Front Matter (YAML) and Tags.md",
+    "Shared Content/Items/Magic Items (WOTC)/Green Dragon Mask.md",
+    "z_Templates/TemplateSettlement.md",
+    "Untitled 1.md",
+    "Untitled.md",
     "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md",
+    "z_Templates/4_Markdown/Call Out Boxes/Call Out Boxes.md",
     "Tutorials/Theme - ITS - Examples/Call Outs.md",
-    "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
-    "Inline Script.md",
-    "Shared Content/compendium/adventures/curse-of-strahd/05-chapter-3-the-village-of-barovia.md",
-    "Shared Content/compendium/adventures/curse-of-strahd/04-chapter-2-the-lands-of-barovia.md",
-    "Shared Content/compendium/adventures/curse-of-strahd/03-chapter-1-into-the-mists.md",
-    "Shared Content/compendium/adventures/candlekeep-mysteries/08-the-price-of-beauty.md",
-    "Shared Content/compendium/adventures/candlekeep-mysteries/07-shemshimes-bedtime-rhyme.md"
+    "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md"
   ]
 }

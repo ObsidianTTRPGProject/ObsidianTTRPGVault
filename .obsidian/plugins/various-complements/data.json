@@ -78,6 +78,46 @@
           "lastUpdated": 1672883413241
         }
       }
+    },
+    "CM": {
+      "CM": {
+        "frontMatter": {
+          "count": 2,
+          "lastUpdated": 1672909880022
+        }
+      }
+    },
+    "Junk": {
+      "Junk": {
+        "frontMatter": {
+          "count": 1,
+          "lastUpdated": 1672912570569
+        }
+      }
+    },
+    "goblins": {
+      "goblins": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1672912745110
+        }
+      }
+    },
+    "Bob": {
+      "Bob": {
+        "internalLink": {
+          "count": 2,
+          "lastUpdated": 1672912788149
+        }
+      }
+    },
+    "Fred": {
+      "Front Matter (YAML) and Tags": {
+        "internalLink": {
+          "count": 2,
+          "lastUpdated": 1672912806820
+        }
+      }
     }
   }
 }

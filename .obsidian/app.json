@@ -3,5 +3,6 @@
   "livePreview": false,
   "promptDelete": false,
   "attachmentFolderPath": "z_Assets",
-  "showUnsupportedFiles": true
+  "showUnsupportedFiles": true,
+  "showFrontmatter": true
 }

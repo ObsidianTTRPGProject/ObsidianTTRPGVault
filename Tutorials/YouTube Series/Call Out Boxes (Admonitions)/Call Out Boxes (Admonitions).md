@@ -1,6 +1,6 @@
 # Call Out Boxes (Admonitions)
 
-With call out boxes the easiest way to add them to your notes is to have a Template with the Call Outs. If you trigger a Template in this vault (Alt-T) and type Call Out you should see a list of Call Out Templates. 
+With call out boxes the easiest way to add them to your notes is to have a Template with the Call Outs. If you trigger a Template in this vault (Alt-T) and type Call Out you should see a list of Call Out Templates. This is the only way I add Call Out boxes to my notes. I never type the Syntax out manually and would struggle to remember the Syntax natively. 
 
 # Standard Call Out Boxes
 
@@ -50,7 +50,7 @@ These call out boxes come out of the box with Obsidian.
 
 # Admonitions
 
-Before Call Out Boxes were built into Obsidian, we used Admonitions which provided the same functionality. These days Admonitions is largely replaced but still comes in handy occassionally. 
+Before Call Out Boxes were built into Obsidian, we used Admonitions (plugin) which provided the same functionality. These days Admonitions is largely replaced but still comes in handy occassionally. 
 
 ## How Is Admonitions Still Useful?
 
