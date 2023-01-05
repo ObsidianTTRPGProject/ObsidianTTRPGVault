@@ -4,28 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "827ffc39d5199fb4",
+        "id": "d8f99b76825c6b53",
         "type": "tabs",
         "children": [
           {
-            "id": "54ec576d5cdb26cc",
+            "id": "45d0624950c888e9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md",
                 "mode": "preview",
                 "source": true
-              }
-            }
-          },
-          {
-            "id": "9c93f512c4381285",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.1.4"
               }
             }
           }
@@ -95,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md"
               }
             }
           },
@@ -185,17 +175,17 @@
       "obsidian-leaflet-plugin:Open Leaflet Map": false
     }
   },
-  "active": "2911de48d50d504c",
+  "active": "45d0624950c888e9",
   "lastOpenFiles": [
-    "Tutorials/Basic Markdown/Obsidian Markdown Formatting.md",
-    "Tutorials/Basic Markdown/Mermaid Graph Examples.md",
-    "Tutorials/Theme - ITS - Examples/Image Adjustments.md",
+    "z_Templates/4_Markdown/Call Out Boxes/Call Out Boxes.md",
+    "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md",
     "Tutorials/Theme - ITS - Examples/Call Outs.md",
-    "Tutorials/YouTube Series/Dataview/Lookup Table/Current Party.md",
-    "Shared Content/rules/diseases.md",
-    "Shared Content/rules/conditions.md",
-    "Shared Content/compendium/adventures/candlekeep-mysteries/07-shemshimes-bedtime-rhyme.md",
-    "Shared Content/compendium/adventures/candlekeep-mysteries/05-book-of-the-raven.md",
-    "Shared Content/compendium/adventures/candlekeep-mysteries/02-candlekeep.md"
+    "Tutorials/YouTube Series/Leaflet (Maps)/Leaflet (Maps).md",
+    "Inline Script.md",
+    "Shared Content/compendium/adventures/curse-of-strahd/05-chapter-3-the-village-of-barovia.md",
+    "Shared Content/compendium/adventures/curse-of-strahd/04-chapter-2-the-lands-of-barovia.md",
+    "Shared Content/compendium/adventures/curse-of-strahd/03-chapter-1-into-the-mists.md",
+    "Shared Content/compendium/adventures/candlekeep-mysteries/08-the-price-of-beauty.md",
+    "Shared Content/compendium/adventures/candlekeep-mysteries/07-shemshimes-bedtime-rhyme.md"
   ]
 }

@@ -653,6 +653,11 @@ settings:
         id: justified
         type: class-toggle
     -
+        title: Paper Shadow
+        description: Vignette / paper burn option
+        id: paper
+        type: class-toggle
+    -
         title: Center Images
         description: Center images by default
         id: imgctr
@@ -6411,6 +6416,18 @@ body :is(.markdown-source-view, .markdown-preview-view):not(.is-live-preview) .i
   margin-right: auto;
 }
 
+.is-live-preview.is-live-preview :is(img, .image-embed)[alt*=lp]:is([alt*=left], [alt*=locl]) {
+  float: left;
+  margin-right: 2%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.is-live-preview.is-live-preview :is(img, .image-embed)[alt*=lp]:is([alt*=right], [alt*=locr]) {
+  float: right;
+  margin-left: 2%;
+  margin-bottom: 0px;
+}
+
 /*Image Shapes*/
 /*Banners*/
 img[alt*=banner],
@@ -6830,12 +6847,18 @@ img[alt*=sprf] {
 }
 
 /*Hide Headings*/
-.internal-embed[alt*=no-h] .markdown-embed h1,
-.internal-embed[alt*=no-h] .markdown-embed h2,
-.internal-embed[alt*=no-h] .markdown-embed h3,
-.internal-embed[alt*=no-h] .markdown-embed h4,
-.internal-embed[alt*=no-h] .markdown-embed h5,
-.internal-embed[alt*=no-h] .markdown-embed h6 {
+.internal-embed[alt*=no-h] .markdown-embed :is(h1,
+h2,
+h3,
+h4,
+h5,
+h6),
+.internal-embed[alt*=no-h].markdown-embed :is(h1,
+h2,
+h3,
+h4,
+h5,
+h6) {
   display: none;
 }
 
@@ -6845,7 +6868,13 @@ img[alt*=sprf] {
 .internal-embed[alt*=n-h3] .markdown-embed h3,
 .internal-embed[alt*=n-h4] .markdown-embed h4,
 .internal-embed[alt*=n-h5] .markdown-embed h5,
-.internal-embed[alt*=n-h6] .markdown-embed h6 {
+.internal-embed[alt*=n-h6] .markdown-embed h6,
+.internal-embed[alt*=n-h1].markdown-embed h1,
+.internal-embed[alt*=n-h2].markdown-embed h2,
+.internal-embed[alt*=n-h3].markdown-embed h3,
+.internal-embed[alt*=n-h4].markdown-embed h4,
+.internal-embed[alt*=n-h5].markdown-embed h5,
+.internal-embed[alt*=n-h6].markdown-embed h6 {
   display: none;
 }
 
@@ -10020,6 +10049,9 @@ body {
   display: unset;
   grid-template-columns: unset;
 }
+.callout[data-callout~=cards][data-callout-metadata~=dataview] br {
+  display: block;
+}
 .callout[data-callout~=cards][data-callout-metadata~=dataview] .dataview.table-view-table {
   display: grid;
 }
@@ -10293,18 +10325,18 @@ body {
 .callout.callout[data-callout~=timeline] .callout-content {
   background-color: rgb(var(--callout-color), 0.1);
 }
-.callout.callout[data-callout~=timeline][data-callout-metadata~=t-l] :is(.callout-title, .callout-content) {
+.callout.callout[data-callout~=timeline][data-callout-metadata~=t-l] > :is(.callout-title, .callout-content) {
   border-right: 4px solid rgb(var(--callout-color));
   margin-right: var(--c-timeline);
 }
-.callout.callout[data-callout~=timeline][data-callout-metadata~=t-l] :is(.callout-title, .callout-content) > .callout-title, .callout.callout[data-callout~=timeline][data-callout-metadata~=t-l] :is(.callout-title, .callout-content) > .callout-content {
+.callout.callout[data-callout~=timeline][data-callout-metadata~=t-l] > :is(.callout-title, .callout-content) > .callout-title, .callout.callout[data-callout~=timeline][data-callout-metadata~=t-l] > :is(.callout-title, .callout-content) > .callout-content {
   box-shadow: -4px 4px 0 var(--outline, var(--background-modifier-box-shadow));
 }
-.callout.callout[data-callout~=timeline][data-callout-metadata~=t-r] :is(.callout-title, .callout-content) {
+.callout.callout[data-callout~=timeline][data-callout-metadata~=t-r] > :is(.callout-title, .callout-content) {
   border-left: 4px solid rgb(var(--callout-color));
   margin-left: var(--c-timeline);
 }
-.callout.callout[data-callout~=timeline][data-callout-metadata~=t-r] :is(.callout-title, .callout-content) > .callout-title, .callout.callout[data-callout~=timeline][data-callout-metadata~=t-r] :is(.callout-title, .callout-content) > .callout-content {
+.callout.callout[data-callout~=timeline][data-callout-metadata~=t-r] > :is(.callout-title, .callout-content) > .callout-title, .callout.callout[data-callout~=timeline][data-callout-metadata~=t-r] > :is(.callout-title, .callout-content) > .callout-content {
   box-shadow: 4px 4px 0 var(--outline, var(--background-modifier-box-shadow));
 }
 .callout.callout[data-callout~=timeline][data-callout-metadata~=t-l] > .callout-title {
@@ -11978,6 +12010,14 @@ body .fantasy-calendar-create-calendar details[open] {
   box-shadow: 0 0 10px var(--outline);
 }
 
+.fantasy-calendar.full-view .fantasy-day.day:nth-child(even) {
+  background-color: var(--td);
+}
+
+.fantasy-calendar.full-view .flag.flag {
+  padding: 2px 10px;
+}
+
 /*Plugin: File Tree Alternative*/
 .oz-folder-contents {
   border-left: 2px solid var(--lines) !important;
@@ -13494,7 +13534,20 @@ body.slp.plugin-sliding-panes-rotate-header.plugin-sliding-select-orientation-si
 }
 
 .naked-em .internal-embed:not(.image-embed):not(.media-embed) {
-  display: inline-flex;
+  display: inline;
+}
+
+.naked-em [src*="#"] .markdown-embed-title, .naked-em [src*="#"] .file-embed-title {
+  width: unset;
+  display: none;
+}
+.naked-em [src*="#"] .markdown-embed-content .markdown-preview-view {
+  display: inline;
+  width: unset;
+}
+.naked-em [src*="#"] .markdown-embed-content .markdown-preview-section div {
+  display: inline;
+  width: unset;
 }
 
 /*Fix For Embed Adjustments*/
@@ -16237,7 +16290,6 @@ body .wotc-beyond.theme-dark .HyperMD-hr-bg {
   --callout-title-padding: 10px;
   --tag-radius: 0;
   --list-indent: 20px;
-  --dialog-width: unset;
   --dialog-max-width: 50vw;
   --link-decoration: none;
   --link-decoration-hover: none;

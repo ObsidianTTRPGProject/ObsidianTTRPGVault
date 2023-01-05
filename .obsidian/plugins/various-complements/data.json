@@ -47,62 +47,6 @@
   },
   "showLogAboutPerformanceInConsole": false,
   "selectionHistoryTree": {
-    "Buttons": {
-      "Buttons": {
-        "internalLink": {
-          "count": 2,
-          "lastUpdated": 1668496277963
-        }
-      }
-    },
-    "Benefit": {
-      "Benefit": {
-        "currentFile": {
-          "count": 1,
-          "lastUpdated": 1668496230873
-        }
-      }
-    },
-    "Default New Tab Page": {
-      "Default New Tab Page": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1668497268076
-        }
-      }
-    },
-    "IMPORTANT": {
-      "IMPORTANT": {
-        "currentFile": {
-          "count": 1,
-          "lastUpdated": 1668497938921
-        }
-      }
-    },
-    "114-434.png": {
-      "114-434.png": {
-        "internalLink": {
-          "count": 2,
-          "lastUpdated": 1669287382108
-        }
-      }
-    },
-    "Statblock": {
-      "Statblock": {
-        "currentFile": {
-          "count": 1,
-          "lastUpdated": 1669287483929
-        }
-      }
-    },
-    "Example": {
-      "Example": {
-        "currentFile": {
-          "count": 1,
-          "lastUpdated": 1669287669291
-        }
-      }
-    },
     "rhinoceros": {
       "rhinoceros": {
         "frontMatter": {
@@ -116,6 +60,22 @@
         "frontMatter": {
           "count": 1,
           "lastUpdated": 1670326916478
+        }
+      }
+    },
+    "Call Outs": {
+      "Call Outs": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1672883327953
+        }
+      }
+    },
+    "Call Out Boxes": {
+      "Call Out Boxes": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1672883413241
         }
       }
     }
