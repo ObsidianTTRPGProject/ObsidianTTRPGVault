@@ -1,0 +1,1 @@
+A2.Noncompliant Wall Trivial 1 A stacked wall of books, barrels, sacks of salt and sugar, crates of preserves, casks of wine, and jugs of molasses blocks the kobolds from traveling to the west. Unfortunately, this wall was haphazardly built and is highly unstable. Hazard: Attempting to climb over the wall or remove an object from the pile risks collapse.

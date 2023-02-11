@@ -1,5 +1,4 @@
 [
-  "table-editor-obsidian",
   "obsidian-excel-to-markdown-table",
   "templater-obsidian",
   "folder-note-core",
@@ -14,5 +13,8 @@
   "dataview",
   "obsidian-regex-replace",
   "obsidian-dice-roller",
-  "obsidian-admonition"
+  "obsidian-admonition",
+  "table-editor-obsidian",
+  "omnisearch",
+  "text-extractor"
 ]

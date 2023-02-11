@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-text-expander-js",
+	"name": "Inline Scripts",
+	"version": "0.24.12",
+	"minAppVersion": "0.12.0",
+	"description": "Type text shortcuts which are then replaced with JavaScript generated text.",
+	"author": "Jonathan Heard",
+	"authorUrl": "https://github.com/jon-heard",
+	"isDesktopOnly": false
+}

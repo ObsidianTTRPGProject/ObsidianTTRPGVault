@@ -1,4 +1,5 @@
 ---
+Variable: Value
 ---
 # Formatting your notes
 
