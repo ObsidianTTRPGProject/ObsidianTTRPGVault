@@ -8,36 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "45d0624950c888e9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/YouTube Series/Call Out Boxes (Admonitions)/Call Out Boxes (Admonitions).md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "50163a02046a06ec",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/YouTube Series/Front Matter (YAML) and Tags/Front Matter (YAML) and Tags.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
             "id": "a59a060b44ad230e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/Advanced Tables/Advanced Tables.md",
+                "file": "Inline Script.md",
                 "mode": "preview",
                 "source": true
               }
@@ -66,42 +42,6 @@
             }
           },
           {
-            "id": "719020dbb55c95ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Highlights for PZO9500-18E - LTiBA.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "977b33ec229aea4a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tutorials/YouTube Series/Working with PDFs/Working with PDFs.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "242c6d60c4215e6b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Untitled 3.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
             "id": "bc3234302ee7bcfc",
             "type": "leaf",
             "state": {
@@ -111,8 +51,7 @@
               }
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -178,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Working with PDFs/Working with PDFs.md",
+                "file": "Inline Script.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +134,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Working with PDFs/Working with PDFs.md",
+                "file": "Inline Script.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -218,7 +157,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Working with PDFs/Working with PDFs.md"
+                "file": "Inline Script.md"
               }
             }
           },
@@ -268,17 +207,17 @@
       "omnisearch:Omnisearch": false
     }
   },
-  "active": "977b33ec229aea4a",
+  "active": "a59a060b44ad230e",
   "lastOpenFiles": [
-    "z_Assets/PZO9500-18E - LTiBA.pdf",
-    "Tutorials/YouTube Series/Working with PDFs/Working with PDFs.md",
+    "Icon1.png.md",
+    "Highlights for PZO9500-18E - LTiBA.md",
+    "PZO9500-18E - LTiBA.md",
+    "Untitled.md",
+    "Untitled 1.md",
+    "Untitled 2.md",
     "Untitled 3.md",
-    "z_Assets/PZO9500-22E - AFoF.pdf",
-    "z_Assets/PZO9500-20E - ToK.pdf",
-    "Tutorials/Basic Markdown/Obsidian Markdown Formatting.md",
-    "Shared Content/Pathfinder 2e/Pathfinder 2e.md",
-    "Tutorials/Basic Markdown/Mermaid Graph Examples.md",
-    "z_Templates/2_Mechanics Gallery/2_Mechanics Gallery.md",
-    "PZO9500-18E - LTiBA.md"
+    "Tutorials/YouTube Series/Working with PDFs/Working with PDFs.md",
+    "z_Assets/PZO9500-18E - LTiBA.pdf",
+    "z_Assets/PZO9500-22E - AFoF.pdf"
   ]
 }

@@ -1,7 +1,0 @@
----
-NoteType: Junk 
----
-
-#Tag1
-
-
