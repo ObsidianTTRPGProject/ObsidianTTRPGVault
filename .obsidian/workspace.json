@@ -11,11 +11,9 @@
             "id": "a59a060b44ad230e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "Inline Script.md",
-                "mode": "preview",
-                "source": true
+                "file": "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md"
               }
             }
           },
@@ -117,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Inline Script.md",
+                "file": "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -134,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Inline Script.md",
+                "file": "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -157,7 +155,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Inline Script.md"
+                "file": "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md"
               }
             }
           },
@@ -204,20 +202,21 @@
       "templater-obsidian:Templater": false,
       "obsidian-leaflet-plugin:Open Leaflet Map": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "omnisearch:Omnisearch": false
+      "omnisearch:Omnisearch": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "a59a060b44ad230e",
+  "active": "2911de48d50d504c",
   "lastOpenFiles": [
+    "Tutorials/YouTube Series/Advanced Tables/Advanced Tables.md",
+    "Inline Script.md",
+    "Tutorials/YouTube Series/Working with PDFs/Working with PDFs.md",
+    "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md",
+    "README.md",
     "Icon1.png.md",
     "Highlights for PZO9500-18E - LTiBA.md",
     "PZO9500-18E - LTiBA.md",
     "Untitled.md",
-    "Untitled 1.md",
-    "Untitled 2.md",
-    "Untitled 3.md",
-    "Tutorials/YouTube Series/Working with PDFs/Working with PDFs.md",
-    "z_Assets/PZO9500-18E - LTiBA.pdf",
-    "z_Assets/PZO9500-22E - AFoF.pdf"
+    "Untitled 1.md"
   ]
 }
