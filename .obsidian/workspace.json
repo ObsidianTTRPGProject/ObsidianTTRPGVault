@@ -11,9 +11,23 @@
             "id": "a59a060b44ad230e",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md"
+                "file": "Tutorials/YouTube Series/Dataview/Lookup Table/Lookup Table.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "10363bea0ef76188",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/Dataview/Dataview.md",
+                "mode": "preview",
+                "source": true
               }
             }
           },
@@ -49,7 +63,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -115,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md",
+                "file": "Tutorials/YouTube Series/Dataview/Dataview.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md",
+                "file": "Tutorials/YouTube Series/Dataview/Dataview.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md"
+                "file": "Tutorials/YouTube Series/Dataview/Dataview.md"
               }
             }
           },
@@ -206,17 +221,17 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "2911de48d50d504c",
+  "active": "10363bea0ef76188",
   "lastOpenFiles": [
+    "Tutorials/YouTube Series/Dataview/Lookup Table/Lookup Table.md",
+    "Tutorials/YouTube Series/Default New Tab Page/Default New Tab Page.md",
+    "Tutorials/YouTube Series/Custom Frames (Embed Websites)/Custom Frames (Embed Websites).md",
+    "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md",
     "Tutorials/YouTube Series/Advanced Tables/Advanced Tables.md",
     "Inline Script.md",
     "Tutorials/YouTube Series/Working with PDFs/Working with PDFs.md",
-    "Tutorials/YouTube Series/Sync Methods/Excalidraw - Sync Methods.md",
     "README.md",
     "Icon1.png.md",
-    "Highlights for PZO9500-18E - LTiBA.md",
-    "PZO9500-18E - LTiBA.md",
-    "Untitled.md",
-    "Untitled 1.md"
+    "Highlights for PZO9500-18E - LTiBA.md"
   ]
 }
