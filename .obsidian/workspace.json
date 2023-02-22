@@ -14,7 +14,31 @@
               "type": "markdown",
               "state": {
                 "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/TTRPG Calculator (ChatGPT).md",
-                "mode": "preview",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "ffed8f5a028d5008",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/TTRPG Calculator (ChatGPT).md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "aa70081e00f91414",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/Chat GPTs Output.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -25,13 +49,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/Untitled.md",
+                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/Chat GPTs Output.md",
                 "mode": "preview",
                 "source": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -97,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/TTRPG Calculator (ChatGPT).md",
+                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/Chat GPTs Output.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/TTRPG Calculator (ChatGPT).md",
+                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/Chat GPTs Output.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/TTRPG Calculator (ChatGPT).md"
+                "file": "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/Chat GPTs Output.md"
               }
             }
           },
@@ -200,11 +225,13 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "e585be7a87df3221",
+  "active": "aa70081e00f91414",
   "lastOpenFiles": [
-    "z_Templates.zip",
-    "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/Untitled.md",
+    "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/PF2e Travel Calculator.md",
     "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/TTRPG Calculator (ChatGPT).md",
+    "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/PF2e - DC Calculator.md",
+    "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/Chat GPTs Output.md",
+    "z_Templates.zip",
     "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/Jump Calculator.md",
     "z_Assets/Pasted image 20230222201040.png",
     "Tutorials/YouTube Series/Dataview/Dataview.md",
