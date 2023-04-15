@@ -47,35 +47,131 @@
   },
   "showLogAboutPerformanceInConsole": false,
   "selectionHistoryTree": {
-    "Rules": {
-      "Rules": {
-        "currentFile": {
+    "Getting Started": {
+      "Getting Started": {
+        "internalLink": {
           "count": 1,
-          "lastUpdated": 1674953175393
+          "lastUpdated": 1679797561229
         }
       }
     },
-    "LTiBA": {
-      "LTiBA": {
-        "currentFile": {
+    "Generate Adventure Opportunity": {
+      "Generate Adventure Opportunity": {
+        "internalLink": {
           "count": 1,
-          "lastUpdated": 1676111853247
+          "lastUpdated": 1681568205280
         }
       }
     },
-    "Calculator": {
-      "Calculator": {
-        "currentFile": {
+    "Generate Apothecary": {
+      "Generate Apothecary": {
+        "internalLink": {
           "count": 1,
-          "lastUpdated": 1677058754184
+          "lastUpdated": 1681568213799
         }
       }
     },
-    "Enabled": {
-      "Enabled": {
-        "currentFile": {
+    "Generate Armory": {
+      "Generate Armory": {
+        "internalLink": {
           "count": 1,
-          "lastUpdated": 1677058887329
+          "lastUpdated": 1681568219558
+        }
+      }
+    },
+    "Generate Dungeon Room": {
+      "Generate Dungeon Room": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568223777
+        }
+      }
+    },
+    "Generate Encounter": {
+      "Generate Encounter": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568227718
+        }
+      }
+    },
+    "Generate Fungus": {
+      "Generate Fungus": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568232677
+        }
+      }
+    },
+    "Generate General Store": {
+      "Generate General Store": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568237303
+        }
+      }
+    },
+    "Generate Inn": {
+      "Generate Inn": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568241735
+        }
+      }
+    },
+    "Generate Job Board": {
+      "Generate Job Board": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568247703
+        }
+      }
+    },
+    "Generate Pocket Search": {
+      "Generate Pocket Search": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568257138
+        }
+      }
+    },
+    "Generate Spell Book": {
+      "Generate Spell Book": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568270439
+        }
+      }
+    },
+    "Generate Weaponry": {
+      "Generate Weaponry": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568276535
+        }
+      }
+    },
+    "Generate Small Magic Shop": {
+      "Generate Small Magic Shop": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568309318
+        }
+      }
+    },
+    "PBE Games - Vehicle": {
+      "PBE Games - Vehicle": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568345525
+        }
+      }
+    },
+    "PBE Games - Magic 8 Bal": {
+      "PBE Games - Magic 8 Bal": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681568347973
         }
       }
     }

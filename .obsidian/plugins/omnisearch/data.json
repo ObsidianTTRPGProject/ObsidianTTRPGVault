@@ -1,5 +1,5 @@
 {
-  "useCache": true,
+  "useCache": false,
   "hideExcluded": false,
   "ignoreDiacritics": true,
   "indexedFileTypes": [],

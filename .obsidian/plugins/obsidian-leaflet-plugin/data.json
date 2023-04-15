@@ -6272,8 +6272,444 @@
       ]
     },
     {
+      "id": "UniqueMap1",
+      "locked": false,
+      "lastAccessed": 1678483894838,
+      "markers": [
+        {
+          "id": "ID_983868f999b8",
+          "type": "Town",
+          "loc": [
+            -0.4559252146896562,
+            1.0364915251062956
+          ],
+          "link": "Tilverton Scar",
+          "layer": "%5B%5BHighRes%20(with%20Saltmarsh)%20(Orig).jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.832444958203017,
+            0.5658999028390399
+          ],
+          "description": "",
+          "minZoom": 0,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_586a6a990a09",
+          "type": "Region",
+          "loc": [
+            -0.4262715368637987,
+            0.9653435917287039
+          ],
+          "link": "Tilverton Scar",
+          "layer": "%5B%5BHighRes%20(with%20Saltmarsh)%20(Orig).jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7753034022981904,
+            0.5290933984830665
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_0aa90a58c8b9",
+          "type": "Forest",
+          "loc": [
+            -0.3932505784791001,
+            1.1322611448741213
+          ],
+          "layer": "%5B%5BHighRes%20(with%20Saltmarsh)%20(Orig).jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": 5,
+          "maxZoom": 10,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "Tutorials/YouTube Series/Working With Maps/Working With Maps.md"
+      ]
+    },
+    {
+      "id": "Map_Josh_Town",
+      "locked": false,
+      "lastAccessed": 1678483894838,
+      "markers": [
+        {
+          "id": "ID_5b8a28092b2a",
+          "type": "default",
+          "loc": [
+            -0.016486498438309398,
+            0.033836183184688784
+          ],
+          "link": "Working With Maps#Templates",
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.672781584099443,
+            0.26378397501295037
+          ],
+          "description": "Crazy Alchemist",
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_9b288b785ba9",
+          "type": "Encounter",
+          "loc": [
+            -0.02154541015625,
+            0.027221673723541014
+          ],
+          "link": "Working with PDFs",
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5412620173379805,
+            0.3447265625
+          ],
+          "description": null,
+          "minZoom": 0,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_aa48a99b0afa",
+          "type": "default",
+          "loc": [
+            -0.02175181992907837,
+            0.02144971131895228
+          ],
+          "link": "Working with PDFs#PDF Catalogue (Requires Dataview Plugin)",
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.42649523088557545,
+            0.3480291188652539
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_484a6b7b2a9b",
+          "type": "default",
+          "loc": [
+            -0.030029296875,
+            0.022430413957916014
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.4459950270467184,
+            0.48046875
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_0bb96adbb9aa",
+          "type": "default",
+          "loc": [
+            -0.031890869140625,
+            0.025085443254791014
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.49878628918264073,
+            0.51025390625
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_697acbe91ba8",
+          "type": "default",
+          "loc": [
+            -0.0322265625,
+            0.030578804127937512
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.6080135034370487,
+            0.515625
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_baebda88e8f8",
+          "type": "default",
+          "loc": [
+            -0.035736083984375,
+            0.03057872659647071
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.608011961840505,
+            0.57177734375
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_48090949696a",
+          "type": "default",
+          "loc": [
+            -0.034576416015625,
+            0.03732286683977734
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7421090416297476,
+            0.55322265625
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_68b99889faaa",
+          "type": "default",
+          "loc": [
+            -0.030517578125,
+            0.03543092609500195
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7044906470151845,
+            0.48828125
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_79aa7a58a859",
+          "type": "default",
+          "loc": [
+            -0.025390625,
+            0.01525877713458203
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.30339782108372815,
+            0.40625
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_8b4938ba6a89",
+          "type": "default",
+          "loc": [
+            -0.02020263671875,
+            0.016662627476044925
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.3313112725333981,
+            0.3232421875
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_9bfab92aebd9",
+          "type": "default",
+          "loc": [
+            -0.031219482421875,
+            0.017028802629791014
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.3385921144253592,
+            0.49951171875
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_0abb2ad9fbb9",
+          "type": "default",
+          "loc": [
+            -0.027008056640625,
+            0.015167242292083985
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.30157778848726213,
+            0.43212890625
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_6bf939886b59",
+          "type": "default",
+          "loc": [
+            -0.0235595703125,
+            0.01510618924395703
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.30036384050120385,
+            0.376953125
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_aaaa29b87af9",
+          "type": "Town",
+          "loc": [
+            -0.02114760270882619,
+            0.02788038427961797
+          ],
+          "layer": "%5B%5BPasted%20image%2020230311075006.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.29432488146730723,
+            0.5133071448613457
+          ],
+          "description": "Bob sits here",
+          "minZoom": 0,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_e81b780ad81b",
+          "type": "Dungeon",
+          "loc": [
+            -0.024082372064336766,
+            0.035734793430424884
+          ],
+          "layer": "%5B%5BMap_Josh_Town.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7105325917039822,
+            0.38531795302938826
+          ],
+          "description": "Scary Dungeon",
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "Tutorials/YouTube Series/Working With Maps/Encounter Maps.md"
+      ]
+    },
+    {
+      "id": "Map_Lampoteuo",
+      "locked": false,
+      "lastAccessed": 1679869693039,
+      "markers": [
+        {
+          "id": "ID_2b488b99587b",
+          "type": "Town",
+          "loc": [
+            82.7734375,
+            83.24440986629781
+          ],
+          "layer": "%5B%5BMap%20-%20Regional%20map%20of%20Lampoteuo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": 0,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_fb39fbe96a0a",
+          "type": "Car",
+          "loc": [
+            67,
+            167.2573766712771
+          ],
+          "link": "TemplateSettlement",
+          "layer": "%5B%5BMap%20-%20Regional%20map%20of%20Lampoteuo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            10704.472106961734,
+            -5348.2484774665045
+          ],
+          "description": null,
+          "minZoom": 3,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "Tutorials/YouTube Series/Working With Maps/Regional Maps.md"
+      ]
+    },
+    {
       "id": "Faerun_Map",
-      "lastAccessed": 1665846154100,
+      "locked": true,
+      "lastAccessed": 1679869705506,
       "markers": [
         {
           "id": "ID_f8694bd8abe8",
@@ -8079,14 +8515,17 @@
           "id": "ID_1bf989ca8b5b",
           "type": "Region",
           "loc": [
-            1204.909955141877,
-            2164.4529801259623
+            1212,
+            2161.9995632234113
           ],
           "link": "II - The Plain of Standing Stones",
           "layer": "%5B%5BHighRes%20(with%20Saltmarsh)%20(Orig).jpg%5D%5D",
           "mutable": true,
           "command": false,
-          "percent": null,
+          "percent": [
+            0.29975775530933885,
+            -0.25970103599942296
+          ],
           "description": null,
           "minZoom": null,
           "maxZoom": null,
@@ -10465,19 +10904,20 @@
       "overlays": [],
       "shapes": [],
       "files": [
-        "1. World/FR/Faerun/Faerun.md"
+        "z_Templates/4_Markdown/Insert Regional Map (Leaflet).md"
       ]
     }
   ],
   "defaultMarker": {
     "type": "default",
-    "iconName": "map-marker",
-    "color": "#ea0606",
+    "iconName": "map-marker-alt",
+    "color": "#ae00ff",
     "transform": {
       "size": 6,
       "x": 0,
       "y": -2
-    }
+    },
+    "isImage": false
   },
   "markerIcons": [
     {
@@ -10537,7 +10977,7 @@
       },
       "isImage": false,
       "tags": [],
-      "minZoom": 0,
+      "minZoom": null,
       "maxZoom": null
     },
     {
@@ -10569,6 +11009,51 @@
       "tags": [],
       "minZoom": null,
       "maxZoom": null
+    },
+    {
+      "type": "Forest",
+      "iconName": "tree",
+      "color": "#0fd236",
+      "layer": false,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [],
+      "minZoom": 13,
+      "maxZoom": 0
+    },
+    {
+      "type": "Dungeon",
+      "iconName": "dungeon",
+      "color": "#000000",
+      "layer": false,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [],
+      "minZoom": null,
+      "maxZoom": null
+    },
+    {
+      "type": "Car",
+      "iconName": "car",
+      "color": "#ff0000",
+      "layer": false,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [],
+      "minZoom": 3,
+      "maxZoom": null
     }
   ],
   "color": "#dddddd",
@@ -10576,11 +11061,11 @@
   "long": -82.98333,
   "notePreview": true,
   "layerMarkers": true,
-  "previousVersion": "5.1.1",
+  "previousVersion": "5.2.6",
   "version": {
     "major": 5,
-    "minor": 1,
-    "patch": 1
+    "minor": 2,
+    "patch": 6
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,
@@ -10590,19 +11075,20 @@
   "mapViewEnabled": true,
   "mapViewParameters": {
     "darkMode": false,
-    "defaultZoom": -1,
+    "defaultZoom": 13.5,
     "distanceMultiplier": 1,
     "drawColor": "#3388ff",
     "geojson": [],
     "geojsonColor": "#3388ff",
     "gpx": [],
     "gpxColor": "#3388ff",
-    "height": "900px",
-    "image": "[[HighRes (with Saltmarsh) (Orig).jpg]]",
+    "height": "800px",
+    "image": "[[Map_Josh_Town.png]]",
     "imageOverlay": [],
     "isMapView": false,
     "layers": [
-      "[[HighRes (with Saltmarsh) (Orig).jpg]]"
+      "[[Map_Josh_Town.png]]",
+      "[[Pasted image 20230311075006.png]]"
     ],
     "linksFrom": [],
     "linksTo": [],
@@ -10611,8 +11097,8 @@
     "markerFile": [],
     "markerFolder": [],
     "markerTag": [],
-    "maxZoom": 1.5,
-    "minZoom": -1.5,
+    "maxZoom": 16,
+    "minZoom": 13.5,
     "osmLayer": true,
     "overlay": [],
     "overlayColor": "blue",
@@ -10622,21 +11108,12 @@
     "verbose": false,
     "zoomDelta": 0.5,
     "zoomFeatures": false,
-    "id": "Faerun_Map",
-    "bounds": [
-      [
-        0,
-        0
-      ],
-      [
-        1815.07,
-        2805.48
-      ]
-    ],
+    "id": "Map_Josh_Town",
     "width": "95%",
-    "lat": 907.53,
-    "long": 1402.74,
-    "unit": "miles",
+    "lock": true,
+    "lat": 50,
+    "long": 50,
+    "unit": "feet",
     "filterTag": []
   },
   "enableDraw": true,

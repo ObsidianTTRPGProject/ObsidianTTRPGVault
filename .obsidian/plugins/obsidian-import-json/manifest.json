@@ -1,0 +1,10 @@
+{
+	"id": "obsidian-import-json",
+	"name": "JSON/CSV Importer",
+	"version": "0.29.2",
+	"minAppVersion": "1.1.15",
+	"description": "This plugin imports a JSON/CSV file (or text block) and creates notes from a Handlebars template file",
+	"author": "farling42",
+	"authorUrl": "https://github.com/farling42/",
+	"isDesktopOnly": true
+}

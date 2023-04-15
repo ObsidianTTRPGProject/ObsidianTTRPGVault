@@ -1,0 +1,25 @@
+.OFCGDetails {
+    border: 1px solid #272727;
+        box-shadow: 0px 12px 0px 0px rgba(0, 0, 0, 0.37);
+        background-color: #313131;
+    padding: 0.5em 0.5em 0.5em;
+    margin: 1em;
+}
+
+.OFCGSSummary {
+    font-weight: bold;
+    margin: -0.5em -0.5em 0.5em;
+    padding: 0.5em;
+}
+
+.OFCGDetails[open] {
+    padding: 0.5em;
+}
+
+.OFCGDetails[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 0.5em;
+}
+.FCGInput>input[type="file"] {
+    display: none;
+}

@@ -17,5 +17,8 @@
   "table-editor-obsidian",
   "omnisearch",
   "text-extractor",
-  "obsidian-excalidraw-plugin"
+  "obsidian-excalidraw-plugin",
+  "obsidian-import-json",
+  "folder-note-plugin",
+  "fantasy-content-generator"
 ]
