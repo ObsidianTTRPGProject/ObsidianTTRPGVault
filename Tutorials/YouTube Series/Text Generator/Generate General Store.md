@@ -1,16 +1,37 @@
-# Spell Book Name: Grimoire of the Arcane 
+---
+PromptInfo:
+ promptId: GenSpellBook
+ name: 💰 Generate Spell Book 🪙
+ description: Generate a fantasy spell book. 
+ author: JoshP
+ tags: fantasy, ttrpg
+ version: 0.0.1
+---
 
-This spell book is made of ancient leather that feels rough and worn to the touch. The pages are yellowed and brittle, but they hold strong magical power. The cover has a sigil of a pentagram carved into it that glows a faint blue when spells are being cast from the book. The book emits a musky, mysterious smell that lingers in the air long after it's been opened.
+{{#if selection}}
+Use this Information for flavoring the Prompt:
+*Main Focus*
+{{title}} ({{type}}:
+{{#each sum}}
+- {{this}}
+{{/each}}
+{{selection}}
+*Less important things, but maybe helpful in Context*:
+{{#each children}}
+{{#if frontmatter.sum}}
+{{this.basename}}:
+{{#each frontmatter.sum}}
+- {{this}}
+{{/each}}
+{{/if}}
+{{/each}}
+Use the above information JUST FOR CONTEXT. Come up with new Ideas inspired by the things above, but do not just iterate things from above
+{{/if}}
+## prompt: Spell Book Name
+Prompt: Create a magical spell book. Please describe the book, how it looks, feels and smells. 
 
 > [!warning]
-> This book previously belonged to a powerful warlock named Zarek who was known for his dark magic and malicious intentions. It is said that he used this book to summon unholy creatures and perform curses on his enemies. Be careful when handling this book as it still holds some of Zarek's malevolent energy.
+> Provide a description of who owed this book previously. Format this section as a Obsidian.md Warning Callout. 
 
 ### Spells
-| Spell Name | Spell Level | Casting Time | Components | School |
-| --- | --- | --- | --- | --- |
-| [[Magic Missile]] | 1st Level | 1 action | V, S | Evocation |
-| [[Fireball]] | 3rd Level| 1 action| V, S, M (a tiny ball of bat guano and sulfur)|Evocation|
-|[[Invisibility]]|2nd level|1 action|V, S, M (an eyelash encased in gum arabic)|Illusion|
-|[[Giant Insect]]|4th level|1 action||Transmutation|
-|[[Animate Dead]]|3rd level   |1 minute   |V, S, M (a drop of blood, a piece of flesh,and a pinch of bone dust)|Necromancy|
-|[[Hold Person]]    |2nd level   |1 action    	|V,S,M(a small, straight piece of iron)   	|Enchantment|
+Provide a table of random spells that are written in the book. The spells should be from Dungeons and Dragons 5e.  The table should include the name of the spell,  spell level, casting time,  components and school. The spell name should be formatted like this [[spell name]]. 
