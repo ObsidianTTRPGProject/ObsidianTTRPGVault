@@ -16,7 +16,7 @@ description:
 
 #Tag2
 
-Front Matter is a vital and important element of Obsidian. 
+Front Matter is a vital and important element of Obsidian. It is defined at the top of a note and is contained within --- and ---. Check this note in edit mode to see the Front Matter. Note that it has variables defined (key, key2, key3, etc) and those variables have values. 
 
 #Tag3
 

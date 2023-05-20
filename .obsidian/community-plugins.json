@@ -1,8 +1,6 @@
 [
   "obsidian-excel-to-markdown-table",
   "templater-obsidian",
-  "folder-note-core",
-  "alx-folder-note",
   "obsidian-timelines",
   "obsidian-custom-frames",
   "various-complements",
@@ -11,14 +9,17 @@
   "obsidian-5e-statblocks",
   "initiative-tracker",
   "dataview",
-  "obsidian-regex-replace",
   "obsidian-dice-roller",
   "obsidian-admonition",
   "table-editor-obsidian",
-  "omnisearch",
-  "text-extractor",
   "obsidian-excalidraw-plugin",
   "obsidian-import-json",
   "folder-note-plugin",
-  "fantasy-content-generator"
+  "obsidian-style-settings",
+  "obsidian42-brat",
+  "gemmy_ttrpg",
+  "obsidian-text-format",
+  "image-window",
+  "fantasy-calendar",
+  "aprils-automatic-timelines"
 ]

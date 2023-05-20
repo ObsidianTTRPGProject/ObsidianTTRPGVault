@@ -166,6 +166,17 @@ html > body > div:first-child > header:first-child > div > div:first-child > div
     zoomLevel: 1,
     forceIframe: false,
     customCss: ""
+  },
+  "tasks": {
+    url: "https://tasks.google.com/embed/?origin=https://calendar.google.com&fullWidth=1",
+    displayName: "Google Tasks",
+    icon: "list-checks",
+    hideOnMobile: true,
+    addRibbonIcon: false,
+    openInCenter: false,
+    zoomLevel: 1,
+    forceIframe: false,
+    customCss: ""
   }
 };
 function getIcon(settings) {
@@ -181,19 +192,28 @@ var CustomFrame = class {
     this.settings = settings;
     this.data = data;
   }
-  create(additionalStyle = void 0, urlSuffix = void 0) {
+  create(parent, additionalStyle = void 0, urlSuffix = void 0) {
     let style = `padding: ${this.settings.padding}px;`;
     if (additionalStyle)
       style += additionalStyle;
     if (import_obsidian.Platform.isDesktopApp && !this.data.forceIframe) {
-      this.frame = document.createElement("webview");
+      let frameDoc = parent.doc;
+      this.frame = frameDoc.createElement("webview");
+      parent.appendChild(this.frame);
       this.frame.setAttribute("allowpopups", "");
       this.frame.addEventListener("dom-ready", () => {
         this.frame.setZoomFactor(this.data.zoomLevel);
         this.frame.insertCSS(this.data.customCss);
       });
+      this.frame.addEventListener("destroyed", () => {
+        if (frameDoc != parent.doc) {
+          this.frame.detach();
+          this.create(parent, additionalStyle, urlSuffix);
+        }
+      });
     } else {
-      this.frame = document.createElement("iframe");
+      this.frame = parent.doc.createElement("iframe");
+      parent.appendChild(this.frame);
       this.frame.setAttribute("sandbox", "allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation");
       this.frame.setAttribute("allow", "encrypted-media; fullscreen; oversized-images; picture-in-picture; sync-xhr; geolocation;");
       style += `transform: scale(${this.data.zoomLevel}); transform-origin: 0 0;`;
@@ -208,7 +228,6 @@ var CustomFrame = class {
       src += urlSuffix;
     }
     this.frame.setAttribute("src", src);
-    return this.frame;
   }
   refresh() {
     if (this.frame instanceof HTMLIFrameElement) {
@@ -416,24 +435,23 @@ var _CustomFrameView = class extends import_obsidian3.ItemView {
     this.data = data;
     this.name = name;
     this.frame = new CustomFrame(settings, data);
+    this.navigation = data.openInCenter;
     for (let action of _CustomFrameView.actions)
       this.addAction(action.icon, action.name, () => action.action(this));
   }
   onload() {
     this.contentEl.empty();
     this.contentEl.addClass("custom-frames-view");
-    this.contentEl.appendChild(this.frame.create());
+    this.frame.create(this.contentEl);
   }
   onPaneMenu(menu, source) {
     super.onPaneMenu(menu, source);
-    if (source == "tab-header") {
-      for (let action of _CustomFrameView.actions) {
-        menu.addItem((i) => {
-          i.setTitle(action.name);
-          i.setIcon(action.icon);
-          i.onClick(() => action.action(this));
-        });
-      }
+    for (let action of _CustomFrameView.actions) {
+      menu.addItem((i) => {
+        i.setTitle(action.name);
+        i.setIcon(action.icon);
+        i.onClick(() => action.action(this));
+      });
     }
   }
   getViewType() {
@@ -541,7 +559,7 @@ var CustomFramesPlugin = class extends import_obsidian4.Plugin {
         let urlSuffix = urlSuffixMatch && urlSuffixMatch[1].trim();
         urlSuffix || (urlSuffix = "");
         let frame = new CustomFrame(this.settings, data);
-        e.appendChild(frame.create(style, urlSuffix));
+        frame.create(e, style, urlSuffix);
       });
     });
   }

@@ -399,13 +399,284 @@ var import_obsidian6 = require("obsidian");
 // src/ui/AutoCompleteSuggest.ts
 var import_obsidian3 = require("obsidian");
 
-// src/util/strings.ts
-var regEmoji = new RegExp(
-  /[\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF]|[\uFE0E-\uFE0F]/,
-  "g"
+// src/util/collection-helper.ts
+var groupBy = (values, toKey) => values.reduce(
+  (prev, cur, _1, _2, k = toKey(cur)) => ((prev[k] || (prev[k] = [])).push(cur), prev),
+  {}
 );
+function uniq(values) {
+  return [...new Set(values)];
+}
+function uniqBy(values, fn) {
+  const m = /* @__PURE__ */ new Map();
+  values.forEach((x) => {
+    const k = fn(x);
+    if (!m.has(k)) {
+      m.set(k, x);
+    }
+  });
+  return Array.from(m.values());
+}
+function uniqWith(arr, fn) {
+  return arr.filter(
+    (element2, index) => arr.findIndex((step) => fn(element2, step)) === index
+  );
+}
+function setEquals(set1, set2) {
+  if (set1.size !== set2.size) {
+    return false;
+  }
+  return Array.from(set1).every((element2) => set2.has(element2));
+}
+function mirrorMap(collection, toValue) {
+  return collection.reduce((p, c) => ({ ...p, [toValue(c)]: toValue(c) }), {});
+}
+function max(collection, emptyValue) {
+  const select = (a, b) => a >= b ? a : b;
+  return collection.reduce(select, emptyValue);
+}
+
+// src/util/diacritics-map.ts
+var defaultDiacriticsRemovalMap = [
+  {
+    base: "A",
+    letters: "A\u24B6\uFF21\xC0\xC1\xC2\u1EA6\u1EA4\u1EAA\u1EA8\xC3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\xC4\u01DE\u1EA2\xC5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F"
+  },
+  { base: "AA", letters: "\uA732" },
+  { base: "AE", letters: "\xC6\u01FC\u01E2" },
+  { base: "AO", letters: "\uA734" },
+  { base: "AU", letters: "\uA736" },
+  { base: "AV", letters: "\uA738\uA73A" },
+  { base: "AY", letters: "\uA73C" },
+  {
+    base: "B",
+    letters: "B\u24B7\uFF22\u1E02\u1E04\u1E06\u0243\u0182\u0181"
+  },
+  {
+    base: "C",
+    letters: "C\u24B8\uFF23\u0106\u0108\u010A\u010C\xC7\u1E08\u0187\u023B\uA73E"
+  },
+  {
+    base: "D",
+    letters: "D\u24B9\uFF24\u1E0A\u010E\u1E0C\u1E10\u1E12\u1E0E\u0110\u018B\u018A\u0189\uA779\xD0"
+  },
+  { base: "DZ", letters: "\u01F1\u01C4" },
+  { base: "Dz", letters: "\u01F2\u01C5" },
+  {
+    base: "E",
+    letters: "E\u24BA\uFF25\xC8\xC9\xCA\u1EC0\u1EBE\u1EC4\u1EC2\u1EBC\u0112\u1E14\u1E16\u0114\u0116\xCB\u1EBA\u011A\u0204\u0206\u1EB8\u1EC6\u0228\u1E1C\u0118\u1E18\u1E1A\u0190\u018E"
+  },
+  { base: "F", letters: "F\u24BB\uFF26\u1E1E\u0191\uA77B" },
+  {
+    base: "G",
+    letters: "G\u24BC\uFF27\u01F4\u011C\u1E20\u011E\u0120\u01E6\u0122\u01E4\u0193\uA7A0\uA77D\uA77E"
+  },
+  {
+    base: "H",
+    letters: "H\u24BD\uFF28\u0124\u1E22\u1E26\u021E\u1E24\u1E28\u1E2A\u0126\u2C67\u2C75\uA78D"
+  },
+  {
+    base: "I",
+    letters: "I\u24BE\uFF29\xCC\xCD\xCE\u0128\u012A\u012C\u0130\xCF\u1E2E\u1EC8\u01CF\u0208\u020A\u1ECA\u012E\u1E2C\u0197"
+  },
+  { base: "J", letters: "J\u24BF\uFF2A\u0134\u0248" },
+  {
+    base: "K",
+    letters: "K\u24C0\uFF2B\u1E30\u01E8\u1E32\u0136\u1E34\u0198\u2C69\uA740\uA742\uA744\uA7A2"
+  },
+  {
+    base: "L",
+    letters: "L\u24C1\uFF2C\u013F\u0139\u013D\u1E36\u1E38\u013B\u1E3C\u1E3A\u0141\u023D\u2C62\u2C60\uA748\uA746\uA780"
+  },
+  { base: "LJ", letters: "\u01C7" },
+  { base: "Lj", letters: "\u01C8" },
+  { base: "M", letters: "M\u24C2\uFF2D\u1E3E\u1E40\u1E42\u2C6E\u019C" },
+  {
+    base: "N",
+    letters: "N\u24C3\uFF2E\u01F8\u0143\xD1\u1E44\u0147\u1E46\u0145\u1E4A\u1E48\u0220\u019D\uA790\uA7A4"
+  },
+  { base: "NJ", letters: "\u01CA" },
+  { base: "Nj", letters: "\u01CB" },
+  {
+    base: "O",
+    letters: "O\u24C4\uFF2F\xD2\xD3\xD4\u1ED2\u1ED0\u1ED6\u1ED4\xD5\u1E4C\u022C\u1E4E\u014C\u1E50\u1E52\u014E\u022E\u0230\xD6\u022A\u1ECE\u0150\u01D1\u020C\u020E\u01A0\u1EDC\u1EDA\u1EE0\u1EDE\u1EE2\u1ECC\u1ED8\u01EA\u01EC\xD8\u01FE\u0186\u019F\uA74A\uA74C"
+  },
+  { base: "OI", letters: "\u01A2" },
+  { base: "OO", letters: "\uA74E" },
+  { base: "OU", letters: "\u0222" },
+  { base: "OE", letters: "\x8C\u0152" },
+  { base: "oe", letters: "\x9C\u0153" },
+  {
+    base: "P",
+    letters: "P\u24C5\uFF30\u1E54\u1E56\u01A4\u2C63\uA750\uA752\uA754"
+  },
+  { base: "Q", letters: "Q\u24C6\uFF31\uA756\uA758\u024A" },
+  {
+    base: "R",
+    letters: "R\u24C7\uFF32\u0154\u1E58\u0158\u0210\u0212\u1E5A\u1E5C\u0156\u1E5E\u024C\u2C64\uA75A\uA7A6\uA782"
+  },
+  {
+    base: "S",
+    letters: "S\u24C8\uFF33\u1E9E\u015A\u1E64\u015C\u1E60\u0160\u1E66\u1E62\u1E68\u0218\u015E\u2C7E\uA7A8\uA784"
+  },
+  {
+    base: "T",
+    letters: "T\u24C9\uFF34\u1E6A\u0164\u1E6C\u021A\u0162\u1E70\u1E6E\u0166\u01AC\u01AE\u023E\uA786"
+  },
+  { base: "TZ", letters: "\uA728" },
+  {
+    base: "U",
+    letters: "U\u24CA\uFF35\xD9\xDA\xDB\u0168\u1E78\u016A\u1E7A\u016C\xDC\u01DB\u01D7\u01D5\u01D9\u1EE6\u016E\u0170\u01D3\u0214\u0216\u01AF\u1EEA\u1EE8\u1EEE\u1EEC\u1EF0\u1EE4\u1E72\u0172\u1E76\u1E74\u0244"
+  },
+  { base: "V", letters: "V\u24CB\uFF36\u1E7C\u1E7E\u01B2\uA75E\u0245" },
+  { base: "VY", letters: "\uA760" },
+  {
+    base: "W",
+    letters: "W\u24CC\uFF37\u1E80\u1E82\u0174\u1E86\u1E84\u1E88\u2C72"
+  },
+  { base: "X", letters: "X\u24CD\uFF38\u1E8A\u1E8C" },
+  {
+    base: "Y",
+    letters: "Y\u24CE\uFF39\u1EF2\xDD\u0176\u1EF8\u0232\u1E8E\u0178\u1EF6\u1EF4\u01B3\u024E\u1EFE"
+  },
+  {
+    base: "Z",
+    letters: "Z\u24CF\uFF3A\u0179\u1E90\u017B\u017D\u1E92\u1E94\u01B5\u0224\u2C7F\u2C6B\uA762"
+  },
+  {
+    base: "a",
+    letters: "a\u24D0\uFF41\u1E9A\xE0\xE1\xE2\u1EA7\u1EA5\u1EAB\u1EA9\xE3\u0101\u0103\u1EB1\u1EAF\u1EB5\u1EB3\u0227\u01E1\xE4\u01DF\u1EA3\xE5\u01FB\u01CE\u0201\u0203\u1EA1\u1EAD\u1EB7\u1E01\u0105\u2C65\u0250"
+  },
+  { base: "aa", letters: "\uA733" },
+  { base: "ae", letters: "\xE6\u01FD\u01E3" },
+  { base: "ao", letters: "\uA735" },
+  { base: "au", letters: "\uA737" },
+  { base: "av", letters: "\uA739\uA73B" },
+  { base: "ay", letters: "\uA73D" },
+  {
+    base: "b",
+    letters: "b\u24D1\uFF42\u1E03\u1E05\u1E07\u0180\u0183\u0253"
+  },
+  {
+    base: "c",
+    letters: "c\u24D2\uFF43\u0107\u0109\u010B\u010D\xE7\u1E09\u0188\u023C\uA73F\u2184"
+  },
+  {
+    base: "d",
+    letters: "d\u24D3\uFF44\u1E0B\u010F\u1E0D\u1E11\u1E13\u1E0F\u0111\u018C\u0256\u0257\uA77A"
+  },
+  { base: "dz", letters: "\u01F3\u01C6" },
+  {
+    base: "e",
+    letters: "e\u24D4\uFF45\xE8\xE9\xEA\u1EC1\u1EBF\u1EC5\u1EC3\u1EBD\u0113\u1E15\u1E17\u0115\u0117\xEB\u1EBB\u011B\u0205\u0207\u1EB9\u1EC7\u0229\u1E1D\u0119\u1E19\u1E1B\u0247\u025B\u01DD"
+  },
+  { base: "f", letters: "f\u24D5\uFF46\u1E1F\u0192\uA77C" },
+  {
+    base: "g",
+    letters: "g\u24D6\uFF47\u01F5\u011D\u1E21\u011F\u0121\u01E7\u0123\u01E5\u0260\uA7A1\u1D79\uA77F"
+  },
+  {
+    base: "h",
+    letters: "h\u24D7\uFF48\u0125\u1E23\u1E27\u021F\u1E25\u1E29\u1E2B\u1E96\u0127\u2C68\u2C76\u0265"
+  },
+  { base: "hv", letters: "\u0195" },
+  {
+    base: "i",
+    letters: "i\u24D8\uFF49\xEC\xED\xEE\u0129\u012B\u012D\xEF\u1E2F\u1EC9\u01D0\u0209\u020B\u1ECB\u012F\u1E2D\u0268\u0131"
+  },
+  { base: "j", letters: "j\u24D9\uFF4A\u0135\u01F0\u0249" },
+  {
+    base: "k",
+    letters: "k\u24DA\uFF4B\u1E31\u01E9\u1E33\u0137\u1E35\u0199\u2C6A\uA741\uA743\uA745\uA7A3"
+  },
+  {
+    base: "l",
+    letters: "l\u24DB\uFF4C\u0140\u013A\u013E\u1E37\u1E39\u013C\u1E3D\u1E3B\u017F\u0142\u019A\u026B\u2C61\uA749\uA781\uA747"
+  },
+  { base: "lj", letters: "\u01C9" },
+  { base: "m", letters: "m\u24DC\uFF4D\u1E3F\u1E41\u1E43\u0271\u026F" },
+  {
+    base: "n",
+    letters: "n\u24DD\uFF4E\u01F9\u0144\xF1\u1E45\u0148\u1E47\u0146\u1E4B\u1E49\u019E\u0272\u0149\uA791\uA7A5"
+  },
+  { base: "nj", letters: "\u01CC" },
+  {
+    base: "o",
+    letters: "o\u24DE\uFF4F\xF2\xF3\xF4\u1ED3\u1ED1\u1ED7\u1ED5\xF5\u1E4D\u022D\u1E4F\u014D\u1E51\u1E53\u014F\u022F\u0231\xF6\u022B\u1ECF\u0151\u01D2\u020D\u020F\u01A1\u1EDD\u1EDB\u1EE1\u1EDF\u1EE3\u1ECD\u1ED9\u01EB\u01ED\xF8\u01FF\u0254\uA74B\uA74D\u0275"
+  },
+  { base: "oi", letters: "\u01A3" },
+  { base: "ou", letters: "\u0223" },
+  { base: "oo", letters: "\uA74F" },
+  {
+    base: "p",
+    letters: "p\u24DF\uFF50\u1E55\u1E57\u01A5\u1D7D\uA751\uA753\uA755"
+  },
+  { base: "q", letters: "q\u24E0\uFF51\u024B\uA757\uA759" },
+  {
+    base: "r",
+    letters: "r\u24E1\uFF52\u0155\u1E59\u0159\u0211\u0213\u1E5B\u1E5D\u0157\u1E5F\u024D\u027D\uA75B\uA7A7\uA783"
+  },
+  {
+    base: "s",
+    letters: "s\u24E2\uFF53\xDF\u015B\u1E65\u015D\u1E61\u0161\u1E67\u1E63\u1E69\u0219\u015F\u023F\uA7A9\uA785\u1E9B"
+  },
+  {
+    base: "t",
+    letters: "t\u24E3\uFF54\u1E6B\u1E97\u0165\u1E6D\u021B\u0163\u1E71\u1E6F\u0167\u01AD\u0288\u2C66\uA787"
+  },
+  { base: "tz", letters: "\uA729" },
+  {
+    base: "u",
+    letters: "u\u24E4\uFF55\xF9\xFA\xFB\u0169\u1E79\u016B\u1E7B\u016D\xFC\u01DC\u01D8\u01D6\u01DA\u1EE7\u016F\u0171\u01D4\u0215\u0217\u01B0\u1EEB\u1EE9\u1EEF\u1EED\u1EF1\u1EE5\u1E73\u0173\u1E77\u1E75\u0289"
+  },
+  { base: "v", letters: "v\u24E5\uFF56\u1E7D\u1E7F\u028B\uA75F\u028C" },
+  { base: "vy", letters: "\uA761" },
+  {
+    base: "w",
+    letters: "w\u24E6\uFF57\u1E81\u1E83\u0175\u1E87\u1E85\u1E98\u1E89\u2C73"
+  },
+  { base: "x", letters: "x\u24E7\uFF58\u1E8B\u1E8D" },
+  {
+    base: "y",
+    letters: "y\u24E8\uFF59\u1EF3\xFD\u0177\u1EF9\u0233\u1E8F\xFF\u1EF7\u1E99\u1EF5\u01B4\u024F\u1EFF"
+  },
+  {
+    base: "z",
+    letters: "z\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763"
+  },
+  {
+    base: "2",
+    letters: "\xB2"
+  },
+  {
+    base: "3",
+    letters: "\xB3"
+  }
+];
+var diacriticsMap = {};
+for (let i = 0; i < defaultDiacriticsRemovalMap.length; i++) {
+  const letters = defaultDiacriticsRemovalMap[i].letters;
+  for (let j = 0; j < letters.length; j++) {
+    diacriticsMap[letters[j]] = defaultDiacriticsRemovalMap[i].base;
+  }
+}
+var diacritics_map_default = diacriticsMap;
+
+// node_modules/emoji-regex/index.mjs
+var emoji_regex_default = () => {
+  return /[#*0-9]\uFE0F?\u20E3|[\xA9\xAE\u203C\u2049\u2122\u2139\u2194-\u2199\u21A9\u21AA\u231A\u231B\u2328\u23CF\u23ED-\u23EF\u23F1\u23F2\u23F8-\u23FA\u24C2\u25AA\u25AB\u25B6\u25C0\u25FB\u25FC\u25FE\u2600-\u2604\u260E\u2611\u2614\u2615\u2618\u2620\u2622\u2623\u2626\u262A\u262E\u262F\u2638-\u263A\u2640\u2642\u2648-\u2653\u265F\u2660\u2663\u2665\u2666\u2668\u267B\u267E\u267F\u2692\u2694-\u2697\u2699\u269B\u269C\u26A0\u26A7\u26AA\u26B0\u26B1\u26BD\u26BE\u26C4\u26C8\u26CF\u26D1\u26D3\u26E9\u26F0-\u26F5\u26F7\u26F8\u26FA\u2702\u2708\u2709\u270F\u2712\u2714\u2716\u271D\u2721\u2733\u2734\u2744\u2747\u2757\u2763\u27A1\u2934\u2935\u2B05-\u2B07\u2B1B\u2B1C\u2B55\u3030\u303D\u3297\u3299]\uFE0F?|[\u261D\u270C\u270D](?:\uFE0F|\uD83C[\uDFFB-\uDFFF])?|[\u270A\u270B](?:\uD83C[\uDFFB-\uDFFF])?|[\u23E9-\u23EC\u23F0\u23F3\u25FD\u2693\u26A1\u26AB\u26C5\u26CE\u26D4\u26EA\u26FD\u2705\u2728\u274C\u274E\u2753-\u2755\u2795-\u2797\u27B0\u27BF\u2B50]|\u26F9(?:\uFE0F|\uD83C[\uDFFB-\uDFFF])?(?:\u200D[\u2640\u2642]\uFE0F?)?|\u2764\uFE0F?(?:\u200D(?:\uD83D\uDD25|\uD83E\uDE79))?|\uD83C(?:[\uDC04\uDD70\uDD71\uDD7E\uDD7F\uDE02\uDE37\uDF21\uDF24-\uDF2C\uDF36\uDF7D\uDF96\uDF97\uDF99-\uDF9B\uDF9E\uDF9F\uDFCD\uDFCE\uDFD4-\uDFDF\uDFF5\uDFF7]\uFE0F?|[\uDF85\uDFC2\uDFC7](?:\uD83C[\uDFFB-\uDFFF])?|[\uDFC3\uDFC4\uDFCA](?:\uD83C[\uDFFB-\uDFFF])?(?:\u200D[\u2640\u2642]\uFE0F?)?|[\uDFCB\uDFCC](?:\uFE0F|\uD83C[\uDFFB-\uDFFF])?(?:\u200D[\u2640\u2642]\uFE0F?)?|[\uDCCF\uDD8E\uDD91-\uDD9A\uDE01\uDE1A\uDE2F\uDE32-\uDE36\uDE38-\uDE3A\uDE50\uDE51\uDF00-\uDF20\uDF2D-\uDF35\uDF37-\uDF7C\uDF7E-\uDF84\uDF86-\uDF93\uDFA0-\uDFC1\uDFC5\uDFC6\uDFC8\uDFC9\uDFCF-\uDFD3\uDFE0-\uDFF0\uDFF8-\uDFFF]|\uDDE6\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF]|\uDDE7\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF]|\uDDE8\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF]|\uDDE9\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF]|\uDDEA\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA]|\uDDEB\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7]|\uDDEC\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE]|\uDDED\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA]|\uDDEE\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9]|\uDDEF\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5]|\uDDF0\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF]|\uDDF1\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE]|\uDDF2\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF]|\uDDF3\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF]|\uDDF4\uD83C\uDDF2|\uDDF5\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE]|\uDDF6\uD83C\uDDE6|\uDDF7\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC]|\uDDF8\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF]|\uDDF9\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF]|\uDDFA\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF]|\uDDFB\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA]|\uDDFC\uD83C[\uDDEB\uDDF8]|\uDDFD\uD83C\uDDF0|\uDDFE\uD83C[\uDDEA\uDDF9]|\uDDFF\uD83C[\uDDE6\uDDF2\uDDFC]|\uDFF3\uFE0F?(?:\u200D(?:\u26A7\uFE0F?|\uD83C\uDF08))?|\uDFF4(?:\u200D\u2620\uFE0F?|\uDB40\uDC67\uDB40\uDC62\uDB40(?:\uDC65\uDB40\uDC6E\uDB40\uDC67|\uDC73\uDB40\uDC63\uDB40\uDC74|\uDC77\uDB40\uDC6C\uDB40\uDC73)\uDB40\uDC7F)?)|\uD83D(?:[\uDC08\uDC26](?:\u200D\u2B1B)?|[\uDC3F\uDCFD\uDD49\uDD4A\uDD6F\uDD70\uDD73\uDD76-\uDD79\uDD87\uDD8A-\uDD8D\uDDA5\uDDA8\uDDB1\uDDB2\uDDBC\uDDC2-\uDDC4\uDDD1-\uDDD3\uDDDC-\uDDDE\uDDE1\uDDE3\uDDE8\uDDEF\uDDF3\uDDFA\uDECB\uDECD-\uDECF\uDEE0-\uDEE5\uDEE9\uDEF0\uDEF3]\uFE0F?|[\uDC42\uDC43\uDC46-\uDC50\uDC66\uDC67\uDC6B-\uDC6D\uDC72\uDC74-\uDC76\uDC78\uDC7C\uDC83\uDC85\uDC8F\uDC91\uDCAA\uDD7A\uDD95\uDD96\uDE4C\uDE4F\uDEC0\uDECC](?:\uD83C[\uDFFB-\uDFFF])?|[\uDC6E\uDC70\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6](?:\uD83C[\uDFFB-\uDFFF])?(?:\u200D[\u2640\u2642]\uFE0F?)?|[\uDD74\uDD90](?:\uFE0F|\uD83C[\uDFFB-\uDFFF])?|[\uDC00-\uDC07\uDC09-\uDC14\uDC16-\uDC25\uDC27-\uDC3A\uDC3C-\uDC3E\uDC40\uDC44\uDC45\uDC51-\uDC65\uDC6A\uDC79-\uDC7B\uDC7D-\uDC80\uDC84\uDC88-\uDC8E\uDC90\uDC92-\uDCA9\uDCAB-\uDCFC\uDCFF-\uDD3D\uDD4B-\uDD4E\uDD50-\uDD67\uDDA4\uDDFB-\uDE2D\uDE2F-\uDE34\uDE37-\uDE44\uDE48-\uDE4A\uDE80-\uDEA2\uDEA4-\uDEB3\uDEB7-\uDEBF\uDEC1-\uDEC5\uDED0-\uDED2\uDED5-\uDED7\uDEDC-\uDEDF\uDEEB\uDEEC\uDEF4-\uDEFC\uDFE0-\uDFEB\uDFF0]|\uDC15(?:\u200D\uD83E\uDDBA)?|\uDC3B(?:\u200D\u2744\uFE0F?)?|\uDC41\uFE0F?(?:\u200D\uD83D\uDDE8\uFE0F?)?|\uDC68(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:\uDC8B\u200D\uD83D)?\uDC68|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D(?:[\uDC68\uDC69]\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C(?:\uDFFB(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:\uDC8B\u200D\uD83D)?\uDC68\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFC-\uDFFF])))?|\uDFFC(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:\uDC8B\u200D\uD83D)?\uDC68\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFD-\uDFFF])))?|\uDFFD(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:\uDC8B\u200D\uD83D)?\uDC68\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])))?|\uDFFE(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:\uDC8B\u200D\uD83D)?\uDC68\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFD\uDFFF])))?|\uDFFF(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:\uDC8B\u200D\uD83D)?\uDC68\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFE])))?))?|\uDC69(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:\uDC8B\u200D\uD83D)?[\uDC68\uDC69]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D(?:[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?|\uDC69\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?))|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C(?:\uDFFB(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:[\uDC68\uDC69]|\uDC8B\u200D\uD83D[\uDC68\uDC69])\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D[\uDC68\uDC69]\uD83C[\uDFFC-\uDFFF])))?|\uDFFC(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:[\uDC68\uDC69]|\uDC8B\u200D\uD83D[\uDC68\uDC69])\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D[\uDC68\uDC69]\uD83C[\uDFFB\uDFFD-\uDFFF])))?|\uDFFD(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:[\uDC68\uDC69]|\uDC8B\u200D\uD83D[\uDC68\uDC69])\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D[\uDC68\uDC69]\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])))?|\uDFFE(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:[\uDC68\uDC69]|\uDC8B\u200D\uD83D[\uDC68\uDC69])\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D[\uDC68\uDC69]\uD83C[\uDFFB-\uDFFD\uDFFF])))?|\uDFFF(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D\uD83D(?:[\uDC68\uDC69]|\uDC8B\u200D\uD83D[\uDC68\uDC69])\uD83C[\uDFFB-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83D[\uDC68\uDC69]\uD83C[\uDFFB-\uDFFE])))?))?|\uDC6F(?:\u200D[\u2640\u2642]\uFE0F?)?|\uDD75(?:\uFE0F|\uD83C[\uDFFB-\uDFFF])?(?:\u200D[\u2640\u2642]\uFE0F?)?|\uDE2E(?:\u200D\uD83D\uDCA8)?|\uDE35(?:\u200D\uD83D\uDCAB)?|\uDE36(?:\u200D\uD83C\uDF2B\uFE0F?)?)|\uD83E(?:[\uDD0C\uDD0F\uDD18-\uDD1F\uDD30-\uDD34\uDD36\uDD77\uDDB5\uDDB6\uDDBB\uDDD2\uDDD3\uDDD5\uDEC3-\uDEC5\uDEF0\uDEF2-\uDEF8](?:\uD83C[\uDFFB-\uDFFF])?|[\uDD26\uDD35\uDD37-\uDD39\uDD3D\uDD3E\uDDB8\uDDB9\uDDCD-\uDDCF\uDDD4\uDDD6-\uDDDD](?:\uD83C[\uDFFB-\uDFFF])?(?:\u200D[\u2640\u2642]\uFE0F?)?|[\uDDDE\uDDDF](?:\u200D[\u2640\u2642]\uFE0F?)?|[\uDD0D\uDD0E\uDD10-\uDD17\uDD20-\uDD25\uDD27-\uDD2F\uDD3A\uDD3F-\uDD45\uDD47-\uDD76\uDD78-\uDDB4\uDDB7\uDDBA\uDDBC-\uDDCC\uDDD0\uDDE0-\uDDFF\uDE70-\uDE7C\uDE80-\uDE88\uDE90-\uDEBD\uDEBF-\uDEC2\uDECE-\uDEDB\uDEE0-\uDEE8]|\uDD3C(?:\u200D[\u2640\u2642]\uFE0F?|\uD83C[\uDFFB-\uDFFF])?|\uDDD1(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\uD83C[\uDF3E\uDF73\uDF7C\uDF84\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83E\uDDD1))|\uD83C(?:\uDFFB(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D(?:\uD83D\uDC8B\u200D)?\uD83E\uDDD1\uD83C[\uDFFC-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF84\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83E\uDDD1\uD83C[\uDFFB-\uDFFF])))?|\uDFFC(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D(?:\uD83D\uDC8B\u200D)?\uD83E\uDDD1\uD83C[\uDFFB\uDFFD-\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF84\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83E\uDDD1\uD83C[\uDFFB-\uDFFF])))?|\uDFFD(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D(?:\uD83D\uDC8B\u200D)?\uD83E\uDDD1\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF84\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83E\uDDD1\uD83C[\uDFFB-\uDFFF])))?|\uDFFE(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D(?:\uD83D\uDC8B\u200D)?\uD83E\uDDD1\uD83C[\uDFFB-\uDFFD\uDFFF]|\uD83C[\uDF3E\uDF73\uDF7C\uDF84\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83E\uDDD1\uD83C[\uDFFB-\uDFFF])))?|\uDFFF(?:\u200D(?:[\u2695\u2696\u2708]\uFE0F?|\u2764\uFE0F?\u200D(?:\uD83D\uDC8B\u200D)?\uD83E\uDDD1\uD83C[\uDFFB-\uDFFE]|\uD83C[\uDF3E\uDF73\uDF7C\uDF84\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E(?:[\uDDAF-\uDDB3\uDDBC\uDDBD]|\uDD1D\u200D\uD83E\uDDD1\uD83C[\uDFFB-\uDFFF])))?))?|\uDEF1(?:\uD83C(?:\uDFFB(?:\u200D\uD83E\uDEF2\uD83C[\uDFFC-\uDFFF])?|\uDFFC(?:\u200D\uD83E\uDEF2\uD83C[\uDFFB\uDFFD-\uDFFF])?|\uDFFD(?:\u200D\uD83E\uDEF2\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])?|\uDFFE(?:\u200D\uD83E\uDEF2\uD83C[\uDFFB-\uDFFD\uDFFF])?|\uDFFF(?:\u200D\uD83E\uDEF2\uD83C[\uDFFB-\uDFFE])?))?)/g;
+};
+
+// src/util/strings.ts
+var regEmoji = new RegExp(` *(${emoji_regex_default().source}) *`, "g");
+function equalsAsLiterals(one, another) {
+  return one.replace(/[ \t]/g, "") === another.replace(/[ \t]/g, "");
+}
+function allNumbersOrFewSymbols(text2) {
+  return Boolean(text2.match(/^[0-9_\-.]+$/));
+}
 function allAlphabets(text2) {
-  return Boolean(text2.match(/^[a-zA-Z0-9_-]+$/));
+  return Boolean(text2.match(/^[a-zA-Z0-9_\-]+$/));
 }
 function excludeEmoji(text2) {
   return text2.replace(regEmoji, "");
@@ -413,17 +684,44 @@ function excludeEmoji(text2) {
 function encodeSpace(text2) {
   return text2.replace(/ /g, "%20");
 }
+function normalizeAccentsDiacritics(text2) {
+  return text2.replace(/[^\u0000-\u007E]/g, (x) => {
+    var _a;
+    return (_a = diacritics_map_default[x]) != null ? _a : x;
+  });
+}
+function synonymAliases(value, option) {
+  let synonym = value;
+  if (option.emoji) {
+    synonym = excludeEmoji(synonym);
+  }
+  if (option.accentsDiacritics) {
+    synonym = normalizeAccentsDiacritics(synonym);
+  }
+  return synonym === value ? [] : [synonym];
+}
 function lowerIncludes(one, other) {
   return one.toLowerCase().includes(other.toLowerCase());
 }
 function lowerStartsWith(a, b) {
   return a.toLowerCase().startsWith(b.toLowerCase());
 }
+function lowerFuzzy(a, b) {
+  return microFuzzy(a.toLowerCase(), b.toLowerCase());
+}
+function lowerFuzzyStarsWith(a, b) {
+  const aLower = a.toLowerCase();
+  const bLower = b.toLowerCase();
+  return aLower[0] !== bLower[0] ? false : microFuzzy(aLower, bLower);
+}
 function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 function startsSmallLetterOnlyFirst(str) {
   return Boolean(str.match(/^[A-Z][^A-Z]+$/));
+}
+function smartLineBreakSplit(text2) {
+  return text2.split("\n").filter((x) => x);
 }
 function* splitRaw(text2, regexp) {
   let previousIndex = 0;
@@ -438,17 +736,67 @@ function* splitRaw(text2, regexp) {
     yield text2.slice(previousIndex, text2.length);
   }
 }
+function findCommonPrefix(strs) {
+  if (strs.length === 0) {
+    return null;
+  }
+  const min = Math.min(...strs.map((x) => x.length));
+  for (let i = 0; i < min; i++) {
+    if (uniq(strs.map((x) => x[i].toLowerCase())).length > 1) {
+      return strs[0].substring(0, i);
+    }
+  }
+  return strs[0].substring(0, min);
+}
+function microFuzzy(value, query) {
+  let i = 0;
+  let lastMatchIndex = null;
+  let isFuzzy = false;
+  for (let j = 0; j < value.length; j++) {
+    if (value[j] === query[i]) {
+      if (lastMatchIndex != null && j - lastMatchIndex > 1) {
+        isFuzzy = true;
+      }
+      lastMatchIndex = j;
+      i++;
+    }
+    if (i === query.length) {
+      return isFuzzy ? "fuzzy" : true;
+    }
+  }
+  return false;
+}
+function joinNumberWithSymbol(tokens) {
+  if (tokens.length === 0) {
+    return [];
+  }
+  let stock = tokens.shift();
+  const ret = [];
+  for (const token of tokens) {
+    if (allNumbersOrFewSymbols(token) && allNumbersOrFewSymbols(stock)) {
+      stock += token;
+    } else {
+      if (stock) {
+        ret.push(stock);
+      }
+      stock = token;
+    }
+  }
+  ret.push(stock);
+  return ret;
+}
 
 // src/tokenizer/tokenizers/DefaultTokenizer.ts
 function pickTokens(content, trimPattern) {
   return content.split(trimPattern).filter((x) => x !== "");
 }
-var TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"'.,|;*~ `]/g;
+var TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"',|;*~ `]/g;
 var DefaultTokenizer = class {
   tokenize(content, raw) {
-    return raw ? Array.from(splitRaw(content, this.getTrimPattern())).filter(
+    const tokens = raw ? Array.from(splitRaw(content, this.getTrimPattern())).filter(
       (x) => x !== " "
     ) : pickTokens(content, this.getTrimPattern());
+    return tokens.map((x) => x.replace(/\.+$/g, ""));
   }
   recursiveTokenize(content) {
     const trimIndexes = Array.from(content.matchAll(this.getTrimPattern())).sort((a, b) => a.index - b.index).map((x) => x.index);
@@ -1971,19 +2319,23 @@ var tiny_segmenter_default = TinySegmenter;
 // src/tokenizer/tokenizers/JapaneseTokenizer.ts
 var segmenter = new tiny_segmenter_default();
 function pickTokensAsJapanese(content, trimPattern) {
-  return content.split(trimPattern).filter((x) => x !== "").flatMap((x) => segmenter.segment(x));
+  return joinNumberWithSymbol(
+    content.split(trimPattern).filter((x) => x !== "").flatMap((x) => segmenter.segment(x))
+  );
 }
 var JapaneseTokenizer = class {
   tokenize(content, raw) {
     return pickTokensAsJapanese(content, raw ? / /g : this.getTrimPattern());
   }
   recursiveTokenize(content) {
-    const tokens = segmenter.segment(content).flatMap(
-      (x) => x === " " ? x : x.split(" ").map((t) => t === "" ? " " : t)
+    const tokens = joinNumberWithSymbol(
+      segmenter.segment(content).flatMap(
+        (x) => x === " " ? x : x.split(" ").map((t) => t === "" ? " " : t)
+      )
     );
     const ret = [];
     for (let i = 0; i < tokens.length; i++) {
-      if (i === 0 || tokens[i].length !== 1 || !Boolean(tokens[i].match(this.getTrimPattern()))) {
+      if (i === 0 || tokens[i].length !== 1 || tokens[i] !== " ") {
         ret.push({
           word: tokens.slice(i).join(""),
           offset: tokens.slice(0, i).join("").length
@@ -2086,7 +2438,7 @@ var ChineseTokenizer = class {
 };
 
 // src/tokenizer/tokenizer.ts
-async function createTokenizer(strategy, app) {
+async function createTokenizer(strategy, app2, settings) {
   switch (strategy.name) {
     case "default":
       return new DefaultTokenizer();
@@ -2097,13 +2449,13 @@ async function createTokenizer(strategy, app) {
     case "japanese":
       return new JapaneseTokenizer();
     case "chinese":
-      const hasCedict = await app.vault.adapter.exists("./cedict_ts.u8");
+      const hasCedict = await app2.vault.adapter.exists(settings.cedictPath);
       if (!hasCedict) {
         return Promise.reject(
-          new Error("cedict_ts.U8 doesn't exist in your vault root.")
+          new Error(`cedict_ts.u8 doesn't exist in ${settings.cedictPath}.`)
         );
       }
-      const dict = await app.vault.adapter.read("./cedict_ts.u8");
+      const dict = await app2.vault.adapter.read(settings.cedictPath);
       return ChineseTokenizer.create(dict);
   }
 }
@@ -2134,10 +2486,25 @@ TokenizeStrategy.CHINESE = new _TokenizeStrategy("chinese", 1, 2);
 // src/app-helper.ts
 var import_obsidian = require("obsidian");
 var AppHelper = class {
-  constructor(app) {
-    this.unsafeApp = app;
+  constructor(app2) {
+    this.unsafeApp = app2;
   }
-  equalsAsEditorPostion(one, other) {
+  async exists(path) {
+    return await this.unsafeApp.vault.adapter.exists(path);
+  }
+  async loadFile(path) {
+    if (!await this.exists(path)) {
+      throw Error(`The file is not found: ${path}`);
+    }
+    return this.unsafeApp.vault.adapter.read(path);
+  }
+  async loadJson(path) {
+    return JSON.parse(await this.loadFile(path));
+  }
+  async saveJson(path, data) {
+    await this.unsafeApp.vault.adapter.write(path, JSON.stringify(data));
+  }
+  equalsAsEditorPosition(one, other) {
     return one.line === other.line && one.ch === other.ch;
   }
   getAliases(file) {
@@ -2167,6 +2534,12 @@ var AppHelper = class {
       aliases,
       alias: aliases
     };
+  }
+  getBoolFrontMatter(file, key) {
+    var _a, _b;
+    return Boolean(
+      (_b = (_a = this.unsafeApp.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter) == null ? void 0 : _b[key]
+    );
   }
   getMarkdownViewInActiveLeaf() {
     if (!this.unsafeApp.workspace.getActiveViewOfType(import_obsidian.MarkdownView)) {
@@ -2211,13 +2584,14 @@ var AppHelper = class {
     return this.getCurrentLine(editor).slice(0, editor.getCursor().ch);
   }
   optimizeMarkdownLinkText(linkText) {
+    var _a;
     const activeFile = this.getActiveFile();
     if (!activeFile) {
       return null;
     }
     const path = this.linkText2Path(linkText);
     if (!path) {
-      return linkText;
+      return { displayed: linkText, link: linkText };
     }
     const file = this.getMarkdownFileByPath(path);
     if (!file) {
@@ -2227,7 +2601,13 @@ var AppHelper = class {
       file,
       activeFile.path
     );
-    return markdownLink.startsWith("[[") ? markdownLink.replace("[[", "").replace("]]", "") : markdownLink.replace("[", "").replace(/\]\(.+\)/g, "");
+    if (markdownLink.startsWith("[[")) {
+      const text2 = (_a = markdownLink.matchAll(/^\[\[(?<text>.+)]]$/g).next().value.groups) == null ? void 0 : _a.text;
+      return { displayed: text2, link: text2 };
+    } else {
+      const { displayed, link } = markdownLink.matchAll(/^\[(?<displayed>.+)]\((?<link>.+)\.md\)$/g).next().value.groups;
+      return { displayed, link };
+    }
   }
   linkText2Path(linkText) {
     var _a, _b;
@@ -2244,6 +2624,11 @@ var AppHelper = class {
     return Object.entries(this.unsafeApp.metadataCache.unresolvedLinks).flatMap(
       ([path, obj]) => Object.keys(obj).map((link) => ({ path, link }))
     );
+  }
+  getUnresolvedLinks(file) {
+    var _a;
+    const countsByLink = (_a = this.unsafeApp.metadataCache.unresolvedLinks[file.path]) != null ? _a : {};
+    return new Set(Object.keys(countsByLink));
   }
   getMarkdownFileByPath(path) {
     if (!path.endsWith(".md")) {
@@ -2307,47 +2692,20 @@ var AppHelper = class {
     }
     return !!((_c = (_b = cm5or6 == null ? void 0 : cm5or6.display) == null ? void 0 : _b.input) == null ? void 0 : _c.composing);
   }
+  isMobile() {
+    return this.unsafeApp.isMobile;
+  }
   async writeLog(log) {
     await this.unsafeApp.vault.adapter.append((0, import_obsidian.normalizePath)("log.md"), log);
   }
   get useWikiLinks() {
     return !this.unsafeApp.vault.config.useMarkdownLinks;
   }
+  get newLinkFormat() {
+    var _a;
+    return (_a = this.unsafeApp.vault.config.newLinkFormat) != null ? _a : "shortest";
+  }
 };
-
-// src/provider/CustomDictionaryWordProvider.ts
-var import_obsidian2 = require("obsidian");
-
-// src/util/collection-helper.ts
-var groupBy = (values, toKey) => values.reduce(
-  (prev, cur, _1, _2, k = toKey(cur)) => ((prev[k] || (prev[k] = [])).push(cur), prev),
-  {}
-);
-function uniq(values) {
-  return [...new Set(values)];
-}
-function uniqBy(values, fn) {
-  const m = /* @__PURE__ */ new Map();
-  values.forEach((x) => {
-    const k = fn(x);
-    if (!m.has(k)) {
-      m.set(k, x);
-    }
-  });
-  return Array.from(m.values());
-}
-function uniqWith(arr, fn) {
-  return arr.filter(
-    (element2, index) => arr.findIndex((step) => fn(element2, step)) === index
-  );
-}
-function mirrorMap(collection, toValue) {
-  return collection.reduce((p, c) => ({ ...p, [toValue(c)]: toValue(c) }), {});
-}
-function max(collection, emptyValue) {
-  const select = (a, b) => a >= b ? a : b;
-  return collection.reduce(select, emptyValue);
-}
 
 // src/model/Word.ts
 var _WordTypeMeta = class {
@@ -2414,7 +2772,7 @@ function pushWord(wordsByFirstLetter, key, word) {
   }
   wordsByFirstLetter[key].push(word);
 }
-function judge(word, query, queryStartWithUpper) {
+function judge(word, query, queryStartWithUpper, fuzzy) {
   var _a;
   if (query === "") {
     return {
@@ -2426,14 +2784,17 @@ function judge(word, query, queryStartWithUpper) {
       alias: false
     };
   }
-  if (lowerStartsWith(word.value, query)) {
+  const matcher = fuzzy ? lowerFuzzy : lowerStartsWith;
+  const matched = matcher(word.value, query);
+  if (matched) {
     if (queryStartWithUpper && word.type !== "internalLink" && word.type !== "frontMatter") {
       const c = capitalizeFirstLetter(word.value);
       return {
         word: {
           ...word,
           value: c,
-          hit: c
+          hit: c,
+          fuzzy: matched === "fuzzy"
         },
         value: c,
         alias: false
@@ -2442,21 +2803,23 @@ function judge(word, query, queryStartWithUpper) {
       return {
         word: {
           ...word,
-          hit: word.value
+          hit: word.value,
+          fuzzy: matched === "fuzzy"
         },
         value: word.value,
         alias: false
       };
     }
   }
-  const matchedAlias = (_a = word.aliases) == null ? void 0 : _a.find((a) => lowerStartsWith(a, query));
-  if (matchedAlias) {
+  const matchedAlias = (_a = word.aliases) == null ? void 0 : _a.map((a) => ({ aliases: a, matched: matcher(a, query) })).find((x) => x.matched);
+  if (matchedAlias == null ? void 0 : matchedAlias.matched) {
     return {
       word: {
         ...word,
-        hit: matchedAlias
+        hit: matchedAlias.aliases,
+        fuzzy: matchedAlias.matched === "fuzzy"
       },
-      value: matchedAlias,
+      value: matchedAlias.aliases,
       alias: true
     };
   }
@@ -2466,9 +2829,10 @@ function judge(word, query, queryStartWithUpper) {
   };
 }
 function suggestWords(indexedWords, query, maxNum, option = {}) {
-  var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+  var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q;
   const { frontMatter, selectionHistoryStorage } = option;
   const queryStartWithUpper = capitalizeFirstLetter(query) === query;
+  const fuzzy = (_a = option.fuzzy) != null ? _a : false;
   const flattenFrontMatterWords = () => {
     var _a2, _b2;
     if (frontMatter === "alias" || frontMatter === "aliases") {
@@ -2480,25 +2844,25 @@ function suggestWords(indexedWords, query, maxNum, option = {}) {
     return [];
   };
   const words = queryStartWithUpper ? frontMatter ? flattenFrontMatterWords() : [
-    ...(_a = indexedWords.currentFile[query.charAt(0)]) != null ? _a : [],
-    ...(_b = indexedWords.currentFile[query.charAt(0).toLowerCase()]) != null ? _b : [],
-    ...(_c = indexedWords.currentVault[query.charAt(0)]) != null ? _c : [],
-    ...(_d = indexedWords.currentVault[query.charAt(0).toLowerCase()]) != null ? _d : [],
-    ...(_e = indexedWords.customDictionary[query.charAt(0)]) != null ? _e : [],
-    ...(_f = indexedWords.customDictionary[query.charAt(0).toLowerCase()]) != null ? _f : [],
-    ...(_g = indexedWords.internalLink[query.charAt(0)]) != null ? _g : [],
-    ...(_h = indexedWords.internalLink[query.charAt(0).toLowerCase()]) != null ? _h : []
+    ...(_b = indexedWords.currentFile[query.charAt(0)]) != null ? _b : [],
+    ...(_c = indexedWords.currentFile[query.charAt(0).toLowerCase()]) != null ? _c : [],
+    ...(_d = indexedWords.currentVault[query.charAt(0)]) != null ? _d : [],
+    ...(_e = indexedWords.currentVault[query.charAt(0).toLowerCase()]) != null ? _e : [],
+    ...(_f = indexedWords.customDictionary[query.charAt(0)]) != null ? _f : [],
+    ...(_g = indexedWords.customDictionary[query.charAt(0).toLowerCase()]) != null ? _g : [],
+    ...(_h = indexedWords.internalLink[query.charAt(0)]) != null ? _h : [],
+    ...(_i = indexedWords.internalLink[query.charAt(0).toLowerCase()]) != null ? _i : []
   ] : frontMatter ? flattenFrontMatterWords() : [
-    ...(_i = indexedWords.currentFile[query.charAt(0)]) != null ? _i : [],
-    ...(_j = indexedWords.currentFile[query.charAt(0).toUpperCase()]) != null ? _j : [],
-    ...(_k = indexedWords.currentVault[query.charAt(0)]) != null ? _k : [],
-    ...(_l = indexedWords.currentVault[query.charAt(0).toUpperCase()]) != null ? _l : [],
-    ...(_m = indexedWords.customDictionary[query.charAt(0)]) != null ? _m : [],
-    ...(_n = indexedWords.customDictionary[query.charAt(0).toUpperCase()]) != null ? _n : [],
-    ...(_o = indexedWords.internalLink[query.charAt(0)]) != null ? _o : [],
-    ...(_p = indexedWords.internalLink[query.charAt(0).toUpperCase()]) != null ? _p : []
+    ...(_j = indexedWords.currentFile[query.charAt(0)]) != null ? _j : [],
+    ...(_k = indexedWords.currentFile[query.charAt(0).toUpperCase()]) != null ? _k : [],
+    ...(_l = indexedWords.currentVault[query.charAt(0)]) != null ? _l : [],
+    ...(_m = indexedWords.currentVault[query.charAt(0).toUpperCase()]) != null ? _m : [],
+    ...(_n = indexedWords.customDictionary[query.charAt(0)]) != null ? _n : [],
+    ...(_o = indexedWords.customDictionary[query.charAt(0).toUpperCase()]) != null ? _o : [],
+    ...(_p = indexedWords.internalLink[query.charAt(0)]) != null ? _p : [],
+    ...(_q = indexedWords.internalLink[query.charAt(0).toUpperCase()]) != null ? _q : []
   ];
-  const filteredJudgement = Array.from(words).map((x) => judge(x, query, queryStartWithUpper)).filter((x) => x.value !== void 0);
+  const filteredJudgement = Array.from(words).map((x) => judge(x, query, queryStartWithUpper, fuzzy)).filter((x) => x.value !== void 0);
   const latestUpdated = max(
     filteredJudgement.map(
       (x) => {
@@ -2511,6 +2875,9 @@ function suggestWords(indexedWords, query, maxNum, option = {}) {
   const candidate = filteredJudgement.sort((a, b) => {
     const aWord = a.word;
     const bWord = b.word;
+    if (a.word.fuzzy !== b.word.fuzzy) {
+      return a.word.fuzzy ? 1 : -1;
+    }
     const notSameWordType = aWord.type !== bWord.type;
     if (frontMatter && notSameWordType) {
       return bWord.type === "frontMatter" ? 1 : -1;
@@ -2538,7 +2905,7 @@ function suggestWords(indexedWords, query, maxNum, option = {}) {
   }).map((x) => x.word).slice(0, maxNum);
   return uniqWith(candidate, suggestionUniqPredicate);
 }
-function judgeByPartialMatch(word, query, queryStartWithUpper) {
+function judgeByPartialMatch(word, query, queryStartWithUpper, fuzzy) {
   var _a, _b;
   if (query === "") {
     return {
@@ -2547,57 +2914,80 @@ function judgeByPartialMatch(word, query, queryStartWithUpper) {
       alias: false
     };
   }
-  if (lowerStartsWith(word.value, query)) {
+  const startsWithMatcher = fuzzy ? lowerFuzzyStarsWith : lowerStartsWith;
+  const includesMatcher = fuzzy ? lowerFuzzy : lowerIncludes;
+  const startsWithMatched = startsWithMatcher(word.value, query);
+  if (startsWithMatched) {
     if (queryStartWithUpper && word.type !== "internalLink" && word.type !== "frontMatter") {
       const c = capitalizeFirstLetter(word.value);
-      return { word: { ...word, value: c, hit: c }, value: c, alias: false };
+      return {
+        word: {
+          ...word,
+          value: c,
+          hit: c,
+          fuzzy: startsWithMatched === "fuzzy"
+        },
+        value: c,
+        alias: false
+      };
     } else {
       return {
-        word: { ...word, hit: word.value },
+        word: {
+          ...word,
+          hit: word.value,
+          fuzzy: startsWithMatched === "fuzzy"
+        },
         value: word.value,
         alias: false
       };
     }
   }
-  const matchedAliasStarts = (_a = word.aliases) == null ? void 0 : _a.find(
-    (a) => lowerStartsWith(a, query)
-  );
-  if (matchedAliasStarts) {
+  const startsWithAliasMatched = (_a = word.aliases) == null ? void 0 : _a.map((a) => ({ aliases: a, matched: startsWithMatcher(a, query) })).find((x) => x.matched);
+  if (startsWithAliasMatched) {
     return {
-      word: { ...word, hit: matchedAliasStarts },
-      value: matchedAliasStarts,
+      word: {
+        ...word,
+        hit: startsWithAliasMatched.aliases,
+        fuzzy: startsWithAliasMatched.matched === "fuzzy"
+      },
+      value: startsWithAliasMatched.aliases,
       alias: true
     };
   }
-  if (lowerIncludes(word.value, query)) {
+  const includesMatched = includesMatcher(word.value, query);
+  if (includesMatched) {
     return {
-      word: { ...word, hit: word.value },
+      word: { ...word, hit: word.value, fuzzy: includesMatched === "fuzzy" },
       value: word.value,
       alias: false
     };
   }
-  const matchedAliasIncluded = (_b = word.aliases) == null ? void 0 : _b.find(
-    (a) => lowerIncludes(a, query)
-  );
+  const matchedAliasIncluded = (_b = word.aliases) == null ? void 0 : _b.map((a) => ({ aliases: a, matched: includesMatcher(a, query) })).find((x) => x.matched);
   if (matchedAliasIncluded) {
     return {
-      word: { ...word, hit: matchedAliasIncluded },
-      value: matchedAliasIncluded,
+      word: {
+        ...word,
+        hit: matchedAliasIncluded.aliases,
+        fuzzy: matchedAliasIncluded.matched === "fuzzy"
+      },
+      value: matchedAliasIncluded.aliases,
       alias: true
     };
   }
   return { word, alias: false };
 }
 function suggestWordsByPartialMatch(indexedWords, query, maxNum, option = {}) {
+  var _a;
   const { frontMatter, selectionHistoryStorage } = option;
   const queryStartWithUpper = capitalizeFirstLetter(query) === query;
+  const fuzzy = (_a = option.fuzzy) != null ? _a : false;
   const flatObjectValues = (object) => Object.values(object).flat();
   const flattenFrontMatterWords = () => {
-    var _a, _b;
+    var _a2, _b;
     if (frontMatter === "alias" || frontMatter === "aliases") {
       return [];
     }
-    if (frontMatter && ((_a = indexedWords.frontMatter) == null ? void 0 : _a[frontMatter])) {
+    if (frontMatter && ((_a2 = indexedWords.frontMatter) == null ? void 0 : _a2[frontMatter])) {
       return Object.values((_b = indexedWords.frontMatter) == null ? void 0 : _b[frontMatter]).flat();
     }
     return [];
@@ -2608,12 +2998,12 @@ function suggestWordsByPartialMatch(indexedWords, query, maxNum, option = {}) {
     ...flatObjectValues(indexedWords.customDictionary),
     ...flatObjectValues(indexedWords.internalLink)
   ];
-  const filteredJudgement = Array.from(words).map((x) => judgeByPartialMatch(x, query, queryStartWithUpper)).filter((x) => x.value !== void 0);
+  const filteredJudgement = Array.from(words).map((x) => judgeByPartialMatch(x, query, queryStartWithUpper, fuzzy)).filter((x) => x.value !== void 0);
   const latestUpdated = max(
     filteredJudgement.map(
       (x) => {
-        var _a, _b;
-        return (_b = (_a = selectionHistoryStorage == null ? void 0 : selectionHistoryStorage.getSelectionHistory(x.word)) == null ? void 0 : _a.lastUpdated) != null ? _b : 0;
+        var _a2, _b;
+        return (_b = (_a2 = selectionHistoryStorage == null ? void 0 : selectionHistoryStorage.getSelectionHistory(x.word)) == null ? void 0 : _a2.lastUpdated) != null ? _b : 0;
       }
     ),
     0
@@ -2621,6 +3011,9 @@ function suggestWordsByPartialMatch(indexedWords, query, maxNum, option = {}) {
   const candidate = filteredJudgement.sort((a, b) => {
     const aWord = a.word;
     const bWord = b.word;
+    if (a.word.fuzzy !== b.word.fuzzy) {
+      return a.word.fuzzy ? 1 : -1;
+    }
     const notSameWordType = aWord.type !== bWord.type;
     if (frontMatter && notSameWordType) {
       return bWord.type === "frontMatter" ? 1 : -1;
@@ -2654,6 +3047,9 @@ function suggestWordsByPartialMatch(indexedWords, query, maxNum, option = {}) {
   return uniqWith(candidate, suggestionUniqPredicate);
 }
 
+// src/provider/CustomDictionaryWordProvider.ts
+var import_obsidian2 = require("obsidian");
+
 // src/util/path.ts
 function basename(path, ext) {
   var _a, _b;
@@ -2667,6 +3063,7 @@ function dirname(path) {
 function isURL(path) {
   return Boolean(path.match(new RegExp("^https?://")));
 }
+var DEFAULT_HISTORIES_PATH = ".obsidian/plugins/various-complements/histories.json";
 
 // src/provider/CustomDictionaryWordProvider.ts
 function escape(value) {
@@ -2725,17 +3122,13 @@ function wordToLine(word, delimiter, dividerForDisplay) {
     delimiter.value
   );
 }
-function synonymAliases(name) {
-  const lessEmojiValue = excludeEmoji(name);
-  return name === lessEmojiValue ? [] : [lessEmojiValue];
-}
 var CustomDictionaryWordProvider = class {
-  constructor(app, appHelper) {
+  constructor(app2, appHelper) {
     this.words = [];
     this.wordByValue = {};
     this.wordsByFirstLetter = {};
     this.appHelper = appHelper;
-    this.fileSystemAdapter = app.vault.adapter;
+    this.fileSystemAdapter = app2.vault.adapter;
   }
   get editablePaths() {
     return this.paths.filter((x) => !isURL(x) && !x.endsWith(".json"));
@@ -2761,7 +3154,12 @@ var CustomDictionaryWordProvider = class {
     for (const path of this.paths) {
       try {
         const words = await this.loadWords(path, option);
-        words.forEach((x) => this.addWord(x));
+        words.forEach(
+          (x) => this.addWord(x, {
+            emoji: option.makeSynonymAboutEmoji,
+            accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+          })
+        );
       } catch (e) {
         new import_obsidian2.Notice(
           `\u26A0 Fail to load ${path} -- Various Complements Plugin -- 
@@ -2771,19 +3169,22 @@ var CustomDictionaryWordProvider = class {
       }
     }
   }
-  async addWordWithDictionary(word, dictionaryPath) {
-    this.addWord(word);
+  async addWordWithDictionary(word, dictionaryPath, synonymOption) {
+    this.addWord(word, synonymOption);
     await this.fileSystemAdapter.append(
       dictionaryPath,
       "\n" + wordToLine(word, this.delimiter, this.dividerForDisplay)
     );
   }
-  addWord(word) {
+  addWord(word, synonymOption) {
     var _a, _b;
     this.words.push(word);
     const wordWithSynonym = {
       ...word,
-      aliases: [...(_a = word.aliases) != null ? _a : [], ...synonymAliases(word.value)]
+      aliases: [
+        ...(_a = word.aliases) != null ? _a : [],
+        ...synonymAliases(word.value, synonymOption)
+      ]
     };
     this.wordByValue[wordWithSynonym.value] = wordWithSynonym;
     pushWord(
@@ -2812,13 +3213,13 @@ var CustomDictionaryWordProvider = class {
 
 // src/provider/CurrentFileWordProvider.ts
 var CurrentFileWordProvider = class {
-  constructor(app, appHelper) {
-    this.app = app;
+  constructor(app2, appHelper) {
+    this.app = app2;
     this.appHelper = appHelper;
     this.wordsByFirstLetter = {};
     this.words = [];
   }
-  async refreshWords(onlyEnglish, minNumberOfCharacters) {
+  async refreshWords(option) {
     this.clearWords();
     const editor = this.appHelper.getCurrentEditor();
     if (!editor) {
@@ -2833,18 +3234,22 @@ var CurrentFileWordProvider = class {
     ).last();
     const content = await this.app.vault.cachedRead(file);
     const tokens = this.tokenizer.tokenize(content).filter((x) => {
-      if (x.length < minNumberOfCharacters) {
+      if (x.length < option.minNumberOfCharacters) {
         return false;
       }
       if (this.tokenizer.shouldIgnoreOnCurrent(x)) {
         return false;
       }
-      return onlyEnglish ? allAlphabets(x) : true;
+      return option.onlyEnglish ? allAlphabets(x) : true;
     }).map((x) => startsSmallLetterOnlyFirst(x) ? x.toLowerCase() : x);
     this.words = uniq(tokens).filter((x) => x !== currentToken).map((x) => ({
       value: x,
       type: "currentFile",
-      createdPath: file.path
+      createdPath: file.path,
+      aliases: synonymAliases(x, {
+        emoji: option.makeSynonymAboutEmoji,
+        accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+      })
     }));
     this.wordsByFirstLetter = groupBy(this.words, (x) => x.value.charAt(0));
   }
@@ -2862,37 +3267,48 @@ var CurrentFileWordProvider = class {
 
 // src/provider/InternalLinkWordProvider.ts
 var InternalLinkWordProvider = class {
-  constructor(app, appHelper) {
-    this.app = app;
+  constructor(app2, appHelper) {
+    this.app = app2;
     this.appHelper = appHelper;
     this.words = [];
     this.wordsByFirstLetter = {};
   }
-  refreshWords(wordAsInternalLinkAlias, excludePathPrefixPatterns) {
+  refreshWords(option) {
     var _a;
     this.clearWords();
-    const synonymAliases3 = (name) => {
-      const lessEmojiValue = excludeEmoji(name);
-      return name === lessEmojiValue ? [] : [lessEmojiValue];
-    };
-    const resolvedInternalLinkWords = this.app.vault.getMarkdownFiles().filter(
-      (f) => excludePathPrefixPatterns.every((x) => !f.path.startsWith(x))
-    ).flatMap((x) => {
+    const resolvedInternalLinkWords = this.app.vault.getMarkdownFiles().filter((f) => {
+      if (option.excludePathPrefixPatterns.some((x) => f.path.startsWith(x))) {
+        return false;
+      }
+      if (!option.frontMatterKeyForExclusion) {
+        return true;
+      }
+      return !this.appHelper.getBoolFrontMatter(
+        f,
+        option.frontMatterKeyForExclusion
+      );
+    }).flatMap((x) => {
       const aliases = this.appHelper.getAliases(x);
-      if (wordAsInternalLinkAlias) {
+      if (option.wordAsInternalLinkAlias) {
         return [
           {
             value: x.basename,
             type: "internalLink",
             createdPath: x.path,
-            aliases: synonymAliases3(x.basename),
+            aliases: synonymAliases(x.basename, {
+              emoji: option.makeSynonymAboutEmoji,
+              accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+            }),
             description: x.path
           },
           ...aliases.map((a) => ({
             value: a,
             type: "internalLink",
             createdPath: x.path,
-            aliases: synonymAliases3(a),
+            aliases: synonymAliases(a, {
+              emoji: option.makeSynonymAboutEmoji,
+              accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+            }),
             description: x.path,
             aliasMeta: {
               origin: x.path
@@ -2906,9 +3322,17 @@ var InternalLinkWordProvider = class {
             type: "internalLink",
             createdPath: x.path,
             aliases: [
-              ...synonymAliases3(x.basename),
+              ...synonymAliases(x.basename, {
+                emoji: option.makeSynonymAboutEmoji,
+                accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+              }),
               ...aliases,
-              ...aliases.flatMap(synonymAliases3)
+              ...aliases.flatMap(
+                (al) => synonymAliases(al, {
+                  emoji: option.makeSynonymAboutEmoji,
+                  accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+                })
+              )
             ],
             description: x.path
           }
@@ -2920,7 +3344,10 @@ var InternalLinkWordProvider = class {
         value: link,
         type: "internalLink",
         createdPath: path,
-        aliases: synonymAliases3(link),
+        aliases: synonymAliases(link, {
+          emoji: option.makeSynonymAboutEmoji,
+          accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+        }),
         description: `Appeared in -> ${path}`,
         phantom: true
       };
@@ -3077,13 +3504,13 @@ SelectSuggestionKey.None = new _SelectSuggestionKey("None", {
 
 // src/provider/CurrentVaultWordProvider.ts
 var CurrentVaultWordProvider = class {
-  constructor(app, appHelper) {
-    this.app = app;
+  constructor(app2, appHelper) {
+    this.app = app2;
     this.appHelper = appHelper;
     this.wordsByFirstLetter = {};
     this.words = [];
   }
-  async refreshWords(minNumberOfCharacters) {
+  async refreshWords(option) {
     this.clearWords();
     const currentDirname = this.appHelper.getCurrentDirname();
     const markdownFilePaths = this.app.vault.getMarkdownFiles().map((x) => x.path).filter((p) => this.includePrefixPatterns.every((x) => p.startsWith(x))).filter((p) => this.excludePrefixPatterns.every((x) => !p.startsWith(x))).filter(
@@ -3093,14 +3520,18 @@ var CurrentVaultWordProvider = class {
     for (const path of markdownFilePaths) {
       const content = await this.app.vault.adapter.read(path);
       const tokens = this.tokenizer.tokenize(content).filter(
-        (x) => x.length >= minNumberOfCharacters && !this.tokenizer.shouldIgnoreOnCurrent(x)
+        (x) => x.length >= option.minNumberOfCharacters && !this.tokenizer.shouldIgnoreOnCurrent(x)
       ).map((x) => startsSmallLetterOnlyFirst(x) ? x.toLowerCase() : x);
       for (const token of tokens) {
         wordByValue[token] = {
           value: token,
           type: "currentVault",
           createdPath: path,
-          description: path
+          description: path,
+          aliases: synonymAliases(token, {
+            emoji: option.makeSynonymAboutEmoji,
+            accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+          })
         };
       }
     }
@@ -3223,8 +3654,8 @@ function indexingWords(words) {
   );
 }
 var FrontMatterWordProvider = class {
-  constructor(app, appHelper) {
-    this.app = app;
+  constructor(app2, appHelper) {
+    this.app = app2;
     this.appHelper = appHelper;
     this.wordsByCreatedPath = {};
   }
@@ -3408,11 +3839,13 @@ function buildLogMessage(message, msec) {
   return `${message}: ${Math.round(msec)}[ms]`;
 }
 var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
-  constructor(app, statusBar) {
-    super(app);
+  constructor(app2, statusBar) {
+    super(app2);
+    this.pastCurrentTokenSeparatedWhiteSpace = "";
     this.previousCurrentLine = "";
+    this.previousLinksCacheInActiveFile = /* @__PURE__ */ new Set();
     this.keymapEventHandler = [];
-    this.appHelper = new AppHelper(app);
+    this.appHelper = new AppHelper(app2);
     this.statusBar = statusBar;
   }
   triggerComplete() {
@@ -3427,8 +3860,21 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
   hideCompletion() {
     this.close();
   }
-  static async new(app, settings, statusBar, onPersistSelectionHistory) {
-    const ins = new AutoCompleteSuggest(app, statusBar);
+  async unsafeLoadHistoryData() {
+    const historyPath = (0, import_obsidian3.normalizePath)(
+      this.settings.intelligentSuggestionPrioritization.historyFilePath || DEFAULT_HISTORIES_PATH
+    );
+    if (await this.appHelper.exists(historyPath)) {
+      this.settings.selectionHistoryTree = {};
+      return this.appHelper.loadJson(historyPath);
+    }
+    if (Object.keys(this.settings.selectionHistoryTree).length > 0) {
+      return this.settings.selectionHistoryTree;
+    }
+    return {};
+  }
+  static async new(app2, manifest, settings, statusBar, onPersistSelectionHistory) {
+    const ins = new AutoCompleteSuggest(app2, statusBar);
     ins.currentFileWordProvider = new CurrentFileWordProvider(
       ins.app,
       ins.appHelper
@@ -3449,23 +3895,22 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       ins.app,
       ins.appHelper
     );
+    await ins.updateSettings(settings);
     ins.selectionHistoryStorage = new SelectionHistoryStorage(
-      settings.selectionHistoryTree,
+      await ins.unsafeLoadHistoryData(),
       settings.intelligentSuggestionPrioritization.maxDaysToKeepHistory,
       settings.intelligentSuggestionPrioritization.maxNumberOfHistoryToKeep
     );
     ins.selectionHistoryStorage.purge();
-    await ins.updateSettings(settings);
-    ins.modifyEventRef = app.vault.on("modify", async (_) => {
+    ins.modifyEventRef = app2.vault.on("modify", async (_) => {
       var _a;
       await ins.refreshCurrentFileTokens();
       if ((_a = ins.selectionHistoryStorage) == null ? void 0 : _a.shouldPersist) {
-        ins.settings.selectionHistoryTree = ins.selectionHistoryStorage.data;
         ins.selectionHistoryStorage.syncPersistVersion();
         onPersistSelectionHistory();
       }
     });
-    ins.activeLeafChangeRef = app.workspace.on(
+    ins.activeLeafChangeRef = app2.workspace.on(
       "active-leaf-change",
       async (_) => {
         await ins.refreshCurrentFileTokens();
@@ -3473,13 +3918,21 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
         ins.updateFrontMatterToken();
       }
     );
-    ins.metadataCacheChangeRef = app.metadataCache.on("changed", (f) => {
+    ins.metadataCacheChangeRef = app2.metadataCache.on("changed", async (f) => {
       ins.updateFrontMatterTokenIndex(f);
       if (!ins.appHelper.isActiveFile(f)) {
         ins.updateFrontMatterToken();
       }
+      if (settings.updateInternalLinksOnSave) {
+        await sleep(50);
+        const currentCache = ins.appHelper.getUnresolvedLinks(f);
+        if (!setEquals(ins.previousLinksCacheInActiveFile, currentCache)) {
+          ins.refreshInternalLinkTokens();
+          ins.previousLinksCacheInActiveFile = currentCache;
+        }
+      }
     });
-    const cacheResolvedRef = app.metadataCache.on("resolved", async () => {
+    const cacheResolvedRef = app2.metadataCache.on("resolved", async () => {
       ins.refreshInternalLinkTokens();
       ins.refreshFrontMatterTokens();
       ins.refreshCustomDictionaryTokens();
@@ -3569,9 +4022,13 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       this.settings.complementAutomatically
     );
     try {
-      this.tokenizer = await createTokenizer(this.tokenizerStrategy, this.app);
+      this.tokenizer = await createTokenizer(
+        this.tokenizerStrategy,
+        this.app,
+        this.settings
+      );
     } catch (e) {
-      new import_obsidian3.Notice(e.message, 0);
+      new import_obsidian3.Notice(e.message);
     }
     this.currentFileWordProvider.setSettings(this.tokenizer);
     this.currentVaultWordProvider.setSettings(
@@ -3600,10 +4057,11 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
             this.settings.maxNumberOfSuggestions,
             {
               frontMatter: parsedQuery.currentFrontMatter,
-              selectionHistoryStorage: this.selectionHistoryStorage
+              selectionHistoryStorage: this.selectionHistoryStorage,
+              fuzzy: this.settings.fuzzyMatch
             }
           ).map((word) => ({ ...word, offset: q.offset }));
-        }).flat();
+        }).flat().sort((a, b) => Number(a.fuzzy) - Number(b.fuzzy));
         cb(
           uniqWith(words, suggestionUniqPredicate).slice(
             0,
@@ -3636,6 +4094,8 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
     this.scope.unregister(this.scope.keys.find((x) => x.key === "Enter"));
     this.scope.unregister(this.scope.keys.find((x) => x.key === "ArrowUp"));
     this.scope.unregister(this.scope.keys.find((x) => x.key === "ArrowDown"));
+    this.scope.unregister(this.scope.keys.find((x) => x.key === "Home"));
+    this.scope.unregister(this.scope.keys.find((x) => x.key === "End"));
     const selectSuggestionKey = SelectSuggestionKey.fromName(
       this.settings.selectSuggestionKeys
     );
@@ -3740,6 +4200,47 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
         )
       );
     }
+    if (this.settings.useCommonPrefixCompletionOfSuggestion) {
+      this.scope.unregister(
+        this.scope.keys.find((x) => x.modifiers === "" && x.key === "Tab")
+      );
+      this.keymapEventHandler.push(
+        this.scope.register([], "Tab", () => {
+          if (!this.context) {
+            return;
+          }
+          const editor = this.context.editor;
+          const currentPhrase = editor.getRange(
+            {
+              ...this.context.start,
+              ch: this.contextStartCh
+            },
+            this.context.end
+          );
+          const tokens = this.tokenizer.recursiveTokenize(currentPhrase);
+          const commonPrefixWithToken = tokens.map((t) => ({
+            token: t,
+            commonPrefix: findCommonPrefix(
+              this.suggestions.values.map((x) => excludeEmoji(x.value)).filter(
+                (x) => x.toLowerCase().startsWith(t.word.toLowerCase())
+              )
+            )
+          })).find((x) => x.commonPrefix != null);
+          if (!commonPrefixWithToken || currentPhrase === commonPrefixWithToken.commonPrefix) {
+            return false;
+          }
+          editor.replaceRange(
+            commonPrefixWithToken.commonPrefix,
+            {
+              ...this.context.start,
+              ch: this.contextStartCh + commonPrefixWithToken.token.offset
+            },
+            this.context.end
+          );
+          return true;
+        })
+      );
+    }
   }
   async refreshCurrentFileTokens() {
     const start = performance.now();
@@ -3755,10 +4256,12 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       );
       return;
     }
-    await this.currentFileWordProvider.refreshWords(
-      this.settings.onlyComplementEnglishOnCurrentFileComplement,
-      this.currentFileMinNumberOfCharacters
-    );
+    await this.currentFileWordProvider.refreshWords({
+      onlyEnglish: this.settings.onlyComplementEnglishOnCurrentFileComplement,
+      minNumberOfCharacters: this.currentFileMinNumberOfCharacters,
+      makeSynonymAboutEmoji: this.settings.matchingWithoutEmoji,
+      makeSynonymAboutAccentsDiacritics: this.settings.treatAccentDiacriticsAsAlphabeticCharacters
+    });
     this.statusBar.setCurrentFileIndexed(
       this.currentFileWordProvider.wordCount
     );
@@ -3780,9 +4283,11 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       );
       return;
     }
-    await this.currentVaultWordProvider.refreshWords(
-      this.currentVaultMinNumberOfCharacters
-    );
+    await this.currentVaultWordProvider.refreshWords({
+      minNumberOfCharacters: this.currentVaultMinNumberOfCharacters,
+      makeSynonymAboutEmoji: this.settings.matchingWithoutEmoji,
+      makeSynonymAboutAccentsDiacritics: this.settings.treatAccentDiacriticsAsAlphabeticCharacters
+    });
     this.statusBar.setCurrentVaultIndexed(
       this.currentVaultWordProvider.wordCount
     );
@@ -3808,7 +4313,9 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       regexp: this.settings.customDictionaryWordRegexPattern,
       delimiterForHide: this.settings.delimiterToHideSuggestion || void 0,
       delimiterForDisplay: this.settings.delimiterToDivideSuggestionsForDisplayFromInsertion || void 0,
-      caretSymbol: this.settings.caretLocationSymbolAfterComplement || void 0
+      caretSymbol: this.settings.caretLocationSymbolAfterComplement || void 0,
+      makeSynonymAboutEmoji: this.settings.matchingWithoutEmoji,
+      makeSynonymAboutAccentsDiacritics: this.settings.treatAccentDiacriticsAsAlphabeticCharacters
     });
     this.statusBar.setCustomDictionaryIndexed(
       this.customDictionaryWordProvider.wordCount
@@ -3834,10 +4341,13 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       );
       return;
     }
-    this.internalLinkWordProvider.refreshWords(
-      this.settings.suggestInternalLinkWithAlias,
-      this.excludeInternalLinkPrefixPathPatterns
-    );
+    this.internalLinkWordProvider.refreshWords({
+      wordAsInternalLinkAlias: this.settings.suggestInternalLinkWithAlias,
+      excludePathPrefixPatterns: this.excludeInternalLinkPrefixPathPatterns,
+      makeSynonymAboutEmoji: this.settings.matchingWithoutEmoji,
+      makeSynonymAboutAccentsDiacritics: this.settings.treatAccentDiacriticsAsAlphabeticCharacters,
+      frontMatterKeyForExclusion: this.settings.frontMatterKeyForExclusionInternalLink
+    });
     this.statusBar.setInternalLinkIndexed(
       this.internalLinkWordProvider.wordCount
     );
@@ -3925,7 +4435,7 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       return null;
     }
     const cl = this.appHelper.getCurrentLine(editor);
-    if (this.previousCurrentLine === cl && !this.runManually) {
+    if (equalsAsLiterals(this.previousCurrentLine, cl) && !this.runManually) {
       this.previousCurrentLine = cl;
       onReturnNull("Don't show suggestions because there are no changes");
       return null;
@@ -3938,9 +4448,12 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       );
       return null;
     }
-    if (currentLineUntilCursor.startsWith("~~~") || currentLineUntilCursor.startsWith("```")) {
+    const suppressedPattern = this.settings.patternsToSuppressTrigger.find(
+      (p) => new RegExp(p).test(currentLineUntilCursor)
+    );
+    if (suppressedPattern) {
       onReturnNull(
-        "Don't show suggestions because it supposes front code block"
+        `Don't show suggestions because it is the ignored pattern: ${suppressedPattern}`
       );
       return null;
     }
@@ -3958,6 +4471,13 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       return null;
     }
     const currentTokenSeparatedWhiteSpace = (_b = currentLineUntilCursor.split(" ").last()) != null ? _b : "";
+    if (currentTokenSeparatedWhiteSpace === this.pastCurrentTokenSeparatedWhiteSpace && !this.runManually) {
+      onReturnNull(
+        `Don't show suggestions because currentTokenSeparatedWhiteSpace doesn't change`
+      );
+      return null;
+    }
+    this.pastCurrentTokenSeparatedWhiteSpace = currentTokenSeparatedWhiteSpace;
     if (new RegExp(`^[${this.settings.firstCharactersDisableSuggestions}]`).test(
       currentTokenSeparatedWhiteSpace
     )) {
@@ -4048,6 +4568,32 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
         break;
     }
   }
+  constructInternalLinkText(word) {
+    if (this.settings.suggestInternalLinkWithAlias && word.aliasMeta) {
+      const { link: link2 } = this.appHelper.optimizeMarkdownLinkText(
+        word.aliasMeta.origin
+      );
+      return this.appHelper.useWikiLinks ? `[[${link2}|${word.value}]]` : `[${word.value}](${encodeSpace(link2)}.md)`;
+    }
+    const pattern = this.settings.insertAliasTransformedFromDisplayedInternalLink.enabled ? new RegExp(
+      this.settings.insertAliasTransformedFromDisplayedInternalLink.beforeRegExp
+    ) : null;
+    const match = (value) => pattern ? Boolean(value.match(pattern)) : false;
+    const replaceByPattern = (value) => pattern ? value.replace(
+      pattern,
+      this.settings.insertAliasTransformedFromDisplayedInternalLink.after
+    ) : value;
+    const { displayed, link } = this.appHelper.optimizeMarkdownLinkText(
+      word.phantom ? word.value : word.createdPath
+    );
+    if (this.appHelper.newLinkFormat === "shortest" && displayed.includes("/")) {
+      return this.appHelper.useWikiLinks ? `[[${link}|${word.value}]]` : `[${word.value}](${encodeSpace(link)}.md)`;
+    }
+    if (this.appHelper.useWikiLinks) {
+      return match(link) ? `[[${link}|${replaceByPattern(link)}]]` : `[[${link}]]`;
+    }
+    return match(displayed) ? `[${replaceByPattern(displayed)}](${encodeSpace(link)}.md)` : `[${displayed}](${encodeSpace(link)}.md)`;
+  }
   selectSuggestion(word, evt) {
     var _a, _b;
     if (!this.context) {
@@ -4055,17 +4601,7 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
     }
     let insertedText = word.value;
     if (word.type === "internalLink") {
-      if (this.settings.suggestInternalLinkWithAlias && word.aliasMeta) {
-        const linkText = this.appHelper.optimizeMarkdownLinkText(
-          word.aliasMeta.origin
-        );
-        insertedText = this.appHelper.useWikiLinks ? `[[${linkText}|${word.value}]]` : `[${word.value}](${encodeSpace(linkText)}.md)`;
-      } else {
-        const linkText = this.appHelper.optimizeMarkdownLinkText(
-          word.phantom ? word.value : word.createdPath
-        );
-        insertedText = this.appHelper.useWikiLinks ? `[[${linkText}]]` : `[${linkText}](${encodeSpace(linkText)}.md)`;
-      }
+      insertedText = this.constructInternalLinkText(word);
     }
     if (word.type === "frontMatter" && this.settings.insertCommaAfterFrontMatterCompletion) {
       insertedText = `${insertedText}, `;
@@ -4101,7 +4637,10 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
         )
       );
     }
-    if (this.appHelper.equalsAsEditorPostion(this.context.start, this.context.end)) {
+    if (this.appHelper.equalsAsEditorPosition(
+      this.context.start,
+      this.context.end
+    )) {
       editor.setCursor(
         editor.offsetToPos(
           editor.posToOffset(editor.getCursor()) + insertedText.length
@@ -4125,9 +4664,33 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
 
 // src/setting/settings.ts
 var import_obsidian4 = require("obsidian");
+
+// src/setting/settings-helper.ts
+var TextComponentEvent;
+((TextComponentEvent2) => {
+  function onChange(component, handler, option) {
+    component.inputEl.addEventListener("change", async (ev) => {
+      if (!(ev.target instanceof HTMLInputElement)) {
+        return;
+      }
+      handler(ev.target.value);
+    });
+    if (option == null ? void 0 : option.className) {
+      component.inputEl.className = option.className;
+    }
+    return component;
+  }
+  TextComponentEvent2.onChange = onChange;
+})(TextComponentEvent || (TextComponentEvent = {}));
+
+// src/setting/settings.ts
 var DEFAULT_SETTINGS = {
   strategy: "default",
+  cedictPath: "./cedict_ts.u8",
   matchStrategy: "prefix",
+  fuzzyMatch: true,
+  matchingWithoutEmoji: true,
+  treatAccentDiacriticsAsAlphabeticCharacters: false,
   maxNumberOfSuggestions: 5,
   maxNumberOfWordsAsPhrase: 3,
   minNumberOfCharactersTriggered: 0,
@@ -4137,6 +4700,8 @@ var DEFAULT_SETTINGS = {
   disableSuggestionsDuringImeOn: false,
   insertAfterCompletion: true,
   firstCharactersDisableSuggestions: ":/^",
+  useCommonPrefixCompletionOfSuggestion: false,
+  patternsToSuppressTrigger: ["^~~~.*", "^```.*"],
   showMatchStrategy: true,
   showComplementAutomatically: true,
   showIndexingStatus: true,
@@ -4165,26 +4730,35 @@ var DEFAULT_SETTINGS = {
   enableInternalLinkComplement: true,
   suggestInternalLinkWithAlias: false,
   excludeInternalLinkPathPrefixPatterns: "",
+  updateInternalLinksOnSave: true,
+  insertAliasTransformedFromDisplayedInternalLink: {
+    enabled: false,
+    beforeRegExp: "",
+    after: ""
+  },
+  frontMatterKeyForExclusionInternalLink: "",
   enableFrontMatterComplement: true,
   frontMatterComplementMatchStrategy: "inherit",
   insertCommaAfterFrontMatterCompletion: false,
   intelligentSuggestionPrioritization: {
+    historyFilePath: "",
     maxDaysToKeepHistory: 30,
     maxNumberOfHistoryToKeep: 0
   },
+  disableOnMobile: false,
   showLogAboutPerformanceInConsole: false,
   selectionHistoryTree: {}
 };
 var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingTab {
-  constructor(app, plugin) {
-    super(app, plugin);
+  constructor(app2, plugin) {
+    super(app2, plugin);
     this.plugin = plugin;
   }
-  display() {
+  async display() {
     let { containerEl } = this;
     containerEl.empty();
     containerEl.createEl("h2", { text: "Various Complements - Settings" });
-    this.addMainSettings(containerEl);
+    await this.addMainSettings(containerEl);
     this.addAppearanceSettings(containerEl);
     this.addKeyCustomizationSettings(containerEl);
     this.addCurrentFileComplementSettings(containerEl);
@@ -4193,9 +4767,10 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
     this.addInternalLinkComplementSettings(containerEl);
     this.addFrontMatterComplementSettings(containerEl);
     this.addIntelligentSuggestionPrioritizationSettings(containerEl);
+    this.addMobileSettings(containerEl);
     this.addDebugSettings(containerEl);
   }
-  addMainSettings(containerEl) {
+  async addMainSettings(containerEl) {
     containerEl.createEl("h3", { text: "Main" });
     new import_obsidian4.Setting(containerEl).setName("Strategy").addDropdown(
       (tc) => tc.addOptions(mirrorMap(TokenizeStrategy.values(), (x) => x.name)).setValue(this.plugin.settings.strategy).onChange(async (value) => {
@@ -4211,16 +4786,32 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       const el = containerEl.createEl("div", {
         cls: "various-complements__settings__warning"
       });
-      el.createSpan({
-        text: "\u26A0 You need to download `cedict_ts.u8` from"
+      const df = document.createDocumentFragment();
+      df.append(
+        createSpan({
+          text: "The path to `cedict_ts.u8`. You can download it from "
+        }),
+        createEl("a", {
+          href: "https://www.mdbg.net/chinese/dictionary?page=cc-cedict",
+          text: " the site "
+        })
+      );
+      new import_obsidian4.Setting(containerEl).setName("CC-CEDICT path").setDesc(df).setClass("various-complements__settings__nested").addText((cb) => {
+        TextComponentEvent.onChange(cb, async (value) => {
+          this.plugin.settings.cedictPath = value;
+          await this.plugin.saveSettings();
+          await this.display();
+        }).setValue(this.plugin.settings.cedictPath);
       });
-      el.createEl("a", {
-        href: "https://www.mdbg.net/chinese/dictionary?page=cc-cedict",
-        text: " the site "
-      });
-      el.createSpan({
-        text: "and store it in vault root."
-      });
+      const hasCedict = await app.vault.adapter.exists(
+        this.plugin.settings.cedictPath
+      );
+      if (!hasCedict) {
+        containerEl.createEl("div", {
+          text: `\u26A0 cedict_ts.u8 doesn't exist in ${this.plugin.settings.cedictPath}.`,
+          cls: "various-complements__settings__warning"
+        });
+      }
     }
     new import_obsidian4.Setting(containerEl).setName("Match strategy").addDropdown(
       (tc) => tc.addOptions(mirrorMap(MatchStrategy.values(), (x) => x.name)).setValue(this.plugin.settings.matchStrategy).onChange(async (value) => {
@@ -4235,6 +4826,38 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         cls: "various-complements__settings__warning"
       });
     }
+    new import_obsidian4.Setting(containerEl).setName("Fuzzy match").addToggle((tc) => {
+      tc.setValue(this.plugin.settings.fuzzyMatch).onChange(async (value) => {
+        this.plugin.settings.fuzzyMatch = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName("Treat accent diacritics as alphabetic characters.").setDesc("Ex: If enabled, 'aaa' matches with '\xE1\xE4\u0101'").addToggle((tc) => {
+      tc.setValue(
+        this.plugin.settings.treatAccentDiacriticsAsAlphabeticCharacters
+      ).onChange(async (value) => {
+        this.plugin.settings.treatAccentDiacriticsAsAlphabeticCharacters = value;
+        await this.plugin.saveSettings({
+          internalLink: true,
+          customDictionary: true,
+          currentVault: true,
+          currentFile: true
+        });
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName("Matching without emoji").setDesc("Ex: If enabled, 'aaa' matches with '\u{1F600}aaa'").addToggle((tc) => {
+      tc.setValue(this.plugin.settings.matchingWithoutEmoji).onChange(
+        async (value) => {
+          this.plugin.settings.matchingWithoutEmoji = value;
+          await this.plugin.saveSettings({
+            internalLink: true,
+            customDictionary: true,
+            currentVault: true,
+            currentFile: true
+          });
+        }
+      );
+    });
     new import_obsidian4.Setting(containerEl).setName("Max number of suggestions").addSlider(
       (sc) => sc.setLimits(1, 255, 1).setValue(this.plugin.settings.maxNumberOfSuggestions).setDynamicTooltip().onChange(async (value) => {
         this.plugin.settings.maxNumberOfSuggestions = value;
@@ -4297,6 +4920,22 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         await this.plugin.saveSettings();
       });
     });
+    new import_obsidian4.Setting(containerEl).setName("(Experimental) Use common prefix completion of suggestion").setDesc("Hotkey is <TAB>").addToggle((tc) => {
+      tc.setValue(
+        this.plugin.settings.useCommonPrefixCompletionOfSuggestion
+      ).onChange(async (value) => {
+        this.plugin.settings.useCommonPrefixCompletionOfSuggestion = value;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName("Patterns to suppress trigger").setDesc(
+      "RegExp line patterns until the cursor, which suppresses the auto-completion trigger. It can set multi patterns by line breaks."
+    ).addTextArea(
+      (tc) => tc.setValue(this.plugin.settings.patternsToSuppressTrigger.join("\n")).onChange(async (value) => {
+        this.plugin.settings.patternsToSuppressTrigger = smartLineBreakSplit(value);
+        await this.plugin.saveSettings();
+      })
+    );
   }
   addAppearanceSettings(containerEl) {
     containerEl.createEl("h3", { text: "Appearance" });
@@ -4568,6 +5207,43 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           await this.plugin.saveSettings({ internalLink: true });
         });
       });
+      new import_obsidian4.Setting(containerEl).setName("Update internal links on save").addToggle((tc) => {
+        tc.setValue(this.plugin.settings.updateInternalLinksOnSave).onChange(
+          async (value) => {
+            this.plugin.settings.updateInternalLinksOnSave = value;
+            await this.plugin.saveSettings({ internalLink: true });
+          }
+        );
+      });
+      new import_obsidian4.Setting(containerEl).setName(
+        "Insert an alias that is transformed from the displayed internal link"
+      ).addToggle((tc) => {
+        tc.setValue(
+          this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.enabled
+        ).onChange(async (value) => {
+          this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.enabled = value;
+          await this.plugin.saveSettings();
+          this.display();
+        });
+      });
+      if (this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.enabled) {
+        new import_obsidian4.Setting(containerEl).setName("Before: regular expression pattern with captures").setDesc(String.raw`Ex: (?<name>.+) \(.+\)$`).setClass("various-complements__settings__nested").addText((cb) => {
+          cb.setValue(
+            this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.beforeRegExp
+          ).onChange(async (value) => {
+            this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.beforeRegExp = value;
+            await this.plugin.saveSettings();
+          });
+        });
+        new import_obsidian4.Setting(containerEl).setName("After").setDesc("Ex: $<name>").setClass("various-complements__settings__nested").addText((cb) => {
+          cb.setValue(
+            this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.after
+          ).onChange(async (value) => {
+            this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.after = value;
+            await this.plugin.saveSettings();
+          });
+        });
+      }
       new import_obsidian4.Setting(containerEl).setName("Exclude prefix path patterns").setDesc("Prefix match path patterns to exclude files.").addTextArea((tac) => {
         const el = tac.setValue(
           this.plugin.settings.excludeInternalLinkPathPrefixPatterns
@@ -4577,6 +5253,16 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         });
         el.inputEl.className = "various-complements__settings__text-area-path";
         return el;
+      });
+      new import_obsidian4.Setting(containerEl).setName("Front matter key for exclusion").setDesc(
+        "Exclude internal links from the suggestions if whose front matters have the key whose name is same as this setting, and the value is 'true'"
+      ).addText((cb) => {
+        TextComponentEvent.onChange(cb, async (value) => {
+          this.plugin.settings.frontMatterKeyForExclusionInternalLink = value;
+          await this.plugin.saveSettings({ internalLink: true });
+        }).setValue(
+          this.plugin.settings.frontMatterKeyForExclusionInternalLink
+        );
       });
     }
   }
@@ -4618,6 +5304,14 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       text: "Intelligent suggestion prioritization",
       cls: "various-complements__settings__header various-complements__settings__header__intelligent-suggestion-prioritization"
     });
+    new import_obsidian4.Setting(containerEl).setName("history file path").setDesc(`Default: ${DEFAULT_HISTORIES_PATH}`).addText((cb) => {
+      TextComponentEvent.onChange(cb, async (value) => {
+        this.plugin.settings.intelligentSuggestionPrioritization.historyFilePath = value;
+        await this.plugin.saveSettings();
+      }).setValue(
+        this.plugin.settings.intelligentSuggestionPrioritization.historyFilePath
+      );
+    });
     new import_obsidian4.Setting(containerEl).setName("Max days to keep history").setDesc("If set 0, it will never remove").addSlider(
       (sc) => sc.setLimits(0, 365, 1).setValue(
         this.plugin.settings.intelligentSuggestionPrioritization.maxDaysToKeepHistory
@@ -4634,6 +5328,17 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         await this.plugin.saveSettings();
       })
     );
+  }
+  addMobileSettings(containerEl) {
+    containerEl.createEl("h3", { text: "Mobile" });
+    new import_obsidian4.Setting(containerEl).setName("Disable on mobile").addToggle((tc) => {
+      tc.setValue(this.plugin.settings.disableOnMobile).onChange(
+        async (value) => {
+          this.plugin.settings.disableOnMobile = value;
+          await this.plugin.saveSettings();
+        }
+      );
+    });
   }
   addDebugSettings(containerEl) {
     containerEl.createEl("h3", { text: "Debug" });
@@ -4679,7 +5384,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       {
         version: this.plugin.manifest.version,
         mobile: this.app.isMobile,
-        settings: { ...this.plugin.settings, selectionHistoryTree: null }
+        settings: this.plugin.settings
       },
       null,
       4
@@ -4936,7 +5641,6 @@ function get_root_for_style(node) {
 }
 function append_stylesheet(node, style) {
   append(node.head || node, style);
-  return style.sheet;
 }
 function insert(target, node, anchor) {
   target.insertBefore(node, anchor || null);
@@ -5163,13 +5867,13 @@ function create_component(block) {
   block && block.c();
 }
 function mount_component(component, target, anchor, customElement) {
-  const { fragment, after_update } = component.$$;
+  const { fragment, on_mount, on_destroy, after_update } = component.$$;
   fragment && fragment.m(target, anchor);
   if (!customElement) {
     add_render_callback(() => {
-      const new_on_destroy = component.$$.on_mount.map(run).filter(is_function);
-      if (component.$$.on_destroy) {
-        component.$$.on_destroy.push(...new_on_destroy);
+      const new_on_destroy = on_mount.map(run).filter(is_function);
+      if (on_destroy) {
+        on_destroy.push(...new_on_destroy);
       } else {
         run_all(new_on_destroy);
       }
@@ -5200,7 +5904,7 @@ function init(component, options, instance5, create_fragment5, not_equal, props,
   set_current_component(component);
   const $$ = component.$$ = {
     fragment: null,
-    ctx: [],
+    ctx: null,
     props,
     update: noop,
     not_equal,
@@ -5274,9 +5978,6 @@ if (typeof HTMLElement === "function") {
       this.$destroy = noop;
     }
     $on(type, callback) {
-      if (!is_function(callback)) {
-        return noop;
-      }
       const callbacks = this.$$.callbacks[type] || (this.$$.callbacks[type] = []);
       callbacks.push(callback);
       return () => {
@@ -5300,9 +6001,6 @@ var SvelteComponent = class {
     this.$destroy = noop;
   }
   $on(type, callback) {
-    if (!is_function(callback)) {
-      return noop;
-    }
     const callbacks = this.$$.callbacks[type] || (this.$$.callbacks[type] = []);
     callbacks.push(callback);
     return () => {
@@ -5367,7 +6065,7 @@ function create_fragment(ctx) {
       if (!current || dirty & 2) {
         button.disabled = ctx2[1];
       }
-      if (!current || dirty & 2) {
+      if (dirty & 2) {
         toggle_class(button, "mod-cta", !ctx2[1]);
       }
     },
@@ -6217,9 +6915,9 @@ var CustomDictionaryWordAdd_default = CustomDictionaryWordAdd;
 
 // src/ui/CustomDictionaryWordAddModal.ts
 var CustomDictionaryWordAddModal = class extends import_obsidian5.Modal {
-  constructor(app, dictionaryPaths, initialValue = "", dividerForDisplay = "", onSubmit) {
-    super(app);
-    const appHelper = new AppHelper(app);
+  constructor(app2, dictionaryPaths, initialValue = "", dividerForDisplay = "", onSubmit) {
+    super(app2);
+    const appHelper = new AppHelper(app2);
     const dictionaries = dictionaryPaths.map((x) => ({ id: x, path: x }));
     const { contentEl } = this;
     this.component = new CustomDictionaryWordAdd_default({
@@ -6257,6 +6955,12 @@ var VariousComponents = class extends import_obsidian6.Plugin {
   }
   async onload() {
     this.appHelper = new AppHelper(this.app);
+    await this.loadSettings();
+    this.settingTab = new VariousComplementsSettingTab(this.app, this);
+    this.addSettingTab(this.settingTab);
+    if (this.appHelper.isMobile() && this.settings.disableOnMobile) {
+      return;
+    }
     this.registerEvent(
       this.app.workspace.on("editor-menu", (menu) => {
         if (!this.appHelper.getSelection()) {
@@ -6269,9 +6973,6 @@ var VariousComponents = class extends import_obsidian6.Plugin {
         );
       })
     );
-    await this.loadSettings();
-    this.settingTab = new VariousComplementsSettingTab(this.app, this);
-    this.addSettingTab(this.settingTab);
     this.statusBar = ProviderStatusBar.new(
       this.addStatusBarItem(),
       this.settings.showMatchStrategy,
@@ -6285,10 +6986,17 @@ var VariousComponents = class extends import_obsidian6.Plugin {
       await this.settingTab.toggleComplementAutomatically();
     });
     const debouncedSaveData = (0, import_obsidian6.debounce)(async () => {
-      await this.saveData(this.settings);
+      var _a, _b;
+      await this.appHelper.saveJson(
+        (0, import_obsidian6.normalizePath)(
+          this.settings.intelligentSuggestionPrioritization.historyFilePath || DEFAULT_HISTORIES_PATH
+        ),
+        (_b = (_a = this.suggester.selectionHistoryStorage) == null ? void 0 : _a.data) != null ? _b : {}
+      );
     }, 5e3);
     this.suggester = await AutoCompleteSuggest.new(
       this.app,
+      this.manifest,
       this.settings,
       this.statusBar,
       debouncedSaveData
@@ -6404,7 +7112,10 @@ var VariousComponents = class extends import_obsidian6.Plugin {
           new import_obsidian6.Notice(`\u26A0 ${word.value} already exists`, 0);
           return;
         }
-        await provider.addWordWithDictionary(word, dictionaryPath);
+        await provider.addWordWithDictionary(word, dictionaryPath, {
+          emoji: this.settings.matchingWithoutEmoji,
+          accentsDiacritics: this.settings.treatAccentDiacriticsAsAlphabeticCharacters
+        });
         new import_obsidian6.Notice(`Added ${word.value}`);
         modal.close();
       }

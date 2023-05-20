@@ -4,7 +4,7 @@
   "promptDelete": false,
   "attachmentFolderPath": "z_Assets",
   "showUnsupportedFiles": true,
-  "showFrontmatter": true,
+  "showFrontmatter": false,
   "newFileLocation": "current",
   "alwaysUpdateLinks": true
 }

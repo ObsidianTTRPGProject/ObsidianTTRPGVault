@@ -1,0 +1,17 @@
+{
+  "saveWindowLocations": true,
+  "windows": {
+    "DEFAULT": {
+      "hosts": {
+        "DESKTOP-AOCPFEU": {
+          "x": -8,
+          "y": -8,
+          "width": 1936,
+          "height": 1048,
+          "fullscreen": false,
+          "maximized": true
+        }
+      }
+    }
+  }
+}

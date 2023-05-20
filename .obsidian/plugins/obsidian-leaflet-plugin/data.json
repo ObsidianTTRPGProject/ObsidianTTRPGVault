@@ -10906,6 +10906,94 @@
       "files": [
         "z_Templates/4_Markdown/Insert Regional Map (Leaflet).md"
       ]
+    },
+    {
+      "id": "update-me",
+      "lastAccessed": 1682816757699,
+      "markers": [
+        {
+          "id": "ID_f8bac8f928e9",
+          "type": "City",
+          "loc": [
+            -0.001877389220069264,
+            0.00670033738886789
+          ],
+          "link": "Ch1. The Great Grain Robbery#A1. CRYSTAL ROOM TRIVIAL 3",
+          "layer": "%5B%5Bmap%20-%20Crystals%20and%20Candlewax.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7676806138406399,
+            0.3225074178937334
+          ],
+          "description": "A wooden table covered with crystals of various size, including three particularly large ones measuring nearly four feet in diameter, sits against the southern wall of this storeroom. Stairs lead up to the north, while a wooden door is tucked into the wall to the southwest.",
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_9b4a3bc80a28",
+          "type": "City",
+          "loc": [
+            -0.0024816064403214407,
+            0.0035389865757627505
+          ],
+          "link": "Ch1. The Great Grain Robbery#A2. WAX LABORATORY MODERATE 3",
+          "layer": "%5B%5Bmap%20-%20Crystals%20and%20Candlewax.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.4054738185824958,
+            0.4263029087101073
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_89786a3909f9",
+          "type": "City",
+          "loc": [
+            -0.0018182150447599687,
+            0.0013864627286143702
+          ],
+          "link": "Ch1. The Great Grain Robbery#A4. CLUTTERED STOREROOM",
+          "layer": "%5B%5Bmap%20-%20Crystals%20and%20Candlewax.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_0a481bbada38",
+          "type": "City",
+          "loc": [
+            -0.004186362168890082,
+            0.00650612471092969
+          ],
+          "link": "Ch1. The Great Grain Robbery#A3. DARIUS’S BEDROOM",
+          "layer": "%5B%5Bmap%20-%20Crystals%20and%20Candlewax.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7454290018452591,
+            0.7191544720848766
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "World/One Shot Adventures/A Fistful of Flowers/Ch1. The Great Grain Robbery.md"
+      ]
     }
   ],
   "defaultMarker": {
@@ -11061,11 +11149,11 @@
   "long": -82.98333,
   "notePreview": true,
   "layerMarkers": true,
-  "previousVersion": "5.2.6",
+  "previousVersion": "5.6.1",
   "version": {
     "major": 5,
-    "minor": 2,
-    "patch": 6
+    "minor": 6,
+    "patch": 1
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,
@@ -11120,5 +11208,6 @@
   "defaultUnitType": "imperial",
   "defaultTile": "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png",
   "defaultTileDark": "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png",
-  "defaultAttribution": "Map tiles by <a href=\"http://stamen.com\">Stamen Design</a>, under <a href=\"http://creativecommons.org/licenses/by/3.0\">CC BY 3.0</a>. Data by <a href=\"http://openstreetmap.org\">OpenStreetMap</a>, under <a href=\"http://www.openstreetmap.org/copyright\">ODbL</a>."
+  "defaultAttribution": "Map tiles by <a href=\"http://stamen.com\">Stamen Design</a>, under <a href=\"http://creativecommons.org/licenses/by/3.0\">CC BY 3.0</a>. Data by <a href=\"http://openstreetmap.org\">OpenStreetMap</a>, under <a href=\"http://www.openstreetmap.org/copyright\">ODbL</a>.",
+  "defaultTileSubdomains": "a,b,c"
 }

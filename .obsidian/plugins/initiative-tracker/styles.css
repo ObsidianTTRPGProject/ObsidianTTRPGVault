@@ -1,7 +1,12 @@
 /* src/main.css */
 body {
-  --text-warning: #EAAF00;
+  --text-warning: #eaaf00;
   --text-success: green;
+}
+.status-metadata-container,
+.status-name-container {
+  display: flex;
+  gap: 0.5rem;
 }
 .initiative-tracker-add-player-modal .has-error {
   border-color: var(--background-modifier-error-hover);
@@ -13,7 +18,7 @@ body {
 }
 .initiative-tracker-additional-container .initiative-tracker-players {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr auto;
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr auto;
   gap: 0.5rem;
 }
 .initiative-tracker-settings .initiative-tracker-additional-container .initiative-tracker-players .initiative-tracker-player {
@@ -26,6 +31,12 @@ body {
   display: grid;
   grid-template-columns: auto auto;
   gap: 0.5rem;
+}
+.initiative-tracker-settings .initiative-tracker-additional-container .initiative-tracker-players .initiative-tracker-player .initiative-tracker-player-icon.imported {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  color: var(--text-success);
 }
 .initiative-tracker-settings .initiative-tracker-additional-container .initiative-tracker-players .initiative-tracker-player.headers {
   font-weight: bolder;
@@ -106,6 +117,9 @@ body {
 .creature-view-container .creature-view-button {
   display: flex;
   justify-content: flex-end;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 .initiative-tracker-encounter-line {
   display: inline-block;
@@ -170,6 +184,16 @@ body {
 .initiative-tracker-cancel {
   display: flex;
   justify-content: flex-end;
+}
+.initiative-tracker-textarea + .cm-editor {
+  height: 200px;
+  margin-bottom: 1rem;
+}
+.initiative-tracker.suggestion-item,
+.initiative-tracker.suggestion-item > svg {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 /* src/styles.css */

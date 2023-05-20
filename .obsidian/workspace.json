@@ -4,35 +4,47 @@
     "type": "split",
     "children": [
       {
-        "id": "d8f99b76825c6b53",
+        "id": "fe9eb2e233222538",
         "type": "tabs",
         "children": [
           {
-            "id": "ffed8f5a028d5008",
+            "id": "52cb5f49892f19a1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsidian TTRPG Tutorial/Obsidian TTRPG Tutorial.md",
+                "file": "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "25eb03f7c8f81f88",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
                 "mode": "source",
                 "source": true
               }
             }
           },
           {
-            "id": "d60fb2e6e4a4bb6d",
+            "id": "2c4bb90f6d17d7f6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/Text Generator/Text Generator.md",
-                "mode": "source",
+                "file": "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
+                "mode": "preview",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -61,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Hluthvar",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -90,7 +102,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 294.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -106,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tutorials/YouTube Series/Text Generator/Text Generator.md",
+                "file": "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,9 +135,9 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tutorials/YouTube Series/Text Generator/Text Generator.md",
+                "file": "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
                 "linksCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           },
@@ -146,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tutorials/YouTube Series/Text Generator/Text Generator.md"
+                "file": "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md"
               }
             }
           },
@@ -159,27 +171,35 @@
             }
           },
           {
-            "id": "6c61a1cc302bee17",
-            "type": "leaf",
-            "state": {
-              "type": "initiative-tracker-view",
-              "state": {}
-            }
-          },
-          {
-            "id": "522976ad8876defe",
+            "id": "8311ab8551d6bebd",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
               "state": {}
             }
+          },
+          {
+            "id": "e00c8417330298ad",
+            "type": "leaf",
+            "state": {
+              "type": "FANTASY_CALENDAR",
+              "state": {}
+            }
+          },
+          {
+            "id": "ea6bb2d235d4886d",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-view",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 313.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -190,53 +210,63 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "templater-obsidian:Templater": false,
-      "obsidian-custom-frames:Open Obsidian Forum": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
-      "obsidian-leaflet-plugin:Open Leaflet Map": false,
       "obsidian-import-json:JSON/CSV Importer": false,
-      "fantasy-content-generator:Fantasy Generators": false
+      "obsidian-custom-frames:Open Obsidian Forum": false,
+      "obsidian42-brat:BRAT": false,
+      "obsidian-leaflet-plugin:Open Leaflet Map": false,
+      "fantasy-calendar:Open Large Fantasy Calendar": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "initiative-tracker:Intiative Tracker Encounter Builder": false
     }
   },
-  "active": "d60fb2e6e4a4bb6d",
+  "active": "2c4bb90f6d17d7f6",
   "lastOpenFiles": [
-    "Tutorials/YouTube Series/Text Generator/Generate Inn.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Fungus.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Encounter.md",
-    "Tutorials/YouTube Series/Text Generator/Generate General Store.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Job Board.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Adventure Opportunity.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Apothecary.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Dungeon Room.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Spell Book.md",
-    "Tutorials/YouTube Series/Text Generator/Text Generator.md",
-    "Tutorials/YouTube Series/Text Generator/PBE Games - Magic 8 Bal.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Small Magic Shop.md",
-    "Tutorials/YouTube Series/TTRPG Statblocks/Custom Statblock Template/Custom Statblock Template.md",
-    "Tutorials/YouTube Series/TTRPG Statblocks/TTRPG Statblocks.md",
-    "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)/TTRPG Calculator (ChatGPT).md",
-    "Tutorials/YouTube Series/Text Generator/PBE Games - Vehicle.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Armory.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Weaponry.md",
-    "Tutorials/YouTube Series/Text Generator/Generate Pocket Search.md",
-    "Tutorials/YouTube Series/Buttons/Buttons.md",
-    "Tutorials/YouTube Series/Dice Roller/Dice Roller.md",
+    "Tutorials/YouTube Series/April's Automatic Timelines/Event 5.md",
+    "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
+    "Tutorials/YouTube Series/April's Automatic Timelines/Untitled.md",
+    "z_Templates/4_Markdown/April's Timeline/Timeline - Add Event.md",
+    "z_Templates/4_Markdown/April's Timeline/Timeline - Render Timeline.md",
+    "z_Templates/4_Markdown/April's Timeline/Timeline - Insert Event into Frontmatter.md",
+    "Tutorials/YouTube Series/April's Automatic Timelines/Event 4.md",
+    "Tutorials/YouTube Series/April's Automatic Timelines/File Event 1.md",
+    "z_Templates/4_Markdown/Call Out Boxes/Call Out Boxes.md",
+    "Tutorials/YouTube Series/April's Automatic Timelines/Event 3.md",
+    "Tutorials/YouTube Series/April's Automatic Timelines/Event 2.md",
+    "Tutorials/YouTube Series/Advanced Tables/Advanced Tables.md",
+    "z_Assets/Pasted image 20230507075204.png",
+    "z_Assets/Pasted image 20230507075156.png",
+    "World/One Shot Adventures/A Fistful of Flowers/Ch1. The Great Grain Robbery.md",
+    "z_Assets/Pasted image 20230507074922.png",
+    "z_Assets/Pasted image 20230507074911.png",
+    "z_Assets/Example - Aprils Automatic Timelines Settings New.png",
+    "z_Assets/Example - Aprils Automatic Timelines Settings.png",
+    "Tutorials/YouTube Series/April's Automatic Timelines/Untitled 1.md",
+    "Untitled.md",
+    "World/One Shot Adventures/A Fistful of Flowers/A Fistful of Flowers.md",
+    "World/One Shot Adventures/A Fistful of Flowers/Ch2. Dig Four Plots.md",
+    "World/One Shot Adventures/A Fistful of Flowers/NPCs/Bottlespeaker.md",
+    "Random Note.md",
+    "Shared Content/Pathfinder 2e/Pathfinder 2e.md",
     "Obsidian TTRPG Tutorial/Obsidian TTRPG Tutorial.md",
-    "Shared Content/DnD5e/Bestiary/ToB/Adult Cave Dragon.md",
-    "Tutorials/YouTube Series/Text Generator",
-    "Shared Content/DnD5e/Spells/PHB/Antipathy_Sympathy.md",
-    "Shared Content/DnD5e/Spells/PHB/Antilife Shell.md",
-    "Shared Content/DnD5e/Spells/PHB/Animal Friendship.md",
-    "z_Assets/Map - Regional map of Lampoteuo.png",
-    "Obsidian TTRPG Tutorial",
-    "import",
-    "Hekland_Burgs_2023-03-14-21-05.csv",
-    "z_Assets/Pasted image 20230311075006.png",
-    "z_Assets/Map_Josh_Town.png",
-    "z_Assets/Pasted image 20230304104229.png",
-    "Tutorials/YouTube Series/Working With Maps",
-    "z_Templates.zip",
-    "z_Assets/Pasted image 20230222201040.png",
-    "Tutorials/YouTube Series/TTRPG Calculator (ChatGPT)"
+    "Tutorials/YouTube Series/Buttons/Buttons.md",
+    "World/One Shot Adventures/A Fistful of Flowers/NPCs/Fluff Fang.md",
+    "World/One Shot Adventures/A Fistful of Flowers/NPCs/Popcorn.md",
+    "Tutorials/YouTube Series/Front Matter (YAML) and Tags/Front Matter (YAML) and Tags.md",
+    "Tutorials/YouTube Series/Timelines/Timelines.md",
+    "Tutorials/YouTube Series/April's Automatic Timelines",
+    "z_Templates/4_Markdown/April's Timeline",
+    "Shared Content/Pathfinder 2e/Bestiary/Bestiary",
+    "Shared Content/Pathfinder 2e/Bestiary/Abilities",
+    "Shared Content/Pathfinder 2e/Bestiary",
+    "z_Assets/npc - Lady Constance Meliosa2.png",
+    "z_Assets/npc - glimmer2.png",
+    "z_Assets/npc - Darius Wick 2.png",
+    "z_Assets/npc - Darius Wick.png",
+    "World/One Shot Adventures/A Fistful of Flowers/NPCs",
+    "World/One Shot Adventures/A Fistful of Flowers",
+    "World/One Shot Adventures",
+    "World",
+    "Tutorials/YouTube Series/Text Generator"
   ]
 }

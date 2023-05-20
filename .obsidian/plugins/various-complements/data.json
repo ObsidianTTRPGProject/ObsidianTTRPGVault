@@ -1,6 +1,10 @@
 {
   "strategy": "default",
+  "cedictPath": "./cedict_ts.u8",
   "matchStrategy": "prefix",
+  "fuzzyMatch": true,
+  "matchingWithoutEmoji": true,
+  "treatAccentDiacriticsAsAlphabeticCharacters": false,
   "maxNumberOfSuggestions": 5,
   "maxNumberOfWordsAsPhrase": 3,
   "minNumberOfCharactersTriggered": 0,
@@ -10,6 +14,11 @@
   "disableSuggestionsDuringImeOn": false,
   "insertAfterCompletion": true,
   "firstCharactersDisableSuggestions": ":/^",
+  "useCommonPrefixCompletionOfSuggestion": false,
+  "patternsToSuppressTrigger": [
+    "^~~~.*",
+    "^```.*"
+  ],
   "showMatchStrategy": true,
   "showComplementAutomatically": true,
   "showIndexingStatus": true,
@@ -38,6 +47,12 @@
   "enableInternalLinkComplement": true,
   "suggestInternalLinkWithAlias": false,
   "excludeInternalLinkPathPrefixPatterns": "",
+  "updateInternalLinksOnSave": true,
+  "insertAliasTransformedFromDisplayedInternalLink": {
+    "enabled": false,
+    "beforeRegExp": "",
+    "after": ""
+  },
   "enableFrontMatterComplement": true,
   "frontMatterComplementMatchStrategy": "inherit",
   "insertCommaAfterFrontMatterCompletion": false,
@@ -45,16 +60,9 @@
     "maxDaysToKeepHistory": 30,
     "maxNumberOfHistoryToKeep": 0
   },
+  "disableOnMobile": false,
   "showLogAboutPerformanceInConsole": false,
   "selectionHistoryTree": {
-    "Getting Started": {
-      "Getting Started": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1679797561229
-        }
-      }
-    },
     "Generate Adventure Opportunity": {
       "Generate Adventure Opportunity": {
         "internalLink": {
@@ -172,6 +180,22 @@
         "internalLink": {
           "count": 1,
           "lastUpdated": 1681568347973
+        }
+      }
+    },
+    "Storm Giant Quintessent.jpg": {
+      "Storm Giant Quintessent.jpg": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1682815364980
+        }
+      }
+    },
+    "Pixie": {
+      "Pixie": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1682827884306
         }
       }
     }

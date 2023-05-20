@@ -1,0 +1,32 @@
+/*
+
+This CSS file will be included with your plugin, and
+available in the app when your plugin is enabled.
+
+If your plugin does not need CSS, delete this file.
+
+*/
+
+:root {
+        --gemmy-size: 80px;
+}
+
+.gemmy-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+}
+
+.gemmy-container img {
+        width: var(--gemmy-size);
+        height: var(--gemmy-size);
+        border-radius: var(--gemmy-size);
+}
+
+.gemmy-tooltip {
+        --background-modifier-message: #FFFFCB;
+        color: #202020;
+        font-size: var(--font-ui-medium);
+        border-radius: 20px;
+        padding: var(--size-4-3) var(--size-4-6);
+}

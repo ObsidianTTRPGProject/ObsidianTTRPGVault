@@ -1,10 +1,11 @@
 {
     "id": "obsidian-5e-statblocks",
-    "name": "TTRPG Statblocks",
-    "version": "2.23.2",
-    "description": "Create 5e styled statblocks in Obsidian.md",
+    "name": "Fantasy Statblocks",
+    "version": "3.6.5",
+    "description": "Create Fantasy Statblocks in Obsidian.md",
     "minAppVersion": "0.12.0",
     "author": "Jeremy Valentine",
     "authorUrl": "",
+    "fundingUrl": "https://www.buymeacoffee.com/valentine195",
     "isDesktopOnly": false
 }
