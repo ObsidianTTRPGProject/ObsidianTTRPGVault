@@ -5,6 +5,8 @@ aat-render-enabled: true # Enables this note to be rendered in a timeline
 timelines: [timeline, event] # This note should be rendered in the timeline with the name "timeline" or "event"
 ---
 
+![](https://www.youtube.com/watch?v=992o1j8zRSk)
+
 # April's Automatic Timelines  - Example
 
 

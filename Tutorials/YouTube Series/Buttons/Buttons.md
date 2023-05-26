@@ -4,8 +4,7 @@ ChallengeLevel: Medium
 PubishDate: 0/0/1990
 ---
 
-*Link to be updated once released*
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oqqKKZKo3Ak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![](https://www.youtube.com/embed/oqqKKZKo3Ak)
 
 ## Benefit 
 Buttons are cool because you can press them and when you press them things can happen. In this example the following will happen:
