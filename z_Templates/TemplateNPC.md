@@ -1,5 +1,4 @@
 ---
-AssociatedGroup: 
 Gender: 
 Race: 
 Age: 
