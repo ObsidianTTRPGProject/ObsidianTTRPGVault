@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shared Content/DnD5e/Backgrounds/Backgrounds.md",
+                "file": "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "25eb03f7c8f81f88",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "2c4bb90f6d17d7f6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md",
                 "mode": "source",
                 "source": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -48,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Hluthvar",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Shared Content/DnD5e/Backgrounds/Backgrounds.md",
+                "file": "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Shared Content/DnD5e/Backgrounds/Backgrounds.md",
+                "file": "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -133,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Shared Content/DnD5e/Backgrounds/Backgrounds.md"
+                "file": "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md"
               }
             }
           },
@@ -162,7 +187,7 @@
             }
           },
           {
-            "id": "ea6bb2d235d4886d",
+            "id": "22a80c0f52b5e4c7",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -170,12 +195,11 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 313.5,
-    "collapsed": true
+    "width": 313.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,44 +210,51 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "templater-obsidian:Templater": false,
-      "obsidian-custom-frames:Open Obsidian Forum": false,
-      "obsidian-leaflet-plugin:Open Leaflet Map": false,
-      "initiative-tracker:Intiative Tracker Encounter Builder": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-import-json:JSON/CSV Importer": false,
+      "obsidian-custom-frames:Open Obsidian Forum": false,
       "obsidian42-brat:BRAT": false,
-      "fantasy-calendar:Open Large Fantasy Calendar": false
+      "obsidian-leaflet-plugin:Open Leaflet Map": false,
+      "fantasy-calendar:Open Large Fantasy Calendar": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "initiative-tracker:Intiative Tracker Encounter Builder": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "52cb5f49892f19a1",
+  "active": "2c4bb90f6d17d7f6",
   "lastOpenFiles": [
-    "z_Assets/Pasted image 20221022234626.png",
-    "Shared Content/DnD5e/Waterdeep - Dungeon of the Mad Mage.md",
-    "z_Templates/TemplateSettlement.md",
-    "Shared Content/DnD5e/How To - Obtain Images.md",
-    "Shared Content/DnD5e/DM Screen/0. DM Screen.md",
-    "Shared Content/DnD5e/DM Screen/Player Crib Sheet.md",
-    "Shared Content/DnD5e/DM Screen/Generators/Magic Store Generator.md",
-    "z_Templates/2_Mechanics Gallery/2_Mechanics Gallery.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV1 - Introduction–A Collection of Heists.md",
     "World/World.md",
-    "Shared Content/DnD5e/rules/actions.md",
-    "Shared Content/DnD5e/TftYP - Against the Giants.md",
-    "Shared Content/DnD5e/Party Configuration.md",
-    "z_Templates/TemplateNPC.md",
-    "z_Templates/1_Story World Templates/Events/Template - Quest.md",
-    "z_Templates/1_Story World Templates/Events/Template - Incident.md",
-    "z_Templates/1_Story World Templates/Events/Template - Time Period.md",
-    "z_Templates/1_Story World Templates/Events/Template - Storyline.md",
-    "z_Templates/1_Story World Templates/Groups/Template - Group_ Criminal.md",
-    "Untitled.md",
-    "README.md",
-    "Random Note.md",
-    "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
-    "World/One Shot Adventures/A Fistful of Flowers/NPCs/Bottlespeaker.md",
+    "z_Templates/6_Help Notes/Pulling_content_from_5e.tools.md",
+    "World/One Shot Adventures/A Fistful of Flowers/NPCs/Reaching Rings.md",
+    "World/One Shot Adventures/A Fistful of Flowers/NPCs/Popcorn.md",
     "World/One Shot Adventures/A Fistful of Flowers/NPCs/Fluff Fang.md",
+    "World/One Shot Adventures/A Fistful of Flowers/NPCs/Bottlespeaker.md",
+    "World/One Shot Adventures/A Fistful of Flowers/Ch3. Concluding the Adventure.md",
+    "World/One Shot Adventures/A Fistful of Flowers/NPCs",
+    "World/One Shot Adventures/A Fistful of Flowers/Ch1. The Great Grain Robbery.md",
+    "World/One Shot Adventures/A Fistful of Flowers/Ch2. Dig Four Plots.md",
     "World/One Shot Adventures/A Fistful of Flowers/A Fistful of Flowers.md",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/Scene/Trap #1 - _When I do this I Get this tingling sensation!_.md",
+    "World/One Shot Adventures/A Fistful of Flowers",
+    "World/One Shot Adventures",
+    "World",
+    "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV14 - Fire and Darkness.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV13 - Party at Paliset Hall.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV12 - Affair on the Concordant Express.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV11 - Affair on the Concordant Express.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV11 - Heart of Ashes.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV10 - Shard of the Accursed.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV9 - Vidorant's Vault.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV8 - Axe from the Grave.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV7 - Masterpiece Imbroglio.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV6 - Tockworth's Clockworks.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV5 - Prisoner 13.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV4 - Reach for the Stars.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV3 - The Stygian Gambit.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV2 - The Murkmire Malevolence.md",
+    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault",
+    "Shared Content/DnD5e/Adventures/New folder",
+    "z_Assets/GemmyDM.png",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/kyr4lfxu.dna.png",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/1ogwuzdf.ekj.png",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/1m0tjsmh.m10.png",
@@ -233,16 +264,9 @@
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/swb53tfl.pye.png",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/r3gojcrz.0aa.png",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/p5ygfwm3.d1g.png",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/oqv134dd.iti.png",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/New folder",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/Scene",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/Trap",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/Storyline",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom",
-    "Shared Content/DnD5e/Adventures/New folder",
-    "Tutorials/YouTube Series/April's Automatic Timelines",
-    "z_Templates/4_Markdown/April's Timeline",
-    "Shared Content/Pathfinder 2e/Bestiary/Bestiary"
+    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/Trap"
   ]
 }
