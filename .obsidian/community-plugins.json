@@ -11,15 +11,15 @@
   "dataview",
   "obsidian-dice-roller",
   "obsidian-admonition",
-  "table-editor-obsidian",
   "obsidian-excalidraw-plugin",
   "obsidian-import-json",
   "folder-note-plugin",
   "obsidian-style-settings",
   "obsidian42-brat",
-  "gemmy_ttrpg",
   "obsidian-text-format",
   "image-window",
   "fantasy-calendar",
-  "aprils-automatic-timelines"
+  "aprils-automatic-timelines",
+  "table-editor-obsidian",
+  "obsidian-kanban"
 ]

@@ -7,6 +7,8 @@ alias:
 ---
 # Pulling content from 5e.tools
 
+Note: This does not appear to work anymore. However the site has added the ability to export content in Markdown so just go use that. 
+
 ## Pulling Bestiaries into individual .md files.
 *Run the following command in the browser console. It will split off each monster in the filtered view into individual .md files with the name of the monster in the file-name.
 1. Go to 5e.tools, navigate to the Bestiary.
