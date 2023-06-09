@@ -37,8 +37,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md",
-                "mode": "source",
+                "file": "Obsidian TTRPG Tutorial/Obsidian TTRPG Tutorial.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -118,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md",
+                "file": "Obsidian TTRPG Tutorial/Obsidian TTRPG Tutorial.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md",
+                "file": "Obsidian TTRPG Tutorial/Obsidian TTRPG Tutorial.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -158,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md"
+                "file": "Obsidian TTRPG Tutorial/Obsidian TTRPG Tutorial.md"
               }
             }
           },
@@ -222,6 +222,7 @@
   },
   "active": "2c4bb90f6d17d7f6",
   "lastOpenFiles": [
+    "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md",
     "z_Assets/GemmyDM.png",
     "Tutorials/Basic Tool Usage/How To - Add Images.md",
     "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/NPCs/Reaching Rings.md",
