@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "2c4bb90f6d17d7f6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Shared Content/DnD5e/Adventures/Adventures.md",
+                "file": "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md",
                 "mode": "preview",
                 "source": true
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Shared Content/DnD5e/Adventures/Adventures.md",
+                "file": "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Shared Content/DnD5e/Adventures/Adventures.md",
+                "file": "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -146,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Shared Content/DnD5e/Adventures/Adventures.md"
+                "file": "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md"
               }
             }
           },
@@ -208,53 +195,53 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "2c4bb90f6d17d7f6",
+  "active": "52cb5f49892f19a1",
   "lastOpenFiles": [
+    "Shared Content/Pathfinder/World.md",
+    "Shared Content/DnD5e/compendium/backgrounds/azorius-functionary-ggr.md",
+    "Shared Content/DnD5e/compendium/backgrounds/athlete-mot.md",
+    "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md",
+    "Shared Content/DnD5e/compendium/adventures/baldurs-gate-descent-into-avernus/04-chapter-3-avernus.md",
+    "Shared Content/DnD5e/compendium/adventures/baldurs-gate-descent-into-avernus/01-about-the-adventure.md",
+    "Shared Content/DnD5e/Books/Books.md",
+    "Shared Content/DnD5e/Backgrounds/Backgrounds.md",
+    "Shared Content/DnD5e/Adventures/Adventures.md",
+    "Shared Content/Pathfinder/Pathfinder.md",
+    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/A Fistful of Flowers.md",
+    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/Ch3. Concluding the Adventure.md",
+    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/Ch2. Dig Four Plots.md",
+    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/Ch1. The Great Grain Robbery.md",
+    "Shared Content/DnD5e/How To - Obtain Images.md",
+    "z_Assets/Pasted image 20230628082435.png",
+    "img/rules",
+    "img",
+    "z_Assets/Pasted image 20230628082302.png",
+    "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
+    "Shared Content/DnD5e/Waterdeep - Dungeon of the Mad Mage.md",
+    "Shared Content/DnD5e/TftYP - Against the Giants.md",
+    "Shared Content/DnD5e/TftYP - Dead in Thay.md",
+    "Shared Content/DnD5e/Feats/Feats.md",
+    "Shared Content/DnD5e/Classes/Classes.md",
+    "Shared Content/DnD5e/Classes/Artificer/Artificer.md",
+    "Shared Content/DnD5e/Books/Van Richten's Guide to Ravenloft.md",
+    "Shared Content/DnD5e/Books/Tasha's Cauldron of Everything.md",
+    "Shared Content/DnD5e/Books/Mordenkainen's Tome of Foes.md",
+    "Shared Content/DnD5e/Books/Sage Advice Compendium.md",
     "z_Assets/Pasted image 20230628081645.png",
     "img/adventure/RoT",
     "img/adventure",
     "img",
-    "Shared Content/DnD5e/Adventures/Untitled.md",
-    "Shared Content/DnD5e/Adventures/Adventures.md",
-    "Shared Content/DnD5e/How To - Obtain Images.md",
     "z_Assets/Pasted image 20230628081232.png",
-    "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/Grimtooth's Dungeon of Doom.md",
-    "Obsidian TTRPG Tutorial/Obsidian TTRPG Tutorial.md",
-    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault/KftGV1 - Introduction–A Collection of Heists.md",
-    "Shared Content/DnD5e/Bestiary/ToB/Cikavak.md",
-    "Random Note.md",
-    "Untitled.md",
-    "Shared Content/DnD5e/Bestiary/ToB/Broodiken.md",
-    "Shared Content/DnD5e/Bestiary/ToB/Ancient Sea Dragon.md",
-    "Shared Content/DnD5e/Bestiary/ToB/Adult Sea Dragon.md",
-    "Shared Content/DnD5e/Bestiary/ToB/Adult Rime Worm.md",
-    "Shared Content/DnD5e/Bestiary/ToB/Accursed Defiler.md",
-    "Shared Content/DnD5e/Bestiary/Fifth Edition Foes/Fifth Edition Foes.md",
-    "Shared Content/DnD5e/Bestiary/Fifth Edition Foes/Aaztar-Ghola.md",
-    "z_Templates/6_Help Notes/Pulling_content_from_5e.tools (new).md",
     "z_Assets/GemmyDM.png",
-    "Tutorials/Basic Tool Usage/How To - Add Images.md",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/NPCs/Reaching Rings.md",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/NPCs/Popcorn.md",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/NPCs/Fluff Fang.md",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/NPCs/Bottlespeaker.md",
     "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/NPCs",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/Ch3. Concluding the Adventure.md",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/Ch2. Dig Four Plots.md",
     "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers",
     "Shared Content/Pathfinder/One Shot Adventures",
     "Shared Content/Pathfinder",
     "Shared Content/DnD5e/Adventures/Keys from the Golden Vault",
-    "World/One Shot Adventures/A Fistful of Flowers/NPCs",
-    "World/One Shot Adventures/A Fistful of Flowers",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/kyr4lfxu.dna.png",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/1ogwuzdf.ekj.png",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/1m0tjsmh.m10.png",
     "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/yiq1ywyf.sig.png",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/xyzwdw3g.wt2.png",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/vpmupjku.00z.png",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/swb53tfl.pye.png",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/r3gojcrz.0aa.png"
+    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/xyzwdw3g.wt2.png"
   ]
 }
