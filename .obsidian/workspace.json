@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2-World/Lampoteuo/Lampoteuo.md",
+                "file": "README.md",
                 "mode": "preview",
                 "source": true
               }
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2-World/Lampoteuo/Lampoteuo.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2-World/Lampoteuo/Lampoteuo.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2-World/Lampoteuo/Lampoteuo.md"
+                "file": "README.md"
               }
             }
           },
@@ -217,9 +217,13 @@
       "obsidian-import-json:JSON/CSV Importer": false
     }
   },
-  "active": "9f994e13f8952f1f",
+  "active": "d8d23148ce8f0fbc",
   "lastOpenFiles": [
+    "z_Assets/README-20231026234052598.webp",
+    "z_Assets/README-20231026233959519.webp",
     "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "README.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
     "z_Templates/Insert Publish Tree.md",
     "z_Templates/Update Publish Files.md",
     "z_Templates/4_Markdown/Insert Rollable Table/Insert Rollable Table.md",
@@ -235,7 +239,6 @@
     "2-World/Lampoteuo/Lampoteuo City/Lucky Grain Inn/Lucky Grain Inn.md",
     "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
     "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
-    "2-World/Lampoteuo/Lampoteuo.md",
     "2-World/Lampoteuo/The Wound/The Wound.md",
     "z_Assets/Placeholder Images/The Wound-20231026225622829.webp",
     "z_Assets/Placeholder Images/LuckyGrainInn_Ground.webp",
@@ -247,7 +250,6 @@
     "3-Mechanics/Where To Get Mechanics.md",
     "z_Assets/Lampoteuo City-20231026231008700.webp",
     "z_Assets/LuckyGrainInn_1st.webp",
-    "z_Assets/LuckyGrainInn_Ground.webp",
     "2-World/Lampoteuo/The Wound",
     "2-World/Lampoteuo/Lampoteuo City/Lucky Grain Inn",
     "z_Assets/Placeholder Images/MapPlaceholder.md",
@@ -256,8 +258,6 @@
     "z_Templates/TemplateJournal.md",
     "z_Templates/TemplateGroup.md",
     "z_Templates/TemplateSettlement.md",
-    "1-DM Toolkit/Journey Board.md",
-    "2-World/Melbourne.md",
     "3-Mechanics/CLI",
     "0-Scratch Notes",
     "3-Mechanics/Guilds and Groups",
