@@ -8,5 +8,9 @@
   "ITS-AT@@its-d": false,
   "ITS-AT@@select": "wotc-beyond",
   "ITS@@justified": true,
-  "ITS@@s-d": true
+  "ITS@@s-d": true,
+  "ITS@@file-explorer-flat": false,
+  "ITS@@hr-center-vertically": false,
+  "ITS@@hide-header-underline": false,
+  "ITS@@heading-indicator": false
 }

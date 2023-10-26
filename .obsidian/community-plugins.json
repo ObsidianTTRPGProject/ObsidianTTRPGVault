@@ -1,7 +1,6 @@
 [
   "obsidian-excel-to-markdown-table",
   "templater-obsidian",
-  "obsidian-timelines",
   "obsidian-custom-frames",
   "various-complements",
   "obsidian-leaflet-plugin",
@@ -13,13 +12,18 @@
   "obsidian-admonition",
   "obsidian-excalidraw-plugin",
   "obsidian-import-json",
-  "folder-note-plugin",
   "obsidian-style-settings",
   "obsidian42-brat",
   "obsidian-text-format",
   "image-window",
-  "fantasy-calendar",
   "aprils-automatic-timelines",
   "table-editor-obsidian",
-  "obsidian-kanban"
+  "obsidian-kanban",
+  "obsidian-icon-folder",
+  "obsidian-meta-bind-plugin",
+  "new-tab-default-page",
+  "obsidian-view-mode-by-frontmatter",
+  "markdown-attributes",
+  "folder-notes",
+  "image-converter"
 ]

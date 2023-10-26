@@ -10,6 +10,7 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -30,6 +31,10 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __publicField = (obj, key, value) => {
+  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
 
 // node_modules/prettify-pinyin/index.js
 var require_prettify_pinyin = __commonJS({
@@ -394,10 +399,10 @@ __export(main_exports, {
   default: () => VariousComponents
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian6 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 
 // src/ui/AutoCompleteSuggest.ts
-var import_obsidian3 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 
 // src/util/collection-helper.ts
 var groupBy = (values, toKey) => values.reduce(
@@ -432,8 +437,8 @@ function mirrorMap(collection, toValue) {
   return collection.reduce((p, c) => ({ ...p, [toValue(c)]: toValue(c) }), {});
 }
 function max(collection, emptyValue) {
-  const select = (a, b) => a >= b ? a : b;
-  return collection.reduce(select, emptyValue);
+  const select2 = (a, b) => a >= b ? a : b;
+  return collection.reduce(select2, emptyValue);
 }
 
 // src/util/diacritics-map.ts
@@ -723,6 +728,9 @@ function capitalizeFirstLetter(str) {
 function startsSmallLetterOnlyFirst(str) {
   return Boolean(str.match(/^[A-Z][^A-Z]+$/));
 }
+function isInternalLink(text2) {
+  return Boolean(text2.match(/^\[\[.+]]$/));
+}
 function smartLineBreakSplit(text2) {
   return text2.split("\n").filter((x) => x);
 }
@@ -804,7 +812,7 @@ function joinNumberWithSymbol(tokens) {
 function pickTokens(content, trimPattern) {
   return content.split(trimPattern).filter((x) => x !== "");
 }
-var TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"',|;*~ `_]/g;
+var TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"',|;*~ `_“„«»‹›‚‘’”]/g;
 var DefaultTokenizer = class {
   tokenize(content, raw) {
     const tokens = raw ? Array.from(splitRaw(content, this.getTrimPattern())).filter(
@@ -2333,9 +2341,7 @@ var tiny_segmenter_default = TinySegmenter;
 // src/tokenizer/tokenizers/JapaneseTokenizer.ts
 var segmenter = new tiny_segmenter_default();
 function pickTokensAsJapanese(content, trimPattern) {
-  return joinNumberWithSymbol(
-    content.split(trimPattern).filter((x) => x !== "").flatMap((x) => segmenter.segment(x))
-  );
+  return content.split(trimPattern).filter((x) => x !== "").flatMap((x) => joinNumberWithSymbol(segmenter.segment(x)));
 }
 var JapaneseTokenizer = class {
   tokenize(content, raw) {
@@ -2669,6 +2675,7 @@ var AppHelper = class {
     });
   }
   getCurrentFrontMatter() {
+    var _a, _b;
     const editor = this.getCurrentEditor();
     if (!editor) {
       return null;
@@ -2684,7 +2691,9 @@ var AppHelper = class {
     if (endPosition !== -1 && currentOffset >= endPosition) {
       return null;
     }
-    const keyLocations = Array.from(editor.getValue().matchAll(/.+:/g));
+    const keyLocations = Array.from(
+      editor.getValue().matchAll(/\s*['"]?(?<key>.+?)['"]?:/g)
+    );
     if (keyLocations.length === 0) {
       return null;
     }
@@ -2692,7 +2701,7 @@ var AppHelper = class {
     if (!currentKeyLocation) {
       return null;
     }
-    return currentKeyLocation[0].split(":")[0];
+    return (_b = (_a = currentKeyLocation.groups) == null ? void 0 : _a.key) != null ? _b : null;
   }
   isIMEOn() {
     var _a, _b, _c;
@@ -3412,44 +3421,6 @@ MatchStrategy.PARTIAL = new _MatchStrategy(
   suggestWordsByPartialMatch
 );
 
-// src/option/CycleThroughSuggestionsKeys.ts
-var _CycleThroughSuggestionsKeys = class {
-  constructor(name, nextKey, previousKey) {
-    this.name = name;
-    this.nextKey = nextKey;
-    this.previousKey = previousKey;
-    _CycleThroughSuggestionsKeys._values.push(this);
-  }
-  static fromName(name) {
-    return _CycleThroughSuggestionsKeys._values.find((x) => x.name === name);
-  }
-  static values() {
-    return _CycleThroughSuggestionsKeys._values;
-  }
-};
-var CycleThroughSuggestionsKeys = _CycleThroughSuggestionsKeys;
-CycleThroughSuggestionsKeys._values = [];
-CycleThroughSuggestionsKeys.NONE = new _CycleThroughSuggestionsKeys(
-  "None",
-  { modifiers: [], key: null },
-  { modifiers: [], key: null }
-);
-CycleThroughSuggestionsKeys.TAB = new _CycleThroughSuggestionsKeys(
-  "Tab, Shift+Tab",
-  { modifiers: [], key: "Tab" },
-  { modifiers: ["Shift"], key: "Tab" }
-);
-CycleThroughSuggestionsKeys.EMACS = new _CycleThroughSuggestionsKeys(
-  "Ctrl/Cmd+N, Ctrl/Cmd+P",
-  { modifiers: ["Mod"], key: "N" },
-  { modifiers: ["Mod"], key: "P" }
-);
-CycleThroughSuggestionsKeys.VIM = new _CycleThroughSuggestionsKeys(
-  "Ctrl/Cmd+J, Ctrl/Cmd+K",
-  { modifiers: ["Mod"], key: "J" },
-  { modifiers: ["Mod"], key: "K" }
-);
-
 // src/option/ColumnDelimiter.ts
 var _ColumnDelimiter = class {
   constructor(name, value) {
@@ -3469,59 +3440,6 @@ ColumnDelimiter._values = [];
 ColumnDelimiter.TAB = new _ColumnDelimiter("Tab", "	");
 ColumnDelimiter.COMMA = new _ColumnDelimiter("Comma", ",");
 ColumnDelimiter.PIPE = new _ColumnDelimiter("Pipe", "|");
-
-// src/option/SelectSuggestionKey.ts
-var _SelectSuggestionKey = class {
-  constructor(name, keyBind) {
-    this.name = name;
-    this.keyBind = keyBind;
-    _SelectSuggestionKey._values.push(this);
-  }
-  static fromName(name) {
-    return _SelectSuggestionKey._values.find((x) => x.name === name);
-  }
-  static values() {
-    return _SelectSuggestionKey._values;
-  }
-};
-var SelectSuggestionKey = _SelectSuggestionKey;
-SelectSuggestionKey._values = [];
-SelectSuggestionKey.ENTER = new _SelectSuggestionKey("Enter", {
-  modifiers: [],
-  key: "Enter"
-});
-SelectSuggestionKey.TAB = new _SelectSuggestionKey("Tab", {
-  modifiers: [],
-  key: "Tab"
-});
-SelectSuggestionKey.MOD_ENTER = new _SelectSuggestionKey("Ctrl/Cmd+Enter", {
-  modifiers: ["Mod"],
-  key: "Enter"
-});
-SelectSuggestionKey.ALT_ENTER = new _SelectSuggestionKey("Alt+Enter", {
-  modifiers: ["Alt"],
-  key: "Enter"
-});
-SelectSuggestionKey.SHIFT_ENTER = new _SelectSuggestionKey("Shift+Enter", {
-  modifiers: ["Shift"],
-  key: "Enter"
-});
-SelectSuggestionKey.SPACE = new _SelectSuggestionKey("Space", {
-  modifiers: [],
-  key: " "
-});
-SelectSuggestionKey.SHIFT_SPACE = new _SelectSuggestionKey("Shift+Space", {
-  modifiers: ["Shift"],
-  key: " "
-});
-SelectSuggestionKey.BACKQUOTE = new _SelectSuggestionKey("Backquote", {
-  modifiers: [],
-  key: "`"
-});
-SelectSuggestionKey.None = new _SelectSuggestionKey("None", {
-  modifiers: [],
-  key: ""
-});
 
 // src/provider/CurrentVaultWordProvider.ts
 var CurrentVaultWordProvider = class {
@@ -3573,39 +3491,6 @@ var CurrentVaultWordProvider = class {
     this.onlyUnderCurrentDirectory = onlyUnderCurrentDirectory;
   }
 };
-
-// src/option/OpenSourceFileKeys.ts
-var _OpenSourceFileKeys = class {
-  constructor(name, keyBind) {
-    this.name = name;
-    this.keyBind = keyBind;
-    _OpenSourceFileKeys._values.push(this);
-  }
-  static fromName(name) {
-    return _OpenSourceFileKeys._values.find((x) => x.name === name);
-  }
-  static values() {
-    return _OpenSourceFileKeys._values;
-  }
-};
-var OpenSourceFileKeys = _OpenSourceFileKeys;
-OpenSourceFileKeys._values = [];
-OpenSourceFileKeys.NONE = new _OpenSourceFileKeys("None", {
-  modifiers: [],
-  key: null
-});
-OpenSourceFileKeys.MOD_ENTER = new _OpenSourceFileKeys("Ctrl/Cmd+Enter", {
-  modifiers: ["Mod"],
-  key: "Enter"
-});
-OpenSourceFileKeys.ALT_ENTER = new _OpenSourceFileKeys("Alt+Enter", {
-  modifiers: ["Alt"],
-  key: "Enter"
-});
-OpenSourceFileKeys.SHIFT_ENTER = new _OpenSourceFileKeys("Shift+Enter", {
-  modifiers: ["Shift"],
-  key: "Enter"
-});
 
 // src/option/DescriptionOnSuggestion.ts
 var _DescriptionOnSuggestion = class {
@@ -3769,20 +3654,20 @@ function calcScore(history, latestUpdated) {
 var SelectionHistoryStorage = class {
   constructor(data = {}, maxDaysToKeepHistory, maxNumberOfHistoryToKeep) {
     this.data = data;
-    const now = Date.now();
-    this.version = now;
-    this.persistedVersion = now;
+    const now2 = Date.now();
+    this.version = now2;
+    this.persistedVersion = now2;
     this.maxDaysToKeepHistory = maxDaysToKeepHistory;
     this.maxNumberOfHistoryToKeep = maxNumberOfHistoryToKeep;
   }
   purge() {
     var _a;
-    const now = Date.now();
+    const now2 = Date.now();
     const times = [];
     for (const hit of Object.keys(this.data)) {
       for (const value of Object.keys(this.data[hit])) {
         for (const kind of Object.keys(this.data[hit][value])) {
-          if (this.maxDaysToKeepHistory && now - this.data[hit][value][kind].lastUpdated > this.maxDaysToKeepHistory * DAY) {
+          if (this.maxDaysToKeepHistory && now2 - this.data[hit][value][kind].lastUpdated > this.maxDaysToKeepHistory * DAY) {
             delete this.data[hit][value][kind];
           } else {
             times.push(this.data[hit][value][kind].lastUpdated);
@@ -3855,13 +3740,114 @@ var SelectionHistoryStorage = class {
   }
 };
 
+// src/ui/popup-commands.ts
+var import_obsidian3 = require("obsidian");
+function select(popup, evt, index) {
+  if (evt.isComposing) {
+    return;
+  }
+  if (index !== void 0) {
+    popup.setSelectionLock(false);
+    popup.suggestions.setSelectedItem(index, evt);
+  }
+  if (popup.selectionLock) {
+    popup.close();
+    return true;
+  } else {
+    popup.suggestions.useSelectedItem({});
+    return false;
+  }
+}
+function insertAsText(popup, evt) {
+  if (!popup.context || evt.isComposing) {
+    return;
+  }
+  if (popup.selectionLock) {
+    popup.close();
+    return true;
+  }
+  const item = popup.suggestions.values[popup.suggestions.selectedItem];
+  const editor = popup.context.editor;
+  editor.replaceRange(
+    item.value,
+    {
+      ...popup.context.start,
+      ch: popup.contextStartCh + item.offset
+    },
+    popup.context.end
+  );
+  return false;
+}
+function selectNext(popup, evt) {
+  if (popup.settings.noAutoFocusUntilCycle && popup.selectionLock) {
+    popup.setSelectionLock(false);
+  } else {
+    popup.suggestions.setSelectedItem(popup.suggestions.selectedItem + 1, evt);
+  }
+  return false;
+}
+function selectPrevious(popup, evt) {
+  if (popup.settings.noAutoFocusUntilCycle && popup.selectionLock) {
+    popup.setSelectionLock(false);
+  } else {
+    popup.suggestions.setSelectedItem(popup.suggestions.selectedItem - 1, evt);
+  }
+  return false;
+}
+function open(popup) {
+  const item = popup.suggestions.values[popup.suggestions.selectedItem];
+  if (item.type !== "currentVault" && item.type !== "internalLink" && item.type !== "frontMatter") {
+    return false;
+  }
+  const markdownFile = popup.appHelper.getMarkdownFileByPath(item.createdPath);
+  if (!markdownFile) {
+    new import_obsidian3.Notice(`Can't open ${item.createdPath}`);
+    return false;
+  }
+  popup.appHelper.openMarkdownFile(markdownFile, true);
+  return false;
+}
+function completion(popup) {
+  if (!popup.context) {
+    return;
+  }
+  const editor = popup.context.editor;
+  const currentPhrase = editor.getRange(
+    {
+      ...popup.context.start,
+      ch: popup.contextStartCh
+    },
+    popup.context.end
+  );
+  const tokens = popup.tokenizer.recursiveTokenize(currentPhrase);
+  const commonPrefixWithToken = tokens.map((t) => ({
+    token: t,
+    commonPrefix: findCommonPrefix(
+      popup.suggestions.values.map((x) => excludeEmoji(x.value)).filter((x) => x.toLowerCase().startsWith(t.word.toLowerCase()))
+    )
+  })).find((x) => x.commonPrefix != null);
+  if (!commonPrefixWithToken || currentPhrase === commonPrefixWithToken.commonPrefix) {
+    return false;
+  }
+  editor.replaceRange(
+    commonPrefixWithToken.commonPrefix,
+    {
+      ...popup.context.start,
+      ch: popup.contextStartCh + commonPrefixWithToken.token.offset
+    },
+    popup.context.end
+  );
+  return true;
+}
+
 // src/ui/AutoCompleteSuggest.ts
 function buildLogMessage(message, msec) {
   return `${message}: ${Math.round(msec)}[ms]`;
 }
-var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
+var AutoCompleteSuggest = class extends import_obsidian4.EditorSuggest {
   constructor(app2, statusBar) {
     super(app2);
+    this.selectionLock = false;
     this.pastCurrentTokenSeparatedWhiteSpace = "";
     this.previousCurrentLine = "";
     this.previousLinksCacheInActiveFile = /* @__PURE__ */ new Set();
@@ -3882,7 +3868,7 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
     this.close();
   }
   async unsafeLoadHistoryData() {
-    const historyPath = (0, import_obsidian3.normalizePath)(
+    const historyPath = (0, import_obsidian4.normalizePath)(
       this.settings.intelligentSuggestionPrioritization.historyFilePath || DEFAULT_HISTORIES_PATH
     );
     if (await this.appHelper.exists(historyPath)) {
@@ -3917,12 +3903,7 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       ins.appHelper
     );
     await ins.updateSettings(settings);
-    ins.selectionHistoryStorage = new SelectionHistoryStorage(
-      await ins.unsafeLoadHistoryData(),
-      settings.intelligentSuggestionPrioritization.maxDaysToKeepHistory,
-      settings.intelligentSuggestionPrioritization.maxNumberOfHistoryToKeep
-    );
-    ins.selectionHistoryStorage.purge();
+    await ins.refreshIntelligentSuggestionPrioritization();
     ins.modifyEventRef = app2.vault.on("modify", async (_) => {
       var _a;
       await ins.refreshCurrentFileTokens();
@@ -4049,7 +4030,7 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
         this.settings
       );
     } catch (e) {
-      new import_obsidian3.Notice(e.message);
+      new import_obsidian4.Notice(e.message);
     }
     this.currentFileWordProvider.setSettings(this.tokenizer);
     this.currentVaultWordProvider.setSettings(
@@ -4063,7 +4044,7 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       ColumnDelimiter.fromName(settings.columnDelimiter),
       settings.delimiterToDivideSuggestionsForDisplayFromInsertion || null
     );
-    this.debounceGetSuggestions = (0, import_obsidian3.debounce)(
+    this.debounceGetSuggestions = (0, import_obsidian4.debounce)(
       (context, cb) => {
         const start = performance.now();
         this.showDebugLog(() => `[context.query]: ${context.query}`);
@@ -4098,172 +4079,64 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       this.settings.delayMilliSeconds,
       true
     );
-    this.debounceClose = (0, import_obsidian3.debounce)(() => {
+    this.debounceClose = (0, import_obsidian4.debounce)(() => {
       this.close();
     }, this.settings.delayMilliSeconds + 50);
-    this.registerKeymaps();
+    this.registerHotkeys();
   }
-  registerKeymaps() {
-    const registerKeyAsIgnored = (modifiers, key) => {
+  registerKeyAsIgnored(modifiers, key) {
+    this.keymapEventHandler.push(
+      this.scope.register(modifiers, key, () => {
+        this.close();
+        return true;
+      })
+    );
+  }
+  setHotKey(name, handler) {
+    this.settings.hotkeys[name].forEach((hk) => {
       this.keymapEventHandler.push(
-        this.scope.register(modifiers, key, () => {
-          this.close();
-          return true;
-        })
+        this.scope.register(hk.modifiers, hk.key, handler)
       );
-    };
+    });
+  }
+  setHotKeys(...params) {
+    params.forEach((args) => this.setHotKey(...args));
+  }
+  registerHotkeys() {
     this.keymapEventHandler.forEach((x) => this.scope.unregister(x));
     this.keymapEventHandler = [];
-    this.scope.unregister(this.scope.keys.find((x) => x.key === "Enter"));
-    this.scope.unregister(this.scope.keys.find((x) => x.key === "ArrowUp"));
-    this.scope.unregister(this.scope.keys.find((x) => x.key === "ArrowDown"));
-    this.scope.unregister(this.scope.keys.find((x) => x.key === "Home"));
-    this.scope.unregister(this.scope.keys.find((x) => x.key === "End"));
-    const selectSuggestionKey = SelectSuggestionKey.fromName(
-      this.settings.selectSuggestionKeys
-    );
-    if (selectSuggestionKey !== SelectSuggestionKey.ENTER) {
-      registerKeyAsIgnored(
-        SelectSuggestionKey.ENTER.keyBind.modifiers,
-        SelectSuggestionKey.ENTER.keyBind.key
-      );
-    }
-    if (selectSuggestionKey !== SelectSuggestionKey.TAB) {
-      registerKeyAsIgnored(
-        SelectSuggestionKey.TAB.keyBind.modifiers,
-        SelectSuggestionKey.TAB.keyBind.key
-      );
-    }
-    if (selectSuggestionKey !== SelectSuggestionKey.None) {
-      this.keymapEventHandler.push(
-        this.scope.register(
-          selectSuggestionKey.keyBind.modifiers,
-          selectSuggestionKey.keyBind.key,
-          () => {
-            this.suggestions.useSelectedItem({});
-            return false;
-          }
-        )
-      );
-    }
-    this.scope.keys.find((x) => x.key === "Escape").func = () => {
+    const ipKeys = ["Enter", "Tab", "ArrowUp", "ArrowDown", "Home", "End"];
+    this.scope.keys.filter(
+      (x) => {
+        var _a;
+        return ipKeys.map((x2) => x2.toLowerCase()).includes(((_a = x.key) != null ? _a : "").toLowerCase());
+      }
+    ).forEach((x) => this.scope.unregister(x));
+    this.scope.keys.find((x) => {
+      var _a;
+      return ((_a = x.key) == null ? void 0 : _a.toLowerCase()) === "escape";
+    }).func = () => {
       this.close();
       return this.settings.propagateEsc;
     };
-    const selectNext = (evt) => {
-      this.suggestions.setSelectedItem(this.suggestions.selectedItem + 1, evt);
-      return false;
-    };
-    const selectPrevious = (evt) => {
-      this.suggestions.setSelectedItem(this.suggestions.selectedItem - 1, evt);
-      return false;
-    };
-    const cycleThroughSuggestionsKeys = CycleThroughSuggestionsKeys.fromName(
-      this.settings.additionalCycleThroughSuggestionsKeys
+    this.setHotKeys(
+      ["select", (evt) => select(this, evt)],
+      ["up", (evt) => selectPrevious(this, evt)],
+      ["down", (evt) => selectNext(this, evt)],
+      ["select 1st", (evt) => select(this, evt, 0)],
+      ["select 2nd", (evt) => select(this, evt, 1)],
+      ["select 3rd", (evt) => select(this, evt, 2)],
+      ["select 4th", (evt) => select(this, evt, 3)],
+      ["select 5th", (evt) => select(this, evt, 4)],
+      ["select 6th", (evt) => select(this, evt, 5)],
+      ["select 7th", (evt) => select(this, evt, 6)],
+      ["select 8th", (evt) => select(this, evt, 7)],
+      ["select 9th", (evt) => select(this, evt, 8)],
+      ["open", (_) => open(this)],
+      ["completion", (_) => completion(this)],
+      ["insert as text", (evt) => insertAsText(this, evt)]
     );
-    if (this.settings.disableUpDownKeysForCycleThroughSuggestionsKeys) {
-      this.keymapEventHandler.push(
-        this.scope.register([], "ArrowDown", () => {
-          this.close();
-          return true;
-        }),
-        this.scope.register([], "ArrowUp", () => {
-          this.close();
-          return true;
-        })
-      );
-    } else {
-      this.keymapEventHandler.push(
-        this.scope.register([], "ArrowDown", selectNext),
-        this.scope.register([], "ArrowUp", selectPrevious)
-      );
-    }
-    if (cycleThroughSuggestionsKeys !== CycleThroughSuggestionsKeys.NONE) {
-      if (cycleThroughSuggestionsKeys === CycleThroughSuggestionsKeys.TAB) {
-        this.scope.unregister(
-          this.scope.keys.find((x) => x.modifiers === "" && x.key === "Tab")
-        );
-      }
-      this.keymapEventHandler.push(
-        this.scope.register(
-          cycleThroughSuggestionsKeys.nextKey.modifiers,
-          cycleThroughSuggestionsKeys.nextKey.key,
-          selectNext
-        ),
-        this.scope.register(
-          cycleThroughSuggestionsKeys.previousKey.modifiers,
-          cycleThroughSuggestionsKeys.previousKey.key,
-          selectPrevious
-        )
-      );
-    }
-    const openSourceFileKey = OpenSourceFileKeys.fromName(
-      this.settings.openSourceFileKey
-    );
-    if (openSourceFileKey !== OpenSourceFileKeys.NONE) {
-      this.keymapEventHandler.push(
-        this.scope.register(
-          openSourceFileKey.keyBind.modifiers,
-          openSourceFileKey.keyBind.key,
-          () => {
-            const item = this.suggestions.values[this.suggestions.selectedItem];
-            if (item.type !== "currentVault" && item.type !== "internalLink" && item.type !== "frontMatter") {
-              return false;
-            }
-            const markdownFile = this.appHelper.getMarkdownFileByPath(
-              item.createdPath
-            );
-            if (!markdownFile) {
-              new import_obsidian3.Notice(`Can't open ${item.createdPath}`);
-              return false;
-            }
-            this.appHelper.openMarkdownFile(markdownFile, true);
-            return false;
-          }
-        )
-      );
-    }
-    if (this.settings.useCommonPrefixCompletionOfSuggestion) {
-      this.scope.unregister(
-        this.scope.keys.find((x) => x.modifiers === "" && x.key === "Tab")
-      );
-      this.keymapEventHandler.push(
-        this.scope.register([], "Tab", () => {
-          if (!this.context) {
-            return;
-          }
-          const editor = this.context.editor;
-          const currentPhrase = editor.getRange(
-            {
-              ...this.context.start,
-              ch: this.contextStartCh
-            },
-            this.context.end
-          );
-          const tokens = this.tokenizer.recursiveTokenize(currentPhrase);
-          const commonPrefixWithToken = tokens.map((t) => ({
-            token: t,
-            commonPrefix: findCommonPrefix(
-              this.suggestions.values.map((x) => excludeEmoji(x.value)).filter(
-                (x) => x.toLowerCase().startsWith(t.word.toLowerCase())
-              )
-            )
-          })).find((x) => x.commonPrefix != null);
-          if (!commonPrefixWithToken || currentPhrase === commonPrefixWithToken.commonPrefix) {
-            return false;
-          }
-          editor.replaceRange(
-            commonPrefixWithToken.commonPrefix,
-            {
-              ...this.context.start,
-              ch: this.contextStartCh + commonPrefixWithToken.token.offset
-            },
-            this.context.end
-          );
-          return true;
-        })
-      );
-    }
+    ipKeys.forEach((x) => this.registerKeyAsIgnored([], x));
   }
   async refreshCurrentFileTokens() {
     const start = performance.now();
@@ -4400,6 +4273,18 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       () => buildLogMessage("Index front matter tokens", performance.now() - start)
     );
   }
+  async refreshIntelligentSuggestionPrioritization() {
+    if (this.settings.intelligentSuggestionPrioritization.enabled) {
+      this.selectionHistoryStorage = new SelectionHistoryStorage(
+        await this.unsafeLoadHistoryData(),
+        this.settings.intelligentSuggestionPrioritization.maxDaysToKeepHistory,
+        this.settings.intelligentSuggestionPrioritization.maxNumberOfHistoryToKeep
+      );
+      this.selectionHistoryStorage.purge();
+    } else {
+      this.selectionHistoryStorage = void 0;
+    }
+  }
   updateFrontMatterTokenIndex(file) {
     const start = performance.now();
     if (!this.settings.enableFrontMatterComplement) {
@@ -4438,7 +4323,7 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       () => buildLogMessage("Update front matter token", performance.now() - start)
     );
   }
-  onTrigger(cursor, editor, file) {
+  onTrigger(cursor, editor) {
     var _a, _b, _c, _d, _e, _f;
     const start = performance.now();
     const showDebugLog = (message) => {
@@ -4457,8 +4342,10 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       onReturnNull("Don't show suggestions for IME");
       return null;
     }
+    const currentFrontMatter = this.settings.enableFrontMatterComplement ? this.appHelper.getCurrentFrontMatter() : void 0;
+    showDebugLog(`Current front matter is ${currentFrontMatter}`);
     const cl = this.appHelper.getCurrentLine(editor);
-    if (equalsAsLiterals(this.previousCurrentLine, cl) && !this.runManually) {
+    if (equalsAsLiterals(this.previousCurrentLine, cl) && !this.runManually && !currentFrontMatter) {
       this.previousCurrentLine = cl;
       onReturnNull("Don't show suggestions because there are no changes");
       return null;
@@ -4515,13 +4402,16 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       );
       return null;
     }
-    const currentFrontMatter = this.settings.enableFrontMatterComplement ? this.appHelper.getCurrentFrontMatter() : void 0;
-    showDebugLog(`Current front matter is ${currentFrontMatter}`);
     if (!this.runManually && !currentFrontMatter && currentToken.length < this.minNumberTriggered) {
       onReturnNull(
         "Don't show suggestions because currentToken is less than minNumberTriggered option"
       );
       return null;
+    }
+    if (this.runManually) {
+      this.setSelectionLock(false);
+    } else {
+      this.setSelectionLock(this.settings.noAutoFocusUntilCycle);
     }
     showDebugLog(buildLogMessage("onTrigger", performance.now() - start));
     this.runManually = false;
@@ -4617,7 +4507,7 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
     }
     return match(displayed) ? `[${replaceByPattern(displayed)}](${encodeSpace(link)}.md)` : `[${displayed}](${encodeSpace(link)}.md)`;
   }
-  selectSuggestion(word, evt) {
+  selectSuggestion(word, _evt) {
     var _a, _b;
     if (!this.context) {
       return;
@@ -4626,8 +4516,13 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
     if (word.type === "internalLink") {
       insertedText = this.constructInternalLinkText(word);
     }
-    if (word.type === "frontMatter" && this.settings.insertCommaAfterFrontMatterCompletion) {
-      insertedText = `${insertedText}, `;
+    if (word.type === "frontMatter") {
+      if (isInternalLink(insertedText)) {
+        insertedText = `"${insertedText}"`;
+      }
+      if (this.settings.insertCommaAfterFrontMatterCompletion) {
+        insertedText = `${insertedText}, `;
+      }
     } else {
       if (this.settings.insertAfterCompletion && !(word.type === "customDictionary" && word.ignoreSpaceAfterCompletion)) {
         insertedText = `${insertedText} `;
@@ -4683,10 +4578,20 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       console.log(toMessage());
     }
   }
+  setSelectionLock(lock) {
+    this.selectionLock = lock;
+    const lockClass = "various-complements__selection-lock";
+    const body = document.querySelector("body");
+    if (lock) {
+      body.addClass(lockClass);
+    } else {
+      body.removeClass(lockClass);
+    }
+  }
 };
 
 // src/setting/settings.ts
-var import_obsidian4 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 
 // src/setting/settings-helper.ts
 var TextComponentEvent;
@@ -4706,6 +4611,34 @@ var TextComponentEvent;
   TextComponentEvent2.onChange = onChange;
 })(TextComponentEvent || (TextComponentEvent = {}));
 
+// src/keys.ts
+var import_obsidian5 = require("obsidian");
+var MOD = import_obsidian5.Platform.isMacOS ? "Cmd" : "Ctrl";
+var ALT = import_obsidian5.Platform.isMacOS ? "Option" : "Alt";
+function hotkey2String(hotkey) {
+  if (!hotkey) {
+    return "";
+  }
+  const mods = hotkey.modifiers.join(" ");
+  return mods ? `${mods} ${hotkey.key}` : hotkey.key;
+}
+function string2Hotkey(hotKey, hideHotkeyGuide) {
+  const keys = hotKey.split(" ");
+  if (keys.length === 1) {
+    return keys[0] === "" ? null : { modifiers: [], key: keys[0], hideHotkeyGuide };
+  }
+  return {
+    modifiers: keys.slice(0, -1),
+    key: keys.at(-1),
+    hideHotkeyGuide
+  };
+}
+
+// src/types.ts
+function isPresent(arg) {
+  return arg != null;
+}
+
 // src/setting/settings.ts
 var DEFAULT_SETTINGS = {
   strategy: "default",
@@ -4724,16 +4657,29 @@ var DEFAULT_SETTINGS = {
   disableSuggestionsDuringImeOn: false,
   insertAfterCompletion: true,
   firstCharactersDisableSuggestions: ":/^",
-  useCommonPrefixCompletionOfSuggestion: false,
   patternsToSuppressTrigger: ["^~~~.*", "^```.*"],
+  noAutoFocusUntilCycle: false,
   showMatchStrategy: true,
   showComplementAutomatically: true,
   showIndexingStatus: true,
   descriptionOnSuggestion: "Short",
-  selectSuggestionKeys: "Enter",
-  additionalCycleThroughSuggestionsKeys: "None",
-  disableUpDownKeysForCycleThroughSuggestionsKeys: false,
-  openSourceFileKey: "None",
+  hotkeys: {
+    select: [{ modifiers: [], key: "Enter" }],
+    up: [{ modifiers: [], key: "ArrowUp" }],
+    down: [{ modifiers: [], key: "ArrowDown" }],
+    "select 1st": [],
+    "select 2nd": [],
+    "select 3rd": [],
+    "select 4th": [],
+    "select 5th": [],
+    "select 6th": [],
+    "select 7th": [],
+    "select 8th": [],
+    "select 9th": [],
+    open: [],
+    completion: [],
+    "insert as text": []
+  },
   propagateEsc: false,
   enableCurrentFileComplement: true,
   currentFileMinNumberOfCharacters: 0,
@@ -4765,6 +4711,7 @@ var DEFAULT_SETTINGS = {
   frontMatterComplementMatchStrategy: "inherit",
   insertCommaAfterFrontMatterCompletion: false,
   intelligentSuggestionPrioritization: {
+    enabled: true,
     historyFilePath: "",
     maxDaysToKeepHistory: 30,
     maxNumberOfHistoryToKeep: 0
@@ -4773,7 +4720,7 @@ var DEFAULT_SETTINGS = {
   showLogAboutPerformanceInConsole: false,
   selectionHistoryTree: {}
 };
-var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingTab {
+var VariousComplementsSettingTab = class extends import_obsidian6.PluginSettingTab {
   constructor(app2, plugin) {
     super(app2, plugin);
     this.plugin = plugin;
@@ -4795,8 +4742,11 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
     this.addDebugSettings(containerEl);
   }
   async addMainSettings(containerEl) {
-    containerEl.createEl("h3", { text: "Main" });
-    new import_obsidian4.Setting(containerEl).setName("Strategy").addDropdown(
+    containerEl.createEl("h3", {
+      text: "Main",
+      cls: "various-complements__settings__header various-complements__settings__header__main"
+    });
+    new import_obsidian6.Setting(containerEl).setName("Strategy").addDropdown(
       (tc) => tc.addOptions(mirrorMap(TokenizeStrategy.values(), (x) => x.name)).setValue(this.plugin.settings.strategy).onChange(async (value) => {
         this.plugin.settings.strategy = value;
         this.display();
@@ -4820,7 +4770,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           text: " the site "
         })
       );
-      new import_obsidian4.Setting(containerEl).setName("CC-CEDICT path").setDesc(df).setClass("various-complements__settings__nested").addText((cb) => {
+      new import_obsidian6.Setting(containerEl).setName("CC-CEDICT path").setDesc(df).setClass("various-complements__settings__nested").addText((cb) => {
         TextComponentEvent.onChange(cb, async (value) => {
           this.plugin.settings.cedictPath = value;
           await this.plugin.saveSettings();
@@ -4837,7 +4787,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         });
       }
     }
-    new import_obsidian4.Setting(containerEl).setName("Match strategy").addDropdown(
+    new import_obsidian6.Setting(containerEl).setName("Match strategy").addDropdown(
       (tc) => tc.addOptions(mirrorMap(MatchStrategy.values(), (x) => x.name)).setValue(this.plugin.settings.matchStrategy).onChange(async (value) => {
         this.plugin.settings.matchStrategy = value;
         await this.plugin.saveSettings();
@@ -4850,13 +4800,13 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         cls: "various-complements__settings__warning"
       });
     }
-    new import_obsidian4.Setting(containerEl).setName("Fuzzy match").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Fuzzy match").addToggle((tc) => {
       tc.setValue(this.plugin.settings.fuzzyMatch).onChange(async (value) => {
         this.plugin.settings.fuzzyMatch = value;
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian4.Setting(containerEl).setName("Min fuzzy match score").setDesc(
+    new import_obsidian6.Setting(containerEl).setName("Min fuzzy match score").setDesc(
       "It only shows suggestions whose fuzzy matched score is more than the specific value."
     ).addSlider(
       (sc) => sc.setLimits(0, 5, 0.1).setValue(this.plugin.settings.minFuzzyMatchScore).setDynamicTooltip().onChange(async (value) => {
@@ -4864,7 +4814,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Treat accent diacritics as alphabetic characters.").setDesc("Ex: If enabled, 'aaa' matches with '\xE1\xE4\u0101'").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Treat accent diacritics as alphabetic characters.").setDesc("Ex: If enabled, 'aaa' matches with '\xE1\xE4\u0101'").addToggle((tc) => {
       tc.setValue(
         this.plugin.settings.treatAccentDiacriticsAsAlphabeticCharacters
       ).onChange(async (value) => {
@@ -4877,7 +4827,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         });
       });
     });
-    new import_obsidian4.Setting(containerEl).setName("Matching without emoji").setDesc("Ex: If enabled, 'aaa' matches with '\u{1F600}aaa'").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Matching without emoji").setDesc("Ex: If enabled, 'aaa' matches with '\u{1F600}aaa'").addToggle((tc) => {
       tc.setValue(this.plugin.settings.matchingWithoutEmoji).onChange(
         async (value) => {
           this.plugin.settings.matchingWithoutEmoji = value;
@@ -4890,31 +4840,31 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         }
       );
     });
-    new import_obsidian4.Setting(containerEl).setName("Max number of suggestions").addSlider(
+    new import_obsidian6.Setting(containerEl).setName("Max number of suggestions").addSlider(
       (sc) => sc.setLimits(1, 255, 1).setValue(this.plugin.settings.maxNumberOfSuggestions).setDynamicTooltip().onChange(async (value) => {
         this.plugin.settings.maxNumberOfSuggestions = value;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Max number of words as a phrase").setDesc(`[\u26A0Warning] It makes slower more than N times (N is set value)`).addSlider(
+    new import_obsidian6.Setting(containerEl).setName("Max number of words as a phrase").setDesc(`[\u26A0Warning] It makes slower more than N times (N is set value)`).addSlider(
       (sc) => sc.setLimits(1, 10, 1).setValue(this.plugin.settings.maxNumberOfWordsAsPhrase).setDynamicTooltip().onChange(async (value) => {
         this.plugin.settings.maxNumberOfWordsAsPhrase = value;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Min number of characters for trigger").setDesc("It uses a default value of Strategy if set 0.").addSlider(
+    new import_obsidian6.Setting(containerEl).setName("Min number of characters for trigger").setDesc("It uses a default value of Strategy if set 0.").addSlider(
       (sc) => sc.setLimits(0, 10, 1).setValue(this.plugin.settings.minNumberOfCharactersTriggered).setDynamicTooltip().onChange(async (value) => {
         this.plugin.settings.minNumberOfCharactersTriggered = value;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Min number of words for trigger").addSlider(
+    new import_obsidian6.Setting(containerEl).setName("Min number of words for trigger").addSlider(
       (sc) => sc.setLimits(1, 10, 1).setValue(this.plugin.settings.minNumberOfWordsTriggeredPhrase).setDynamicTooltip().onChange(async (value) => {
         this.plugin.settings.minNumberOfWordsTriggeredPhrase = value;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Complement automatically").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Complement automatically").addToggle((tc) => {
       tc.setValue(this.plugin.settings.complementAutomatically).onChange(
         async (value) => {
           this.plugin.settings.complementAutomatically = value;
@@ -4922,13 +4872,13 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         }
       );
     });
-    new import_obsidian4.Setting(containerEl).setName("Delay milli-seconds for trigger").addSlider(
+    new import_obsidian6.Setting(containerEl).setName("Delay milli-seconds for trigger").addSlider(
       (sc) => sc.setLimits(0, 1e3, 10).setValue(this.plugin.settings.delayMilliSeconds).setDynamicTooltip().onChange(async (value) => {
         this.plugin.settings.delayMilliSeconds = value;
         await this.plugin.saveSettings();
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Disable suggestions during IME on").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Disable suggestions during IME on").addToggle((tc) => {
       tc.setValue(
         this.plugin.settings.disableSuggestionsDuringImeOn
       ).onChange(async (value) => {
@@ -4936,7 +4886,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian4.Setting(containerEl).setName("Insert space after completion").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Insert space after completion").addToggle((tc) => {
       tc.setValue(this.plugin.settings.insertAfterCompletion).onChange(
         async (value) => {
           this.plugin.settings.insertAfterCompletion = value;
@@ -4944,7 +4894,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         }
       );
     });
-    new import_obsidian4.Setting(containerEl).setName("First characters to disable suggestions").addText((cb) => {
+    new import_obsidian6.Setting(containerEl).setName("First characters to disable suggestions").addText((cb) => {
       cb.setValue(
         this.plugin.settings.firstCharactersDisableSuggestions
       ).onChange(async (value) => {
@@ -4952,15 +4902,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         await this.plugin.saveSettings();
       });
     });
-    new import_obsidian4.Setting(containerEl).setName("(Experimental) Use common prefix completion of suggestion").setDesc("Hotkey is <TAB>").addToggle((tc) => {
-      tc.setValue(
-        this.plugin.settings.useCommonPrefixCompletionOfSuggestion
-      ).onChange(async (value) => {
-        this.plugin.settings.useCommonPrefixCompletionOfSuggestion = value;
-        await this.plugin.saveSettings();
-      });
-    });
-    new import_obsidian4.Setting(containerEl).setName("Patterns to suppress trigger").setDesc(
+    new import_obsidian6.Setting(containerEl).setName("Patterns to suppress trigger").setDesc(
       "RegExp line patterns until the cursor, which suppresses the auto-completion trigger. It can set multi patterns by line breaks."
     ).addTextArea(
       (tc) => tc.setValue(this.plugin.settings.patternsToSuppressTrigger.join("\n")).onChange(async (value) => {
@@ -4968,10 +4910,21 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         await this.plugin.saveSettings();
       })
     );
+    new import_obsidian6.Setting(containerEl).setName("No auto-focus until the cycle").setDesc("No focus on the suggestions until the cycle key is pressed.").addToggle((tc) => {
+      tc.setValue(this.plugin.settings.noAutoFocusUntilCycle).onChange(
+        async (value) => {
+          this.plugin.settings.noAutoFocusUntilCycle = value;
+          await this.plugin.saveSettings();
+        }
+      );
+    });
   }
   addAppearanceSettings(containerEl) {
-    containerEl.createEl("h3", { text: "Appearance" });
-    new import_obsidian4.Setting(containerEl).setName("Show Match strategy").setDesc(
+    containerEl.createEl("h3", {
+      text: "Appearance",
+      cls: "various-complements__settings__header various-complements__settings__header__appearance"
+    });
+    new import_obsidian6.Setting(containerEl).setName("Show Match strategy").setDesc(
       "Show Match strategy at the status bar. Changing this option requires a restart to take effect."
     ).addToggle((tc) => {
       tc.setValue(this.plugin.settings.showMatchStrategy).onChange(
@@ -4981,7 +4934,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         }
       );
     });
-    new import_obsidian4.Setting(containerEl).setName("Show Complement automatically").setDesc(
+    new import_obsidian6.Setting(containerEl).setName("Show Complement automatically").setDesc(
       "Show complement automatically at the status bar. Changing this option requires a restart to take effect."
     ).addToggle((tc) => {
       tc.setValue(this.plugin.settings.showComplementAutomatically).onChange(
@@ -4991,7 +4944,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         }
       );
     });
-    new import_obsidian4.Setting(containerEl).setName("Show Indexing status").setDesc(
+    new import_obsidian6.Setting(containerEl).setName("Show Indexing status").setDesc(
       "Show indexing status at the status bar. Changing this option requires a restart to take effect."
     ).addToggle((tc) => {
       tc.setValue(this.plugin.settings.showIndexingStatus).onChange(
@@ -5001,7 +4954,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         }
       );
     });
-    new import_obsidian4.Setting(containerEl).setName("Description on a suggestion").addDropdown(
+    new import_obsidian6.Setting(containerEl).setName("Description on a suggestion").addDropdown(
       (tc) => tc.addOptions(
         mirrorMap(DescriptionOnSuggestion.values(), (x) => x.name)
       ).setValue(this.plugin.settings.descriptionOnSuggestion).onChange(async (value) => {
@@ -5011,36 +4964,48 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
     );
   }
   addKeyCustomizationSettings(containerEl) {
-    containerEl.createEl("h3", { text: "Key customization" });
-    new import_obsidian4.Setting(containerEl).setName("Select a suggestion key").addDropdown(
-      (tc) => tc.addOptions(mirrorMap(SelectSuggestionKey.values(), (x) => x.name)).setValue(this.plugin.settings.selectSuggestionKeys).onChange(async (value) => {
-        this.plugin.settings.selectSuggestionKeys = value;
-        await this.plugin.saveSettings();
-      })
+    containerEl.createEl("h3", {
+      text: "Key customization",
+      cls: "various-complements__settings__header various-complements__settings__header__key-customization"
+    });
+    const div = createDiv({
+      cls: "various-complements__settings__popup-hotkey"
+    });
+    containerEl.append(div);
+    const li = createEl("li");
+    li.append(
+      "You can know the keycode at ",
+      createEl("a", {
+        text: "keycode.info",
+        href: "https://keycode.info/"
+      }),
+      ". (Press any key and show 'event.key')"
     );
-    new import_obsidian4.Setting(containerEl).setName("Additional cycle through suggestions keys").addDropdown(
-      (tc) => tc.addOptions(
-        mirrorMap(CycleThroughSuggestionsKeys.values(), (x) => x.name)
-      ).setValue(this.plugin.settings.additionalCycleThroughSuggestionsKeys).onChange(async (value) => {
-        this.plugin.settings.additionalCycleThroughSuggestionsKeys = value;
-        await this.plugin.saveSettings();
-      })
-    );
-    new import_obsidian4.Setting(containerEl).setName("Disable the up/down keys for cycle through suggestions keys").addToggle((tc) => {
-      tc.setValue(
-        this.plugin.settings.disableUpDownKeysForCycleThroughSuggestionsKeys
-      ).onChange(async (value) => {
-        this.plugin.settings.disableUpDownKeysForCycleThroughSuggestionsKeys = value;
-        await this.plugin.saveSettings();
+    const ul = createEl("ul");
+    ul.createEl("li", {
+      text: "'Ctrl a' means pressing the Ctrl key and the A key."
+    });
+    ul.createEl("li", {
+      text: "'Enter|Tab' means pressing the Enter key or the Tab key."
+    });
+    ul.createEl("li", {
+      text: "Use 'Mod' instead of 'Ctrl' on Windows or 'Cmd' on macOS."
+    });
+    ul.append(li);
+    const df = document.createDocumentFragment();
+    df.append(ul);
+    new import_obsidian6.Setting(div).setHeading().setName("Hotkeys").setDesc(df);
+    const hotkeys = this.plugin.settings.hotkeys;
+    Object.keys(hotkeys).forEach((k) => {
+      const key = k;
+      new import_obsidian6.Setting(div).setName(key).setClass("various-complements__settings__popup-hotkey-item").addText((cb) => {
+        return cb.setValue(hotkeys[key].map(hotkey2String).join("|")).onChange(async (value) => {
+          hotkeys[key] = value.split("|").map((x) => string2Hotkey(x, false)).filter(isPresent);
+          await this.plugin.saveSettings();
+        });
       });
     });
-    new import_obsidian4.Setting(containerEl).setName("Open source file key").addDropdown(
-      (tc) => tc.addOptions(mirrorMap(OpenSourceFileKeys.values(), (x) => x.name)).setValue(this.plugin.settings.openSourceFileKey).onChange(async (value) => {
-        this.plugin.settings.openSourceFileKey = value;
-        await this.plugin.saveSettings();
-      })
-    );
-    new import_obsidian4.Setting(containerEl).setName("Propagate ESC").setDesc(
+    new import_obsidian6.Setting(containerEl).setName("Propagate ESC").setDesc(
       "It is handy if you use Vim mode because you can switch to Normal mode by one ESC, whether it shows suggestions or not."
     ).addToggle((tc) => {
       tc.setValue(this.plugin.settings.propagateEsc).onChange(
@@ -5056,7 +5021,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       text: "Current file complement",
       cls: "various-complements__settings__header various-complements__settings__header__current-file"
     });
-    new import_obsidian4.Setting(containerEl).setName("Enable Current file complement").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Enable Current file complement").addToggle((tc) => {
       tc.setValue(this.plugin.settings.enableCurrentFileComplement).onChange(
         async (value) => {
           this.plugin.settings.enableCurrentFileComplement = value;
@@ -5066,13 +5031,13 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       );
     });
     if (this.plugin.settings.enableCurrentFileComplement) {
-      new import_obsidian4.Setting(containerEl).setName("Min number of characters for indexing").setDesc("It uses a default value of Strategy if set 0.").addSlider(
+      new import_obsidian6.Setting(containerEl).setName("Min number of characters for indexing").setDesc("It uses a default value of Strategy if set 0.").addSlider(
         (sc) => sc.setLimits(0, 15, 1).setValue(this.plugin.settings.currentFileMinNumberOfCharacters).setDynamicTooltip().onChange(async (value) => {
           this.plugin.settings.currentFileMinNumberOfCharacters = value;
           await this.plugin.saveSettings({ currentFile: true });
         })
       );
-      new import_obsidian4.Setting(containerEl).setName("Only complement English on current file complement").addToggle((tc) => {
+      new import_obsidian6.Setting(containerEl).setName("Only complement English on current file complement").addToggle((tc) => {
         tc.setValue(
           this.plugin.settings.onlyComplementEnglishOnCurrentFileComplement
         ).onChange(async (value) => {
@@ -5087,7 +5052,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       text: "Current vault complement",
       cls: "various-complements__settings__header various-complements__settings__header__current-vault"
     });
-    new import_obsidian4.Setting(containerEl).setName("Enable Current vault complement").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Enable Current vault complement").addToggle((tc) => {
       tc.setValue(this.plugin.settings.enableCurrentVaultComplement).onChange(
         async (value) => {
           this.plugin.settings.enableCurrentVaultComplement = value;
@@ -5097,13 +5062,13 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       );
     });
     if (this.plugin.settings.enableCurrentVaultComplement) {
-      new import_obsidian4.Setting(containerEl).setName("Min number of characters for indexing").setDesc("It uses a default value of Strategy if set 0.").addSlider(
+      new import_obsidian6.Setting(containerEl).setName("Min number of characters for indexing").setDesc("It uses a default value of Strategy if set 0.").addSlider(
         (sc) => sc.setLimits(0, 15, 1).setValue(this.plugin.settings.currentVaultMinNumberOfCharacters).setDynamicTooltip().onChange(async (value) => {
           this.plugin.settings.currentVaultMinNumberOfCharacters = value;
           await this.plugin.saveSettings();
         })
       );
-      new import_obsidian4.Setting(containerEl).setName("Include prefix path patterns").setDesc("Prefix match path patterns to include files.").addTextArea((tac) => {
+      new import_obsidian6.Setting(containerEl).setName("Include prefix path patterns").setDesc("Prefix match path patterns to include files.").addTextArea((tac) => {
         const el = tac.setValue(
           this.plugin.settings.includeCurrentVaultPathPrefixPatterns
         ).setPlaceholder("Private/").onChange(async (value) => {
@@ -5113,7 +5078,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         el.inputEl.className = "various-complements__settings__text-area-path";
         return el;
       });
-      new import_obsidian4.Setting(containerEl).setName("Exclude prefix path patterns").setDesc("Prefix match path patterns to exclude files.").addTextArea((tac) => {
+      new import_obsidian6.Setting(containerEl).setName("Exclude prefix path patterns").setDesc("Prefix match path patterns to exclude files.").addTextArea((tac) => {
         const el = tac.setValue(
           this.plugin.settings.excludeCurrentVaultPathPrefixPatterns
         ).setPlaceholder("Private/").onChange(async (value) => {
@@ -5123,7 +5088,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         el.inputEl.className = "various-complements__settings__text-area-path";
         return el;
       });
-      new import_obsidian4.Setting(containerEl).setName("Include only files under current directory").addToggle((tc) => {
+      new import_obsidian6.Setting(containerEl).setName("Include only files under current directory").addToggle((tc) => {
         tc.setValue(
           this.plugin.settings.includeCurrentVaultOnlyFilesUnderCurrentDirectory
         ).onChange(async (value) => {
@@ -5138,7 +5103,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       text: "Custom dictionary complement",
       cls: "various-complements__settings__header various-complements__settings__header__custom-dictionary"
     });
-    new import_obsidian4.Setting(containerEl).setName("Enable Custom dictionary complement").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Enable Custom dictionary complement").addToggle((tc) => {
       tc.setValue(
         this.plugin.settings.enableCustomDictionaryComplement
       ).onChange(async (value) => {
@@ -5148,7 +5113,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       });
     });
     if (this.plugin.settings.enableCustomDictionaryComplement) {
-      new import_obsidian4.Setting(containerEl).setName("Custom dictionary paths").setDesc(
+      new import_obsidian6.Setting(containerEl).setName("Custom dictionary paths").setDesc(
         "Specify either a relative path from Vault root or URL for each line."
       ).addTextArea((tac) => {
         const el = tac.setValue(this.plugin.settings.customDictionaryPaths).setPlaceholder("dictionary.md").onChange(async (value) => {
@@ -5158,13 +5123,13 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         el.inputEl.className = "various-complements__settings__text-area-path";
         return el;
       });
-      new import_obsidian4.Setting(containerEl).setName("Column delimiter").addDropdown(
+      new import_obsidian6.Setting(containerEl).setName("Column delimiter").addDropdown(
         (tc) => tc.addOptions(mirrorMap(ColumnDelimiter.values(), (x) => x.name)).setValue(this.plugin.settings.columnDelimiter).onChange(async (value) => {
           this.plugin.settings.columnDelimiter = value;
           await this.plugin.saveSettings();
         })
       );
-      new import_obsidian4.Setting(containerEl).setName("Word regex pattern").setDesc("Only load words that match the regular expression pattern.").addText((cb) => {
+      new import_obsidian6.Setting(containerEl).setName("Word regex pattern").setDesc("Only load words that match the regular expression pattern.").addText((cb) => {
         cb.setValue(
           this.plugin.settings.customDictionaryWordRegexPattern
         ).onChange(async (value) => {
@@ -5172,7 +5137,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           await this.plugin.saveSettings();
         });
       });
-      new import_obsidian4.Setting(containerEl).setName("Delimiter to hide a suggestion").setDesc(
+      new import_obsidian6.Setting(containerEl).setName("Delimiter to hide a suggestion").setDesc(
         "If set ';;;', 'abcd;;;efg' is shown as 'abcd' on suggestions, but completes to 'abcdefg'."
       ).addText((cb) => {
         cb.setValue(this.plugin.settings.delimiterToHideSuggestion).onChange(
@@ -5182,7 +5147,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           }
         );
       });
-      new import_obsidian4.Setting(containerEl).setName(
+      new import_obsidian6.Setting(containerEl).setName(
         "Delimiter to divide suggestions for display from ones for insertion"
       ).setDesc(
         "If set ' >>> ', 'displayed >>> inserted' is shown as 'displayed' on suggestions, but completes to 'inserted'."
@@ -5194,7 +5159,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           await this.plugin.saveSettings();
         });
       });
-      new import_obsidian4.Setting(containerEl).setName("Caret location symbol after complement").setDesc(
+      new import_obsidian6.Setting(containerEl).setName("Caret location symbol after complement").setDesc(
         "If set '<CARET>' and there is '<li><CARET></li>' in custom dictionary, it complements '<li></li>' and move a caret where between '<li>' and `</li>`."
       ).addText((cb) => {
         cb.setValue(
@@ -5204,7 +5169,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           await this.plugin.saveSettings();
         });
       });
-      new import_obsidian4.Setting(containerEl).setName("Displayed text suffix").setDesc(
+      new import_obsidian6.Setting(containerEl).setName("Displayed text suffix").setDesc(
         "It shows as a suffix of displayed text if there is a difference between displayed and inserted"
       ).addText((cb) => {
         cb.setValue(this.plugin.settings.displayedTextSuffix).onChange(
@@ -5221,7 +5186,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       text: "Internal link complement",
       cls: "various-complements__settings__header various-complements__settings__header__internal-link"
     });
-    new import_obsidian4.Setting(containerEl).setName("Enable Internal link complement").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Enable Internal link complement").addToggle((tc) => {
       tc.setValue(this.plugin.settings.enableInternalLinkComplement).onChange(
         async (value) => {
           this.plugin.settings.enableInternalLinkComplement = value;
@@ -5231,7 +5196,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       );
     });
     if (this.plugin.settings.enableInternalLinkComplement) {
-      new import_obsidian4.Setting(containerEl).setName("Suggest with an alias").addToggle((tc) => {
+      new import_obsidian6.Setting(containerEl).setName("Suggest with an alias").addToggle((tc) => {
         tc.setValue(
           this.plugin.settings.suggestInternalLinkWithAlias
         ).onChange(async (value) => {
@@ -5239,7 +5204,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           await this.plugin.saveSettings({ internalLink: true });
         });
       });
-      new import_obsidian4.Setting(containerEl).setName("Update internal links on save").addToggle((tc) => {
+      new import_obsidian6.Setting(containerEl).setName("Update internal links on save").addToggle((tc) => {
         tc.setValue(this.plugin.settings.updateInternalLinksOnSave).onChange(
           async (value) => {
             this.plugin.settings.updateInternalLinksOnSave = value;
@@ -5247,7 +5212,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           }
         );
       });
-      new import_obsidian4.Setting(containerEl).setName(
+      new import_obsidian6.Setting(containerEl).setName(
         "Insert an alias that is transformed from the displayed internal link"
       ).addToggle((tc) => {
         tc.setValue(
@@ -5259,7 +5224,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         });
       });
       if (this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.enabled) {
-        new import_obsidian4.Setting(containerEl).setName("Before: regular expression pattern with captures").setDesc(String.raw`Ex: (?<name>.+) \(.+\)$`).setClass("various-complements__settings__nested").addText((cb) => {
+        new import_obsidian6.Setting(containerEl).setName("Before: regular expression pattern with captures").setDesc(String.raw`Ex: (?<name>.+) \(.+\)$`).setClass("various-complements__settings__nested").addText((cb) => {
           cb.setValue(
             this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.beforeRegExp
           ).onChange(async (value) => {
@@ -5267,7 +5232,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
             await this.plugin.saveSettings();
           });
         });
-        new import_obsidian4.Setting(containerEl).setName("After").setDesc("Ex: $<name>").setClass("various-complements__settings__nested").addText((cb) => {
+        new import_obsidian6.Setting(containerEl).setName("After").setDesc("Ex: $<name>").setClass("various-complements__settings__nested").addText((cb) => {
           cb.setValue(
             this.plugin.settings.insertAliasTransformedFromDisplayedInternalLink.after
           ).onChange(async (value) => {
@@ -5276,7 +5241,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           });
         });
       }
-      new import_obsidian4.Setting(containerEl).setName("Exclude prefix path patterns").setDesc("Prefix match path patterns to exclude files.").addTextArea((tac) => {
+      new import_obsidian6.Setting(containerEl).setName("Exclude prefix path patterns").setDesc("Prefix match path patterns to exclude files.").addTextArea((tac) => {
         const el = tac.setValue(
           this.plugin.settings.excludeInternalLinkPathPrefixPatterns
         ).setPlaceholder("Private/").onChange(async (value) => {
@@ -5286,7 +5251,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         el.inputEl.className = "various-complements__settings__text-area-path";
         return el;
       });
-      new import_obsidian4.Setting(containerEl).setName("Front matter key for exclusion").setDesc(
+      new import_obsidian6.Setting(containerEl).setName("Front matter key for exclusion").setDesc(
         "Exclude internal links from the suggestions if whose front matters have the key whose name is same as this setting, and the value is 'true'"
       ).addText((cb) => {
         TextComponentEvent.onChange(cb, async (value) => {
@@ -5303,7 +5268,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       text: "Front matter complement",
       cls: "various-complements__settings__header various-complements__settings__header__front-matter"
     });
-    new import_obsidian4.Setting(containerEl).setName("Enable Front matter complement").addToggle((tc) => {
+    new import_obsidian6.Setting(containerEl).setName("Enable Front matter complement").addToggle((tc) => {
       tc.setValue(this.plugin.settings.enableFrontMatterComplement).onChange(
         async (value) => {
           this.plugin.settings.enableFrontMatterComplement = value;
@@ -5313,7 +5278,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       );
     });
     if (this.plugin.settings.enableFrontMatterComplement) {
-      new import_obsidian4.Setting(containerEl).setName("Match strategy in the front matter").addDropdown(
+      new import_obsidian6.Setting(containerEl).setName("Match strategy in the front matter").addDropdown(
         (tc) => tc.addOptions(
           mirrorMap(SpecificMatchStrategy.values(), (x) => x.name)
         ).setValue(this.plugin.settings.frontMatterComplementMatchStrategy).onChange(async (value) => {
@@ -5321,7 +5286,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
           await this.plugin.saveSettings();
         })
       );
-      new import_obsidian4.Setting(containerEl).setName("Insert comma after completion").addToggle((tc) => {
+      new import_obsidian6.Setting(containerEl).setName("Insert comma after completion").addToggle((tc) => {
         tc.setValue(
           this.plugin.settings.insertCommaAfterFrontMatterCompletion
         ).onChange(async (value) => {
@@ -5336,34 +5301,52 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       text: "Intelligent suggestion prioritization",
       cls: "various-complements__settings__header various-complements__settings__header__intelligent-suggestion-prioritization"
     });
-    new import_obsidian4.Setting(containerEl).setName("history file path").setDesc(`Default: ${DEFAULT_HISTORIES_PATH}`).addText((cb) => {
-      TextComponentEvent.onChange(cb, async (value) => {
-        this.plugin.settings.intelligentSuggestionPrioritization.historyFilePath = value;
-        await this.plugin.saveSettings();
-      }).setValue(
-        this.plugin.settings.intelligentSuggestionPrioritization.historyFilePath
-      );
+    new import_obsidian6.Setting(containerEl).setName("Enable Intelligent Suggestion Prioritization").addToggle((tc) => {
+      tc.setValue(
+        this.plugin.settings.intelligentSuggestionPrioritization.enabled
+      ).onChange(async (value) => {
+        this.plugin.settings.intelligentSuggestionPrioritization.enabled = value;
+        await this.plugin.saveSettings({
+          intelligentSuggestionPrioritization: true
+        });
+        this.display();
+      });
     });
-    new import_obsidian4.Setting(containerEl).setName("Max days to keep history").setDesc("If set 0, it will never remove").addSlider(
-      (sc) => sc.setLimits(0, 365, 1).setValue(
-        this.plugin.settings.intelligentSuggestionPrioritization.maxDaysToKeepHistory
-      ).setDynamicTooltip().onChange(async (value) => {
-        this.plugin.settings.intelligentSuggestionPrioritization.maxDaysToKeepHistory = value;
-        await this.plugin.saveSettings();
-      })
-    );
-    new import_obsidian4.Setting(containerEl).setName("Max number of history to keep").setDesc("If set 0, it will never remove").addSlider(
-      (sc) => sc.setLimits(0, 1e4, 1).setValue(
-        this.plugin.settings.intelligentSuggestionPrioritization.maxNumberOfHistoryToKeep
-      ).setDynamicTooltip().onChange(async (value) => {
-        this.plugin.settings.intelligentSuggestionPrioritization.maxNumberOfHistoryToKeep = value;
-        await this.plugin.saveSettings();
-      })
-    );
+    if (this.plugin.settings.intelligentSuggestionPrioritization.enabled) {
+      new import_obsidian6.Setting(containerEl).setName("history file path").setDesc(`Default: ${DEFAULT_HISTORIES_PATH}`).addText((cb) => {
+        TextComponentEvent.onChange(cb, async (value) => {
+          this.plugin.settings.intelligentSuggestionPrioritization.historyFilePath = value;
+          await this.plugin.saveSettings({
+            intelligentSuggestionPrioritization: true
+          });
+        }).setValue(
+          this.plugin.settings.intelligentSuggestionPrioritization.historyFilePath
+        );
+      });
+      new import_obsidian6.Setting(containerEl).setName("Max days to keep history").setDesc("If set 0, it will never remove").addSlider(
+        (sc) => sc.setLimits(0, 365, 1).setValue(
+          this.plugin.settings.intelligentSuggestionPrioritization.maxDaysToKeepHistory
+        ).setDynamicTooltip().onChange(async (value) => {
+          this.plugin.settings.intelligentSuggestionPrioritization.maxDaysToKeepHistory = value;
+          await this.plugin.saveSettings();
+        })
+      );
+      new import_obsidian6.Setting(containerEl).setName("Max number of history to keep").setDesc("If set 0, it will never remove").addSlider(
+        (sc) => sc.setLimits(0, 1e4, 1).setValue(
+          this.plugin.settings.intelligentSuggestionPrioritization.maxNumberOfHistoryToKeep
+        ).setDynamicTooltip().onChange(async (value) => {
+          this.plugin.settings.intelligentSuggestionPrioritization.maxNumberOfHistoryToKeep = value;
+          await this.plugin.saveSettings();
+        })
+      );
+    }
   }
   addMobileSettings(containerEl) {
-    containerEl.createEl("h3", { text: "Mobile" });
-    new import_obsidian4.Setting(containerEl).setName("Disable on mobile").addToggle((tc) => {
+    containerEl.createEl("h3", {
+      text: "Mobile",
+      cls: "various-complements__settings__header various-complements__settings__header__mobile"
+    });
+    new import_obsidian6.Setting(containerEl).setName("Disable on mobile").addToggle((tc) => {
       tc.setValue(this.plugin.settings.disableOnMobile).onChange(
         async (value) => {
           this.plugin.settings.disableOnMobile = value;
@@ -5373,8 +5356,11 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
     });
   }
   addDebugSettings(containerEl) {
-    containerEl.createEl("h3", { text: "Debug" });
-    new import_obsidian4.Setting(containerEl).setName("Show log about performance in a console").addToggle((tc) => {
+    containerEl.createEl("h3", {
+      text: "Debug",
+      cls: "various-complements__settings__header various-complements__settings__header__debug"
+    });
+    new import_obsidian6.Setting(containerEl).setName("Show log about performance in a console").addToggle((tc) => {
       tc.setValue(
         this.plugin.settings.showLogAboutPerformanceInConsole
       ).onChange(async (value) => {
@@ -5392,7 +5378,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         this.plugin.settings.matchStrategy = "prefix";
         break;
       default:
-        new import_obsidian4.Notice("\u26A0Unexpected error");
+        new import_obsidian6.Notice("\u26A0Unexpected error");
     }
     await this.plugin.saveSettings();
   }
@@ -5553,9 +5539,9 @@ var ProviderStatusBar = class {
 };
 
 // src/ui/CustomDictionaryWordAddModal.ts
-var import_obsidian5 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 
-// node_modules/svelte/internal/index.mjs
+// node_modules/svelte/src/runtime/internal/utils.js
 function noop() {
 }
 function assign(tar, src) {
@@ -5576,7 +5562,7 @@ function is_function(thing) {
   return typeof thing === "function";
 }
 function safe_not_equal(a, b) {
-  return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
+  return a != a ? b == b : a !== b || a && typeof a === "object" || typeof a === "function";
 }
 function is_empty(obj) {
   return Object.keys(obj).length === 0;
@@ -5643,6 +5629,40 @@ function compute_rest_props(props, keys) {
 function null_to_empty(value) {
   return value == null ? "" : value;
 }
+
+// node_modules/svelte/src/runtime/internal/globals.js
+var globals = typeof window !== "undefined" ? window : typeof globalThis !== "undefined" ? globalThis : global;
+
+// node_modules/svelte/src/runtime/internal/ResizeObserverSingleton.js
+var ResizeObserverSingleton = class {
+  constructor(options) {
+    __publicField(this, "_listeners", "WeakMap" in globals ? /* @__PURE__ */ new WeakMap() : void 0);
+    __publicField(this, "_observer");
+    __publicField(this, "options");
+    this.options = options;
+  }
+  observe(element2, listener) {
+    this._listeners.set(element2, listener);
+    this._getObserver().observe(element2, this.options);
+    return () => {
+      this._listeners.delete(element2);
+      this._observer.unobserve(element2);
+    };
+  }
+  _getObserver() {
+    var _a;
+    return (_a = this._observer) != null ? _a : this._observer = new ResizeObserver((entries) => {
+      var _a2;
+      for (const entry of entries) {
+        ResizeObserverSingleton.entries.set(entry.target, entry);
+        (_a2 = this._listeners.get(entry.target)) == null ? void 0 : _a2(entry);
+      }
+    });
+  }
+};
+ResizeObserverSingleton.entries = "WeakMap" in globals ? /* @__PURE__ */ new WeakMap() : void 0;
+
+// node_modules/svelte/src/runtime/internal/dom.js
 var is_hydrating = false;
 function start_hydrating() {
   is_hydrating = true;
@@ -5673,12 +5693,15 @@ function get_root_for_style(node) {
 }
 function append_stylesheet(node, style) {
   append(node.head || node, style);
+  return style.sheet;
 }
 function insert(target, node, anchor) {
   target.insertBefore(node, anchor || null);
 }
 function detach(node) {
-  node.parentNode.removeChild(node);
+  if (node.parentNode) {
+    node.parentNode.removeChild(node);
+  }
 }
 function destroy_each(iterations, detaching) {
   for (let i = 0; i < iterations.length; i += 1) {
@@ -5718,41 +5741,53 @@ function children(element2) {
 }
 function set_data(text2, data) {
   data = "" + data;
-  if (text2.wholeText !== data)
-    text2.data = data;
+  if (text2.data === data)
+    return;
+  text2.data = data;
 }
 function set_input_value(input, value) {
   input.value = value == null ? "" : value;
 }
 function set_style(node, key, value, important) {
-  if (value === null) {
+  if (value == null) {
     node.style.removeProperty(key);
   } else {
     node.style.setProperty(key, value, important ? "important" : "");
   }
 }
-function select_option(select, value) {
-  for (let i = 0; i < select.options.length; i += 1) {
-    const option = select.options[i];
+function select_option(select2, value, mounting) {
+  for (let i = 0; i < select2.options.length; i += 1) {
+    const option = select2.options[i];
     if (option.__value === value) {
       option.selected = true;
       return;
     }
   }
-  select.selectedIndex = -1;
+  if (!mounting || value !== void 0) {
+    select2.selectedIndex = -1;
+  }
 }
-function select_value(select) {
-  const selected_option = select.querySelector(":checked") || select.options[0];
+function select_value(select2) {
+  const selected_option = select2.querySelector(":checked");
   return selected_option && selected_option.__value;
 }
 function toggle_class(element2, name, toggle) {
-  element2.classList[toggle ? "add" : "remove"](name);
+  element2.classList.toggle(name, !!toggle);
 }
 function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
-  const e = document.createEvent("CustomEvent");
-  e.initCustomEvent(type, bubbles, cancelable, detail);
-  return e;
+  return new CustomEvent(type, { detail, bubbles, cancelable });
 }
+function get_custom_elements_slots(element2) {
+  const result = {};
+  element2.childNodes.forEach(
+    (node) => {
+      result[node.slot || "default"] = true;
+    }
+  );
+  return result;
+}
+
+// node_modules/svelte/src/runtime/internal/lifecycle.js
 var current_component;
 function set_current_component(component) {
   current_component = component;
@@ -5779,11 +5814,13 @@ function createEventDispatcher() {
     return true;
   };
 }
+
+// node_modules/svelte/src/runtime/internal/scheduler.js
 var dirty_components = [];
 var binding_callbacks = [];
 var render_callbacks = [];
 var flush_callbacks = [];
-var resolved_promise = Promise.resolve();
+var resolved_promise = /* @__PURE__ */ Promise.resolve();
 var update_scheduled = false;
 function schedule_update() {
   if (!update_scheduled) {
@@ -5797,13 +5834,22 @@ function add_render_callback(fn) {
 var seen_callbacks = /* @__PURE__ */ new Set();
 var flushidx = 0;
 function flush() {
+  if (flushidx !== 0) {
+    return;
+  }
   const saved_component = current_component;
   do {
-    while (flushidx < dirty_components.length) {
-      const component = dirty_components[flushidx];
-      flushidx++;
-      set_current_component(component);
-      update(component.$$);
+    try {
+      while (flushidx < dirty_components.length) {
+        const component = dirty_components[flushidx];
+        flushidx++;
+        set_current_component(component);
+        update(component.$$);
+      }
+    } catch (e) {
+      dirty_components.length = 0;
+      flushidx = 0;
+      throw e;
     }
     set_current_component(null);
     dirty_components.length = 0;
@@ -5836,6 +5882,15 @@ function update($$) {
     $$.after_update.forEach(add_render_callback);
   }
 }
+function flush_render_callbacks(fns) {
+  const filtered = [];
+  const targets = [];
+  render_callbacks.forEach((c) => fns.indexOf(c) === -1 ? filtered.push(c) : targets.push(c));
+  targets.forEach((c) => c());
+  render_callbacks = filtered;
+}
+
+// node_modules/svelte/src/runtime/internal/transitions.js
 var outroing = /* @__PURE__ */ new Set();
 var outros;
 function transition_in(block, local) {
@@ -5862,7 +5917,13 @@ function transition_out(block, local, detach2, callback) {
     callback();
   }
 }
-var globals = typeof window !== "undefined" ? window : typeof globalThis !== "undefined" ? globalThis : global;
+
+// node_modules/svelte/src/runtime/internal/each.js
+function ensure_array_like(array_like_or_iterator) {
+  return (array_like_or_iterator == null ? void 0 : array_like_or_iterator.length) !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
+}
+
+// node_modules/svelte/src/runtime/internal/spread.js
 function get_spread_update(levels, updates) {
   const update2 = {};
   const to_null_out = {};
@@ -5895,28 +5956,59 @@ function get_spread_update(levels, updates) {
   }
   return update2;
 }
+
+// node_modules/svelte/src/shared/boolean_attributes.js
+var _boolean_attributes = [
+  "allowfullscreen",
+  "allowpaymentrequest",
+  "async",
+  "autofocus",
+  "autoplay",
+  "checked",
+  "controls",
+  "default",
+  "defer",
+  "disabled",
+  "formnovalidate",
+  "hidden",
+  "inert",
+  "ismap",
+  "loop",
+  "multiple",
+  "muted",
+  "nomodule",
+  "novalidate",
+  "open",
+  "playsinline",
+  "readonly",
+  "required",
+  "reversed",
+  "selected"
+];
+var boolean_attributes = /* @__PURE__ */ new Set([..._boolean_attributes]);
+
+// node_modules/svelte/src/runtime/internal/Component.js
 function create_component(block) {
   block && block.c();
 }
-function mount_component(component, target, anchor, customElement) {
-  const { fragment, on_mount, on_destroy, after_update } = component.$$;
+function mount_component(component, target, anchor) {
+  const { fragment, after_update } = component.$$;
   fragment && fragment.m(target, anchor);
-  if (!customElement) {
-    add_render_callback(() => {
-      const new_on_destroy = on_mount.map(run).filter(is_function);
-      if (on_destroy) {
-        on_destroy.push(...new_on_destroy);
-      } else {
-        run_all(new_on_destroy);
-      }
-      component.$$.on_mount = [];
-    });
-  }
+  add_render_callback(() => {
+    const new_on_destroy = component.$$.on_mount.map(run).filter(is_function);
+    if (component.$$.on_destroy) {
+      component.$$.on_destroy.push(...new_on_destroy);
+    } else {
+      run_all(new_on_destroy);
+    }
+    component.$$.on_mount = [];
+  });
   after_update.forEach(add_render_callback);
 }
 function destroy_component(component, detaching) {
   const $$ = component.$$;
   if ($$.fragment !== null) {
+    flush_render_callbacks($$.after_update);
     run_all($$.on_destroy);
     $$.fragment && $$.fragment.d(detaching);
     $$.on_destroy = $$.fragment = null;
@@ -5936,7 +6028,7 @@ function init(component, options, instance5, create_fragment5, not_equal, props,
   set_current_component(component);
   const $$ = component.$$ = {
     fragment: null,
-    ctx: null,
+    ctx: [],
     props,
     update: noop,
     not_equal,
@@ -5979,7 +6071,7 @@ function init(component, options, instance5, create_fragment5, not_equal, props,
     }
     if (options.intro)
       transition_in(component.$$.fragment);
-    mount_component(component, options.target, options.anchor, options.customElement);
+    mount_component(component, options.target, options.anchor);
     end_hydrating();
     flush();
   }
@@ -5988,51 +6080,194 @@ function init(component, options, instance5, create_fragment5, not_equal, props,
 var SvelteElement;
 if (typeof HTMLElement === "function") {
   SvelteElement = class extends HTMLElement {
-    constructor() {
+    constructor($$componentCtor, $$slots, use_shadow_dom) {
       super();
-      this.attachShadow({ mode: "open" });
+      __publicField(this, "$$ctor");
+      __publicField(this, "$$s");
+      __publicField(this, "$$c");
+      __publicField(this, "$$cn", false);
+      __publicField(this, "$$d", {});
+      __publicField(this, "$$r", false);
+      __publicField(this, "$$p_d", {});
+      __publicField(this, "$$l", {});
+      __publicField(this, "$$l_u", /* @__PURE__ */ new Map());
+      this.$$ctor = $$componentCtor;
+      this.$$s = $$slots;
+      if (use_shadow_dom) {
+        this.attachShadow({ mode: "open" });
+      }
     }
-    connectedCallback() {
-      const { on_mount } = this.$$;
-      this.$$.on_disconnect = on_mount.map(run).filter(is_function);
-      for (const key in this.$$.slotted) {
-        this.appendChild(this.$$.slotted[key]);
+    addEventListener(type, listener, options) {
+      this.$$l[type] = this.$$l[type] || [];
+      this.$$l[type].push(listener);
+      if (this.$$c) {
+        const unsub = this.$$c.$on(type, listener);
+        this.$$l_u.set(listener, unsub);
+      }
+      super.addEventListener(type, listener, options);
+    }
+    removeEventListener(type, listener, options) {
+      super.removeEventListener(type, listener, options);
+      if (this.$$c) {
+        const unsub = this.$$l_u.get(listener);
+        if (unsub) {
+          unsub();
+          this.$$l_u.delete(listener);
+        }
+      }
+    }
+    async connectedCallback() {
+      this.$$cn = true;
+      if (!this.$$c) {
+        let create_slot2 = function(name) {
+          return () => {
+            let node;
+            const obj = {
+              c: function create() {
+                node = element("slot");
+                if (name !== "default") {
+                  attr(node, "name", name);
+                }
+              },
+              m: function mount(target, anchor) {
+                insert(target, node, anchor);
+              },
+              d: function destroy(detaching) {
+                if (detaching) {
+                  detach(node);
+                }
+              }
+            };
+            return obj;
+          };
+        };
+        await Promise.resolve();
+        if (!this.$$cn) {
+          return;
+        }
+        const $$slots = {};
+        const existing_slots = get_custom_elements_slots(this);
+        for (const name of this.$$s) {
+          if (name in existing_slots) {
+            $$slots[name] = [create_slot2(name)];
+          }
+        }
+        for (const attribute of this.attributes) {
+          const name = this.$$g_p(attribute.name);
+          if (!(name in this.$$d)) {
+            this.$$d[name] = get_custom_element_value(name, attribute.value, this.$$p_d, "toProp");
+          }
+        }
+        this.$$c = new this.$$ctor({
+          target: this.shadowRoot || this,
+          props: {
+            ...this.$$d,
+            $$slots,
+            $$scope: {
+              ctx: []
+            }
+          }
+        });
+        const reflect_attributes = () => {
+          this.$$r = true;
+          for (const key in this.$$p_d) {
+            this.$$d[key] = this.$$c.$$.ctx[this.$$c.$$.props[key]];
+            if (this.$$p_d[key].reflect) {
+              const attribute_value = get_custom_element_value(
+                key,
+                this.$$d[key],
+                this.$$p_d,
+                "toAttribute"
+              );
+              if (attribute_value == null) {
+                this.removeAttribute(key);
+              } else {
+                this.setAttribute(this.$$p_d[key].attribute || key, attribute_value);
+              }
+            }
+          }
+          this.$$r = false;
+        };
+        this.$$c.$$.after_update.push(reflect_attributes);
+        reflect_attributes();
+        for (const type in this.$$l) {
+          for (const listener of this.$$l[type]) {
+            const unsub = this.$$c.$on(type, listener);
+            this.$$l_u.set(listener, unsub);
+          }
+        }
+        this.$$l = {};
       }
     }
     attributeChangedCallback(attr2, _oldValue, newValue) {
-      this[attr2] = newValue;
+      var _a;
+      if (this.$$r)
+        return;
+      attr2 = this.$$g_p(attr2);
+      this.$$d[attr2] = get_custom_element_value(attr2, newValue, this.$$p_d, "toProp");
+      (_a = this.$$c) == null ? void 0 : _a.$set({ [attr2]: this.$$d[attr2] });
     }
     disconnectedCallback() {
-      run_all(this.$$.on_disconnect);
+      this.$$cn = false;
+      Promise.resolve().then(() => {
+        if (!this.$$cn) {
+          this.$$c.$destroy();
+          this.$$c = void 0;
+        }
+      });
     }
-    $destroy() {
-      destroy_component(this, 1);
-      this.$destroy = noop;
-    }
-    $on(type, callback) {
-      const callbacks = this.$$.callbacks[type] || (this.$$.callbacks[type] = []);
-      callbacks.push(callback);
-      return () => {
-        const index = callbacks.indexOf(callback);
-        if (index !== -1)
-          callbacks.splice(index, 1);
-      };
-    }
-    $set($$props) {
-      if (this.$$set && !is_empty($$props)) {
-        this.$$.skip_bound = true;
-        this.$$set($$props);
-        this.$$.skip_bound = false;
-      }
+    $$g_p(attribute_name) {
+      return Object.keys(this.$$p_d).find(
+        (key) => this.$$p_d[key].attribute === attribute_name || !this.$$p_d[key].attribute && key.toLowerCase() === attribute_name
+      ) || attribute_name;
     }
   };
 }
+function get_custom_element_value(prop, value, props_definition, transform) {
+  var _a;
+  const type = (_a = props_definition[prop]) == null ? void 0 : _a.type;
+  value = type === "Boolean" && typeof value !== "boolean" ? value != null : value;
+  if (!transform || !props_definition[prop]) {
+    return value;
+  } else if (transform === "toAttribute") {
+    switch (type) {
+      case "Object":
+      case "Array":
+        return value == null ? null : JSON.stringify(value);
+      case "Boolean":
+        return value ? "" : null;
+      case "Number":
+        return value == null ? null : value;
+      default:
+        return value;
+    }
+  } else {
+    switch (type) {
+      case "Object":
+      case "Array":
+        return value && JSON.parse(value);
+      case "Boolean":
+        return value;
+      case "Number":
+        return value != null ? +value : value;
+      default:
+        return value;
+    }
+  }
+}
 var SvelteComponent = class {
+  constructor() {
+    __publicField(this, "$$");
+    __publicField(this, "$$set");
+  }
   $destroy() {
     destroy_component(this, 1);
     this.$destroy = noop;
   }
   $on(type, callback) {
+    if (!is_function(callback)) {
+      return noop;
+    }
     const callbacks = this.$$.callbacks[type] || (this.$$.callbacks[type] = []);
     callbacks.push(callback);
     return () => {
@@ -6041,14 +6276,21 @@ var SvelteComponent = class {
         callbacks.splice(index, 1);
     };
   }
-  $set($$props) {
-    if (this.$$set && !is_empty($$props)) {
+  $set(props) {
+    if (this.$$set && !is_empty(props)) {
       this.$$.skip_bound = true;
-      this.$$set($$props);
+      this.$$set(props);
       this.$$.skip_bound = false;
     }
   }
 };
+
+// node_modules/svelte/src/shared/version.js
+var PUBLIC_VERSION = "4";
+
+// node_modules/svelte/src/runtime/internal/disclose-version/index.js
+if (typeof window !== "undefined")
+  (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(PUBLIC_VERSION);
 
 // src/ui/component/ObsidianButton.svelte
 function create_fragment(ctx) {
@@ -6097,7 +6339,7 @@ function create_fragment(ctx) {
       if (!current || dirty & 2) {
         button.disabled = ctx2[1];
       }
-      if (dirty & 2) {
+      if (!current || dirty & 2) {
         toggle_class(button, "mod-cta", !ctx2[1]);
       }
     },
@@ -6112,8 +6354,9 @@ function create_fragment(ctx) {
       current = false;
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(button);
+      }
       if (default_slot)
         default_slot.d(detaching);
       mounted = false;
@@ -6123,7 +6366,7 @@ function create_fragment(ctx) {
 }
 function instance($$self, $$props, $$invalidate) {
   let { $$slots: slots = {}, $$scope } = $$props;
-  let { popup } = $$props;
+  let { popup = "" } = $$props;
   let { disabled = false } = $$props;
   const dispatcher = createEventDispatcher();
   const handleClick = () => {
@@ -6228,8 +6471,9 @@ function create_fragment2(ctx) {
       current = false;
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(svg);
+      }
       if (default_slot)
         default_slot.d(detaching);
     }
@@ -6330,8 +6574,9 @@ function create_fragment3(ctx) {
       current = false;
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(div);
+      }
       if (default_slot)
         default_slot.d(detaching);
       mounted = false;
@@ -6385,7 +6630,7 @@ function create_each_block(ctx) {
       t0 = text(t0_value);
       t1 = space();
       option.__value = option_value_value = ctx[26];
-      option.value = option.__value;
+      set_input_value(option, option.__value);
     },
     m(target, anchor) {
       insert(target, option, anchor);
@@ -6397,12 +6642,13 @@ function create_each_block(ctx) {
         set_data(t0, t0_value);
       if (dirty & 32 && option_value_value !== (option_value_value = ctx2[26])) {
         option.__value = option_value_value;
-        option.value = option.__value;
+        set_input_value(option, option.__value);
       }
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(option);
+      }
     }
   };
 }
@@ -6462,8 +6708,9 @@ function create_if_block_1(ctx) {
       }
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(label);
+      }
       mounted = false;
       dispose();
     }
@@ -6501,12 +6748,11 @@ function create_if_block(ctx) {
       }
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(h3);
-      if (detaching)
         detach(t1);
-      if (detaching)
         detach(textarea);
+      }
       ctx[23](null);
       mounted = false;
       dispose();
@@ -6523,8 +6769,9 @@ function create_default_slot(ctx) {
       insert(target, t, anchor);
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(t);
+      }
     }
   };
 }
@@ -6535,7 +6782,7 @@ function create_fragment4(ctx) {
   let h30;
   let t3;
   let div0;
-  let select;
+  let select2;
   let t4;
   let obsidianiconbutton;
   let t5;
@@ -6559,7 +6806,7 @@ function create_fragment4(ctx) {
   let current;
   let mounted;
   let dispose;
-  let each_value = ctx[5];
+  let each_value = ensure_array_like(ctx[5]);
   let each_blocks = [];
   for (let i = 0; i < each_value.length; i += 1) {
     each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
@@ -6592,7 +6839,7 @@ function create_fragment4(ctx) {
       h30.textContent = "Dictionary";
       t3 = space();
       div0 = element("div");
-      select = element("select");
+      select2 = element("select");
       for (let i = 0; i < each_blocks.length; i += 1) {
         each_blocks[i].c();
       }
@@ -6622,9 +6869,9 @@ function create_fragment4(ctx) {
       t16 = space();
       div1 = element("div");
       create_component(obsidianbutton.$$.fragment);
-      attr(select, "class", "dropdown");
+      attr(select2, "class", "dropdown");
       if (ctx[2] === void 0)
-        add_render_callback(() => ctx[17].call(select));
+        add_render_callback(() => ctx[17].call(select2));
       set_style(div0, "display", "flex");
       set_style(div0, "gap", "10px");
       set_style(textarea0, "width", "100%");
@@ -6644,11 +6891,13 @@ function create_fragment4(ctx) {
       append(div2, h30);
       append(div2, t3);
       append(div2, div0);
-      append(div0, select);
+      append(div0, select2);
       for (let i = 0; i < each_blocks.length; i += 1) {
-        each_blocks[i].m(select, null);
+        if (each_blocks[i]) {
+          each_blocks[i].m(select2, null);
+        }
       }
-      select_option(select, ctx[2]);
+      select_option(select2, ctx[2], true);
       append(div0, t4);
       mount_component(obsidianiconbutton, div0, null);
       append(div2, t5);
@@ -6680,7 +6929,7 @@ function create_fragment4(ctx) {
       current = true;
       if (!mounted) {
         dispose = [
-          listen(select, "change", ctx[17]),
+          listen(select2, "change", ctx[17]),
           listen(textarea0, "input", ctx[19]),
           listen(input, "input", ctx[24]),
           listen(textarea1, "input", ctx[25])
@@ -6690,7 +6939,7 @@ function create_fragment4(ctx) {
     },
     p(ctx2, [dirty]) {
       if (dirty & 32) {
-        each_value = ctx2[5];
+        each_value = ensure_array_like(ctx2[5]);
         let i;
         for (i = 0; i < each_value.length; i += 1) {
           const child_ctx = get_each_context(ctx2, each_value, i);
@@ -6699,7 +6948,7 @@ function create_fragment4(ctx) {
           } else {
             each_blocks[i] = create_each_block(child_ctx);
             each_blocks[i].c();
-            each_blocks[i].m(select, null);
+            each_blocks[i].m(select2, null);
           }
         }
         for (; i < each_blocks.length; i += 1) {
@@ -6708,7 +6957,7 @@ function create_fragment4(ctx) {
         each_blocks.length = each_value.length;
       }
       if (dirty & 36) {
-        select_option(select, ctx2[2]);
+        select_option(select2, ctx2[2]);
       }
       const obsidianiconbutton_changes = {};
       if (dirty & 536870912) {
@@ -6771,8 +7020,9 @@ function create_fragment4(ctx) {
       current = false;
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(div2);
+      }
       destroy_each(each_blocks, detaching);
       destroy_component(obsidianiconbutton);
       ctx[20](null);
@@ -6814,7 +7064,10 @@ function instance4($$self, $$props, $$invalidate) {
     });
   };
   onMount(() => {
-    setTimeout(() => wordRef.focus(), 50);
+    setTimeout(
+      () => wordRef === null || wordRef === void 0 ? void 0 : wordRef.focus(),
+      50
+    );
   });
   function select_change_handler() {
     selectedDictionary = select_value(this);
@@ -6946,7 +7199,7 @@ var CustomDictionaryWordAdd = class extends SvelteComponent {
 var CustomDictionaryWordAdd_default = CustomDictionaryWordAdd;
 
 // src/ui/CustomDictionaryWordAddModal.ts
-var CustomDictionaryWordAddModal = class extends import_obsidian5.Modal {
+var CustomDictionaryWordAddModal = class extends import_obsidian7.Modal {
   constructor(app2, dictionaryPaths, initialValue = "", dividerForDisplay = "", onSubmit) {
     super(app2);
     const appHelper = new AppHelper(app2);
@@ -6963,7 +7216,7 @@ var CustomDictionaryWordAddModal = class extends import_obsidian5.Modal {
         onClickFileIcon: (dictionaryPath) => {
           const markdownFile = appHelper.getMarkdownFileByPath(dictionaryPath);
           if (!markdownFile) {
-            new import_obsidian5.Notice(`Can't open ${dictionaryPath}`);
+            new import_obsidian7.Notice(`Can't open ${dictionaryPath}`);
             return;
           }
           this.close();
@@ -6980,7 +7233,7 @@ var CustomDictionaryWordAddModal = class extends import_obsidian5.Modal {
 
 // src/main.ts
 var import_ts_deepmerge = __toESM(require_dist());
-var VariousComponents = class extends import_obsidian6.Plugin {
+var VariousComponents = class extends import_obsidian8.Plugin {
   onunload() {
     super.onunload();
     this.suggester.unregister();
@@ -7017,10 +7270,10 @@ var VariousComponents = class extends import_obsidian6.Plugin {
     this.statusBar.setOnClickComplementAutomatically(async () => {
       await this.settingTab.toggleComplementAutomatically();
     });
-    const debouncedSaveData = (0, import_obsidian6.debounce)(async () => {
+    const debouncedSaveData = (0, import_obsidian8.debounce)(async () => {
       var _a, _b;
       await this.appHelper.saveJson(
-        (0, import_obsidian6.normalizePath)(
+        (0, import_obsidian8.normalizePath)(
           this.settings.intelligentSuggestionPrioritization.historyFilePath || DEFAULT_HISTORIES_PATH
         ),
         (_b = (_a = this.suggester.selectionHistoryStorage) == null ? void 0 : _a.data) != null ? _b : {}
@@ -7100,13 +7353,17 @@ var VariousComponents = class extends import_obsidian6.Plugin {
         await navigator.clipboard.writeText(
           this.settingTab.getPluginSettingsAsJsonString()
         );
-        new import_obsidian6.Notice("Copy settings of Various Complements");
+        new import_obsidian8.Notice("Copy settings of Various Complements");
       }
     });
   }
   async loadSettings() {
     const currentSettings = await this.loadData();
-    this.settings = (0, import_ts_deepmerge.default)(DEFAULT_SETTINGS, currentSettings != null ? currentSettings : {});
+    this.settings = import_ts_deepmerge.default.withOptions(
+      { mergeArrays: false },
+      DEFAULT_SETTINGS,
+      currentSettings != null ? currentSettings : {}
+    );
   }
   async saveSettings(needUpdateTokens = {}) {
     await this.saveData(this.settings);
@@ -7126,6 +7383,9 @@ var VariousComponents = class extends import_obsidian6.Plugin {
     if (needUpdateTokens.frontMatter) {
       await this.suggester.refreshFrontMatterTokens();
     }
+    if (needUpdateTokens.intelligentSuggestionPrioritization) {
+      await this.suggester.refreshIntelligentSuggestionPrioritization();
+    }
   }
   addWordToCustomDictionary() {
     const selectedWord = this.appHelper.getSelection();
@@ -7141,14 +7401,14 @@ var VariousComponents = class extends import_obsidian6.Plugin {
           caretSymbol: this.settings.caretLocationSymbolAfterComplement
         };
         if (provider.wordByValue[word.value]) {
-          new import_obsidian6.Notice(`\u26A0 ${word.value} already exists`, 0);
+          new import_obsidian8.Notice(`\u26A0 ${word.value} already exists`, 0);
           return;
         }
         await provider.addWordWithDictionary(word, dictionaryPath, {
           emoji: this.settings.matchingWithoutEmoji,
           accentsDiacritics: this.settings.treatAccentDiacriticsAsAlphabeticCharacters
         });
-        new import_obsidian6.Notice(`Added ${word.value}`);
+        new import_obsidian8.Notice(`Added ${word.value}`);
         modal.close();
       }
     );

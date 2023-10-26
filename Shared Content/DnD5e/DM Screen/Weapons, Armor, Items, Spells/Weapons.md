@@ -1,1 +1,0 @@
-![[WeaponTable.png]]

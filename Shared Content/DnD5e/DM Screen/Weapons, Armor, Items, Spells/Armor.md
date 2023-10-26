@@ -1,1 +1,0 @@
-![[ArmorTable.png]]

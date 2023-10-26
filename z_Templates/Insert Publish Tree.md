@@ -1,0 +1,1 @@
+<%* if (tp.file.folder(true).contains("/")) { %> [[<% tp.file.folder(true).replaceAll("/", "]] / [[") %>]] <%* } else { %> [[<% tp.file.folder(true) %>]] <%* } %> / [[<% tp.file.title %>]]

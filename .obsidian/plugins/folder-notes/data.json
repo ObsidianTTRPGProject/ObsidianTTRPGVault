@@ -1,0 +1,54 @@
+{
+  "syncFolderName": true,
+  "ctrlKey": true,
+  "altKey": false,
+  "hideFolderNote": true,
+  "templatePath": "",
+  "autoCreate": false,
+  "enableCollapsing": false,
+  "excludeFolders": [],
+  "showDeleteConfirmation": true,
+  "underlineFolder": false,
+  "allowWhitespaceCollapsing": false,
+  "underlineFolderInPath": true,
+  "openFolderNoteOnClickInPath": true,
+  "openInNewTab": false,
+  "folderNoteName": "{{folder_name}}",
+  "folderNoteType": ".md",
+  "disableFolderHighlighting": false,
+  "newFolderNoteName": "{{folder_name}}",
+  "storageLocation": "insideFolder",
+  "syncDelete": false,
+  "showRenameConfirmation": true,
+  "defaultOverview": {
+    "id": "",
+    "folderPath": "",
+    "title": "{{folderName}} overview",
+    "showTitle": false,
+    "depth": 3,
+    "includeTypes": [
+      "folder",
+      "markdown"
+    ],
+    "style": "list",
+    "disableFileTag": false,
+    "sortBy": "name",
+    "sortByAsc": true,
+    "showEmptyFolders": false,
+    "onlyIncludeSubfolders": false,
+    "storeFolderCondition": true,
+    "showFolderNotes": false
+  },
+  "useSubmenus": true,
+  "syncMove": true,
+  "frontMatterTitle": {
+    "enabled": false,
+    "explorer": true,
+    "path": true
+  },
+  "settingsTab": "file_explorer",
+  "supportedFileTypes": [
+    "md",
+    "canvas"
+  ]
+}

@@ -1,1 +1,0 @@
-www.obsidianttrpgtutorials.com is now live. This is the way. 

@@ -58,24 +58,28 @@ var require_papaparse_min = __commonJS({
     }(exports, function s() {
       "use strict";
       var f = typeof self != "undefined" ? self : typeof window != "undefined" ? window : f !== void 0 ? f : {};
-      var n = !f.document && !!f.postMessage, o = n && /blob:/i.test((f.location || {}).protocol), a = {}, h = 0, b = { parse: function(e, t) {
-        var i2 = (t = t || {}).dynamicTyping || false;
-        M(i2) && (t.dynamicTypingFunction = i2, i2 = {});
-        if (t.dynamicTyping = i2, t.transform = !!M(t.transform) && t.transform, t.worker && b.WORKERS_SUPPORTED) {
-          var r = function() {
+      var n = !f.document && !!f.postMessage, o = f.IS_PAPA_WORKER || false, a = {}, u = 0, b = { parse: function(e, t) {
+        var r2 = (t = t || {}).dynamicTyping || false;
+        J(r2) && (t.dynamicTypingFunction = r2, r2 = {});
+        if (t.dynamicTyping = r2, t.transform = !!J(t.transform) && t.transform, t.worker && b.WORKERS_SUPPORTED) {
+          var i = function() {
             if (!b.WORKERS_SUPPORTED)
               return false;
-            var e2 = (i3 = f.URL || f.webkitURL || null, r2 = s.toString(), b.BLOB_URL || (b.BLOB_URL = i3.createObjectURL(new Blob(["(", r2, ")();"], { type: "text/javascript" })))), t2 = new f.Worker(e2);
-            var i3, r2;
-            return t2.onmessage = _, t2.id = h++, a[t2.id] = t2;
+            var e2 = (r3 = f.URL || f.webkitURL || null, i2 = s.toString(), b.BLOB_URL || (b.BLOB_URL = r3.createObjectURL(new Blob(["var global = (function() { if (typeof self !== 'undefined') { return self; } if (typeof window !== 'undefined') { return window; } if (typeof global !== 'undefined') { return global; } return {}; })(); global.IS_PAPA_WORKER=true; ", "(", i2, ")();"], { type: "text/javascript" })))), t2 = new f.Worker(e2);
+            var r3, i2;
+            return t2.onmessage = _, t2.id = u++, a[t2.id] = t2;
           }();
-          return r.userStep = t.step, r.userChunk = t.chunk, r.userComplete = t.complete, r.userError = t.error, t.step = M(t.step), t.chunk = M(t.chunk), t.complete = M(t.complete), t.error = M(t.error), delete t.worker, void r.postMessage({ input: e, config: t, workerId: r.id });
+          return i.userStep = t.step, i.userChunk = t.chunk, i.userComplete = t.complete, i.userError = t.error, t.step = J(t.step), t.chunk = J(t.chunk), t.complete = J(t.complete), t.error = J(t.error), delete t.worker, void i.postMessage({ input: e, config: t, workerId: i.id });
         }
         var n2 = null;
-        b.NODE_STREAM_INPUT, typeof e == "string" ? n2 = t.download ? new l(t) : new p(t) : e.readable === true && M(e.read) && M(e.on) ? n2 = new g(t) : (f.File && e instanceof File || e instanceof Object) && (n2 = new c(t));
+        b.NODE_STREAM_INPUT, typeof e == "string" ? (e = function(e2) {
+          if (e2.charCodeAt(0) === 65279)
+            return e2.slice(1);
+          return e2;
+        }(e), n2 = t.download ? new l(t) : new p(t)) : e.readable === true && J(e.read) && J(e.on) ? n2 = new g(t) : (f.File && e instanceof File || e instanceof Object) && (n2 = new c(t));
         return n2.stream(e);
       }, unparse: function(e, t) {
-        var n2 = false, _2 = true, m2 = ",", y2 = "\r\n", s2 = '"', a2 = s2 + s2, i2 = false, r = null, o2 = false;
+        var n2 = false, _2 = true, m2 = ",", y2 = "\r\n", s2 = '"', a2 = s2 + s2, r2 = false, i = null, o2 = false;
         !function() {
           if (typeof t != "object")
             return;
@@ -83,144 +87,144 @@ var require_papaparse_min = __commonJS({
             return t.delimiter.indexOf(e2) !== -1;
           }).length || (m2 = t.delimiter);
           (typeof t.quotes == "boolean" || typeof t.quotes == "function" || Array.isArray(t.quotes)) && (n2 = t.quotes);
-          typeof t.skipEmptyLines != "boolean" && typeof t.skipEmptyLines != "string" || (i2 = t.skipEmptyLines);
+          typeof t.skipEmptyLines != "boolean" && typeof t.skipEmptyLines != "string" || (r2 = t.skipEmptyLines);
           typeof t.newline == "string" && (y2 = t.newline);
           typeof t.quoteChar == "string" && (s2 = t.quoteChar);
           typeof t.header == "boolean" && (_2 = t.header);
           if (Array.isArray(t.columns)) {
             if (t.columns.length === 0)
               throw new Error("Option columns is empty");
-            r = t.columns;
+            i = t.columns;
           }
           t.escapeChar !== void 0 && (a2 = t.escapeChar + s2);
           (typeof t.escapeFormulae == "boolean" || t.escapeFormulae instanceof RegExp) && (o2 = t.escapeFormulae instanceof RegExp ? t.escapeFormulae : /^[=+\-@\t\r].*$/);
         }();
-        var h2 = new RegExp(j(s2), "g");
+        var u2 = new RegExp(Q(s2), "g");
         typeof e == "string" && (e = JSON.parse(e));
         if (Array.isArray(e)) {
           if (!e.length || Array.isArray(e[0]))
-            return u2(null, e, i2);
+            return h2(null, e, r2);
           if (typeof e[0] == "object")
-            return u2(r || Object.keys(e[0]), e, i2);
+            return h2(i || Object.keys(e[0]), e, r2);
         } else if (typeof e == "object")
-          return typeof e.data == "string" && (e.data = JSON.parse(e.data)), Array.isArray(e.data) && (e.fields || (e.fields = e.meta && e.meta.fields || r), e.fields || (e.fields = Array.isArray(e.data[0]) ? e.fields : typeof e.data[0] == "object" ? Object.keys(e.data[0]) : []), Array.isArray(e.data[0]) || typeof e.data[0] == "object" || (e.data = [e.data])), u2(e.fields || [], e.data || [], i2);
+          return typeof e.data == "string" && (e.data = JSON.parse(e.data)), Array.isArray(e.data) && (e.fields || (e.fields = e.meta && e.meta.fields || i), e.fields || (e.fields = Array.isArray(e.data[0]) ? e.fields : typeof e.data[0] == "object" ? Object.keys(e.data[0]) : []), Array.isArray(e.data[0]) || typeof e.data[0] == "object" || (e.data = [e.data])), h2(e.fields || [], e.data || [], r2);
         throw new Error("Unable to serialize unrecognized input");
-        function u2(e2, t2, i3) {
-          var r2 = "";
+        function h2(e2, t2, r3) {
+          var i2 = "";
           typeof e2 == "string" && (e2 = JSON.parse(e2)), typeof t2 == "string" && (t2 = JSON.parse(t2));
           var n3 = Array.isArray(e2) && 0 < e2.length, s3 = !Array.isArray(t2[0]);
           if (n3 && _2) {
             for (var a3 = 0; a3 < e2.length; a3++)
-              0 < a3 && (r2 += m2), r2 += v2(e2[a3], a3);
-            0 < t2.length && (r2 += y2);
+              0 < a3 && (i2 += m2), i2 += v2(e2[a3], a3);
+            0 < t2.length && (i2 += y2);
           }
           for (var o3 = 0; o3 < t2.length; o3++) {
-            var h3 = n3 ? e2.length : t2[o3].length, u3 = false, f2 = n3 ? Object.keys(t2[o3]).length === 0 : t2[o3].length === 0;
-            if (i3 && !n3 && (u3 = i3 === "greedy" ? t2[o3].join("").trim() === "" : t2[o3].length === 1 && t2[o3][0].length === 0), i3 === "greedy" && n3) {
-              for (var d2 = [], l2 = 0; l2 < h3; l2++) {
+            var u3 = n3 ? e2.length : t2[o3].length, h3 = false, f2 = n3 ? Object.keys(t2[o3]).length === 0 : t2[o3].length === 0;
+            if (r3 && !n3 && (h3 = r3 === "greedy" ? t2[o3].join("").trim() === "" : t2[o3].length === 1 && t2[o3][0].length === 0), r3 === "greedy" && n3) {
+              for (var d2 = [], l2 = 0; l2 < u3; l2++) {
                 var c2 = s3 ? e2[l2] : l2;
                 d2.push(t2[o3][c2]);
               }
-              u3 = d2.join("").trim() === "";
+              h3 = d2.join("").trim() === "";
             }
-            if (!u3) {
-              for (var p2 = 0; p2 < h3; p2++) {
-                0 < p2 && !f2 && (r2 += m2);
+            if (!h3) {
+              for (var p2 = 0; p2 < u3; p2++) {
+                0 < p2 && !f2 && (i2 += m2);
                 var g2 = n3 && s3 ? e2[p2] : p2;
-                r2 += v2(t2[o3][g2], p2);
+                i2 += v2(t2[o3][g2], p2);
               }
-              o3 < t2.length - 1 && (!i3 || 0 < h3 && !f2) && (r2 += y2);
+              o3 < t2.length - 1 && (!r3 || 0 < u3 && !f2) && (i2 += y2);
             }
           }
-          return r2;
+          return i2;
         }
         function v2(e2, t2) {
           if (e2 == null)
             return "";
           if (e2.constructor === Date)
             return JSON.stringify(e2).slice(1, 25);
-          var i3 = false;
-          o2 && typeof e2 == "string" && o2.test(e2) && (e2 = "'" + e2, i3 = true);
-          var r2 = e2.toString().replace(h2, a2);
-          return (i3 = i3 || n2 === true || typeof n2 == "function" && n2(e2, t2) || Array.isArray(n2) && n2[t2] || function(e3, t3) {
-            for (var i4 = 0; i4 < t3.length; i4++)
-              if (-1 < e3.indexOf(t3[i4]))
+          var r3 = false;
+          o2 && typeof e2 == "string" && o2.test(e2) && (e2 = "'" + e2, r3 = true);
+          var i2 = e2.toString().replace(u2, a2);
+          return (r3 = r3 || n2 === true || typeof n2 == "function" && n2(e2, t2) || Array.isArray(n2) && n2[t2] || function(e3, t3) {
+            for (var r4 = 0; r4 < t3.length; r4++)
+              if (-1 < e3.indexOf(t3[r4]))
                 return true;
             return false;
-          }(r2, b.BAD_DELIMITERS) || -1 < r2.indexOf(m2) || r2.charAt(0) === " " || r2.charAt(r2.length - 1) === " ") ? s2 + r2 + s2 : r2;
+          }(i2, b.BAD_DELIMITERS) || -1 < i2.indexOf(m2) || i2.charAt(0) === " " || i2.charAt(i2.length - 1) === " ") ? s2 + i2 + s2 : i2;
         }
       } };
-      if (b.RECORD_SEP = String.fromCharCode(30), b.UNIT_SEP = String.fromCharCode(31), b.BYTE_ORDER_MARK = "\uFEFF", b.BAD_DELIMITERS = ["\r", "\n", '"', b.BYTE_ORDER_MARK], b.WORKERS_SUPPORTED = !n && !!f.Worker, b.NODE_STREAM_INPUT = 1, b.LocalChunkSize = 10485760, b.RemoteChunkSize = 5242880, b.DefaultDelimiter = ",", b.Parser = E, b.ParserHandle = i, b.NetworkStreamer = l, b.FileStreamer = c, b.StringStreamer = p, b.ReadableStreamStreamer = g, f.jQuery) {
+      if (b.RECORD_SEP = String.fromCharCode(30), b.UNIT_SEP = String.fromCharCode(31), b.BYTE_ORDER_MARK = "\uFEFF", b.BAD_DELIMITERS = ["\r", "\n", '"', b.BYTE_ORDER_MARK], b.WORKERS_SUPPORTED = !n && !!f.Worker, b.NODE_STREAM_INPUT = 1, b.LocalChunkSize = 10485760, b.RemoteChunkSize = 5242880, b.DefaultDelimiter = ",", b.Parser = E, b.ParserHandle = r, b.NetworkStreamer = l, b.FileStreamer = c, b.StringStreamer = p, b.ReadableStreamStreamer = g, f.jQuery) {
         var d = f.jQuery;
         d.fn.parse = function(o2) {
-          var i2 = o2.config || {}, h2 = [];
+          var r2 = o2.config || {}, u2 = [];
           return this.each(function(e2) {
             if (!(d(this).prop("tagName").toUpperCase() === "INPUT" && d(this).attr("type").toLowerCase() === "file" && f.FileReader) || !this.files || this.files.length === 0)
               return true;
             for (var t = 0; t < this.files.length; t++)
-              h2.push({ file: this.files[t], inputElem: this, instanceConfig: d.extend({}, i2) });
+              u2.push({ file: this.files[t], inputElem: this, instanceConfig: d.extend({}, r2) });
           }), e(), this;
           function e() {
-            if (h2.length !== 0) {
-              var e2, t, i3, r, n2 = h2[0];
-              if (M(o2.before)) {
+            if (u2.length !== 0) {
+              var e2, t, r3, i, n2 = u2[0];
+              if (J(o2.before)) {
                 var s2 = o2.before(n2.file, n2.inputElem);
                 if (typeof s2 == "object") {
                   if (s2.action === "abort")
-                    return e2 = "AbortError", t = n2.file, i3 = n2.inputElem, r = s2.reason, void (M(o2.error) && o2.error({ name: e2 }, t, i3, r));
+                    return e2 = "AbortError", t = n2.file, r3 = n2.inputElem, i = s2.reason, void (J(o2.error) && o2.error({ name: e2 }, t, r3, i));
                   if (s2.action === "skip")
-                    return void u2();
+                    return void h2();
                   typeof s2.config == "object" && (n2.instanceConfig = d.extend(n2.instanceConfig, s2.config));
                 } else if (s2 === "skip")
-                  return void u2();
+                  return void h2();
               }
               var a2 = n2.instanceConfig.complete;
               n2.instanceConfig.complete = function(e3) {
-                M(a2) && a2(e3, n2.file, n2.inputElem), u2();
+                J(a2) && a2(e3, n2.file, n2.inputElem), h2();
               }, b.parse(n2.file, n2.instanceConfig);
             } else
-              M(o2.complete) && o2.complete();
+              J(o2.complete) && o2.complete();
           }
-          function u2() {
-            h2.splice(0, 1), e();
+          function h2() {
+            u2.splice(0, 1), e();
           }
         };
       }
-      function u(e) {
+      function h(e) {
         this._handle = null, this._finished = false, this._completed = false, this._halted = false, this._input = null, this._baseIndex = 0, this._partialLine = "", this._rowCount = 0, this._start = 0, this._nextChunk = null, this.isFirstChunk = true, this._completeResults = { data: [], errors: [], meta: {} }, function(e2) {
           var t = w(e2);
           t.chunkSize = parseInt(t.chunkSize), e2.step || e2.chunk || (t.chunkSize = null);
-          this._handle = new i(t), (this._handle.streamer = this)._config = t;
+          this._handle = new r(t), (this._handle.streamer = this)._config = t;
         }.call(this, e), this.parseChunk = function(e2, t) {
-          if (this.isFirstChunk && M(this._config.beforeFirstChunk)) {
-            var i2 = this._config.beforeFirstChunk(e2);
-            i2 !== void 0 && (e2 = i2);
+          if (this.isFirstChunk && J(this._config.beforeFirstChunk)) {
+            var r2 = this._config.beforeFirstChunk(e2);
+            r2 !== void 0 && (e2 = r2);
           }
           this.isFirstChunk = false, this._halted = false;
-          var r = this._partialLine + e2;
+          var i = this._partialLine + e2;
           this._partialLine = "";
-          var n2 = this._handle.parse(r, this._baseIndex, !this._finished);
+          var n2 = this._handle.parse(i, this._baseIndex, !this._finished);
           if (!this._handle.paused() && !this._handle.aborted()) {
             var s2 = n2.meta.cursor;
-            this._finished || (this._partialLine = r.substring(s2 - this._baseIndex), this._baseIndex = s2), n2 && n2.data && (this._rowCount += n2.data.length);
+            this._finished || (this._partialLine = i.substring(s2 - this._baseIndex), this._baseIndex = s2), n2 && n2.data && (this._rowCount += n2.data.length);
             var a2 = this._finished || this._config.preview && this._rowCount >= this._config.preview;
             if (o)
               f.postMessage({ results: n2, workerId: b.WORKER_ID, finished: a2 });
-            else if (M(this._config.chunk) && !t) {
+            else if (J(this._config.chunk) && !t) {
               if (this._config.chunk(n2, this._handle), this._handle.paused() || this._handle.aborted())
                 return void (this._halted = true);
               n2 = void 0, this._completeResults = void 0;
             }
-            return this._config.step || this._config.chunk || (this._completeResults.data = this._completeResults.data.concat(n2.data), this._completeResults.errors = this._completeResults.errors.concat(n2.errors), this._completeResults.meta = n2.meta), this._completed || !a2 || !M(this._config.complete) || n2 && n2.meta.aborted || (this._config.complete(this._completeResults, this._input), this._completed = true), a2 || n2 && n2.meta.paused || this._nextChunk(), n2;
+            return this._config.step || this._config.chunk || (this._completeResults.data = this._completeResults.data.concat(n2.data), this._completeResults.errors = this._completeResults.errors.concat(n2.errors), this._completeResults.meta = n2.meta), this._completed || !a2 || !J(this._config.complete) || n2 && n2.meta.aborted || (this._config.complete(this._completeResults, this._input), this._completed = true), a2 || n2 && n2.meta.paused || this._nextChunk(), n2;
           }
           this._halted = true;
         }, this._sendError = function(e2) {
-          M(this._config.error) ? this._config.error(e2) : o && this._config.error && f.postMessage({ workerId: b.WORKER_ID, error: e2, finished: false });
+          J(this._config.error) ? this._config.error(e2) : o && this._config.error && f.postMessage({ workerId: b.WORKER_ID, error: e2, finished: false });
         };
       }
       function l(e) {
-        var r;
-        (e = e || {}).chunkSize || (e.chunkSize = b.RemoteChunkSize), u.call(this, e), this._nextChunk = n ? function() {
+        var i;
+        (e = e || {}).chunkSize || (e.chunkSize = b.RemoteChunkSize), h.call(this, e), this._nextChunk = n ? function() {
           this._readChunk(), this._chunkLoaded();
         } : function() {
           this._readChunk();
@@ -230,40 +234,40 @@ var require_papaparse_min = __commonJS({
           if (this._finished)
             this._chunkLoaded();
           else {
-            if (r = new XMLHttpRequest(), this._config.withCredentials && (r.withCredentials = this._config.withCredentials), n || (r.onload = v(this._chunkLoaded, this), r.onerror = v(this._chunkError, this)), r.open(this._config.downloadRequestBody ? "POST" : "GET", this._input, !n), this._config.downloadRequestHeaders) {
+            if (i = new XMLHttpRequest(), this._config.withCredentials && (i.withCredentials = this._config.withCredentials), n || (i.onload = v(this._chunkLoaded, this), i.onerror = v(this._chunkError, this)), i.open(this._config.downloadRequestBody ? "POST" : "GET", this._input, !n), this._config.downloadRequestHeaders) {
               var e2 = this._config.downloadRequestHeaders;
               for (var t in e2)
-                r.setRequestHeader(t, e2[t]);
+                i.setRequestHeader(t, e2[t]);
             }
             if (this._config.chunkSize) {
-              var i2 = this._start + this._config.chunkSize - 1;
-              r.setRequestHeader("Range", "bytes=" + this._start + "-" + i2);
+              var r2 = this._start + this._config.chunkSize - 1;
+              i.setRequestHeader("Range", "bytes=" + this._start + "-" + r2);
             }
             try {
-              r.send(this._config.downloadRequestBody);
+              i.send(this._config.downloadRequestBody);
             } catch (e3) {
               this._chunkError(e3.message);
             }
-            n && r.status === 0 && this._chunkError();
+            n && i.status === 0 && this._chunkError();
           }
         }, this._chunkLoaded = function() {
-          r.readyState === 4 && (r.status < 200 || 400 <= r.status ? this._chunkError() : (this._start += this._config.chunkSize ? this._config.chunkSize : r.responseText.length, this._finished = !this._config.chunkSize || this._start >= function(e2) {
+          i.readyState === 4 && (i.status < 200 || 400 <= i.status ? this._chunkError() : (this._start += this._config.chunkSize ? this._config.chunkSize : i.responseText.length, this._finished = !this._config.chunkSize || this._start >= function(e2) {
             var t = e2.getResponseHeader("Content-Range");
             if (t === null)
               return -1;
             return parseInt(t.substring(t.lastIndexOf("/") + 1));
-          }(r), this.parseChunk(r.responseText)));
+          }(i), this.parseChunk(i.responseText)));
         }, this._chunkError = function(e2) {
-          var t = r.statusText || e2;
+          var t = i.statusText || e2;
           this._sendError(new Error(t));
         };
       }
       function c(e) {
-        var r, n2;
-        (e = e || {}).chunkSize || (e.chunkSize = b.LocalChunkSize), u.call(this, e);
+        var i, n2;
+        (e = e || {}).chunkSize || (e.chunkSize = b.LocalChunkSize), h.call(this, e);
         var s2 = typeof FileReader != "undefined";
         this.stream = function(e2) {
-          this._input = e2, n2 = e2.slice || e2.webkitSlice || e2.mozSlice, s2 ? ((r = new FileReader()).onload = v(this._chunkLoaded, this), r.onerror = v(this._chunkError, this)) : r = new FileReaderSync(), this._nextChunk();
+          this._input = e2, n2 = e2.slice || e2.webkitSlice || e2.mozSlice, s2 ? ((i = new FileReader()).onload = v(this._chunkLoaded, this), i.onerror = v(this._chunkError, this)) : i = new FileReaderSync(), this._nextChunk();
         }, this._nextChunk = function() {
           this._finished || this._config.preview && !(this._rowCount < this._config.preview) || this._readChunk();
         }, this._readChunk = function() {
@@ -272,55 +276,55 @@ var require_papaparse_min = __commonJS({
             var t = Math.min(this._start + this._config.chunkSize, this._input.size);
             e2 = n2.call(e2, this._start, t);
           }
-          var i2 = r.readAsText(e2, this._config.encoding);
-          s2 || this._chunkLoaded({ target: { result: i2 } });
+          var r2 = i.readAsText(e2, this._config.encoding);
+          s2 || this._chunkLoaded({ target: { result: r2 } });
         }, this._chunkLoaded = function(e2) {
           this._start += this._config.chunkSize, this._finished = !this._config.chunkSize || this._start >= this._input.size, this.parseChunk(e2.target.result);
         }, this._chunkError = function() {
-          this._sendError(r.error);
+          this._sendError(i.error);
         };
       }
       function p(e) {
-        var i2;
-        u.call(this, e = e || {}), this.stream = function(e2) {
-          return i2 = e2, this._nextChunk();
+        var r2;
+        h.call(this, e = e || {}), this.stream = function(e2) {
+          return r2 = e2, this._nextChunk();
         }, this._nextChunk = function() {
           if (!this._finished) {
             var e2, t = this._config.chunkSize;
-            return t ? (e2 = i2.substring(0, t), i2 = i2.substring(t)) : (e2 = i2, i2 = ""), this._finished = !i2, this.parseChunk(e2);
+            return t ? (e2 = r2.substring(0, t), r2 = r2.substring(t)) : (e2 = r2, r2 = ""), this._finished = !r2, this.parseChunk(e2);
           }
         };
       }
       function g(e) {
-        u.call(this, e = e || {});
-        var t = [], i2 = true, r = false;
+        h.call(this, e = e || {});
+        var t = [], r2 = true, i = false;
         this.pause = function() {
-          u.prototype.pause.apply(this, arguments), this._input.pause();
+          h.prototype.pause.apply(this, arguments), this._input.pause();
         }, this.resume = function() {
-          u.prototype.resume.apply(this, arguments), this._input.resume();
+          h.prototype.resume.apply(this, arguments), this._input.resume();
         }, this.stream = function(e2) {
           this._input = e2, this._input.on("data", this._streamData), this._input.on("end", this._streamEnd), this._input.on("error", this._streamError);
         }, this._checkIsFinished = function() {
-          r && t.length === 1 && (this._finished = true);
+          i && t.length === 1 && (this._finished = true);
         }, this._nextChunk = function() {
-          this._checkIsFinished(), t.length ? this.parseChunk(t.shift()) : i2 = true;
+          this._checkIsFinished(), t.length ? this.parseChunk(t.shift()) : r2 = true;
         }, this._streamData = v(function(e2) {
           try {
-            t.push(typeof e2 == "string" ? e2 : e2.toString(this._config.encoding)), i2 && (i2 = false, this._checkIsFinished(), this.parseChunk(t.shift()));
+            t.push(typeof e2 == "string" ? e2 : e2.toString(this._config.encoding)), r2 && (r2 = false, this._checkIsFinished(), this.parseChunk(t.shift()));
           } catch (e3) {
             this._streamError(e3);
           }
         }, this), this._streamError = v(function(e2) {
           this._streamCleanUp(), this._sendError(e2);
         }, this), this._streamEnd = v(function() {
-          this._streamCleanUp(), r = true, this._streamData("");
+          this._streamCleanUp(), i = true, this._streamData("");
         }, this), this._streamCleanUp = v(function() {
           this._input.removeListener("data", this._streamData), this._input.removeListener("end", this._streamEnd), this._input.removeListener("error", this._streamError);
         }, this);
       }
-      function i(m2) {
-        var a2, o2, h2, r = Math.pow(2, 53), n2 = -r, s2 = /^\s*-?(\d+\.?|\.\d+|\d+\.\d+)([eE][-+]?\d+)?\s*$/, u2 = /^(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))$/, t = this, i2 = 0, f2 = 0, d2 = false, e = false, l2 = [], c2 = { data: [], errors: [], meta: {} };
-        if (M(m2.step)) {
+      function r(m2) {
+        var a2, o2, u2, i = Math.pow(2, 53), n2 = -i, s2 = /^\s*-?(\d+\.?|\.\d+|\d+\.\d+)([eE][-+]?\d+)?\s*$/, h2 = /^((\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)))$/, t = this, r2 = 0, f2 = 0, d2 = false, e = false, l2 = [], c2 = { data: [], errors: [], meta: {} };
+        if (J(m2.step)) {
           var p2 = m2.step;
           m2.step = function(e2) {
             if (c2 = e2, _2())
@@ -328,7 +332,7 @@ var require_papaparse_min = __commonJS({
             else {
               if (g2(), c2.data.length === 0)
                 return;
-              i2 += e2.data.length, m2.preview && i2 > m2.preview ? o2.abort() : (c2.data = c2.data[0], p2(c2, t));
+              r2 += e2.data.length, m2.preview && r2 > m2.preview ? o2.abort() : (c2.data = c2.data[0], p2(c2, t));
             }
           };
         }
@@ -336,13 +340,13 @@ var require_papaparse_min = __commonJS({
           return m2.skipEmptyLines === "greedy" ? e2.join("").trim() === "" : e2.length === 1 && e2[0].length === 0;
         }
         function g2() {
-          return c2 && h2 && (k("Delimiter", "UndetectableDelimiter", "Unable to auto-detect delimiting character; defaulted to '" + b.DefaultDelimiter + "'"), h2 = false), m2.skipEmptyLines && (c2.data = c2.data.filter(function(e2) {
+          return c2 && u2 && (k("Delimiter", "UndetectableDelimiter", "Unable to auto-detect delimiting character; defaulted to '" + b.DefaultDelimiter + "'"), u2 = false), m2.skipEmptyLines && (c2.data = c2.data.filter(function(e2) {
             return !y2(e2);
           })), _2() && function() {
             if (!c2)
               return;
             function e2(e3, t3) {
-              M(m2.transformHeader) && (e3 = m2.transformHeader(e3, t3)), l2.push(e3);
+              J(m2.transformHeader) && (e3 = m2.transformHeader(e3, t3)), l2.push(e3);
             }
             if (Array.isArray(c2.data[0])) {
               for (var t2 = 0; _2() && t2 < c2.data.length; t2++)
@@ -354,12 +358,12 @@ var require_papaparse_min = __commonJS({
             if (!c2 || !m2.header && !m2.dynamicTyping && !m2.transform)
               return c2;
             function e2(e3, t3) {
-              var i3, r2 = m2.header ? {} : [];
-              for (i3 = 0; i3 < e3.length; i3++) {
-                var n3 = i3, s3 = e3[i3];
-                m2.header && (n3 = i3 >= l2.length ? "__parsed_extra" : l2[i3]), m2.transform && (s3 = m2.transform(s3, n3)), s3 = v2(n3, s3), n3 === "__parsed_extra" ? (r2[n3] = r2[n3] || [], r2[n3].push(s3)) : r2[n3] = s3;
+              var r3, i2 = m2.header ? {} : [];
+              for (r3 = 0; r3 < e3.length; r3++) {
+                var n3 = r3, s3 = e3[r3];
+                m2.header && (n3 = r3 >= l2.length ? "__parsed_extra" : l2[r3]), m2.transform && (s3 = m2.transform(s3, n3)), s3 = v2(n3, s3), n3 === "__parsed_extra" ? (i2[n3] = i2[n3] || [], i2[n3].push(s3)) : i2[n3] = s3;
               }
-              return m2.header && (i3 > l2.length ? k("FieldMismatch", "TooManyFields", "Too many fields: expected " + l2.length + " fields but parsed " + i3, f2 + t3) : i3 < l2.length && k("FieldMismatch", "TooFewFields", "Too few fields: expected " + l2.length + " fields but parsed " + i3, f2 + t3)), r2;
+              return m2.header && (r3 > l2.length ? k("FieldMismatch", "TooManyFields", "Too many fields: expected " + l2.length + " fields but parsed " + r3, f2 + t3) : r3 < l2.length && k("FieldMismatch", "TooFewFields", "Too few fields: expected " + l2.length + " fields but parsed " + r3, f2 + t3)), i2;
             }
             var t2 = 1;
             !c2.data.length || Array.isArray(c2.data[0]) ? (c2.data = c2.data.map(e2), t2 = c2.data.length) : c2.data = e2(c2.data, 0);
@@ -371,192 +375,207 @@ var require_papaparse_min = __commonJS({
           return m2.header && l2.length === 0;
         }
         function v2(e2, t2) {
-          return i3 = e2, m2.dynamicTypingFunction && m2.dynamicTyping[i3] === void 0 && (m2.dynamicTyping[i3] = m2.dynamicTypingFunction(i3)), (m2.dynamicTyping[i3] || m2.dynamicTyping) === true ? t2 === "true" || t2 === "TRUE" || t2 !== "false" && t2 !== "FALSE" && (function(e3) {
+          return r3 = e2, m2.dynamicTypingFunction && m2.dynamicTyping[r3] === void 0 && (m2.dynamicTyping[r3] = m2.dynamicTypingFunction(r3)), (m2.dynamicTyping[r3] || m2.dynamicTyping) === true ? t2 === "true" || t2 === "TRUE" || t2 !== "false" && t2 !== "FALSE" && (function(e3) {
             if (s2.test(e3)) {
               var t3 = parseFloat(e3);
-              if (n2 < t3 && t3 < r)
+              if (n2 < t3 && t3 < i)
                 return true;
             }
             return false;
-          }(t2) ? parseFloat(t2) : u2.test(t2) ? new Date(t2) : t2 === "" ? null : t2) : t2;
-          var i3;
+          }(t2) ? parseFloat(t2) : h2.test(t2) ? new Date(t2) : t2 === "" ? null : t2) : t2;
+          var r3;
         }
-        function k(e2, t2, i3, r2) {
-          var n3 = { type: e2, code: t2, message: i3 };
-          r2 !== void 0 && (n3.row = r2), c2.errors.push(n3);
+        function k(e2, t2, r3, i2) {
+          var n3 = { type: e2, code: t2, message: r3 };
+          i2 !== void 0 && (n3.row = i2), c2.errors.push(n3);
         }
-        this.parse = function(e2, t2, i3) {
-          var r2 = m2.quoteChar || '"';
+        this.parse = function(e2, t2, r3) {
+          var i2 = m2.quoteChar || '"';
           if (m2.newline || (m2.newline = function(e3, t3) {
             e3 = e3.substring(0, 1048576);
-            var i4 = new RegExp(j(t3) + "([^]*?)" + j(t3), "gm"), r3 = (e3 = e3.replace(i4, "")).split("\r"), n4 = e3.split("\n"), s4 = 1 < n4.length && n4[0].length < r3[0].length;
-            if (r3.length === 1 || s4)
+            var r4 = new RegExp(Q(t3) + "([^]*?)" + Q(t3), "gm"), i3 = (e3 = e3.replace(r4, "")).split("\r"), n4 = e3.split("\n"), s4 = 1 < n4.length && n4[0].length < i3[0].length;
+            if (i3.length === 1 || s4)
               return "\n";
-            for (var a3 = 0, o3 = 0; o3 < r3.length; o3++)
-              r3[o3][0] === "\n" && a3++;
-            return a3 >= r3.length / 2 ? "\r\n" : "\r";
-          }(e2, r2)), h2 = false, m2.delimiter)
-            M(m2.delimiter) && (m2.delimiter = m2.delimiter(e2), c2.meta.delimiter = m2.delimiter);
+            for (var a3 = 0, o3 = 0; o3 < i3.length; o3++)
+              i3[o3][0] === "\n" && a3++;
+            return a3 >= i3.length / 2 ? "\r\n" : "\r";
+          }(e2, i2)), u2 = false, m2.delimiter)
+            J(m2.delimiter) && (m2.delimiter = m2.delimiter(e2), c2.meta.delimiter = m2.delimiter);
           else {
-            var n3 = function(e3, t3, i4, r3, n4) {
-              var s4, a3, o3, h3;
+            var n3 = function(e3, t3, r4, i3, n4) {
+              var s4, a3, o3, u3;
               n4 = n4 || [",", "	", "|", ";", b.RECORD_SEP, b.UNIT_SEP];
-              for (var u3 = 0; u3 < n4.length; u3++) {
-                var f3 = n4[u3], d3 = 0, l3 = 0, c3 = 0;
+              for (var h3 = 0; h3 < n4.length; h3++) {
+                var f3 = n4[h3], d3 = 0, l3 = 0, c3 = 0;
                 o3 = void 0;
-                for (var p3 = new E({ comments: r3, delimiter: f3, newline: t3, preview: 10 }).parse(e3), g3 = 0; g3 < p3.data.length; g3++)
-                  if (i4 && y2(p3.data[g3]))
+                for (var p3 = new E({ comments: i3, delimiter: f3, newline: t3, preview: 10 }).parse(e3), g3 = 0; g3 < p3.data.length; g3++)
+                  if (r4 && y2(p3.data[g3]))
                     c3++;
                   else {
                     var _3 = p3.data[g3].length;
                     l3 += _3, o3 !== void 0 ? 0 < _3 && (d3 += Math.abs(_3 - o3), o3 = _3) : o3 = _3;
                   }
-                0 < p3.data.length && (l3 /= p3.data.length - c3), (a3 === void 0 || d3 <= a3) && (h3 === void 0 || h3 < l3) && 1.99 < l3 && (a3 = d3, s4 = f3, h3 = l3);
+                0 < p3.data.length && (l3 /= p3.data.length - c3), (a3 === void 0 || d3 <= a3) && (u3 === void 0 || u3 < l3) && 1.99 < l3 && (a3 = d3, s4 = f3, u3 = l3);
               }
               return { successful: !!(m2.delimiter = s4), bestDelimiter: s4 };
             }(e2, m2.newline, m2.skipEmptyLines, m2.comments, m2.delimitersToGuess);
-            n3.successful ? m2.delimiter = n3.bestDelimiter : (h2 = true, m2.delimiter = b.DefaultDelimiter), c2.meta.delimiter = m2.delimiter;
+            n3.successful ? m2.delimiter = n3.bestDelimiter : (u2 = true, m2.delimiter = b.DefaultDelimiter), c2.meta.delimiter = m2.delimiter;
           }
           var s3 = w(m2);
-          return m2.preview && m2.header && s3.preview++, a2 = e2, o2 = new E(s3), c2 = o2.parse(a2, t2, i3), g2(), d2 ? { meta: { paused: true } } : c2 || { meta: { paused: false } };
+          return m2.preview && m2.header && s3.preview++, a2 = e2, o2 = new E(s3), c2 = o2.parse(a2, t2, r3), g2(), d2 ? { meta: { paused: true } } : c2 || { meta: { paused: false } };
         }, this.paused = function() {
           return d2;
         }, this.pause = function() {
-          d2 = true, o2.abort(), a2 = M(m2.chunk) ? "" : a2.substring(o2.getCharIndex());
+          d2 = true, o2.abort(), a2 = J(m2.chunk) ? "" : a2.substring(o2.getCharIndex());
         }, this.resume = function() {
           t.streamer._halted ? (d2 = false, t.streamer.parseChunk(a2, true)) : setTimeout(t.resume, 3);
         }, this.aborted = function() {
           return e;
         }, this.abort = function() {
-          e = true, o2.abort(), c2.meta.aborted = true, M(m2.complete) && m2.complete(c2), a2 = "";
+          e = true, o2.abort(), c2.meta.aborted = true, J(m2.complete) && m2.complete(c2), a2 = "";
         };
       }
-      function j(e) {
+      function Q(e) {
         return e.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
       }
-      function E(e) {
-        var S, O = (e = e || {}).delimiter, x = e.newline, I = e.comments, T = e.step, D = e.preview, A = e.fastMode, L = S = e.quoteChar === void 0 || e.quoteChar === null ? '"' : e.quoteChar;
-        if (e.escapeChar !== void 0 && (L = e.escapeChar), (typeof O != "string" || -1 < b.BAD_DELIMITERS.indexOf(O)) && (O = ","), I === O)
+      function E(j) {
+        var z, M = (j = j || {}).delimiter, P = j.newline, U = j.comments, q = j.step, N = j.preview, B = j.fastMode, K = z = j.quoteChar === void 0 || j.quoteChar === null ? '"' : j.quoteChar;
+        if (j.escapeChar !== void 0 && (K = j.escapeChar), (typeof M != "string" || -1 < b.BAD_DELIMITERS.indexOf(M)) && (M = ","), U === M)
           throw new Error("Comment character same as delimiter");
-        I === true ? I = "#" : (typeof I != "string" || -1 < b.BAD_DELIMITERS.indexOf(I)) && (I = false), x !== "\n" && x !== "\r" && x !== "\r\n" && (x = "\n");
-        var F = 0, z = false;
-        this.parse = function(r, t, i2) {
-          if (typeof r != "string")
+        U === true ? U = "#" : (typeof U != "string" || -1 < b.BAD_DELIMITERS.indexOf(U)) && (U = false), P !== "\n" && P !== "\r" && P !== "\r\n" && (P = "\n");
+        var W = 0, H = false;
+        this.parse = function(i, t, r2) {
+          if (typeof i != "string")
             throw new Error("Input must be a string");
-          var n2 = r.length, e2 = O.length, s2 = x.length, a2 = I.length, o2 = M(T), h2 = [], u2 = [], f2 = [], d2 = F = 0;
-          if (!r)
-            return C();
-          if (A || A !== false && r.indexOf(S) === -1) {
-            for (var l2 = r.split(x), c2 = 0; c2 < l2.length; c2++) {
-              if (f2 = l2[c2], F += f2.length, c2 !== l2.length - 1)
-                F += x.length;
-              else if (i2)
-                return C();
-              if (!I || f2.substring(0, a2) !== I) {
+          var n2 = i.length, e = M.length, s2 = P.length, a2 = U.length, o2 = J(q), u2 = [], h2 = [], f2 = [], d2 = W = 0;
+          if (!i)
+            return L();
+          if (j.header && !t) {
+            var l2 = i.split(P)[0].split(M), c2 = [], p2 = {}, g2 = false;
+            for (var _2 in l2) {
+              var m2 = l2[_2];
+              J(j.transformHeader) && (m2 = j.transformHeader(m2, _2));
+              var y2 = m2, v2 = p2[m2] || 0;
+              for (0 < v2 && (g2 = true, y2 = m2 + "_" + v2), p2[m2] = v2 + 1; c2.includes(y2); )
+                y2 = y2 + "_" + v2;
+              c2.push(y2);
+            }
+            if (g2) {
+              var k = i.split(P);
+              k[0] = c2.join(M), i = k.join(P);
+            }
+          }
+          if (B || B !== false && i.indexOf(z) === -1) {
+            for (var b2 = i.split(P), E2 = 0; E2 < b2.length; E2++) {
+              if (f2 = b2[E2], W += f2.length, E2 !== b2.length - 1)
+                W += P.length;
+              else if (r2)
+                return L();
+              if (!U || f2.substring(0, a2) !== U) {
                 if (o2) {
-                  if (h2 = [], k(f2.split(O)), R(), z)
-                    return C();
+                  if (u2 = [], I(f2.split(M)), F(), H)
+                    return L();
                 } else
-                  k(f2.split(O));
-                if (D && D <= c2)
-                  return h2 = h2.slice(0, D), C(true);
+                  I(f2.split(M));
+                if (N && N <= E2)
+                  return u2 = u2.slice(0, N), L(true);
               }
             }
-            return C();
+            return L();
           }
-          for (var p2 = r.indexOf(O, F), g2 = r.indexOf(x, F), _2 = new RegExp(j(L) + j(S), "g"), m2 = r.indexOf(S, F); ; )
-            if (r[F] !== S)
-              if (I && f2.length === 0 && r.substring(F, F + a2) === I) {
-                if (g2 === -1)
-                  return C();
-                F = g2 + s2, g2 = r.indexOf(x, F), p2 = r.indexOf(O, F);
-              } else if (p2 !== -1 && (p2 < g2 || g2 === -1))
-                f2.push(r.substring(F, p2)), F = p2 + e2, p2 = r.indexOf(O, F);
+          for (var w2 = i.indexOf(M, W), R = i.indexOf(P, W), C = new RegExp(Q(K) + Q(z), "g"), S = i.indexOf(z, W); ; )
+            if (i[W] !== z)
+              if (U && f2.length === 0 && i.substring(W, W + a2) === U) {
+                if (R === -1)
+                  return L();
+                W = R + s2, R = i.indexOf(P, W), w2 = i.indexOf(M, W);
+              } else if (w2 !== -1 && (w2 < R || R === -1))
+                f2.push(i.substring(W, w2)), W = w2 + e, w2 = i.indexOf(M, W);
               else {
-                if (g2 === -1)
+                if (R === -1)
                   break;
-                if (f2.push(r.substring(F, g2)), w2(g2 + s2), o2 && (R(), z))
-                  return C();
-                if (D && h2.length >= D)
-                  return C(true);
+                if (f2.push(i.substring(W, R)), D(R + s2), o2 && (F(), H))
+                  return L();
+                if (N && u2.length >= N)
+                  return L(true);
               }
             else
-              for (m2 = F, F++; ; ) {
-                if ((m2 = r.indexOf(S, m2 + 1)) === -1)
-                  return i2 || u2.push({ type: "Quotes", code: "MissingQuotes", message: "Quoted field unterminated", row: h2.length, index: F }), E2();
-                if (m2 === n2 - 1)
-                  return E2(r.substring(F, m2).replace(_2, S));
-                if (S !== L || r[m2 + 1] !== L) {
-                  if (S === L || m2 === 0 || r[m2 - 1] !== L) {
-                    p2 !== -1 && p2 < m2 + 1 && (p2 = r.indexOf(O, m2 + 1)), g2 !== -1 && g2 < m2 + 1 && (g2 = r.indexOf(x, m2 + 1));
-                    var y2 = b2(g2 === -1 ? p2 : Math.min(p2, g2));
-                    if (r.substr(m2 + 1 + y2, e2) === O) {
-                      f2.push(r.substring(F, m2).replace(_2, S)), r[F = m2 + 1 + y2 + e2] !== S && (m2 = r.indexOf(S, F)), p2 = r.indexOf(O, F), g2 = r.indexOf(x, F);
+              for (S = W, W++; ; ) {
+                if ((S = i.indexOf(z, S + 1)) === -1)
+                  return r2 || h2.push({ type: "Quotes", code: "MissingQuotes", message: "Quoted field unterminated", row: u2.length, index: W }), T();
+                if (S === n2 - 1)
+                  return T(i.substring(W, S).replace(C, z));
+                if (z !== K || i[S + 1] !== K) {
+                  if (z === K || S === 0 || i[S - 1] !== K) {
+                    w2 !== -1 && w2 < S + 1 && (w2 = i.indexOf(M, S + 1)), R !== -1 && R < S + 1 && (R = i.indexOf(P, S + 1));
+                    var O = A(R === -1 ? w2 : Math.min(w2, R));
+                    if (i.substr(S + 1 + O, e) === M) {
+                      f2.push(i.substring(W, S).replace(C, z)), i[W = S + 1 + O + e] !== z && (S = i.indexOf(z, W)), w2 = i.indexOf(M, W), R = i.indexOf(P, W);
                       break;
                     }
-                    var v2 = b2(g2);
-                    if (r.substring(m2 + 1 + v2, m2 + 1 + v2 + s2) === x) {
-                      if (f2.push(r.substring(F, m2).replace(_2, S)), w2(m2 + 1 + v2 + s2), p2 = r.indexOf(O, F), m2 = r.indexOf(S, F), o2 && (R(), z))
-                        return C();
-                      if (D && h2.length >= D)
-                        return C(true);
+                    var x = A(R);
+                    if (i.substring(S + 1 + x, S + 1 + x + s2) === P) {
+                      if (f2.push(i.substring(W, S).replace(C, z)), D(S + 1 + x + s2), w2 = i.indexOf(M, W), S = i.indexOf(z, W), o2 && (F(), H))
+                        return L();
+                      if (N && u2.length >= N)
+                        return L(true);
                       break;
                     }
-                    u2.push({ type: "Quotes", code: "InvalidQuotes", message: "Trailing quote on quoted field is malformed", row: h2.length, index: F }), m2++;
+                    h2.push({ type: "Quotes", code: "InvalidQuotes", message: "Trailing quote on quoted field is malformed", row: u2.length, index: W }), S++;
                   }
                 } else
-                  m2++;
+                  S++;
               }
-          return E2();
-          function k(e3) {
-            h2.push(e3), d2 = F;
+          return T();
+          function I(e2) {
+            u2.push(e2), d2 = W;
           }
-          function b2(e3) {
+          function A(e2) {
             var t2 = 0;
-            if (e3 !== -1) {
-              var i3 = r.substring(m2 + 1, e3);
-              i3 && i3.trim() === "" && (t2 = i3.length);
+            if (e2 !== -1) {
+              var r3 = i.substring(S + 1, e2);
+              r3 && r3.trim() === "" && (t2 = r3.length);
             }
             return t2;
           }
-          function E2(e3) {
-            return i2 || (e3 === void 0 && (e3 = r.substring(F)), f2.push(e3), F = n2, k(f2), o2 && R()), C();
+          function T(e2) {
+            return r2 || (e2 === void 0 && (e2 = i.substring(W)), f2.push(e2), W = n2, I(f2), o2 && F()), L();
           }
-          function w2(e3) {
-            F = e3, k(f2), f2 = [], g2 = r.indexOf(x, F);
+          function D(e2) {
+            W = e2, I(f2), f2 = [], R = i.indexOf(P, W);
           }
-          function C(e3) {
-            return { data: h2, errors: u2, meta: { delimiter: O, linebreak: x, aborted: z, truncated: !!e3, cursor: d2 + (t || 0) } };
+          function L(e2) {
+            return { data: u2, errors: h2, meta: { delimiter: M, linebreak: P, aborted: H, truncated: !!e2, cursor: d2 + (t || 0) } };
           }
-          function R() {
-            T(C()), h2 = [], u2 = [];
+          function F() {
+            q(L()), u2 = [], h2 = [];
           }
         }, this.abort = function() {
-          z = true;
+          H = true;
         }, this.getCharIndex = function() {
-          return F;
+          return W;
         };
       }
       function _(e) {
-        var t = e.data, i2 = a[t.workerId], r = false;
+        var t = e.data, r2 = a[t.workerId], i = false;
         if (t.error)
-          i2.userError(t.error, t.file);
+          r2.userError(t.error, t.file);
         else if (t.results && t.results.data) {
           var n2 = { abort: function() {
-            r = true, m(t.workerId, { data: [], errors: [], meta: { aborted: true } });
+            i = true, m(t.workerId, { data: [], errors: [], meta: { aborted: true } });
           }, pause: y, resume: y };
-          if (M(i2.userStep)) {
-            for (var s2 = 0; s2 < t.results.data.length && (i2.userStep({ data: t.results.data[s2], errors: t.results.errors, meta: t.results.meta }, n2), !r); s2++)
+          if (J(r2.userStep)) {
+            for (var s2 = 0; s2 < t.results.data.length && (r2.userStep({ data: t.results.data[s2], errors: t.results.errors, meta: t.results.meta }, n2), !i); s2++)
               ;
             delete t.results;
           } else
-            M(i2.userChunk) && (i2.userChunk(t.results, n2, t.file), delete t.results);
+            J(r2.userChunk) && (r2.userChunk(t.results, n2, t.file), delete t.results);
         }
-        t.finished && !r && m(t.workerId, t.results);
+        t.finished && !i && m(t.workerId, t.results);
       }
       function m(e, t) {
-        var i2 = a[e];
-        M(i2.userComplete) && i2.userComplete(t), i2.terminate(), delete a[e];
+        var r2 = a[e];
+        J(r2.userComplete) && r2.userComplete(t), r2.terminate(), delete a[e];
       }
       function y() {
         throw new Error("Not implemented.");
@@ -565,8 +584,8 @@ var require_papaparse_min = __commonJS({
         if (typeof e != "object" || e === null)
           return e;
         var t = Array.isArray(e) ? [] : {};
-        for (var i2 in e)
-          t[i2] = w(e[i2]);
+        for (var r2 in e)
+          t[r2] = w(e[r2]);
         return t;
       }
       function v(e, t) {
@@ -574,7 +593,7 @@ var require_papaparse_min = __commonJS({
           e.apply(t, arguments);
         };
       }
-      function M(e) {
+      function J(e) {
         return typeof e == "function";
       }
       return o && (f.onmessage = function(e) {
@@ -583,10 +602,10 @@ var require_papaparse_min = __commonJS({
         if (typeof t.input == "string")
           f.postMessage({ workerId: b.WORKER_ID, results: b.parse(t.input, t.config), finished: true });
         else if (f.File && t.input instanceof File || t.input instanceof Object) {
-          var i2 = b.parse(t.input, t.config);
-          i2 && f.postMessage({ workerId: b.WORKER_ID, results: i2, finished: true });
+          var r2 = b.parse(t.input, t.config);
+          r2 && f.postMessage({ workerId: b.WORKER_ID, results: r2, finished: true });
         }
-      }), (l.prototype = Object.create(u.prototype)).constructor = l, (c.prototype = Object.create(u.prototype)).constructor = c, (p.prototype = Object.create(p.prototype)).constructor = p, (g.prototype = Object.create(u.prototype)).constructor = g, b;
+      }), (l.prototype = Object.create(h.prototype)).constructor = l, (c.prototype = Object.create(h.prototype)).constructor = c, (p.prototype = Object.create(p.prototype)).constructor = p, (g.prototype = Object.create(h.prototype)).constructor = g, b;
     });
   }
 });
@@ -823,9 +842,9 @@ var require_each = __commonJS({
                 execIteration(i, i, i === context.length - 1);
               }
             }
-          } else if (global.Symbol && context[global.Symbol.iterator]) {
+          } else if (typeof Symbol === "function" && context[Symbol.iterator]) {
             var newContext = [];
-            var iterator = context[global.Symbol.iterator]();
+            var iterator = context[Symbol.iterator]();
             for (var it = iterator.next(); !it.done; it = iterator.next()) {
               newContext.push(it.value);
             }
@@ -1154,24 +1173,12 @@ var require_proto_access = __commonJS({
     exports.createProtoAccessControl = createProtoAccessControl;
     exports.resultIsAllowed = resultIsAllowed;
     exports.resetLoggedProperties = resetLoggedProperties;
-    function _interopRequireWildcard(obj) {
-      if (obj && obj.__esModule) {
-        return obj;
-      } else {
-        var newObj = {};
-        if (obj != null) {
-          for (var key in obj) {
-            if (Object.prototype.hasOwnProperty.call(obj, key))
-              newObj[key] = obj[key];
-          }
-        }
-        newObj["default"] = obj;
-        return newObj;
-      }
+    function _interopRequireDefault(obj) {
+      return obj && obj.__esModule ? obj : { "default": obj };
     }
     var _createNewLookupObject = require_create_new_lookup_object();
     var _logger = require_logger();
-    var logger = _interopRequireWildcard(_logger);
+    var _logger2 = _interopRequireDefault(_logger);
     var loggedProperties = Object.create(null);
     function createProtoAccessControl(runtimeOptions) {
       var defaultMethodWhiteList = Object.create(null);
@@ -1212,7 +1219,7 @@ var require_proto_access = __commonJS({
     function logUnexpecedPropertyAccessOnce(propertyName) {
       if (loggedProperties[propertyName] !== true) {
         loggedProperties[propertyName] = true;
-        logger.log("error", 'Handlebars: Access has been denied to resolve the property "' + propertyName + '" because it is not an "own property" of its parent.\nYou can add a runtime option to disable the check or this warning:\nSee https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access for details');
+        _logger2["default"].log("error", 'Handlebars: Access has been denied to resolve the property "' + propertyName + '" because it is not an "own property" of its parent.\nYou can add a runtime option to disable the check or this warning:\nSee https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access for details');
       }
     }
     function resetLoggedProperties() {
@@ -1240,7 +1247,7 @@ var require_base = __commonJS({
     var _logger = require_logger();
     var _logger2 = _interopRequireDefault(_logger);
     var _internalProtoAccess = require_proto_access();
-    var VERSION = "4.7.7";
+    var VERSION = "4.7.8";
     exports.VERSION = VERSION;
     var COMPILER_REVISION = 8;
     exports.COMPILER_REVISION = COMPILER_REVISION;
@@ -1670,10 +1677,19 @@ var require_no_conflict = __commonJS({
     "use strict";
     exports.__esModule = true;
     exports["default"] = function(Handlebars) {
-      var root = typeof global !== "undefined" ? global : window, $Handlebars = root.Handlebars;
+      (function() {
+        if (typeof globalThis === "object")
+          return;
+        Object.prototype.__defineGetter__("__magic__", function() {
+          return this;
+        });
+        __magic__.globalThis = __magic__;
+        delete Object.prototype.__magic__;
+      })();
+      var $Handlebars = globalThis.Handlebars;
       Handlebars.noConflict = function() {
-        if (root.Handlebars === Handlebars) {
-          root.Handlebars = $Handlebars;
+        if (globalThis.Handlebars === Handlebars) {
+          globalThis.Handlebars = $Handlebars;
         }
         return Handlebars;
       };
@@ -2469,7 +2485,7 @@ var require_parser = __commonJS({
               break;
           }
         };
-        lexer2.rules = [/^(?:[^\x00]*?(?=(\{\{)))/, /^(?:[^\x00]+)/, /^(?:[^\x00]{2,}?(?=(\{\{|\\\{\{|\\\\\{\{|$)))/, /^(?:\{\{\{\{(?=[^\/]))/, /^(?:\{\{\{\{\/[^\s!"#%-,\.\/;->@\[-\^`\{-~]+(?=[=}\s\/.])\}\}\}\})/, /^(?:[^\x00]+?(?=(\{\{\{\{)))/, /^(?:[\s\S]*?--(~)?\}\})/, /^(?:\()/, /^(?:\))/, /^(?:\{\{\{\{)/, /^(?:\}\}\}\})/, /^(?:\{\{(~)?>)/, /^(?:\{\{(~)?#>)/, /^(?:\{\{(~)?#\*?)/, /^(?:\{\{(~)?\/)/, /^(?:\{\{(~)?\^\s*(~)?\}\})/, /^(?:\{\{(~)?\s*else\s*(~)?\}\})/, /^(?:\{\{(~)?\^)/, /^(?:\{\{(~)?\s*else\b)/, /^(?:\{\{(~)?\{)/, /^(?:\{\{(~)?&)/, /^(?:\{\{(~)?!--)/, /^(?:\{\{(~)?![\s\S]*?\}\})/, /^(?:\{\{(~)?\*?)/, /^(?:=)/, /^(?:\.\.)/, /^(?:\.(?=([=~}\s\/.)|])))/, /^(?:[\/.])/, /^(?:\s+)/, /^(?:\}(~)?\}\})/, /^(?:(~)?\}\})/, /^(?:"(\\["]|[^"])*")/, /^(?:'(\\[']|[^'])*')/, /^(?:@)/, /^(?:true(?=([~}\s)])))/, /^(?:false(?=([~}\s)])))/, /^(?:undefined(?=([~}\s)])))/, /^(?:null(?=([~}\s)])))/, /^(?:-?[0-9]+(?:\.[0-9]+)?(?=([~}\s)])))/, /^(?:as\s+\|)/, /^(?:\|)/, /^(?:([^\s!"#%-,\.\/;->@\[-\^`\{-~]+(?=([=~}\s\/.)|]))))/, /^(?:\[(\\\]|[^\]])*\])/, /^(?:.)/, /^(?:$)/];
+        lexer2.rules = [/^(?:[^\x00]*?(?=(\{\{)))/, /^(?:[^\x00]+)/, /^(?:[^\x00]{2,}?(?=(\{\{|\\\{\{|\\\\\{\{|$)))/, /^(?:\{\{\{\{(?=[^/]))/, /^(?:\{\{\{\{\/[^\s!"#%-,\.\/;->@\[-\^`\{-~]+(?=[=}\s\/.])\}\}\}\})/, /^(?:[^\x00]+?(?=(\{\{\{\{)))/, /^(?:[\s\S]*?--(~)?\}\})/, /^(?:\()/, /^(?:\))/, /^(?:\{\{\{\{)/, /^(?:\}\}\}\})/, /^(?:\{\{(~)?>)/, /^(?:\{\{(~)?#>)/, /^(?:\{\{(~)?#\*?)/, /^(?:\{\{(~)?\/)/, /^(?:\{\{(~)?\^\s*(~)?\}\})/, /^(?:\{\{(~)?\s*else\s*(~)?\}\})/, /^(?:\{\{(~)?\^)/, /^(?:\{\{(~)?\s*else\b)/, /^(?:\{\{(~)?\{)/, /^(?:\{\{(~)?&)/, /^(?:\{\{(~)?!--)/, /^(?:\{\{(~)?![\s\S]*?\}\})/, /^(?:\{\{(~)?\*?)/, /^(?:=)/, /^(?:\.\.)/, /^(?:\.(?=([=~}\s\/.)|])))/, /^(?:[\/.])/, /^(?:\s+)/, /^(?:\}(~)?\}\})/, /^(?:(~)?\}\})/, /^(?:"(\\["]|[^"])*")/, /^(?:'(\\[']|[^'])*')/, /^(?:@)/, /^(?:true(?=([~}\s)])))/, /^(?:false(?=([~}\s)])))/, /^(?:undefined(?=([~}\s)])))/, /^(?:null(?=([~}\s)])))/, /^(?:-?[0-9]+(?:\.[0-9]+)?(?=([~}\s)])))/, /^(?:as\s+\|)/, /^(?:\|)/, /^(?:([^\s!"#%-,\.\/;->@\[-\^`\{-~]+(?=([=~}\s\/.)|]))))/, /^(?:\[(\\\]|[^\]])*\])/, /^(?:.)/, /^(?:$)/];
         lexer2.conditions = { "mu": { "rules": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44], "inclusive": false }, "emu": { "rules": [2], "inclusive": false }, "com": { "rules": [6], "inclusive": false }, "raw": { "rules": [3, 4, 5], "inclusive": false }, "INITIAL": { "rules": [0, 1, 44], "inclusive": true } };
         return lexer2;
       }();
@@ -5565,7 +5581,7 @@ var require_javascript_compiler = __commonJS({
       resolvePath: function resolvePath(type, parts, i, falsy, strict) {
         var _this2 = this;
         if (this.options.strict || this.options.assumeObjects) {
-          this.push(strictLookup(this.options.strict && strict, this, parts, type));
+          this.push(strictLookup(this.options.strict && strict, this, parts, i, type));
           return;
         }
         var len = parts.length;
@@ -5987,8 +6003,8 @@ var require_javascript_compiler = __commonJS({
     JavaScriptCompiler.isValidJavaScriptVariableName = function(name) {
       return !JavaScriptCompiler.RESERVED_WORDS[name] && /^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(name);
     };
-    function strictLookup(requireTerminal, compiler, parts, type) {
-      var stack = compiler.popStack(), i = 0, len = parts.length;
+    function strictLookup(requireTerminal, compiler, parts, i, type) {
+      var stack = compiler.popStack(), len = parts.length;
       if (requireTerminal) {
         len--;
       }
@@ -6050,172 +6066,6 @@ var require_handlebars = __commonJS({
     inst["default"] = inst;
     exports["default"] = inst;
     module2.exports = exports["default"];
-  }
-});
-
-// node_modules/handlebars/dist/cjs/handlebars/compiler/printer.js
-var require_printer = __commonJS({
-  "node_modules/handlebars/dist/cjs/handlebars/compiler/printer.js"(exports) {
-    "use strict";
-    exports.__esModule = true;
-    exports.print = print;
-    exports.PrintVisitor = PrintVisitor;
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { "default": obj };
-    }
-    var _visitor = require_visitor();
-    var _visitor2 = _interopRequireDefault(_visitor);
-    function print(ast) {
-      return new PrintVisitor().accept(ast);
-    }
-    function PrintVisitor() {
-      this.padding = 0;
-    }
-    PrintVisitor.prototype = new _visitor2["default"]();
-    PrintVisitor.prototype.pad = function(string) {
-      var out = "";
-      for (var i = 0, l = this.padding; i < l; i++) {
-        out += "  ";
-      }
-      out += string + "\n";
-      return out;
-    };
-    PrintVisitor.prototype.Program = function(program) {
-      var out = "", body = program.body, i = void 0, l = void 0;
-      if (program.blockParams) {
-        var blockParams = "BLOCK PARAMS: [";
-        for (i = 0, l = program.blockParams.length; i < l; i++) {
-          blockParams += " " + program.blockParams[i];
-        }
-        blockParams += " ]";
-        out += this.pad(blockParams);
-      }
-      for (i = 0, l = body.length; i < l; i++) {
-        out += this.accept(body[i]);
-      }
-      this.padding--;
-      return out;
-    };
-    PrintVisitor.prototype.MustacheStatement = function(mustache) {
-      return this.pad("{{ " + this.SubExpression(mustache) + " }}");
-    };
-    PrintVisitor.prototype.Decorator = function(mustache) {
-      return this.pad("{{ DIRECTIVE " + this.SubExpression(mustache) + " }}");
-    };
-    PrintVisitor.prototype.BlockStatement = PrintVisitor.prototype.DecoratorBlock = function(block) {
-      var out = "";
-      out += this.pad((block.type === "DecoratorBlock" ? "DIRECTIVE " : "") + "BLOCK:");
-      this.padding++;
-      out += this.pad(this.SubExpression(block));
-      if (block.program) {
-        out += this.pad("PROGRAM:");
-        this.padding++;
-        out += this.accept(block.program);
-        this.padding--;
-      }
-      if (block.inverse) {
-        if (block.program) {
-          this.padding++;
-        }
-        out += this.pad("{{^}}");
-        this.padding++;
-        out += this.accept(block.inverse);
-        this.padding--;
-        if (block.program) {
-          this.padding--;
-        }
-      }
-      this.padding--;
-      return out;
-    };
-    PrintVisitor.prototype.PartialStatement = function(partial) {
-      var content = "PARTIAL:" + partial.name.original;
-      if (partial.params[0]) {
-        content += " " + this.accept(partial.params[0]);
-      }
-      if (partial.hash) {
-        content += " " + this.accept(partial.hash);
-      }
-      return this.pad("{{> " + content + " }}");
-    };
-    PrintVisitor.prototype.PartialBlockStatement = function(partial) {
-      var content = "PARTIAL BLOCK:" + partial.name.original;
-      if (partial.params[0]) {
-        content += " " + this.accept(partial.params[0]);
-      }
-      if (partial.hash) {
-        content += " " + this.accept(partial.hash);
-      }
-      content += " " + this.pad("PROGRAM:");
-      this.padding++;
-      content += this.accept(partial.program);
-      this.padding--;
-      return this.pad("{{> " + content + " }}");
-    };
-    PrintVisitor.prototype.ContentStatement = function(content) {
-      return this.pad("CONTENT[ '" + content.value + "' ]");
-    };
-    PrintVisitor.prototype.CommentStatement = function(comment) {
-      return this.pad("{{! '" + comment.value + "' }}");
-    };
-    PrintVisitor.prototype.SubExpression = function(sexpr) {
-      var params = sexpr.params, paramStrings = [], hash = void 0;
-      for (var i = 0, l = params.length; i < l; i++) {
-        paramStrings.push(this.accept(params[i]));
-      }
-      params = "[" + paramStrings.join(", ") + "]";
-      hash = sexpr.hash ? " " + this.accept(sexpr.hash) : "";
-      return this.accept(sexpr.path) + " " + params + hash;
-    };
-    PrintVisitor.prototype.PathExpression = function(id) {
-      var path = id.parts.join("/");
-      return (id.data ? "@" : "") + "PATH:" + path;
-    };
-    PrintVisitor.prototype.StringLiteral = function(string) {
-      return '"' + string.value + '"';
-    };
-    PrintVisitor.prototype.NumberLiteral = function(number) {
-      return "NUMBER{" + number.value + "}";
-    };
-    PrintVisitor.prototype.BooleanLiteral = function(bool) {
-      return "BOOLEAN{" + bool.value + "}";
-    };
-    PrintVisitor.prototype.UndefinedLiteral = function() {
-      return "UNDEFINED";
-    };
-    PrintVisitor.prototype.NullLiteral = function() {
-      return "NULL";
-    };
-    PrintVisitor.prototype.Hash = function(hash) {
-      var pairs = hash.pairs, joinedPairs = [];
-      for (var i = 0, l = pairs.length; i < l; i++) {
-        joinedPairs.push(this.accept(pairs[i]));
-      }
-      return "HASH{" + joinedPairs.join(", ") + "}";
-    };
-    PrintVisitor.prototype.HashPair = function(pair) {
-      return pair.key + "=" + this.accept(pair.value);
-    };
-  }
-});
-
-// node_modules/handlebars/lib/index.js
-var require_lib = __commonJS({
-  "node_modules/handlebars/lib/index.js"(exports, module2) {
-    var handlebars2 = require_handlebars()["default"];
-    var printer = require_printer();
-    handlebars2.PrintVisitor = printer.PrintVisitor;
-    handlebars2.print = printer.print;
-    module2.exports = handlebars2;
-    function extension(module3, filename) {
-      var fs = require("fs");
-      var templateString = fs.readFileSync(filename, "utf8");
-      module3.exports = handlebars2.compile(templateString);
-    }
-    if (typeof require !== "undefined" && require.extensions) {
-      require.extensions[".handlebars"] = extension;
-      require.extensions[".hbs"] = extension;
-    }
   }
 });
 
@@ -9370,7 +9220,7 @@ var require_positions = __commonJS({
 });
 
 // node_modules/ret/lib/index.js
-var require_lib2 = __commonJS({
+var require_lib = __commonJS({
   "node_modules/ret/lib/index.js"(exports, module2) {
     var util = require_util2();
     var types = require_types();
@@ -9560,7 +9410,7 @@ var require_lib2 = __commonJS({
 // node_modules/safe-regex/index.js
 var require_safe_regex = __commonJS({
   "node_modules/safe-regex/index.js"(exports, module2) {
-    var parse = require_lib2();
+    var parse = require_lib();
     var types = parse.types;
     module2.exports = function(re, opts) {
       if (!opts)
@@ -20177,9 +20027,6 @@ var require_math = __commonJS({
       }
       return sum;
     };
-    helpers.times = function() {
-      return helpers.multiply.apply(this, arguments);
-    };
   }
 });
 
@@ -20817,12 +20664,6 @@ var require_url = __commonJS({
         return decodeURIComponent(str);
       }
     };
-    helpers.url_encode = function() {
-      return helpers.encodeURI.apply(this, arguments);
-    };
-    helpers.url_decode = function(val) {
-      return helpers.decodeURI.apply(this, arguments);
-    };
     helpers.urlResolve = function(base, href) {
       return url.resolve(base, href);
     };
@@ -20845,7 +20686,7 @@ var require_url = __commonJS({
 });
 
 // node_modules/@budibase/handlebars-helpers/lib/index.js
-var require_lib3 = __commonJS({
+var require_lib2 = __commonJS({
   "node_modules/@budibase/handlebars-helpers/lib/index.js"(exports, module2) {
     "use strict";
     module2.exports = {
@@ -20875,7 +20716,7 @@ var require_handlebars_helpers = __commonJS({
     "use strict";
     var forIn = require_for_in();
     var define2 = require_define_property();
-    var lib = require_lib3();
+    var lib = require_lib2();
     module2.exports = function helpers(groups, options) {
       if (typeof groups === "string") {
         groups = [groups];
@@ -20884,7 +20725,7 @@ var require_handlebars_helpers = __commonJS({
         groups = null;
       }
       options = options || {};
-      var hbs = options.handlebars || options.hbs || require_lib();
+      var hbs = options.handlebars || options.hbs || require_handlebars();
       define2(module2.exports, "handlebars", hbs);
       if (groups) {
         groups.forEach(function(key) {
@@ -20900,7 +20741,7 @@ var require_handlebars_helpers = __commonJS({
     forIn(lib, function(group, key) {
       define2(module2.exports, key, function(options) {
         options = options || {};
-        var hbs = options.handlebars || options.hbs || require_lib();
+        var hbs = options.handlebars || options.hbs || require_handlebars();
         define2(module2.exports, "handlebars", hbs);
         hbs.registerHelper(group);
         return hbs.helpers;
@@ -20916,7 +20757,7 @@ __export(exports, {
 });
 var import_obsidian = __toModule(require("obsidian"));
 var Papa = require_papaparse_min();
-var handlebars = require_lib();
+var handlebars = require_handlebars();
 var hb_helpers = require_handlebars_helpers()({ handlebars });
 var hb_utils = require_handlebars_utils();
 var ExistingNotes;
@@ -20928,12 +20769,14 @@ var ExistingNotes;
 var DEFAULT_SETTINGS = {
   jsonName: "name",
   jsonNamePath: false,
+  jsonUrl: "",
   folderName: "Rewards",
   topField: "",
   notePrefix: "",
   noteSuffix: "",
   handleExistingNote: 0,
-  forceArray: true
+  forceArray: true,
+  multipleJSON: false
 };
 function convertCsv(source) {
   var _a;
@@ -20953,6 +20796,23 @@ function objfield(srcobj, field) {
       break;
   }
   return srcobj;
+}
+function fileFromUrl(url) {
+  return new Promise((resolve, reject) => {
+    let request = new XMLHttpRequest();
+    request.open("GET", url, true);
+    request.onreadystatechange = () => {
+      if (request.readyState === 4 && request.status === 200) {
+        var type = request.getResponseHeader("Content-Type");
+        if (type.indexOf("text") !== 1) {
+          resolve(request.responseText);
+        } else
+          reject(request.statusText);
+      }
+    };
+    request.onerror = () => reject(request.statusText);
+    request.send(null);
+  });
 }
 var JsonImport = class extends import_obsidian.Plugin {
   startApp() {
@@ -21086,7 +20946,7 @@ var JsonImport = class extends import_obsidian.Plugin {
       this.namepath = settings.jsonNamePath;
       const compileoptions = { noEscape: true };
       let templatetext = yield templatefile.text();
-      let template = handlebars.compile(templatetext);
+      let template = handlebars.compile(templatetext, compileoptions);
       handlebars.registerHelper("table", this.hb_table);
       handlebars.registerHelper("substring", this.hb_substring);
       handlebars.registerHelper("strarray", this.hb_strarray);
@@ -21176,12 +21036,26 @@ var FileSelectionModal = class extends import_obsidian.Modal {
         accept: ".json,.csv,.tsv"
       }
     });
+    const setting1a = new import_obsidian.Setting(this.contentEl).setName("Specify URL to JSON data").setDesc("Specify the URL location of the JSON data");
+    const inputJsonUrl = setting1a.controlEl.createEl("input", {
+      attr: {
+        type: "string"
+      }
+    });
+    inputJsonUrl.value = this.default_settings.jsonUrl;
     const inputJsonText = setting1.controlEl.createEl("textarea", {
       attr: {
         rows: "5",
         columns: "20"
       }
     });
+    const setting1d = new import_obsidian.Setting(this.contentEl).setName("Data contains multiple JSON objects").setDesc("Select this option if the JSON data might contain more than one object (the selected data is split into separate objects by looking for '}s+{' as the separator");
+    const inputMultipleJSON = setting1d.controlEl.createEl("input", {
+      attr: {
+        type: "checkbox"
+      }
+    });
+    inputMultipleJSON.checked = this.default_settings.multipleJSON;
     const setting2 = new import_obsidian.Setting(this.contentEl).setName("Choose TEMPLATE File").setDesc("Choose the Template (Handlebars) file");
     const inputTemplateFile = setting2.controlEl.createEl("input", {
       attr: {
@@ -21260,6 +21134,7 @@ var FileSelectionModal = class extends import_obsidian.Modal {
     const input5 = setting5.controlEl.createEl("button");
     input5.textContent = "IMPORT";
     input5.onclick = () => __async(this, null, function* () {
+      var _a;
       const { files: templatefiles } = inputTemplateFile;
       if (!templatefiles.length) {
         new import_obsidian.Notice("No Template file selected");
@@ -21269,15 +21144,36 @@ var FileSelectionModal = class extends import_obsidian.Modal {
       const settings = {
         jsonName: inputJsonName.value,
         jsonNamePath: inputJsonNamePath.checked,
+        jsonUrl: inputJsonUrl.value,
         folderName: inputFolderName.value,
         topField: inputTopField.value,
         notePrefix: inputNotePrefix.value,
         noteSuffix: inputNoteSuffix.value,
         handleExistingNote: parseInt(inputHandleExisting.value),
-        forceArray: !inputForceArray.checked
+        forceArray: !inputForceArray.checked,
+        multipleJSON: inputMultipleJSON.checked
       };
+      function parsejson(text) {
+        return settings.multipleJSON ? text.split(/(?<=})\s*(?={)/).map((obj) => JSON.parse(obj)) : [JSON.parse(text)];
+      }
       let srctext = inputJsonText.value;
-      if (srctext.length == 0) {
+      if (srctext.length > 0) {
+        const is_json = srctext.startsWith("{") && srctext.endsWith("}");
+        const objdataarray = is_json ? parsejson(srctext) : [convertCsv(srctext)];
+        for (const objdata of objdataarray)
+          yield this.handler.call(this.caller, objdata, null, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
+      } else if (((_a = inputJsonUrl.value) == null ? void 0 : _a.length) > 0) {
+        const fromurl = yield fileFromUrl(inputJsonUrl.value).catch((e) => {
+          new import_obsidian.Notice("Failed to GET data from URL");
+          return null;
+        });
+        if (fromurl) {
+          const objdataarray = parsejson(fromurl);
+          console.debug(`JSON data from '${inputJsonUrl.value}' =`, objdataarray);
+          for (const objdata of objdataarray)
+            yield this.handler.call(this.caller, objdata, null, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
+        }
+      } else {
         const { files: datafiles } = inputDataFile;
         if (!datafiles.length) {
           new import_obsidian.Notice("No JSON file selected");
@@ -21287,13 +21183,10 @@ var FileSelectionModal = class extends import_obsidian.Modal {
           console.log(`Processing input file ${datafiles[i].name}`);
           srctext = yield datafiles[i].text();
           let is_json = datafiles[i].name.endsWith(".json");
-          let objdata = is_json ? JSON.parse(srctext) : convertCsv(srctext);
-          yield this.handler.call(this.caller, objdata, datafiles[i].name, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
+          let objdataarray = is_json ? parsejson(srctext) : [convertCsv(srctext)];
+          for (const objdata of objdataarray)
+            yield this.handler.call(this.caller, objdata, datafiles[i].name, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
         }
-      } else {
-        let is_json = srctext.startsWith("{") && srctext.endsWith("}");
-        let objdata = is_json ? JSON.parse(srctext) : convertCsv(srctext);
-        yield this.handler.call(this.caller, objdata, null, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
       }
       new import_obsidian.Notice("Import Finished");
     });
@@ -21305,7 +21198,7 @@ var FileSelectionModal = class extends import_obsidian.Modal {
 };
 /* @license
 Papa Parse
-v5.3.2
+v5.4.1
 https://github.com/mholt/PapaParse
 License: MIT
 */

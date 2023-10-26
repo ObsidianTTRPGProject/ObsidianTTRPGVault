@@ -1,1 +1,0 @@
-![[Skills#Sleight of Hand]]

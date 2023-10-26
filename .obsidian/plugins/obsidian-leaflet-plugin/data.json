@@ -6709,7 +6709,7 @@
     {
       "id": "Faerun_Map",
       "locked": true,
-      "lastAccessed": 1679869705506,
+      "lastAccessed": 1698322243431,
       "markers": [
         {
           "id": "ID_f8694bd8abe8",
@@ -10904,12 +10904,12 @@
       "overlays": [],
       "shapes": [],
       "files": [
-        "z_Templates/4_Markdown/Insert Regional Map (Leaflet).md"
+        "2-World/Region/Region.md"
       ]
     },
     {
       "id": "update-me",
-      "lastAccessed": 1682816757699,
+      "lastAccessed": 1698323070295,
       "markers": [
         {
           "id": "ID_f8bac8f928e9",
@@ -10987,12 +10987,478 @@
           "minZoom": null,
           "maxZoom": null,
           "tooltip": "hover"
+        },
+        {
+          "id": "ID_2b4af96bf979",
+          "type": "default",
+          "loc": [
+            -0.008189301253060754,
+            0.005696562774054017
+          ],
+          "link": "Dungeon#1 - Cave Entrance",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5837841093985989,
+            0.8385844483134213
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_8ad9f9dae928",
+          "type": "default",
+          "loc": [
+            -0.0048828125,
+            0.005088802789211646
+          ],
+          "link": "Dungeon#2 - Main Passage",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5215008281372547,
+            0.5
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_082ada195aeb",
+          "type": "default",
+          "loc": [
+            -0.00421142578125,
+            0.007423414331434669
+          ],
+          "link": "Dungeon#3 - Cavern A",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7607519650115754,
+            0.43125
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
         }
       ],
       "overlays": [],
       "shapes": [],
       "files": [
-        "World/One Shot Adventures/A Fistful of Flowers/Ch1. The Great Grain Robbery.md"
+        "z_Templates/4_Markdown/Insert Dungeon Map (Leaflet).md",
+        "2-World/Region/Dungeon/Dungeon.md"
+      ]
+    },
+    {
+      "id": "map_TheWound",
+      "lastAccessed": 1698324770779,
+      "markers": [
+        {
+          "id": "ID_084b9a4a48eb",
+          "type": "default",
+          "loc": [
+            -0.0025895023725093294,
+            0.006096153461924957
+          ],
+          "link": "The Wound#1 - The Wound",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.6242461145011156,
+            0.26516504294495535
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_3b58283a288b",
+          "type": "default",
+          "loc": [
+            -0.004607156304422849,
+            0.005934428468318996
+          ],
+          "link": "The Wound#2 - Landing Room",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.6076854751558651,
+            0.47177280557289974
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_09b9d90a780b",
+          "type": "default",
+          "loc": [
+            -0.00593427627033388,
+            0.005815595501114237
+          ],
+          "link": "The Wound#3 - The Crack",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5955169793140979,
+            0.6076698900821893
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_8bbbca8abb1a",
+          "type": "default",
+          "loc": [
+            -0.006592441456680001,
+            0.006926857016031004
+          ],
+          "link": "The Wound#4 - Sacrificial Pit",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7093101584415747,
+            0.6750660051640321
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_1babb91809d8",
+          "type": "default",
+          "loc": [
+            -0.007358502575214011,
+            0.007854933255580102
+          ],
+          "link": "The Wound#5 - Guarded Hallway",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.8043451653714024,
+            0.7535106637019148
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_789bebea28eb",
+          "type": "default",
+          "loc": [
+            -0.007725348744652833,
+            0.008599301039187697
+          ],
+          "link": "The Wound#6 - Sarcophagus",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.8805684264128202,
+            0.7910757114524501
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_1ba96b18491b",
+          "type": "default",
+          "loc": [
+            -0.007013235592212767,
+            0.004499212810364612
+          ],
+          "link": "The Wound#8 - Study",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.46071939178133625,
+            0.7181553246425874
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_b8086b1a2949",
+          "type": "default",
+          "loc": [
+            -0.007887192642934667,
+            0.0065817517433889436
+          ],
+          "link": "The Wound#7 - Common Room",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.6739713785230278,
+            0.8076485266365099
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_2a4bb99aaae9",
+          "type": "default",
+          "loc": [
+            -0.008566937015718366,
+            0.004779613817003182
+          ],
+          "link": "The Wound#9 - Bedroom",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.48943245486112585,
+            0.8772543504095607
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_58fb9a4919fa",
+          "type": "default",
+          "loc": [
+            -0.008987731151251132,
+            0.006937794051047872
+          ],
+          "link": "The Wound#10 - Kitchen",
+          "layer": "%5B%5BThe%20Wound-20231026225622829.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7104301108273021,
+            0.9203436698881159
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "2-World/Lampoteuo/The Wound/The Wound.md"
+      ]
+    },
+    {
+      "id": "map_CreepersCave",
+      "lastAccessed": 1698324875146,
+      "markers": [
+        {
+          "id": "ID_2b796aa9a84a",
+          "type": "default",
+          "loc": [
+            -0.008221670032717121,
+            0.0057184748935840335
+          ],
+          "link": "Creepers Cave#1 - Cave Entrance",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5860296647786133,
+            0.8418990113502332
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_bb09aa983a48",
+          "type": "default",
+          "loc": [
+            -0.0049092649145489374,
+            0.005103453811551963
+          ],
+          "link": "Creepers Cave#2 - Main Passage",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5230022658230953,
+            0.5027087272498112
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_d8baabbb3b1b",
+          "type": "default",
+          "loc": [
+            -0.004251099728202816,
+            0.007423249646900814
+          ],
+          "link": "Creepers Cave#3 - Cavern A",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7607350881302452,
+            0.43531261216796835
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_c94a6ab9cafa",
+          "type": "default",
+          "loc": [
+            -0.0014673846777552868,
+            0.007110341931181868
+          ],
+          "link": "Creepers Cave#4 - Dead End",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7286682858513446,
+            0.15026019100214136
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_6a6989c96819",
+          "type": "default",
+          "loc": [
+            -0.001111328101535254,
+            0.0025571002995437193
+          ],
+          "link": "Creepers Cave#5 - Cavern B",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.2620517986409651,
+            0.11379999759721
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_7869f86969da",
+          "type": "default",
+          "loc": [
+            -0.003905832745201572,
+            0.0019312991366669298
+          ],
+          "link": "Creepers Cave#6 - Cavern C",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.19791965632619846,
+            0.399957273108641
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md"
+      ]
+    },
+    {
+      "id": "Regional_Lampoteuo",
+      "locked": true,
+      "lastAccessed": 1698324875146,
+      "markers": [
+        {
+          "id": "ID_6b7a8be94beb",
+          "type": "Dungeon",
+          "loc": [
+            141.4213562373095,
+            105.35966756771818
+          ],
+          "link": "The Wound",
+          "layer": "%5B%5BMap%20-%20Regional%20map%20of%20Lampoteuo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_4b7bc9288968",
+          "type": "Dungeon",
+          "loc": [
+            82.9082700941227,
+            8.839970521215726
+          ],
+          "link": "Creepers Cave",
+          "layer": "%5B%5BMap%20-%20Regional%20map%20of%20Lampoteuo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_1a6bb9ba38ba",
+          "type": "City",
+          "loc": [
+            82.02438661763952,
+            83.26289614352298
+          ],
+          "link": "Lampoteuo City",
+          "layer": "%5B%5BMap%20-%20Regional%20map%20of%20Lampoteuo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "2-World/Lampoteuo/Lampoteuo.md"
       ]
     }
   ],
@@ -11149,11 +11615,11 @@
   "long": -82.98333,
   "notePreview": true,
   "layerMarkers": true,
-  "previousVersion": "5.6.1",
+  "previousVersion": "5.8.0",
   "version": {
     "major": 5,
-    "minor": 6,
-    "patch": 1
+    "minor": 8,
+    "patch": 0
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,

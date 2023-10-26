@@ -1,1 +1,0 @@
-[[0. Scratch Notes/<% tp.date.now("YYYY-MM-DD", 0, tp.file.title, "gggg-[W]ww") %>|Monday]]

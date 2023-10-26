@@ -1,22 +1,24 @@
 ---
-Gender: 
+AssociatedGroup: 
+Gender: Male
 Race: 
-Age: 
+Age: "1"
 Class: 
 Alignment: 
 Character-Role: 
 Location: 
-AssociatedGroup: 
+NoteIcon: npc
+Vitality: Deceased
 ---
 
 <% tp.file.title %>
-<% await tp.file.move("/Tutorials/YouTube Series/Buttons/NPCs/" + tp.file.title) %>
+<% await tp.file.move("/3-Mechanics/NPCs/" + tp.file.title) %>
 
 <%*
 const hasTitle = !tp.file.title.startsWith("NewNPC");
 let title;
 if (!hasTitle) {
-    title = await tp.system.prompt("Title");
+    title = await tp.system.prompt("Enter NPC Name");
     await tp.file.rename(title);
 } else {
     title = tp.file.title;
@@ -25,8 +27,8 @@ _%>
 
 > [!infobox]
 > # `=this.file.name`
-> ![[z_Assets/Misc/ImagePlaceholder.png|cover hsmall]]
-> [[z_Assets/Misc/ImagePlaceholder.png|Show To Players]]
+> ![[ImagePlaceholder.png|cover hsmall]]
+> [[ImagePlaceholder.png|Show To Players]]
 > ###### Basic Information
 > Type |  Stat |
 > ---|---|
@@ -46,7 +48,6 @@ _%>
 # `=this.file.name`
 ## Profile
 
-<% tp.file.cursor() %>
 **<Add description here, extend it with AI Text Generator using Ctrl J>**
 
 > [!info] Statblock

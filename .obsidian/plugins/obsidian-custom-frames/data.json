@@ -21,6 +21,17 @@
       "zoomLevel": 1,
       "forceIframe": false,
       "customCss": ""
+    },
+    {
+      "url": "https://app.demiplane.com/home",
+      "displayName": "ConfigureInCustomFramesPlugin",
+      "icon": "",
+      "hideOnMobile": true,
+      "addRibbonIcon": false,
+      "openInCenter": false,
+      "zoomLevel": 1,
+      "forceIframe": false,
+      "customCss": ""
     }
   ],
   "padding": 5

@@ -1,0 +1,41 @@
+{
+  "settings": {
+    "migrated": 3,
+    "iconPacksPath": ".obsidian/icons",
+    "fontSize": 18,
+    "emojiStyle": "none",
+    "iconColor": null,
+    "recentlyUsedIcons": [
+      "RiCalculatorFill",
+      "RiLockPasswordFill",
+      "RiWalkLine",
+      "RiHome2Fill",
+      "RaCog"
+    ],
+    "recentlyUsedIconsSize": 5,
+    "rules": [
+      {
+        "rule": "Map",
+        "icon": "FarMap",
+        "for": "everything",
+        "order": 0
+      }
+    ],
+    "extraMargin": {
+      "top": 0,
+      "right": 4,
+      "bottom": 0,
+      "left": 0
+    },
+    "iconInTabsEnabled": true,
+    "iconInTitleEnabled": false,
+    "iconsBackgroundCheckEnabled": false
+  },
+  "1-DM Toolkit/DM Board.md": "RaCog",
+  "1-DM Toolkit/DnD5e-SideScreen.md": "RaScrollUnfurled",
+  "1-DM Toolkit/DnD5e-DM Screen.md": "RaScrollUnfurled",
+  "1-DM Toolkit/Home.md": "RiHome2Fill",
+  "1-DM Toolkit/Journey Board.md": "RiWalkLine",
+  "3-Mechanics/CLI": "RiLockPasswordFill",
+  "1-DM Toolkit/Travel Calculator.md": "RiCalculatorFill"
+}

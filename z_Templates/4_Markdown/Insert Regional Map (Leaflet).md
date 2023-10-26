@@ -1,16 +1,3 @@
----
-width: 2048
-height: 1642
-scale: 25
-distance: 268
----
-
-Calculated Leaflet values:
-- Bounds width: `= round(this.width / (this.distance / this.scale), 2)`
-- Bounds height: `= round(this.height / (this.distance / this.scale), 2)`
-- Center width: `= round(this.width / (this.distance / this.scale) / 2, 2)`
-- Center height: `= round(this.height / (this.distance / this.scale) / 2, 2)`
-
 
 ```leaflet
 ### Tutorial: https://youtu.be/54EyMzJP5DU

@@ -86,16 +86,15 @@
   ],
   "unconsciousId": "Unconscious",
   "version": [
-    11,
-    1,
-    7
+    12,
+    4,
+    2
   ],
   "canUseDiceRoll": false,
   "preferStatblockLink": false,
   "initiative": "1d20 + %mod%",
   "modifier": null,
   "sync": false,
-  "leafletIntegration": false,
   "playerMarker": "default",
   "monsterMarker": "default",
   "state": {
@@ -139,16 +138,20 @@
   },
   "hpOverflow": "ignore",
   "additiveTemp": false,
+  "rpgSystem": "dnd5e",
   "logging": false,
   "logFolder": "/",
   "useLegacy": false,
   "diplayPlayerHPValues": true,
   "rollHP": false,
+  "descending": true,
   "builder": {
     "showParty": true,
     "showXP": true,
     "sidebarIcon": true
   },
+  "rollPlayerInitiatives": 0,
+  "leafletIntegration": false,
   "homebrew": [],
   "integrateSRD": true
 }

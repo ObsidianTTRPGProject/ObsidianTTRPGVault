@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "fe9eb2e233222538",
+        "id": "487bf60e24f63475",
         "type": "tabs",
         "children": [
           {
-            "id": "52cb5f49892f19a1",
+            "id": "d8d23148ce8f0fbc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md",
+                "file": "2-World/Lampoteuo/Lampoteuo.md",
                 "mode": "preview",
                 "source": true
               }
@@ -58,26 +58,42 @@
             }
           },
           {
-            "id": "9a9809b325d9af74",
-            "type": "leaf",
-            "state": {
-              "type": "starred",
-              "state": {}
-            }
-          },
-          {
             "id": "6da38734e1b60552",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
               "state": {}
             }
+          },
+          {
+            "id": "2b8fc968ce117308",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-DM Toolkit/DM Board.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "2e6355ae312b2c82",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-DM Toolkit/DnD5e-SideScreen.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 294.5
+    "width": 338.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -93,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md",
+                "file": "2-World/Lampoteuo/Lampoteuo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md",
+                "file": "2-World/Lampoteuo/Lampoteuo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -133,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md"
+                "file": "2-World/Lampoteuo/Lampoteuo.md"
               }
             }
           },
@@ -146,7 +162,7 @@
             }
           },
           {
-            "id": "8311ab8551d6bebd",
+            "id": "fa4c09d8a60de8c5",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
@@ -154,15 +170,7 @@
             }
           },
           {
-            "id": "e00c8417330298ad",
-            "type": "leaf",
-            "state": {
-              "type": "FANTASY_CALENDAR",
-              "state": {}
-            }
-          },
-          {
-            "id": "22a80c0f52b5e4c7",
+            "id": "9f994e13f8952f1f",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -170,7 +178,21 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
+      },
+      {
+        "id": "859596e0dc4dfc50",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e0b72f78166490be",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-creature-view",
+              "state": {}
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
@@ -184,64 +206,65 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-import-json:JSON/CSV Importer": false,
       "obsidian-custom-frames:Open Obsidian Forum": false,
       "obsidian42-brat:BRAT": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
       "obsidian-leaflet-plugin:Open Leaflet Map": false,
-      "fantasy-calendar:Open Large Fantasy Calendar": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
-      "initiative-tracker:Intiative Tracker Encounter Builder": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "obsidian-5e-statblocks:Open Creature Pane": false,
+      "initiative-tracker:Initiative Tracker Encounter Builder": false,
+      "obsidian-import-json:JSON/CSV Importer": false
     }
   },
-  "active": "52cb5f49892f19a1",
+  "active": "9f994e13f8952f1f",
   "lastOpenFiles": [
-    "Shared Content/Pathfinder/World.md",
-    "Shared Content/DnD5e/compendium/backgrounds/azorius-functionary-ggr.md",
-    "Shared Content/DnD5e/compendium/backgrounds/athlete-mot.md",
-    "Shared Content/DnD5e/compendium/backgrounds/backgrounds.md",
-    "Shared Content/DnD5e/compendium/adventures/baldurs-gate-descent-into-avernus/04-chapter-3-avernus.md",
-    "Shared Content/DnD5e/compendium/adventures/baldurs-gate-descent-into-avernus/01-about-the-adventure.md",
-    "Shared Content/DnD5e/Books/Books.md",
-    "Shared Content/DnD5e/Backgrounds/Backgrounds.md",
-    "Shared Content/DnD5e/Adventures/Adventures.md",
-    "Shared Content/Pathfinder/Pathfinder.md",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/A Fistful of Flowers.md",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/Ch3. Concluding the Adventure.md",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/Ch2. Dig Four Plots.md",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/Ch1. The Great Grain Robbery.md",
-    "Shared Content/DnD5e/How To - Obtain Images.md",
-    "z_Assets/Pasted image 20230628082435.png",
-    "img/rules",
-    "img",
-    "z_Assets/Pasted image 20230628082302.png",
-    "Tutorials/YouTube Series/April's Automatic Timelines/April's Automatic Timelines.md",
-    "Shared Content/DnD5e/Waterdeep - Dungeon of the Mad Mage.md",
-    "Shared Content/DnD5e/TftYP - Against the Giants.md",
-    "Shared Content/DnD5e/TftYP - Dead in Thay.md",
-    "Shared Content/DnD5e/Feats/Feats.md",
-    "Shared Content/DnD5e/Classes/Classes.md",
-    "Shared Content/DnD5e/Classes/Artificer/Artificer.md",
-    "Shared Content/DnD5e/Books/Van Richten's Guide to Ravenloft.md",
-    "Shared Content/DnD5e/Books/Tasha's Cauldron of Everything.md",
-    "Shared Content/DnD5e/Books/Mordenkainen's Tome of Foes.md",
-    "Shared Content/DnD5e/Books/Sage Advice Compendium.md",
-    "z_Assets/Pasted image 20230628081645.png",
-    "img/adventure/RoT",
-    "img/adventure",
-    "img",
-    "z_Assets/Pasted image 20230628081232.png",
-    "z_Assets/GemmyDM.png",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers/NPCs",
-    "Shared Content/Pathfinder/One Shot Adventures/A Fistful of Flowers",
-    "Shared Content/Pathfinder/One Shot Adventures",
-    "Shared Content/Pathfinder",
-    "Shared Content/DnD5e/Adventures/Keys from the Golden Vault",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/kyr4lfxu.dna.png",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/1ogwuzdf.ekj.png",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/1m0tjsmh.m10.png",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/yiq1ywyf.sig.png",
-    "Shared Content/DnD5e/Adventures/Grimtooth's Dungeon of Doom/z_Assets/xyzwdw3g.wt2.png"
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "z_Templates/Insert Publish Tree.md",
+    "z_Templates/Update Publish Files.md",
+    "z_Templates/4_Markdown/Insert Rollable Table/Insert Rollable Table.md",
+    "z_Templates/4_Markdown/Call Out Boxes/Call Out Boxes.md",
+    "z_Templates/3_Dataview Templates/3_Dataview Templates.md",
+    "z_Templates/3_Dataview Templates/Dataview - Query TTRPG Statblocks.md",
+    "z_Templates/3_Dataview Templates/Query Outgoing Links.md",
+    "z_Templates/3_Dataview Templates/Template - Spell.md",
+    "z_Templates/3_Dataview Templates/Template - Scratch.md",
+    "z_Templates/3_Dataview Templates/Dataview Inline Link To Note.md",
+    "z_Templates/3_Dataview Templates/Dataview Inline Join Link.md",
+    "z_Templates/3_Dataview Templates/Dataview - Travel Table.md",
+    "2-World/Lampoteuo/Lampoteuo City/Lucky Grain Inn/Lucky Grain Inn.md",
+    "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
+    "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
+    "2-World/Lampoteuo/The Wound/The Wound.md",
+    "z_Assets/Placeholder Images/The Wound-20231026225622829.webp",
+    "z_Assets/Placeholder Images/LuckyGrainInn_Ground.webp",
+    "z_Assets/Placeholder Images/LuckyGrainInn_1st.webp",
+    "z_Assets/Placeholder Images/Lampoteuo City-20231026231008700.webp",
+    "z_Assets/Placeholder Images/Inn-20231026224938393.webp",
+    "z_Assets/Placeholder Images/Dungeon-20231026224920033.webp",
+    "z_Assets/Placeholder Images/City-20231026224949477.webp",
+    "3-Mechanics/Where To Get Mechanics.md",
+    "z_Assets/Lampoteuo City-20231026231008700.webp",
+    "z_Assets/LuckyGrainInn_1st.webp",
+    "z_Assets/LuckyGrainInn_Ground.webp",
+    "2-World/Lampoteuo/The Wound",
+    "2-World/Lampoteuo/Lampoteuo City/Lucky Grain Inn",
+    "z_Assets/Placeholder Images/MapPlaceholder.md",
+    "z_Templates/TemplateMagicItem.md",
+    "Untitled.canvas",
+    "z_Templates/TemplateJournal.md",
+    "z_Templates/TemplateGroup.md",
+    "z_Templates/TemplateSettlement.md",
+    "1-DM Toolkit/Journey Board.md",
+    "2-World/Melbourne.md",
+    "3-Mechanics/CLI",
+    "0-Scratch Notes",
+    "3-Mechanics/Guilds and Groups",
+    "1-DM Toolkit/Travel Calc",
+    "3-Mechanics/Items",
+    "3-Mechanics/NPCs",
+    "z_Templates/4_Markdown/Call Out Boxes.zip",
+    "2-World/Lampoteuo/Creepers Cave"
   ]
 }

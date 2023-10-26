@@ -1,7 +1,11 @@
 {
   "accentColor": "",
   "cssTheme": "ITS Theme",
-  "theme": "obsidian",
-  "enabledCssSnippets": [],
+  "theme": "moonstone",
+  "enabledCssSnippets": [
+    "S - Encoded Fonts",
+    "S - Encoded Icons",
+    "HoverProperties_-_Columns"
+  ],
   "baseFontSize": 15
 }

@@ -3,6 +3,7 @@
   "cedictPath": "./cedict_ts.u8",
   "matchStrategy": "prefix",
   "fuzzyMatch": true,
+  "minFuzzyMatchScore": 0.5,
   "matchingWithoutEmoji": true,
   "treatAccentDiacriticsAsAlphabeticCharacters": false,
   "maxNumberOfSuggestions": 5,
@@ -14,19 +15,47 @@
   "disableSuggestionsDuringImeOn": false,
   "insertAfterCompletion": true,
   "firstCharactersDisableSuggestions": ":/^",
-  "useCommonPrefixCompletionOfSuggestion": false,
   "patternsToSuppressTrigger": [
     "^~~~.*",
     "^```.*"
   ],
+  "noAutoFocusUntilCycle": false,
   "showMatchStrategy": true,
   "showComplementAutomatically": true,
   "showIndexingStatus": true,
   "descriptionOnSuggestion": "Short",
-  "selectSuggestionKeys": "Enter",
-  "additionalCycleThroughSuggestionsKeys": "None",
-  "disableUpDownKeysForCycleThroughSuggestionsKeys": false,
-  "openSourceFileKey": "None",
+  "hotkeys": {
+    "select": [
+      {
+        "modifiers": [],
+        "key": "Enter"
+      }
+    ],
+    "up": [
+      {
+        "modifiers": [],
+        "key": "ArrowUp"
+      }
+    ],
+    "down": [
+      {
+        "modifiers": [],
+        "key": "ArrowDown"
+      }
+    ],
+    "select 1st": [],
+    "select 2nd": [],
+    "select 3rd": [],
+    "select 4th": [],
+    "select 5th": [],
+    "select 6th": [],
+    "select 7th": [],
+    "select 8th": [],
+    "select 9th": [],
+    "open": [],
+    "completion": [],
+    "insert as text": []
+  },
   "propagateEsc": false,
   "enableCurrentFileComplement": true,
   "currentFileMinNumberOfCharacters": 0,
@@ -53,151 +82,22 @@
     "beforeRegExp": "",
     "after": ""
   },
-  "enableFrontMatterComplement": true,
+  "frontMatterKeyForExclusionInternalLink": "",
+  "enableFrontMatterComplement": false,
   "frontMatterComplementMatchStrategy": "inherit",
   "insertCommaAfterFrontMatterCompletion": false,
   "intelligentSuggestionPrioritization": {
+    "enabled": true,
+    "historyFilePath": "",
     "maxDaysToKeepHistory": 30,
     "maxNumberOfHistoryToKeep": 0
   },
   "disableOnMobile": false,
   "showLogAboutPerformanceInConsole": false,
-  "selectionHistoryTree": {
-    "Generate Adventure Opportunity": {
-      "Generate Adventure Opportunity": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568205280
-        }
-      }
-    },
-    "Generate Apothecary": {
-      "Generate Apothecary": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568213799
-        }
-      }
-    },
-    "Generate Armory": {
-      "Generate Armory": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568219558
-        }
-      }
-    },
-    "Generate Dungeon Room": {
-      "Generate Dungeon Room": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568223777
-        }
-      }
-    },
-    "Generate Encounter": {
-      "Generate Encounter": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568227718
-        }
-      }
-    },
-    "Generate Fungus": {
-      "Generate Fungus": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568232677
-        }
-      }
-    },
-    "Generate General Store": {
-      "Generate General Store": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568237303
-        }
-      }
-    },
-    "Generate Inn": {
-      "Generate Inn": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568241735
-        }
-      }
-    },
-    "Generate Job Board": {
-      "Generate Job Board": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568247703
-        }
-      }
-    },
-    "Generate Pocket Search": {
-      "Generate Pocket Search": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568257138
-        }
-      }
-    },
-    "Generate Spell Book": {
-      "Generate Spell Book": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568270439
-        }
-      }
-    },
-    "Generate Weaponry": {
-      "Generate Weaponry": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568276535
-        }
-      }
-    },
-    "Generate Small Magic Shop": {
-      "Generate Small Magic Shop": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568309318
-        }
-      }
-    },
-    "PBE Games - Vehicle": {
-      "PBE Games - Vehicle": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568345525
-        }
-      }
-    },
-    "PBE Games - Magic 8 Bal": {
-      "PBE Games - Magic 8 Bal": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681568347973
-        }
-      }
-    },
-    "Storm Giant Quintessent.jpg": {
-      "Storm Giant Quintessent.jpg": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1682815364980
-        }
-      }
-    },
-    "Pixie": {
-      "Pixie": {
-        "internalLink": {
-          "count": 1,
-          "lastUpdated": 1682827884306
-        }
-      }
-    }
-  }
+  "selectionHistoryTree": {},
+  "useCommonPrefixCompletionOfSuggestion": false,
+  "selectSuggestionKeys": "Enter",
+  "additionalCycleThroughSuggestionsKeys": "None",
+  "disableUpDownKeysForCycleThroughSuggestionsKeys": false,
+  "openSourceFileKey": "None"
 }

@@ -28,14 +28,13 @@ imports:
  - Something Else
 ---
 
-<% tp.file.title %>
-<% await tp.file.move("/Tutorials/YouTube Series/Buttons/Locations/" + tp.file.title) %>
+<% await tp.file.move("/2-World/" + tp.file.title) %>
 
 <%*
 const hasTitle = !tp.file.title.startsWith("NewLocation");
 let title;
 if (!hasTitle) {
-    title = await tp.system.prompt("Title");
+    title = await tp.system.prompt("Location Name");
     await tp.file.rename(title);
 } else {
     title = tp.file.title;
@@ -45,29 +44,24 @@ _%>
 
 > [!infobox]
 > # `=this.file.name`
-> ![[z_Assets/Misc/MapPlaceholder.png|cover hsmall]]
-> [[z_Assets/Misc/MapPlaceholder.png|Show To Players]]
+> ![[MapPlaceholder.png|cover hsmall]]
 > ###### Geography
 > Type |  Stat |
 > ---|---|
 > Type | `=this.type` |
 > Size | `=this.size` |
 > Region | `=this.region` |
-> ###### Travel (`=[[Party Configuration]].TravelMethod` / `=[[Party Configuration]].HoursPerDay` hrs per day)
-> ###### [[Party Configuration]]  / [[Exhaustion]]:  `=[[Party Configuration]].ExhaustionLevel`
+> ###### Travel (`=[[Party Configuration]].HoursPerDay` hrs per day)
+> ###### [[Travel Calculator]]  / [[Exhaustion]]:  `=[[Party Configuration]].ExhaustionLevel`
 > Destination |  Travel Days  |
 > ---|---|
-> [[Voonlar]] | 🕓`= round(90 * ([[Party Configuration]].MinutesPerMile * choice([[Party Configuration]].ExhaustionLevel > 1, 2, 1)) / 60 / [[Party Configuration]].HoursPerDay, 1)` |
+> [[Voonlar]] | 🕓: `VIEW[round(88 * (8.94-7.94*{Travel Calculator#metric})/max(min({Travel Calculator#HoursPerDay}, 24),0)*1/(max((1-0.82*{Travel Calculator#metric})*{Travel Calculator#SpeedMultiplier}*({Travel Calculator#BaseSpeed}+{Travel Calculator#AdditionalBonus}+{Travel Calculator#Encumbrance}+({Travel Calculator#Horseshoes} == 30 ? {Travel Calculator#Horseshoes}:0))*({Travel Calculator#ExhaustionLevel} > 1 ? 0.5:1)*({Travel Calculator#ExhaustionLevel} > 4 ? 0:1)*({Travel Calculator#DiffTerrain} ? ({Travel Calculator#Horseshoes} == 0 ? 1:0.5):1),0)),1)]`      |
 > ###### Politics
 > Type |  Stat |
 > ---|---|
 > Govt Type | `=this.politics` |
 > Ruler | `=this.leader` |
 > Defense | `=this.defences` |
-> ###### Organizations
-> Type |  Stat |
-> ---|---|
-> Guilds & Groups | `=this.guildsgroups` |
 > ###### Society
 > Type |  Stat |
 > ---|---|
@@ -79,19 +73,23 @@ _%>
 > ---|---|
 > Exports | `=this.exports` |
 > Imports | `=this.imports` |
+> ###### Organizations
+> Type |  Stat |
+> ---|---|
+> ```dataview
+table WITHOUT ID link(file.name) AS "Group", link(Leader) AS "Leader"
+where contains( PrimaryHome, this.file.name)
 
 
 # `=this.file.name`
 ## Overview
 Placeholder
-<% tp.file.cursor() %>
+
 ### Placeholder Map
-![[z_Assets/Misc/MapPlaceholder.png|Placeholder Map]]
-[[z_Assets/Misc/MapPlaceholder.png|open outside]]
+![[MapPlaceholder.png|Placeholder Map]]
 
 ### Placeholder Picture
-![[z_Assets/Misc/ImagePlaceholder.png|Placeholder Picture]]
-[[z_Assets/Misc/ImagePlaceholder.png|open outside]]
+![[ImagePlaceholder.png|Placeholder Picture]]
 
 Placeholder
 

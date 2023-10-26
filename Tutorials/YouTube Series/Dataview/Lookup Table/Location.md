@@ -1,1 +1,0 @@
-Days Travel to Next Town: 🕓 `= round(160 * ([[Transportation]].movement[[[Current Party]].transportation][[[Current Party]].speed] * choice([[Current Party]].exhaustionLevel > 1, 2, 1)) / 60 / [[Current Party]].hoursPerDay, 0)`

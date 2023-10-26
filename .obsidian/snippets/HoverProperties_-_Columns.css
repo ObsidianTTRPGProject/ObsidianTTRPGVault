@@ -1,0 +1,47 @@
+/* hide property on collapse, hover top to reveal  */
+.metadata-properties-heading.is-collapsed:not(:hover) {
+    transition: linear .3s;
+    opacity: 0;
+    height: 0em;
+}
+
+
+ .metadata-properties, .metadata-properties *, .metadata-add-button, .metadata-properties-heading {
+/****  font-family: "Century Gothic"; ****/
+} 
+
+
+/*Hides DropdownArrow, It bugs out using multi column*/
+.collapse-indicator {
+	display: none;	
+}
+/* Adjust column count to your preference*/
+.metadata-content {
+  
+  column-count: 2;     /****Column #****/
+  column-gap: 40px;     /****Gap Amount****/
+  display: inline-block;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.metadata-property-key .metadata-property-icon {
+  --icon-color: #bdc;
+  --icon-size: .8rem;
+}
+
+.metadata-container {
+  margin-block-end: 0px;
+  margin-bottom: -.5rem;
+}
+
+
+/*"Properties" Header CSS*/
+.metadata-properties-heading {
+}
+/* Cell CSS*/
+.metadata-properties {
+}
+/* Value Key CSS*/
+.metadata-property-key-input {
+}
