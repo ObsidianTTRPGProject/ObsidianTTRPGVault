@@ -10,8 +10,4 @@ Extract it onto your PC and within Obsidian.md; create a new Vault from an exist
 
 ![Alt](https://github.com/ObsidianTTRPGProject/ObsidianTTRPGVault/blob/main/z_Assets/README-20231026233959519.webp)
 
-![[README-20231026233959519.webp]]
-
-![[README-20231026234052598.webp]]
-
-![Alt text](relative%20path/to/img.jpg?raw=true "Title")
+![Alt2](https://github.com/ObsidianTTRPGProject/ObsidianTTRPGVault/blob/main/z_Assets/README-20231026234052598.webp)
