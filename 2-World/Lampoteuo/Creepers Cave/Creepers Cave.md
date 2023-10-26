@@ -1,3 +1,37 @@
+---
+width: 2048
+height: 1642
+scale: 25
+distance: 268
+NoteIcon: Settlement
+Tags: Category/Settlement
+Community-Size: Outpost
+Alignment: Chaotic Evil
+Government: Autocracy
+type: Settlement
+politics: Lordship
+leader: 
+guildsgroups:
+ - Thieves Guild 1
+ - Cult 1
+ - Guiled 1
+region: 
+ - This area
+ - Of this area
+size: Small city
+population: 0
+commonraces:
+ - Humans
+ - Elves
+ - Dwarves
+religion:
+ - Lathander
+exports: 
+ - Something
+imports: 
+ - Something Else
+---
+
 
 ```leaflet
 ### Tutorial: https://youtu.be/54EyMzJP5DU

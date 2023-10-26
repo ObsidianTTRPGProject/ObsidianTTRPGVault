@@ -5,16 +5,16 @@ obsidianUIMode: preview
 
 > [!cards|4]
 > **[[Map-Faerun]]**
-> [![[Northern Faerun Map.jpg\|sban htiny ctr]]|](Map-Faerun)
+> [![[Northern Faerun Map.jpg\|sban htiny ctr]]](Lampoteuo)
 > 
 > **[[Link]]**
-> [![[JourneyBoard.png\|sban htiny ctr]]|](obsidian://open?vault=ObsidianTTRPGVault&file=1-DM%20Screen%2FJourney%20Board)
+> [![[JourneyBoard.png\|sban htiny ctr]]](obsidian://open?vault=ObsidianTTRPGVault&file=1-DM%20Toolkit%2FJourney%20Board)
 >
 > **[[Link]]**
-> [![[AdventureIcon.png\|sban htiny ctr]]](obsidian://open?vault=Obsidian5eVault&file=1.%20World%2F5e%20Modules%2FToD%2FRoT%2FChapter%2011%20-%20Death%20to%20the%20Wyrmspeakers%2FChapter%2011%20-%20Death%20to%20the%20Wyrmspeakers)
+> [![[AdventureIcon.png\|sban htiny ctr]]](obsidian://open?vault=ObsidianTTRPGVault&file=2-World%2FLampoteuo%2FLampoteuo)
 > 
 > **[[Link]]**
-> [![[PartyLogo.jpg\|sban htiny ctr p+t]]|](obsidian://open?vault=Obsidian5eVault&file=1.%20The%20Party%2FDeadly%20Depth%20Inn%2FDeadly%20Depth%20Inn)
+> [![[PartyLogo.jpg\|sban htiny ctr p+t]]|](obsidian://open?vault=ObsidianTTRPGVault&file=1-Party%2FExample%20Party%201%2FExample%20Party%201)
 
 
 > [!infobox]
