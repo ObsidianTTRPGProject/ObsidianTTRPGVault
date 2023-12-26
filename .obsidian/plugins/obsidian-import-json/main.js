@@ -6093,9 +6093,371 @@ var require_isobject = __commonJS({
   }
 });
 
+// node_modules/function-bind/implementation.js
+var require_implementation = __commonJS({
+  "node_modules/function-bind/implementation.js"(exports, module2) {
+    "use strict";
+    var ERROR_MESSAGE = "Function.prototype.bind called on incompatible ";
+    var toStr = Object.prototype.toString;
+    var max = Math.max;
+    var funcType = "[object Function]";
+    var concatty = function concatty2(a, b) {
+      var arr = [];
+      for (var i = 0; i < a.length; i += 1) {
+        arr[i] = a[i];
+      }
+      for (var j = 0; j < b.length; j += 1) {
+        arr[j + a.length] = b[j];
+      }
+      return arr;
+    };
+    var slicy = function slicy2(arrLike, offset) {
+      var arr = [];
+      for (var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1) {
+        arr[j] = arrLike[i];
+      }
+      return arr;
+    };
+    var joiny = function(arr, joiner) {
+      var str = "";
+      for (var i = 0; i < arr.length; i += 1) {
+        str += arr[i];
+        if (i + 1 < arr.length) {
+          str += joiner;
+        }
+      }
+      return str;
+    };
+    module2.exports = function bind(that) {
+      var target = this;
+      if (typeof target !== "function" || toStr.apply(target) !== funcType) {
+        throw new TypeError(ERROR_MESSAGE + target);
+      }
+      var args = slicy(arguments, 1);
+      var bound;
+      var binder = function() {
+        if (this instanceof bound) {
+          var result = target.apply(this, concatty(args, arguments));
+          if (Object(result) === result) {
+            return result;
+          }
+          return this;
+        }
+        return target.apply(that, concatty(args, arguments));
+      };
+      var boundLength = max(0, target.length - args.length);
+      var boundArgs = [];
+      for (var i = 0; i < boundLength; i++) {
+        boundArgs[i] = "$" + i;
+      }
+      bound = Function("binder", "return function (" + joiny(boundArgs, ",") + "){ return binder.apply(this,arguments); }")(binder);
+      if (target.prototype) {
+        var Empty = function Empty2() {
+        };
+        Empty.prototype = target.prototype;
+        bound.prototype = new Empty();
+        Empty.prototype = null;
+      }
+      return bound;
+    };
+  }
+});
+
+// node_modules/function-bind/index.js
+var require_function_bind = __commonJS({
+  "node_modules/function-bind/index.js"(exports, module2) {
+    "use strict";
+    var implementation = require_implementation();
+    module2.exports = Function.prototype.bind || implementation;
+  }
+});
+
+// node_modules/hasown/index.js
+var require_hasown = __commonJS({
+  "node_modules/hasown/index.js"(exports, module2) {
+    "use strict";
+    var call = Function.prototype.call;
+    var $hasOwn = Object.prototype.hasOwnProperty;
+    var bind = require_function_bind();
+    module2.exports = bind.call(call, $hasOwn);
+  }
+});
+
+// node_modules/is-accessor-descriptor/index.js
+var require_is_accessor_descriptor = __commonJS({
+  "node_modules/is-accessor-descriptor/index.js"(exports, module2) {
+    "use strict";
+    var hasOwn = require_hasown();
+    var accessor = {
+      __proto__: null,
+      configurable: "boolean",
+      enumerable: "boolean",
+      get: "function",
+      set: "function"
+    };
+    module2.exports = function isAccessorDescriptor(obj, prop) {
+      if (typeof prop === "string") {
+        var val = Object.getOwnPropertyDescriptor(obj, prop);
+        return typeof val !== "undefined";
+      }
+      if (!obj || typeof obj !== "object") {
+        return false;
+      }
+      if (hasOwn(obj, "value") || hasOwn(obj, "writable")) {
+        return false;
+      }
+      if ((!hasOwn(obj, "get") || typeof obj.get !== "function") && (!hasOwn(obj, "set") || typeof obj.set !== "function")) {
+        return false;
+      }
+      if (hasOwn(obj, "get") && typeof obj.get !== "function" && typeof obj.get !== "undefined" || hasOwn(obj, "set") && typeof obj.set !== "function" && typeof obj.set !== "undefined") {
+        return false;
+      }
+      for (var key in obj) {
+        if (hasOwn(obj, key) && hasOwn(accessor, key) && typeof obj[key] !== accessor[key] && typeof obj[key] !== "undefined") {
+          return false;
+        }
+      }
+      return true;
+    };
+  }
+});
+
+// node_modules/is-data-descriptor/index.js
+var require_is_data_descriptor = __commonJS({
+  "node_modules/is-data-descriptor/index.js"(exports, module2) {
+    "use strict";
+    var hasOwn = require_hasown();
+    var data = {
+      __proto__: null,
+      configurable: "boolean",
+      enumerable: "boolean",
+      writable: "boolean"
+    };
+    module2.exports = function isDataDescriptor(obj, prop) {
+      if (!obj || typeof obj !== "object") {
+        return false;
+      }
+      if (typeof prop === "string") {
+        var val = Object.getOwnPropertyDescriptor(obj, prop);
+        return typeof val !== "undefined";
+      }
+      if (!("value" in obj) && !("writable" in obj) || "get" in obj || "set" in obj) {
+        return false;
+      }
+      for (var key in obj) {
+        if (key !== "value" && hasOwn(obj, key) && hasOwn(data, key) && typeof obj[key] !== data[key] && typeof obj[key] !== "undefined") {
+          return false;
+        }
+      }
+      return true;
+    };
+  }
+});
+
+// node_modules/is-descriptor/index.js
+var require_is_descriptor = __commonJS({
+  "node_modules/is-descriptor/index.js"(exports, module2) {
+    "use strict";
+    var isAccessor = require_is_accessor_descriptor();
+    var isData = require_is_data_descriptor();
+    module2.exports = function isDescriptor(obj, key) {
+      if (!obj || typeof obj !== "object" && typeof obj !== "function") {
+        return false;
+      }
+      if ("get" in obj || "set" in obj) {
+        return isAccessor(obj, key);
+      }
+      return isData(obj, key);
+    };
+  }
+});
+
+// node_modules/@budibase/handlebars-helpers/node_modules/define-property/index.js
+var require_define_property = __commonJS({
+  "node_modules/@budibase/handlebars-helpers/node_modules/define-property/index.js"(exports, module2) {
+    "use strict";
+    var isobject = require_isobject();
+    var isDescriptor = require_is_descriptor();
+    var define2 = typeof Reflect !== "undefined" && Reflect.defineProperty ? Reflect.defineProperty : Object.defineProperty;
+    module2.exports = function defineProperty(obj, key, val) {
+      if (!isobject(obj) && typeof obj !== "function" && !Array.isArray(obj)) {
+        throw new TypeError("expected an object, function, or array");
+      }
+      if (typeof key !== "string") {
+        throw new TypeError('expected "key" to be a string');
+      }
+      if (isDescriptor(val)) {
+        define2(obj, key, val);
+        return obj;
+      }
+      define2(obj, key, {
+        configurable: true,
+        enumerable: false,
+        writable: true,
+        value: val
+      });
+      return obj;
+    };
+  }
+});
+
+// node_modules/is-buffer/index.js
+var require_is_buffer = __commonJS({
+  "node_modules/is-buffer/index.js"(exports, module2) {
+    module2.exports = function(obj) {
+      return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer);
+    };
+    function isBuffer(obj) {
+      return !!obj.constructor && typeof obj.constructor.isBuffer === "function" && obj.constructor.isBuffer(obj);
+    }
+    function isSlowBuffer(obj) {
+      return typeof obj.readFloatLE === "function" && typeof obj.slice === "function" && isBuffer(obj.slice(0, 0));
+    }
+  }
+});
+
 // node_modules/kind-of/index.js
 var require_kind_of = __commonJS({
   "node_modules/kind-of/index.js"(exports, module2) {
+    var isBuffer = require_is_buffer();
+    var toString = Object.prototype.toString;
+    module2.exports = function kindOf(val) {
+      if (typeof val === "undefined") {
+        return "undefined";
+      }
+      if (val === null) {
+        return "null";
+      }
+      if (val === true || val === false || val instanceof Boolean) {
+        return "boolean";
+      }
+      if (typeof val === "string" || val instanceof String) {
+        return "string";
+      }
+      if (typeof val === "number" || val instanceof Number) {
+        return "number";
+      }
+      if (typeof val === "function" || val instanceof Function) {
+        return "function";
+      }
+      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
+        return "array";
+      }
+      if (val instanceof RegExp) {
+        return "regexp";
+      }
+      if (val instanceof Date) {
+        return "date";
+      }
+      var type = toString.call(val);
+      if (type === "[object RegExp]") {
+        return "regexp";
+      }
+      if (type === "[object Date]") {
+        return "date";
+      }
+      if (type === "[object Arguments]") {
+        return "arguments";
+      }
+      if (type === "[object Error]") {
+        return "error";
+      }
+      if (isBuffer(val)) {
+        return "buffer";
+      }
+      if (type === "[object Set]") {
+        return "set";
+      }
+      if (type === "[object WeakSet]") {
+        return "weakset";
+      }
+      if (type === "[object Map]") {
+        return "map";
+      }
+      if (type === "[object WeakMap]") {
+        return "weakmap";
+      }
+      if (type === "[object Symbol]") {
+        return "symbol";
+      }
+      if (type === "[object Int8Array]") {
+        return "int8array";
+      }
+      if (type === "[object Uint8Array]") {
+        return "uint8array";
+      }
+      if (type === "[object Uint8ClampedArray]") {
+        return "uint8clampedarray";
+      }
+      if (type === "[object Int16Array]") {
+        return "int16array";
+      }
+      if (type === "[object Uint16Array]") {
+        return "uint16array";
+      }
+      if (type === "[object Int32Array]") {
+        return "int32array";
+      }
+      if (type === "[object Uint32Array]") {
+        return "uint32array";
+      }
+      if (type === "[object Float32Array]") {
+        return "float32array";
+      }
+      if (type === "[object Float64Array]") {
+        return "float64array";
+      }
+      return "object";
+    };
+  }
+});
+
+// node_modules/typeof-article/index.js
+var require_typeof_article = __commonJS({
+  "node_modules/typeof-article/index.js"(exports, module2) {
+    "use strict";
+    var typeOf = require_kind_of();
+    var types = {
+      "arguments": "an arguments object",
+      "array": "an array",
+      "boolean": "a boolean",
+      "buffer": "a buffer",
+      "date": "a date",
+      "error": "an error",
+      "float32array": "a float32array",
+      "float64array": "a float64array",
+      "function": "a function",
+      "int16array": "an int16array",
+      "int32array": "an int32array",
+      "int8array": "an int8array",
+      "map": "a Map",
+      "null": "null",
+      "number": "a number",
+      "object": "an object",
+      "regexp": "a regular expression",
+      "set": "a Set",
+      "string": "a string",
+      "symbol": "a symbol",
+      "uint16array": "an uint16array",
+      "uint32array": "an uint32array",
+      "uint8array": "an uint8array",
+      "uint8clampedarray": "an uint8clampedarray",
+      "undefined": "undefined",
+      "weakmap": "a WeakMap",
+      "weakset": "a WeakSet"
+    };
+    function type(val) {
+      return types[typeOf(val)];
+    }
+    type.types = types;
+    type.typeOf = typeOf;
+    module2.exports = type;
+  }
+});
+
+// node_modules/handlebars-utils/node_modules/kind-of/index.js
+var require_kind_of2 = __commonJS({
+  "node_modules/handlebars-utils/node_modules/kind-of/index.js"(exports, module2) {
     var toString = Object.prototype.toString;
     module2.exports = function kindOf(val) {
       if (val === void 0)
@@ -6224,302 +6586,13 @@ var require_kind_of = __commonJS({
   }
 });
 
-// node_modules/is-accessor-descriptor/index.js
-var require_is_accessor_descriptor = __commonJS({
-  "node_modules/is-accessor-descriptor/index.js"(exports, module2) {
-    "use strict";
-    var typeOf = require_kind_of();
-    var accessor = {
-      get: "function",
-      set: "function",
-      configurable: "boolean",
-      enumerable: "boolean"
-    };
-    function isAccessorDescriptor(obj, prop) {
-      if (typeof prop === "string") {
-        var val = Object.getOwnPropertyDescriptor(obj, prop);
-        return typeof val !== "undefined";
-      }
-      if (typeOf(obj) !== "object") {
-        return false;
-      }
-      if (has(obj, "value") || has(obj, "writable")) {
-        return false;
-      }
-      if (!has(obj, "get") || typeof obj.get !== "function") {
-        return false;
-      }
-      if (has(obj, "set") && typeof obj[key] !== "function" && typeof obj[key] !== "undefined") {
-        return false;
-      }
-      for (var key in obj) {
-        if (!accessor.hasOwnProperty(key)) {
-          continue;
-        }
-        if (typeOf(obj[key]) === accessor[key]) {
-          continue;
-        }
-        if (typeof obj[key] !== "undefined") {
-          return false;
-        }
-      }
-      return true;
-    }
-    function has(obj, key) {
-      return {}.hasOwnProperty.call(obj, key);
-    }
-    module2.exports = isAccessorDescriptor;
-  }
-});
-
-// node_modules/is-data-descriptor/index.js
-var require_is_data_descriptor = __commonJS({
-  "node_modules/is-data-descriptor/index.js"(exports, module2) {
-    "use strict";
-    var typeOf = require_kind_of();
-    module2.exports = function isDataDescriptor(obj, prop) {
-      var data = {
-        configurable: "boolean",
-        enumerable: "boolean",
-        writable: "boolean"
-      };
-      if (typeOf(obj) !== "object") {
-        return false;
-      }
-      if (typeof prop === "string") {
-        var val = Object.getOwnPropertyDescriptor(obj, prop);
-        return typeof val !== "undefined";
-      }
-      if (!("value" in obj) && !("writable" in obj)) {
-        return false;
-      }
-      for (var key in obj) {
-        if (key === "value")
-          continue;
-        if (!data.hasOwnProperty(key)) {
-          continue;
-        }
-        if (typeOf(obj[key]) === data[key]) {
-          continue;
-        }
-        if (typeof obj[key] !== "undefined") {
-          return false;
-        }
-      }
-      return true;
-    };
-  }
-});
-
-// node_modules/is-descriptor/index.js
-var require_is_descriptor = __commonJS({
-  "node_modules/is-descriptor/index.js"(exports, module2) {
-    "use strict";
-    var typeOf = require_kind_of();
-    var isAccessor = require_is_accessor_descriptor();
-    var isData = require_is_data_descriptor();
-    module2.exports = function isDescriptor(obj, key) {
-      if (typeOf(obj) !== "object") {
-        return false;
-      }
-      if ("get" in obj) {
-        return isAccessor(obj, key);
-      }
-      return isData(obj, key);
-    };
-  }
-});
-
-// node_modules/@budibase/handlebars-helpers/node_modules/define-property/index.js
-var require_define_property = __commonJS({
-  "node_modules/@budibase/handlebars-helpers/node_modules/define-property/index.js"(exports, module2) {
-    "use strict";
-    var isobject = require_isobject();
-    var isDescriptor = require_is_descriptor();
-    var define2 = typeof Reflect !== "undefined" && Reflect.defineProperty ? Reflect.defineProperty : Object.defineProperty;
-    module2.exports = function defineProperty(obj, key, val) {
-      if (!isobject(obj) && typeof obj !== "function" && !Array.isArray(obj)) {
-        throw new TypeError("expected an object, function, or array");
-      }
-      if (typeof key !== "string") {
-        throw new TypeError('expected "key" to be a string');
-      }
-      if (isDescriptor(val)) {
-        define2(obj, key, val);
-        return obj;
-      }
-      define2(obj, key, {
-        configurable: true,
-        enumerable: false,
-        writable: true,
-        value: val
-      });
-      return obj;
-    };
-  }
-});
-
-// node_modules/is-buffer/index.js
-var require_is_buffer = __commonJS({
-  "node_modules/is-buffer/index.js"(exports, module2) {
-    module2.exports = function(obj) {
-      return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer);
-    };
-    function isBuffer(obj) {
-      return !!obj.constructor && typeof obj.constructor.isBuffer === "function" && obj.constructor.isBuffer(obj);
-    }
-    function isSlowBuffer(obj) {
-      return typeof obj.readFloatLE === "function" && typeof obj.slice === "function" && isBuffer(obj.slice(0, 0));
-    }
-  }
-});
-
-// node_modules/typeof-article/node_modules/kind-of/index.js
-var require_kind_of2 = __commonJS({
-  "node_modules/typeof-article/node_modules/kind-of/index.js"(exports, module2) {
-    var isBuffer = require_is_buffer();
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (typeof val === "undefined") {
-        return "undefined";
-      }
-      if (val === null) {
-        return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
-        return "boolean";
-      }
-      if (typeof val === "string" || val instanceof String) {
-        return "string";
-      }
-      if (typeof val === "number" || val instanceof Number) {
-        return "number";
-      }
-      if (typeof val === "function" || val instanceof Function) {
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      var type = toString.call(val);
-      if (type === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type === "[object Date]") {
-        return "date";
-      }
-      if (type === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type === "[object Error]") {
-        return "error";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type === "[object Set]") {
-        return "set";
-      }
-      if (type === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type === "[object Map]") {
-        return "map";
-      }
-      if (type === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type === "[object Symbol]") {
-        return "symbol";
-      }
-      if (type === "[object Int8Array]") {
-        return "int8array";
-      }
-      if (type === "[object Uint8Array]") {
-        return "uint8array";
-      }
-      if (type === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
-      }
-      if (type === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
-    };
-  }
-});
-
-// node_modules/typeof-article/index.js
-var require_typeof_article = __commonJS({
-  "node_modules/typeof-article/index.js"(exports, module2) {
-    "use strict";
-    var typeOf = require_kind_of2();
-    var types = {
-      "arguments": "an arguments object",
-      "array": "an array",
-      "boolean": "a boolean",
-      "buffer": "a buffer",
-      "date": "a date",
-      "error": "an error",
-      "float32array": "a float32array",
-      "float64array": "a float64array",
-      "function": "a function",
-      "int16array": "an int16array",
-      "int32array": "an int32array",
-      "int8array": "an int8array",
-      "map": "a Map",
-      "null": "null",
-      "number": "a number",
-      "object": "an object",
-      "regexp": "a regular expression",
-      "set": "a Set",
-      "string": "a string",
-      "symbol": "a symbol",
-      "uint16array": "an uint16array",
-      "uint32array": "an uint32array",
-      "uint8array": "an uint8array",
-      "uint8clampedarray": "an uint8clampedarray",
-      "undefined": "undefined",
-      "weakmap": "a WeakMap",
-      "weakset": "a WeakSet"
-    };
-    function type(val) {
-      return types[typeOf(val)];
-    }
-    type.types = types;
-    type.typeOf = typeOf;
-    module2.exports = type;
-  }
-});
-
 // node_modules/handlebars-utils/index.js
 var require_handlebars_utils = __commonJS({
   "node_modules/handlebars-utils/index.js"(exports, module2) {
     "use strict";
     var util = require("util");
     var type = require_typeof_article();
-    var typeOf = require_kind_of();
+    var typeOf = require_kind_of2();
     var utils = exports = module2.exports;
     utils.extend = extend;
     utils.indexOf = indexOf;
@@ -7755,6 +7828,137 @@ var require_to_gfm_code_block = __commonJS({
   }
 });
 
+// node_modules/html-tag/node_modules/kind-of/index.js
+var require_kind_of5 = __commonJS({
+  "node_modules/html-tag/node_modules/kind-of/index.js"(exports, module2) {
+    var toString = Object.prototype.toString;
+    module2.exports = function kindOf(val) {
+      if (val === void 0)
+        return "undefined";
+      if (val === null)
+        return "null";
+      var type = typeof val;
+      if (type === "boolean")
+        return "boolean";
+      if (type === "string")
+        return "string";
+      if (type === "number")
+        return "number";
+      if (type === "symbol")
+        return "symbol";
+      if (type === "function") {
+        return isGeneratorFn(val) ? "generatorfunction" : "function";
+      }
+      if (isArray(val))
+        return "array";
+      if (isBuffer(val))
+        return "buffer";
+      if (isArguments(val))
+        return "arguments";
+      if (isDate(val))
+        return "date";
+      if (isError(val))
+        return "error";
+      if (isRegexp(val))
+        return "regexp";
+      switch (ctorName(val)) {
+        case "Symbol":
+          return "symbol";
+        case "Promise":
+          return "promise";
+        case "WeakMap":
+          return "weakmap";
+        case "WeakSet":
+          return "weakset";
+        case "Map":
+          return "map";
+        case "Set":
+          return "set";
+        case "Int8Array":
+          return "int8array";
+        case "Uint8Array":
+          return "uint8array";
+        case "Uint8ClampedArray":
+          return "uint8clampedarray";
+        case "Int16Array":
+          return "int16array";
+        case "Uint16Array":
+          return "uint16array";
+        case "Int32Array":
+          return "int32array";
+        case "Uint32Array":
+          return "uint32array";
+        case "Float32Array":
+          return "float32array";
+        case "Float64Array":
+          return "float64array";
+      }
+      if (isGeneratorObj(val)) {
+        return "generator";
+      }
+      type = toString.call(val);
+      switch (type) {
+        case "[object Object]":
+          return "object";
+        case "[object Map Iterator]":
+          return "mapiterator";
+        case "[object Set Iterator]":
+          return "setiterator";
+        case "[object String Iterator]":
+          return "stringiterator";
+        case "[object Array Iterator]":
+          return "arrayiterator";
+      }
+      return type.slice(8, -1).toLowerCase().replace(/\s/g, "");
+    };
+    function ctorName(val) {
+      return typeof val.constructor === "function" ? val.constructor.name : null;
+    }
+    function isArray(val) {
+      if (Array.isArray)
+        return Array.isArray(val);
+      return val instanceof Array;
+    }
+    function isError(val) {
+      return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
+    }
+    function isDate(val) {
+      if (val instanceof Date)
+        return true;
+      return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
+    }
+    function isRegexp(val) {
+      if (val instanceof RegExp)
+        return true;
+      return typeof val.flags === "string" && typeof val.ignoreCase === "boolean" && typeof val.multiline === "boolean" && typeof val.global === "boolean";
+    }
+    function isGeneratorFn(name, val) {
+      return ctorName(name) === "GeneratorFunction";
+    }
+    function isGeneratorObj(val) {
+      return typeof val.throw === "function" && typeof val.return === "function" && typeof val.next === "function";
+    }
+    function isArguments(val) {
+      try {
+        if (typeof val.length === "number" && typeof val.callee === "function") {
+          return true;
+        }
+      } catch (err) {
+        if (err.message.indexOf("callee") !== -1) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function isBuffer(val) {
+      if (val.constructor && typeof val.constructor.isBuffer === "function") {
+        return val.constructor.isBuffer(val);
+      }
+      return false;
+    }
+  }
+});
+
 // node_modules/self-closing-tags/index.js
 var require_self_closing_tags = __commonJS({
   "node_modules/self-closing-tags/index.js"(exports, module2) {
@@ -7812,7 +8016,7 @@ var require_is_self_closing = __commonJS({
 var require_html_tag = __commonJS({
   "node_modules/html-tag/index.js"(exports, module2) {
     "use strict";
-    var typeOf = require_kind_of();
+    var typeOf = require_kind_of5();
     var isVoid = require_is_self_closing();
     module2.exports = function(tag, attribs, text) {
       var voided = text === false || attribs === false;
@@ -7886,99 +8090,134 @@ var require_code = __commonJS({
   }
 });
 
-// node_modules/get-object/node_modules/kind-of/index.js
-var require_kind_of5 = __commonJS({
-  "node_modules/get-object/node_modules/kind-of/index.js"(exports, module2) {
-    var isBuffer = require_is_buffer();
+// node_modules/@budibase/handlebars-helpers/node_modules/kind-of/index.js
+var require_kind_of6 = __commonJS({
+  "node_modules/@budibase/handlebars-helpers/node_modules/kind-of/index.js"(exports, module2) {
     var toString = Object.prototype.toString;
     module2.exports = function kindOf(val) {
-      if (typeof val === "undefined") {
+      if (val === void 0)
         return "undefined";
-      }
-      if (val === null) {
+      if (val === null)
         return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
+      var type = typeof val;
+      if (type === "boolean")
         return "boolean";
-      }
-      if (typeof val === "string" || val instanceof String) {
+      if (type === "string")
         return "string";
-      }
-      if (typeof val === "number" || val instanceof Number) {
+      if (type === "number")
         return "number";
-      }
-      if (typeof val === "function" || val instanceof Function) {
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      var type = toString.call(val);
-      if (type === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type === "[object Date]") {
-        return "date";
-      }
-      if (type === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type === "[object Error]") {
-        return "error";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type === "[object Set]") {
-        return "set";
-      }
-      if (type === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type === "[object Map]") {
-        return "map";
-      }
-      if (type === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type === "[object Symbol]") {
+      if (type === "symbol")
         return "symbol";
+      if (type === "function") {
+        return isGeneratorFn(val) ? "generatorfunction" : "function";
       }
-      if (type === "[object Int8Array]") {
-        return "int8array";
+      if (isArray(val))
+        return "array";
+      if (isBuffer(val))
+        return "buffer";
+      if (isArguments(val))
+        return "arguments";
+      if (isDate(val))
+        return "date";
+      if (isError(val))
+        return "error";
+      if (isRegexp(val))
+        return "regexp";
+      switch (ctorName(val)) {
+        case "Symbol":
+          return "symbol";
+        case "Promise":
+          return "promise";
+        case "WeakMap":
+          return "weakmap";
+        case "WeakSet":
+          return "weakset";
+        case "Map":
+          return "map";
+        case "Set":
+          return "set";
+        case "Int8Array":
+          return "int8array";
+        case "Uint8Array":
+          return "uint8array";
+        case "Uint8ClampedArray":
+          return "uint8clampedarray";
+        case "Int16Array":
+          return "int16array";
+        case "Uint16Array":
+          return "uint16array";
+        case "Int32Array":
+          return "int32array";
+        case "Uint32Array":
+          return "uint32array";
+        case "Float32Array":
+          return "float32array";
+        case "Float64Array":
+          return "float64array";
       }
-      if (type === "[object Uint8Array]") {
-        return "uint8array";
+      if (isGeneratorObj(val)) {
+        return "generator";
       }
-      if (type === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
+      type = toString.call(val);
+      switch (type) {
+        case "[object Object]":
+          return "object";
+        case "[object Map Iterator]":
+          return "mapiterator";
+        case "[object Set Iterator]":
+          return "setiterator";
+        case "[object String Iterator]":
+          return "stringiterator";
+        case "[object Array Iterator]":
+          return "arrayiterator";
       }
-      if (type === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
+      return type.slice(8, -1).toLowerCase().replace(/\s/g, "");
     };
+    function ctorName(val) {
+      return typeof val.constructor === "function" ? val.constructor.name : null;
+    }
+    function isArray(val) {
+      if (Array.isArray)
+        return Array.isArray(val);
+      return val instanceof Array;
+    }
+    function isError(val) {
+      return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
+    }
+    function isDate(val) {
+      if (val instanceof Date)
+        return true;
+      return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
+    }
+    function isRegexp(val) {
+      if (val instanceof RegExp)
+        return true;
+      return typeof val.flags === "string" && typeof val.ignoreCase === "boolean" && typeof val.multiline === "boolean" && typeof val.global === "boolean";
+    }
+    function isGeneratorFn(name, val) {
+      return ctorName(name) === "GeneratorFunction";
+    }
+    function isGeneratorObj(val) {
+      return typeof val.throw === "function" && typeof val.return === "function" && typeof val.next === "function";
+    }
+    function isArguments(val) {
+      try {
+        if (typeof val.length === "number" && typeof val.callee === "function") {
+          return true;
+        }
+      } catch (err) {
+        if (err.message.indexOf("callee") !== -1) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function isBuffer(val) {
+      if (val.constructor && typeof val.constructor.isBuffer === "function") {
+        return val.constructor.isBuffer(val);
+      }
+      return false;
+    }
   }
 });
 
@@ -7986,7 +8225,7 @@ var require_kind_of5 = __commonJS({
 var require_is_number = __commonJS({
   "node_modules/get-object/node_modules/is-number/index.js"(exports, module2) {
     "use strict";
-    var typeOf = require_kind_of5();
+    var typeOf = require_kind_of();
     module2.exports = function isNumber(num) {
       var type = typeOf(num);
       if (type !== "number" && type !== "string") {
@@ -8032,7 +8271,7 @@ var require_object = __commonJS({
     var array = require_array();
     var helpers = module2.exports;
     var getValue = require_get_value2();
-    var kindOf = require_kind_of();
+    var kindOf = require_kind_of6();
     var getObject = require_get_object();
     var createFrame = require_createFrame();
     helpers.extend = function() {
@@ -8266,11 +8505,142 @@ var require_get_value3 = __commonJS({
   }
 });
 
+// node_modules/has-values/node_modules/kind-of/index.js
+var require_kind_of7 = __commonJS({
+  "node_modules/has-values/node_modules/kind-of/index.js"(exports, module2) {
+    var toString = Object.prototype.toString;
+    module2.exports = function kindOf(val) {
+      if (val === void 0)
+        return "undefined";
+      if (val === null)
+        return "null";
+      var type = typeof val;
+      if (type === "boolean")
+        return "boolean";
+      if (type === "string")
+        return "string";
+      if (type === "number")
+        return "number";
+      if (type === "symbol")
+        return "symbol";
+      if (type === "function") {
+        return isGeneratorFn(val) ? "generatorfunction" : "function";
+      }
+      if (isArray(val))
+        return "array";
+      if (isBuffer(val))
+        return "buffer";
+      if (isArguments(val))
+        return "arguments";
+      if (isDate(val))
+        return "date";
+      if (isError(val))
+        return "error";
+      if (isRegexp(val))
+        return "regexp";
+      switch (ctorName(val)) {
+        case "Symbol":
+          return "symbol";
+        case "Promise":
+          return "promise";
+        case "WeakMap":
+          return "weakmap";
+        case "WeakSet":
+          return "weakset";
+        case "Map":
+          return "map";
+        case "Set":
+          return "set";
+        case "Int8Array":
+          return "int8array";
+        case "Uint8Array":
+          return "uint8array";
+        case "Uint8ClampedArray":
+          return "uint8clampedarray";
+        case "Int16Array":
+          return "int16array";
+        case "Uint16Array":
+          return "uint16array";
+        case "Int32Array":
+          return "int32array";
+        case "Uint32Array":
+          return "uint32array";
+        case "Float32Array":
+          return "float32array";
+        case "Float64Array":
+          return "float64array";
+      }
+      if (isGeneratorObj(val)) {
+        return "generator";
+      }
+      type = toString.call(val);
+      switch (type) {
+        case "[object Object]":
+          return "object";
+        case "[object Map Iterator]":
+          return "mapiterator";
+        case "[object Set Iterator]":
+          return "setiterator";
+        case "[object String Iterator]":
+          return "stringiterator";
+        case "[object Array Iterator]":
+          return "arrayiterator";
+      }
+      return type.slice(8, -1).toLowerCase().replace(/\s/g, "");
+    };
+    function ctorName(val) {
+      return typeof val.constructor === "function" ? val.constructor.name : null;
+    }
+    function isArray(val) {
+      if (Array.isArray)
+        return Array.isArray(val);
+      return val instanceof Array;
+    }
+    function isError(val) {
+      return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
+    }
+    function isDate(val) {
+      if (val instanceof Date)
+        return true;
+      return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
+    }
+    function isRegexp(val) {
+      if (val instanceof RegExp)
+        return true;
+      return typeof val.flags === "string" && typeof val.ignoreCase === "boolean" && typeof val.multiline === "boolean" && typeof val.global === "boolean";
+    }
+    function isGeneratorFn(name, val) {
+      return ctorName(name) === "GeneratorFunction";
+    }
+    function isGeneratorObj(val) {
+      return typeof val.throw === "function" && typeof val.return === "function" && typeof val.next === "function";
+    }
+    function isArguments(val) {
+      try {
+        if (typeof val.length === "number" && typeof val.callee === "function") {
+          return true;
+        }
+      } catch (err) {
+        if (err.message.indexOf("callee") !== -1) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function isBuffer(val) {
+      if (val.constructor && typeof val.constructor.isBuffer === "function") {
+        return val.constructor.isBuffer(val);
+      }
+      return false;
+    }
+  }
+});
+
 // node_modules/has-values/index.js
 var require_has_values = __commonJS({
   "node_modules/has-values/index.js"(exports, module2) {
     "use strict";
-    var typeOf = require_kind_of();
+    var typeOf = require_kind_of7();
     module2.exports = function has(val) {
       switch (typeOf(val)) {
         case "boolean":
@@ -8874,7 +9244,7 @@ var require_html2 = __commonJS({
     var html = require_html();
     var parseAttr = html.parseAttributes;
     var helpers = module2.exports;
-    var kindOf = require_kind_of();
+    var kindOf = require_kind_of6();
     var htmlTag = require_html_tag();
     helpers.attr = function(options) {
       var val = parseAttr(options && options.hash || {});
@@ -10049,107 +10419,11 @@ var require_arr_flatten = __commonJS({
   }
 });
 
-// node_modules/is-number/node_modules/kind-of/index.js
-var require_kind_of6 = __commonJS({
-  "node_modules/is-number/node_modules/kind-of/index.js"(exports, module2) {
-    var isBuffer = require_is_buffer();
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (typeof val === "undefined") {
-        return "undefined";
-      }
-      if (val === null) {
-        return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
-        return "boolean";
-      }
-      if (typeof val === "string" || val instanceof String) {
-        return "string";
-      }
-      if (typeof val === "number" || val instanceof Number) {
-        return "number";
-      }
-      if (typeof val === "function" || val instanceof Function) {
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      var type = toString.call(val);
-      if (type === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type === "[object Date]") {
-        return "date";
-      }
-      if (type === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type === "[object Error]") {
-        return "error";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type === "[object Set]") {
-        return "set";
-      }
-      if (type === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type === "[object Map]") {
-        return "map";
-      }
-      if (type === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type === "[object Symbol]") {
-        return "symbol";
-      }
-      if (type === "[object Int8Array]") {
-        return "int8array";
-      }
-      if (type === "[object Uint8Array]") {
-        return "uint8array";
-      }
-      if (type === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
-      }
-      if (type === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
-    };
-  }
-});
-
 // node_modules/is-number/index.js
 var require_is_number2 = __commonJS({
   "node_modules/is-number/index.js"(exports, module2) {
     "use strict";
-    var typeOf = require_kind_of6();
+    var typeOf = require_kind_of();
     module2.exports = function isNumber(num) {
       var type = typeOf(num);
       if (type === "string") {
@@ -11031,107 +11305,11 @@ var require_define_property3 = __commonJS({
   }
 });
 
-// node_modules/snapdragon-util/node_modules/kind-of/index.js
-var require_kind_of7 = __commonJS({
-  "node_modules/snapdragon-util/node_modules/kind-of/index.js"(exports, module2) {
-    var isBuffer = require_is_buffer();
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (typeof val === "undefined") {
-        return "undefined";
-      }
-      if (val === null) {
-        return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
-        return "boolean";
-      }
-      if (typeof val === "string" || val instanceof String) {
-        return "string";
-      }
-      if (typeof val === "number" || val instanceof Number) {
-        return "number";
-      }
-      if (typeof val === "function" || val instanceof Function) {
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      var type = toString.call(val);
-      if (type === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type === "[object Date]") {
-        return "date";
-      }
-      if (type === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type === "[object Error]") {
-        return "error";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type === "[object Set]") {
-        return "set";
-      }
-      if (type === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type === "[object Map]") {
-        return "map";
-      }
-      if (type === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type === "[object Symbol]") {
-        return "symbol";
-      }
-      if (type === "[object Int8Array]") {
-        return "int8array";
-      }
-      if (type === "[object Uint8Array]") {
-        return "uint8array";
-      }
-      if (type === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
-      }
-      if (type === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
-    };
-  }
-});
-
 // node_modules/snapdragon-util/index.js
 var require_snapdragon_util = __commonJS({
   "node_modules/snapdragon-util/index.js"(exports, module2) {
     "use strict";
-    var typeOf = require_kind_of7();
+    var typeOf = require_kind_of();
     var utils = module2.exports;
     utils.isNode = function(node) {
       return typeOf(node) === "object" && node.isNode === true;
@@ -12051,107 +12229,11 @@ var require_collection_visit = __commonJS({
   }
 });
 
-// node_modules/to-object-path/node_modules/kind-of/index.js
-var require_kind_of8 = __commonJS({
-  "node_modules/to-object-path/node_modules/kind-of/index.js"(exports, module2) {
-    var isBuffer = require_is_buffer();
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (typeof val === "undefined") {
-        return "undefined";
-      }
-      if (val === null) {
-        return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
-        return "boolean";
-      }
-      if (typeof val === "string" || val instanceof String) {
-        return "string";
-      }
-      if (typeof val === "number" || val instanceof Number) {
-        return "number";
-      }
-      if (typeof val === "function" || val instanceof Function) {
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      var type = toString.call(val);
-      if (type === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type === "[object Date]") {
-        return "date";
-      }
-      if (type === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type === "[object Error]") {
-        return "error";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type === "[object Set]") {
-        return "set";
-      }
-      if (type === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type === "[object Map]") {
-        return "map";
-      }
-      if (type === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type === "[object Symbol]") {
-        return "symbol";
-      }
-      if (type === "[object Int8Array]") {
-        return "int8array";
-      }
-      if (type === "[object Uint8Array]") {
-        return "uint8array";
-      }
-      if (type === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
-      }
-      if (type === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
-    };
-  }
-});
-
 // node_modules/to-object-path/index.js
 var require_to_object_path = __commonJS({
   "node_modules/to-object-path/index.js"(exports, module2) {
     "use strict";
-    var typeOf = require_kind_of8();
+    var typeOf = require_kind_of();
     module2.exports = function toPath(args) {
       if (typeOf(args) !== "arguments") {
         args = arguments;
@@ -12378,7 +12460,7 @@ var require_unset_value = __commonJS({
 });
 
 // node_modules/cache-base/node_modules/kind-of/index.js
-var require_kind_of9 = __commonJS({
+var require_kind_of8 = __commonJS({
   "node_modules/cache-base/node_modules/kind-of/index.js"(exports, module2) {
     var isBuffer = require_is_buffer();
     var toString = Object.prototype.toString;
@@ -12480,7 +12562,7 @@ var require_kind_of9 = __commonJS({
 var require_has_values3 = __commonJS({
   "node_modules/cache-base/node_modules/has-values/index.js"(exports, module2) {
     "use strict";
-    var typeOf = require_kind_of9();
+    var typeOf = require_kind_of8();
     var isNumber = require_is_number2();
     module2.exports = function hasValue(val) {
       if (isNumber(val)) {
@@ -12700,415 +12782,17 @@ var require_pascalcase = __commonJS({
   }
 });
 
-// node_modules/define-property/node_modules/kind-of/index.js
-var require_kind_of10 = __commonJS({
-  "node_modules/define-property/node_modules/kind-of/index.js"(exports, module2) {
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      var type = typeof val;
-      if (type === "undefined") {
-        return "undefined";
-      }
-      if (val === null) {
-        return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
-        return "boolean";
-      }
-      if (type === "string" || val instanceof String) {
-        return "string";
-      }
-      if (type === "number" || val instanceof Number) {
-        return "number";
-      }
-      if (type === "function" || val instanceof Function) {
-        if (typeof val.constructor.name !== "undefined" && val.constructor.name.slice(0, 9) === "Generator") {
-          return "generatorfunction";
-        }
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      type = toString.call(val);
-      if (type === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type === "[object Date]") {
-        return "date";
-      }
-      if (type === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type === "[object Error]") {
-        return "error";
-      }
-      if (type === "[object Promise]") {
-        return "promise";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type === "[object Set]") {
-        return "set";
-      }
-      if (type === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type === "[object Map]") {
-        return "map";
-      }
-      if (type === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type === "[object Symbol]") {
-        return "symbol";
-      }
-      if (type === "[object Map Iterator]") {
-        return "mapiterator";
-      }
-      if (type === "[object Set Iterator]") {
-        return "setiterator";
-      }
-      if (type === "[object String Iterator]") {
-        return "stringiterator";
-      }
-      if (type === "[object Array Iterator]") {
-        return "arrayiterator";
-      }
-      if (type === "[object Int8Array]") {
-        return "int8array";
-      }
-      if (type === "[object Uint8Array]") {
-        return "uint8array";
-      }
-      if (type === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
-      }
-      if (type === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
-    };
-    function isBuffer(val) {
-      return val.constructor && typeof val.constructor.isBuffer === "function" && val.constructor.isBuffer(val);
-    }
-  }
-});
-
-// node_modules/define-property/node_modules/is-accessor-descriptor/node_modules/kind-of/index.js
-var require_kind_of11 = __commonJS({
-  "node_modules/define-property/node_modules/is-accessor-descriptor/node_modules/kind-of/index.js"(exports, module2) {
-    var isBuffer = require_is_buffer();
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (typeof val === "undefined") {
-        return "undefined";
-      }
-      if (val === null) {
-        return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
-        return "boolean";
-      }
-      if (typeof val === "string" || val instanceof String) {
-        return "string";
-      }
-      if (typeof val === "number" || val instanceof Number) {
-        return "number";
-      }
-      if (typeof val === "function" || val instanceof Function) {
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      var type = toString.call(val);
-      if (type === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type === "[object Date]") {
-        return "date";
-      }
-      if (type === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type === "[object Error]") {
-        return "error";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type === "[object Set]") {
-        return "set";
-      }
-      if (type === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type === "[object Map]") {
-        return "map";
-      }
-      if (type === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type === "[object Symbol]") {
-        return "symbol";
-      }
-      if (type === "[object Int8Array]") {
-        return "int8array";
-      }
-      if (type === "[object Uint8Array]") {
-        return "uint8array";
-      }
-      if (type === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
-      }
-      if (type === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
-    };
-  }
-});
-
-// node_modules/define-property/node_modules/is-accessor-descriptor/index.js
-var require_is_accessor_descriptor2 = __commonJS({
-  "node_modules/define-property/node_modules/is-accessor-descriptor/index.js"(exports, module2) {
-    "use strict";
-    var typeOf = require_kind_of11();
-    var accessor = {
-      get: "function",
-      set: "function",
-      configurable: "boolean",
-      enumerable: "boolean"
-    };
-    function isAccessorDescriptor(obj, prop) {
-      if (typeof prop === "string") {
-        var val = Object.getOwnPropertyDescriptor(obj, prop);
-        return typeof val !== "undefined";
-      }
-      if (typeOf(obj) !== "object") {
-        return false;
-      }
-      if (has(obj, "value") || has(obj, "writable")) {
-        return false;
-      }
-      if (!has(obj, "get") || typeof obj.get !== "function") {
-        return false;
-      }
-      if (has(obj, "set") && typeof obj[key] !== "function" && typeof obj[key] !== "undefined") {
-        return false;
-      }
-      for (var key in obj) {
-        if (!accessor.hasOwnProperty(key)) {
-          continue;
-        }
-        if (typeOf(obj[key]) === accessor[key]) {
-          continue;
-        }
-        if (typeof obj[key] !== "undefined") {
-          return false;
-        }
-      }
-      return true;
-    }
-    function has(obj, key) {
-      return {}.hasOwnProperty.call(obj, key);
-    }
-    module2.exports = isAccessorDescriptor;
-  }
-});
-
-// node_modules/define-property/node_modules/is-data-descriptor/node_modules/kind-of/index.js
-var require_kind_of12 = __commonJS({
-  "node_modules/define-property/node_modules/is-data-descriptor/node_modules/kind-of/index.js"(exports, module2) {
-    var isBuffer = require_is_buffer();
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (typeof val === "undefined") {
-        return "undefined";
-      }
-      if (val === null) {
-        return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
-        return "boolean";
-      }
-      if (typeof val === "string" || val instanceof String) {
-        return "string";
-      }
-      if (typeof val === "number" || val instanceof Number) {
-        return "number";
-      }
-      if (typeof val === "function" || val instanceof Function) {
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      var type = toString.call(val);
-      if (type === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type === "[object Date]") {
-        return "date";
-      }
-      if (type === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type === "[object Error]") {
-        return "error";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type === "[object Set]") {
-        return "set";
-      }
-      if (type === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type === "[object Map]") {
-        return "map";
-      }
-      if (type === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type === "[object Symbol]") {
-        return "symbol";
-      }
-      if (type === "[object Int8Array]") {
-        return "int8array";
-      }
-      if (type === "[object Uint8Array]") {
-        return "uint8array";
-      }
-      if (type === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
-      }
-      if (type === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
-    };
-  }
-});
-
-// node_modules/define-property/node_modules/is-data-descriptor/index.js
-var require_is_data_descriptor2 = __commonJS({
-  "node_modules/define-property/node_modules/is-data-descriptor/index.js"(exports, module2) {
-    "use strict";
-    var typeOf = require_kind_of12();
-    var data = {
-      configurable: "boolean",
-      enumerable: "boolean",
-      writable: "boolean"
-    };
-    function isDataDescriptor(obj, prop) {
-      if (typeOf(obj) !== "object") {
-        return false;
-      }
-      if (typeof prop === "string") {
-        var val = Object.getOwnPropertyDescriptor(obj, prop);
-        return typeof val !== "undefined";
-      }
-      if (!("value" in obj) && !("writable" in obj)) {
-        return false;
-      }
-      for (var key in obj) {
-        if (key === "value")
-          continue;
-        if (!data.hasOwnProperty(key)) {
-          continue;
-        }
-        if (typeOf(obj[key]) === data[key]) {
-          continue;
-        }
-        if (typeof obj[key] !== "undefined") {
-          return false;
-        }
-      }
-      return true;
-    }
-    module2.exports = isDataDescriptor;
-  }
-});
-
 // node_modules/define-property/node_modules/is-descriptor/index.js
 var require_is_descriptor2 = __commonJS({
   "node_modules/define-property/node_modules/is-descriptor/index.js"(exports, module2) {
     "use strict";
-    var typeOf = require_kind_of10();
-    var isAccessor = require_is_accessor_descriptor2();
-    var isData = require_is_data_descriptor2();
+    var isAccessor = require_is_accessor_descriptor();
+    var isData = require_is_data_descriptor();
     module2.exports = function isDescriptor(obj, key) {
-      if (typeOf(obj) !== "object") {
+      if (!obj || typeof obj !== "object" && typeof obj !== "function") {
         return false;
       }
-      if ("get" in obj) {
+      if ("get" in obj || "set" in obj) {
         return isAccessor(obj, key);
       }
       return isData(obj, key);
@@ -13137,102 +12821,6 @@ var require_define_property5 = __commonJS({
         writable: true,
         value: val
       });
-    };
-  }
-});
-
-// node_modules/object-copy/node_modules/kind-of/index.js
-var require_kind_of13 = __commonJS({
-  "node_modules/object-copy/node_modules/kind-of/index.js"(exports, module2) {
-    var isBuffer = require_is_buffer();
-    var toString = Object.prototype.toString;
-    module2.exports = function kindOf(val) {
-      if (typeof val === "undefined") {
-        return "undefined";
-      }
-      if (val === null) {
-        return "null";
-      }
-      if (val === true || val === false || val instanceof Boolean) {
-        return "boolean";
-      }
-      if (typeof val === "string" || val instanceof String) {
-        return "string";
-      }
-      if (typeof val === "number" || val instanceof Number) {
-        return "number";
-      }
-      if (typeof val === "function" || val instanceof Function) {
-        return "function";
-      }
-      if (typeof Array.isArray !== "undefined" && Array.isArray(val)) {
-        return "array";
-      }
-      if (val instanceof RegExp) {
-        return "regexp";
-      }
-      if (val instanceof Date) {
-        return "date";
-      }
-      var type = toString.call(val);
-      if (type === "[object RegExp]") {
-        return "regexp";
-      }
-      if (type === "[object Date]") {
-        return "date";
-      }
-      if (type === "[object Arguments]") {
-        return "arguments";
-      }
-      if (type === "[object Error]") {
-        return "error";
-      }
-      if (isBuffer(val)) {
-        return "buffer";
-      }
-      if (type === "[object Set]") {
-        return "set";
-      }
-      if (type === "[object WeakSet]") {
-        return "weakset";
-      }
-      if (type === "[object Map]") {
-        return "map";
-      }
-      if (type === "[object WeakMap]") {
-        return "weakmap";
-      }
-      if (type === "[object Symbol]") {
-        return "symbol";
-      }
-      if (type === "[object Int8Array]") {
-        return "int8array";
-      }
-      if (type === "[object Uint8Array]") {
-        return "uint8array";
-      }
-      if (type === "[object Uint8ClampedArray]") {
-        return "uint8clampedarray";
-      }
-      if (type === "[object Int16Array]") {
-        return "int16array";
-      }
-      if (type === "[object Uint16Array]") {
-        return "uint16array";
-      }
-      if (type === "[object Int32Array]") {
-        return "int32array";
-      }
-      if (type === "[object Uint32Array]") {
-        return "uint32array";
-      }
-      if (type === "[object Float32Array]") {
-        return "float32array";
-      }
-      if (type === "[object Float64Array]") {
-        return "float64array";
-      }
-      return "object";
     };
   }
 });
@@ -13276,7 +12864,7 @@ var require_copy_descriptor = __commonJS({
 var require_object_copy = __commonJS({
   "node_modules/object-copy/index.js"(exports, module2) {
     "use strict";
-    var typeOf = require_kind_of13();
+    var typeOf = require_kind_of();
     var copyDescriptor = require_copy_descriptor();
     var define2 = require_define_property5();
     function copy(receiver, provider, omit) {
@@ -17618,6 +17206,137 @@ var require_object2 = __commonJS({
   }
 });
 
+// node_modules/nanomatch/node_modules/kind-of/index.js
+var require_kind_of9 = __commonJS({
+  "node_modules/nanomatch/node_modules/kind-of/index.js"(exports, module2) {
+    var toString = Object.prototype.toString;
+    module2.exports = function kindOf(val) {
+      if (val === void 0)
+        return "undefined";
+      if (val === null)
+        return "null";
+      var type = typeof val;
+      if (type === "boolean")
+        return "boolean";
+      if (type === "string")
+        return "string";
+      if (type === "number")
+        return "number";
+      if (type === "symbol")
+        return "symbol";
+      if (type === "function") {
+        return isGeneratorFn(val) ? "generatorfunction" : "function";
+      }
+      if (isArray(val))
+        return "array";
+      if (isBuffer(val))
+        return "buffer";
+      if (isArguments(val))
+        return "arguments";
+      if (isDate(val))
+        return "date";
+      if (isError(val))
+        return "error";
+      if (isRegexp(val))
+        return "regexp";
+      switch (ctorName(val)) {
+        case "Symbol":
+          return "symbol";
+        case "Promise":
+          return "promise";
+        case "WeakMap":
+          return "weakmap";
+        case "WeakSet":
+          return "weakset";
+        case "Map":
+          return "map";
+        case "Set":
+          return "set";
+        case "Int8Array":
+          return "int8array";
+        case "Uint8Array":
+          return "uint8array";
+        case "Uint8ClampedArray":
+          return "uint8clampedarray";
+        case "Int16Array":
+          return "int16array";
+        case "Uint16Array":
+          return "uint16array";
+        case "Int32Array":
+          return "int32array";
+        case "Uint32Array":
+          return "uint32array";
+        case "Float32Array":
+          return "float32array";
+        case "Float64Array":
+          return "float64array";
+      }
+      if (isGeneratorObj(val)) {
+        return "generator";
+      }
+      type = toString.call(val);
+      switch (type) {
+        case "[object Object]":
+          return "object";
+        case "[object Map Iterator]":
+          return "mapiterator";
+        case "[object Set Iterator]":
+          return "setiterator";
+        case "[object String Iterator]":
+          return "stringiterator";
+        case "[object Array Iterator]":
+          return "arrayiterator";
+      }
+      return type.slice(8, -1).toLowerCase().replace(/\s/g, "");
+    };
+    function ctorName(val) {
+      return typeof val.constructor === "function" ? val.constructor.name : null;
+    }
+    function isArray(val) {
+      if (Array.isArray)
+        return Array.isArray(val);
+      return val instanceof Array;
+    }
+    function isError(val) {
+      return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
+    }
+    function isDate(val) {
+      if (val instanceof Date)
+        return true;
+      return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
+    }
+    function isRegexp(val) {
+      if (val instanceof RegExp)
+        return true;
+      return typeof val.flags === "string" && typeof val.ignoreCase === "boolean" && typeof val.multiline === "boolean" && typeof val.global === "boolean";
+    }
+    function isGeneratorFn(name, val) {
+      return ctorName(name) === "GeneratorFunction";
+    }
+    function isGeneratorObj(val) {
+      return typeof val.throw === "function" && typeof val.return === "function" && typeof val.next === "function";
+    }
+    function isArguments(val) {
+      try {
+        if (typeof val.length === "number" && typeof val.callee === "function") {
+          return true;
+        }
+      } catch (err) {
+        if (err.message.indexOf("callee") !== -1) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function isBuffer(val) {
+      if (val.constructor && typeof val.constructor.isBuffer === "function") {
+        return val.constructor.isBuffer(val);
+      }
+      return false;
+    }
+  }
+});
+
 // node_modules/nanomatch/lib/utils.js
 var require_utils5 = __commonJS({
   "node_modules/nanomatch/lib/utils.js"(exports, module2) {
@@ -17630,7 +17349,7 @@ var require_utils5 = __commonJS({
     utils.diff = require_arr_diff();
     utils.extend = require_extend_shallow7();
     utils.pick = require_object2();
-    utils.typeOf = require_kind_of();
+    utils.typeOf = require_kind_of9();
     utils.unique = require_array_unique();
     utils.isEmptyString = function(val) {
       return String(val) === "" || String(val) === "./";
@@ -19356,6 +19075,137 @@ var require_define_property8 = __commonJS({
   }
 });
 
+// node_modules/micromatch/node_modules/kind-of/index.js
+var require_kind_of10 = __commonJS({
+  "node_modules/micromatch/node_modules/kind-of/index.js"(exports, module2) {
+    var toString = Object.prototype.toString;
+    module2.exports = function kindOf(val) {
+      if (val === void 0)
+        return "undefined";
+      if (val === null)
+        return "null";
+      var type = typeof val;
+      if (type === "boolean")
+        return "boolean";
+      if (type === "string")
+        return "string";
+      if (type === "number")
+        return "number";
+      if (type === "symbol")
+        return "symbol";
+      if (type === "function") {
+        return isGeneratorFn(val) ? "generatorfunction" : "function";
+      }
+      if (isArray(val))
+        return "array";
+      if (isBuffer(val))
+        return "buffer";
+      if (isArguments(val))
+        return "arguments";
+      if (isDate(val))
+        return "date";
+      if (isError(val))
+        return "error";
+      if (isRegexp(val))
+        return "regexp";
+      switch (ctorName(val)) {
+        case "Symbol":
+          return "symbol";
+        case "Promise":
+          return "promise";
+        case "WeakMap":
+          return "weakmap";
+        case "WeakSet":
+          return "weakset";
+        case "Map":
+          return "map";
+        case "Set":
+          return "set";
+        case "Int8Array":
+          return "int8array";
+        case "Uint8Array":
+          return "uint8array";
+        case "Uint8ClampedArray":
+          return "uint8clampedarray";
+        case "Int16Array":
+          return "int16array";
+        case "Uint16Array":
+          return "uint16array";
+        case "Int32Array":
+          return "int32array";
+        case "Uint32Array":
+          return "uint32array";
+        case "Float32Array":
+          return "float32array";
+        case "Float64Array":
+          return "float64array";
+      }
+      if (isGeneratorObj(val)) {
+        return "generator";
+      }
+      type = toString.call(val);
+      switch (type) {
+        case "[object Object]":
+          return "object";
+        case "[object Map Iterator]":
+          return "mapiterator";
+        case "[object Set Iterator]":
+          return "setiterator";
+        case "[object String Iterator]":
+          return "stringiterator";
+        case "[object Array Iterator]":
+          return "arrayiterator";
+      }
+      return type.slice(8, -1).toLowerCase().replace(/\s/g, "");
+    };
+    function ctorName(val) {
+      return typeof val.constructor === "function" ? val.constructor.name : null;
+    }
+    function isArray(val) {
+      if (Array.isArray)
+        return Array.isArray(val);
+      return val instanceof Array;
+    }
+    function isError(val) {
+      return val instanceof Error || typeof val.message === "string" && val.constructor && typeof val.constructor.stackTraceLimit === "number";
+    }
+    function isDate(val) {
+      if (val instanceof Date)
+        return true;
+      return typeof val.toDateString === "function" && typeof val.getDate === "function" && typeof val.setDate === "function";
+    }
+    function isRegexp(val) {
+      if (val instanceof RegExp)
+        return true;
+      return typeof val.flags === "string" && typeof val.ignoreCase === "boolean" && typeof val.multiline === "boolean" && typeof val.global === "boolean";
+    }
+    function isGeneratorFn(name, val) {
+      return ctorName(name) === "GeneratorFunction";
+    }
+    function isGeneratorObj(val) {
+      return typeof val.throw === "function" && typeof val.return === "function" && typeof val.next === "function";
+    }
+    function isArguments(val) {
+      try {
+        if (typeof val.length === "number" && typeof val.callee === "function") {
+          return true;
+        }
+      } catch (err) {
+        if (err.message.indexOf("callee") !== -1) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function isBuffer(val) {
+      if (val.constructor && typeof val.constructor.isBuffer === "function") {
+        return val.constructor.isBuffer(val);
+      }
+      return false;
+    }
+  }
+});
+
 // node_modules/micromatch/lib/utils.js
 var require_utils8 = __commonJS({
   "node_modules/micromatch/lib/utils.js"(exports, module2) {
@@ -19367,7 +19217,7 @@ var require_utils8 = __commonJS({
     utils.diff = require_arr_diff();
     utils.extend = require_extend_shallow6();
     utils.pick = require_object2();
-    utils.typeOf = require_kind_of();
+    utils.typeOf = require_kind_of10();
     utils.unique = require_array_unique();
     utils.isWindows = function() {
       return path.sep === "\\" || process.platform === "win32";
@@ -20056,7 +19906,7 @@ var require_misc = __commonJS({
     helpers.noop = function(options) {
       return options.fn(this);
     };
-    helpers.typeOf = require_kind_of();
+    helpers.typeOf = require_kind_of6();
     helpers.withHash = function(options) {
       if (options.hash && Object.keys(options.hash).length) {
         return options.fn(options.hash);
@@ -20347,7 +20197,7 @@ var require_regex = __commonJS({
     "use strict";
     var util = require_handlebars_utils();
     var helpers = module2.exports;
-    var kindOf = require_kind_of();
+    var kindOf = require_kind_of6();
     helpers.toRegex = function(str, locals, options) {
       var opts = util.options({}, locals, options);
       return new RegExp(str, opts.flags);
@@ -20939,12 +20789,15 @@ var JsonImport = class extends import_obsidian.Plugin {
       this.knownpaths.add(path);
     });
   }
-  generateNotes(objdata, sourcefilename, templatefile, helperfile, settings) {
+  generateNotes(objdata, sourcefile, templatefile, helperfile, settings) {
     return __async(this, null, function* () {
-      console.log(`generateNotes('${templatefile}', '${helperfile}', ${settings} )`);
+      console.log(`generateNotes`, { templatefile, helperfile, settings });
+      let sourcefilename = sourcefile.name;
       this.knownpaths = new Set();
       this.namepath = settings.jsonNamePath;
-      const compileoptions = { noEscape: true };
+      const compileoptions = {
+        noEscape: true
+      };
       let templatetext = yield templatefile.text();
       let template = handlebars.compile(templatetext, compileoptions);
       handlebars.registerHelper("table", this.hb_table);
@@ -20972,8 +20825,25 @@ var JsonImport = class extends import_obsidian.Plugin {
       this.settings = settings;
       this.saveSettings();
       let entries = Array.isArray(topobj) ? topobj.entries() : Object.entries(topobj);
+      let hboptions = {
+        allowProtoPropertiesByDefault: true
+      };
+      hboptions.data = {
+        importSourceIndex: 0,
+        importSourceFile: sourcefile,
+        importDataRoot: objdata,
+        importHelperFile: helperfile,
+        importSettings: settings
+      };
+      console.debug(`hboptions`, hboptions);
       for (const [index, row] of entries) {
+        if (!(row instanceof Object)) {
+          console.info(`Ignoring element ${index} which is not an object: ${JSON.stringify(row)}`);
+          continue;
+        }
+        hboptions.data.sourceIndex = index;
         row.SourceIndex = index;
+        row.dataRoot = objdata;
         if (sourcefilename)
           row.SourceFilename = sourcefilename;
         let notefile = objfield(row, settings.jsonName);
@@ -20984,11 +20854,11 @@ var JsonImport = class extends import_obsidian.Plugin {
         notefile = settings.notePrefix + notefile + settings.noteSuffix;
         let body;
         try {
-          body = template(row);
+          body = template(row, hboptions);
         } catch (err) {
           console.error(`${err.message}
 FOR ROW:
-${row}`);
+`, row);
           continue;
         }
         if (body.contains("[object Object]")) {
@@ -21185,7 +21055,7 @@ var FileSelectionModal = class extends import_obsidian.Modal {
           let is_json = datafiles[i].name.endsWith(".json");
           let objdataarray = is_json ? parsejson(srctext) : [convertCsv(srctext)];
           for (const objdata of objdataarray)
-            yield this.handler.call(this.caller, objdata, datafiles[i].name, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
+            yield this.handler.call(this.caller, objdata, datafiles[i], templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
         }
       }
       new import_obsidian.Notice("Import Finished");
@@ -21350,36 +21220,6 @@ License: MIT
  * html-tag <https://github.com/jonschlinkert/html-tag>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-/*!
- * is-accessor-descriptor <https://github.com/jonschlinkert/is-accessor-descriptor>
- *
- * Copyright (c) 2015, Jon Schlinkert.
- * Licensed under the MIT License.
- */
-/*!
- * is-accessor-descriptor <https://github.com/jonschlinkert/is-accessor-descriptor>
- *
- * Copyright (c) 2015-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-/*!
- * is-data-descriptor <https://github.com/jonschlinkert/is-data-descriptor>
- *
- * Copyright (c) 2015, Jon Schlinkert.
- * Licensed under the MIT License.
- */
-/*!
- * is-data-descriptor <https://github.com/jonschlinkert/is-data-descriptor>
- *
- * Copyright (c) 2015-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-/*!
- * is-descriptor <https://github.com/jonschlinkert/is-descriptor>
- *
- * Copyright (c) 2015-2017, Jon Schlinkert.
  * Released under the MIT License.
  */
 /*!

@@ -12,6 +12,8 @@
   "minSyncInterval": 50,
   "maxSyncInterval": 1000,
   "enableJs": false,
+  "viewFieldDisplayNullAsEmpty": false,
+  "enableSyntaxHighlighting": true,
   "inputFieldTemplates": [],
   "excludedFolders": [
     "templates"

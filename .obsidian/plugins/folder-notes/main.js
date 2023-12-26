@@ -160,16 +160,259 @@ __export(main_exports, {
   default: () => FolderNotesPlugin
 });
 module.exports = __toCommonJS(main_exports);
+var import_obsidian27 = require("obsidian");
+
+// src/settings/SettingsTab.ts
 var import_obsidian22 = require("obsidian");
 
-// src/Settings.ts
-var import_obsidian17 = require("obsidian");
+// src/modals/ExistingNote.ts
+var import_obsidian = require("obsidian");
+var ExistingFolderNoteModal = class extends import_obsidian.Modal {
+  constructor(app2, plugin, file, folder, folderNote) {
+    super(app2);
+    this.plugin = plugin;
+    this.app = app2;
+    this.file = file;
+    this.folder = folder;
+    this.folderNote = folderNote;
+  }
+  onOpen() {
+    var _a;
+    const { contentEl } = this;
+    contentEl.createEl("h2", { text: "A folder note for this folder already exists" });
+    const setting = new import_obsidian.Setting(contentEl);
+    setting.infoEl.createEl("p", { text: "Are you sure you want to turn the note into a folder note and rename the existing folder note?" });
+    (_a = setting.infoEl.parentElement) == null ? void 0 : _a.classList.add("fn-delete-confirmation-modal");
+    const buttonContainer = setting.infoEl.createEl("div", { cls: "fn-delete-confirmation-modal-buttons" });
+    if (import_obsidian.Platform.isMobileApp) {
+      const confirmButton = buttonContainer.createEl("button", { text: "Rename and don't ask again" });
+      confirmButton.classList.add("mod-warning", "fn-confirmation-modal-button");
+      confirmButton.addEventListener("click", async () => {
+        this.plugin.settings.showRenameConfirmation = false;
+        this.plugin.saveSettings();
+        this.close();
+        turnIntoFolderNote(this.plugin, this.file, this.folder, this.folderNote, true);
+      });
+    } else {
+      const checkbox = buttonContainer.createEl("input", { type: "checkbox" });
+      checkbox.addEventListener("change", (e) => {
+        const target = e.target;
+        if (target.checked) {
+          this.plugin.settings.showRenameConfirmation = false;
+        } else {
+          this.plugin.settings.showRenameConfirmation = true;
+        }
+      });
+      const checkBoxText = buttonContainer.createEl("span", { text: "Don't ask again" });
+      checkBoxText.addEventListener("click", () => {
+        checkbox.click();
+      });
+    }
+    const button = buttonContainer.createEl("button", { text: "Rename" });
+    button.classList.add("mod-warning", "fn-confirmation-modal-button");
+    button.addEventListener("click", async () => {
+      this.plugin.saveSettings();
+      this.close();
+      turnIntoFolderNote(this.plugin, this.file, this.folder, this.folderNote, true);
+    });
+    button.focus();
+    const cancelButton = buttonContainer.createEl("button", { text: "Cancel" });
+    cancelButton.addEventListener("click", async () => {
+      this.close();
+    });
+  }
+  onClose() {
+    const { contentEl } = this;
+    contentEl.empty();
+  }
+};
 
-// src/suggesters/TemplateSuggester.ts
+// src/template.ts
+var import_obsidian2 = require("obsidian");
+async function applyTemplate(plugin, file, leaf, templatePath) {
+  const templateFile = templatePath ? plugin.app.vault.getAbstractFileByPath(templatePath) : null;
+  if (templateFile && templateFile instanceof import_obsidian2.TFile) {
+    try {
+      const {
+        templatesEnabled,
+        templaterEnabled,
+        templatesPlugin,
+        templaterPlugin
+      } = getTemplatePlugins(plugin.app);
+      const templateContent = await plugin.app.vault.read(templateFile);
+      if (templatesEnabled && templaterEnabled) {
+        if (/<%/.test(templateContent)) {
+          return await templaterPlugin.write_template_to_file(templateFile, file);
+        } else {
+          if (leaf instanceof import_obsidian2.WorkspaceLeaf) {
+            leaf.openFile(file).then(async () => {
+              return await templatesPlugin.instance.insertTemplate(templateFile, file);
+            });
+          }
+        }
+      }
+      if (templatesEnabled) {
+        if (leaf instanceof import_obsidian2.WorkspaceLeaf) {
+          leaf.openFile(file);
+        }
+        return await templatesPlugin.instance.insertTemplate(templateFile);
+      }
+      if (templaterEnabled) {
+        return await templaterPlugin.write_template_to_file(templateFile, file);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+}
+function getTemplatePlugins(app2) {
+  var _a;
+  const templatesPlugin = app2.internalPlugins.plugins.templates;
+  const templatesEnabled = templatesPlugin.enabled;
+  const templaterPlugin = app2.plugins.plugins["templater-obsidian"];
+  const templaterEnabled = app2.plugins.enabledPlugins.has("templater-obsidian");
+  const templaterEmptyFileTemplate = templaterPlugin && ((_a = this.app.plugins.plugins["templater-obsidian"].settings) == null ? void 0 : _a.empty_file_template);
+  const templateFolder = templatesEnabled ? templatesPlugin.instance.options.folder : templaterPlugin ? templaterPlugin.settings.template_folder : void 0;
+  return {
+    templatesPlugin,
+    templatesEnabled,
+    templaterPlugin: templaterPlugin == null ? void 0 : templaterPlugin.templater,
+    templaterEnabled,
+    templaterEmptyFileTemplate,
+    templateFolder
+  };
+}
+
+// src/functions/folderNoteFunctions.ts
+var import_obsidian10 = require("obsidian");
+
+// src/modals/DeleteConfirmation.ts
 var import_obsidian3 = require("obsidian");
+var DeleteConfirmationModal = class extends import_obsidian3.Modal {
+  constructor(app2, plugin, file) {
+    super(app2);
+    this.plugin = plugin;
+    this.app = app2;
+    this.file = file;
+  }
+  onOpen() {
+    var _a;
+    const { contentEl } = this;
+    contentEl.createEl("h2", { text: "Delete folder note" });
+    const setting = new import_obsidian3.Setting(contentEl);
+    setting.infoEl.createEl("p", { text: `Are you sure you want to delete the folder note "${this.file.name}" ?` });
+    setting.infoEl.createEl("p", { text: "It will be moved to your system trash." });
+    (_a = setting.infoEl.parentElement) == null ? void 0 : _a.classList.add("fn-delete-confirmation-modal");
+    const buttonContainer = setting.infoEl.createEl("div", { cls: "fn-delete-confirmation-modal-buttons" });
+    if (import_obsidian3.Platform.isMobileApp) {
+      const confirmButton = buttonContainer.createEl("button", { text: "Delete and don't ask again" });
+      confirmButton.classList.add("mod-warning", "fn-confirmation-modal-button");
+      confirmButton.addEventListener("click", async () => {
+        this.plugin.settings.showDeleteConfirmation = false;
+        this.plugin.saveSettings();
+        this.close();
+        const folder = getFolder(this.plugin, this.file);
+        if (!folder)
+          return;
+        this.plugin.removeCSSClassFromEL(folder == null ? void 0 : folder.path, "has-folder-note");
+        this.app.vault.delete(this.file);
+      });
+    } else {
+      const checkbox = buttonContainer.createEl("input", { type: "checkbox" });
+      checkbox.addEventListener("change", (e) => {
+        const target = e.target;
+        if (target.checked) {
+          this.plugin.settings.showDeleteConfirmation = false;
+        } else {
+          this.plugin.settings.showDeleteConfirmation = true;
+        }
+        this.plugin.saveSettings();
+      });
+      const checkBoxText = buttonContainer.createEl("span", { text: "Don't ask again" });
+      checkBoxText.addEventListener("click", () => {
+        checkbox.click();
+      });
+    }
+    const button = buttonContainer.createEl("button", { text: "Delete" });
+    button.classList.add("mod-warning", "fn-confirmation-modal-button");
+    button.addEventListener("click", async () => {
+      this.close();
+      const folder = getFolder(this.plugin, this.file);
+      if (!folder)
+        return;
+      this.plugin.removeCSSClassFromEL(folder.path, "has-folder-note");
+      this.app.vault.delete(this.file);
+    });
+    button.focus();
+    const cancelButton = buttonContainer.createEl("button", { text: "Cancel" });
+    cancelButton.addEventListener("click", async () => {
+      this.close();
+    });
+  }
+  onClose() {
+    const { contentEl } = this;
+    contentEl.empty();
+  }
+};
+
+// src/excludedFolder.ts
+var import_obsidian8 = require("obsidian");
+
+// src/modals/ExcludeFolderSettings.ts
+var import_obsidian4 = require("obsidian");
+var ExcludedFolderSettings = class extends import_obsidian4.Modal {
+  constructor(app2, plugin, excludedFolder) {
+    super(app2);
+    this.plugin = plugin;
+    this.app = app2;
+    this.excludedFolder = excludedFolder;
+  }
+  onOpen() {
+    this.display();
+  }
+  display() {
+    const { contentEl } = this;
+    contentEl.empty();
+    contentEl.createEl("h2", { text: "Excluded folder settings" });
+    new import_obsidian4.Setting(contentEl).setName("Include subfolders").setDesc("Choose if the subfolders of the folder should also be excluded").addToggle((toggle) => toggle.setValue(this.excludedFolder.subFolders).onChange(async (value) => {
+      this.excludedFolder.subFolders = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian4.Setting(contentEl).setName("Disable folder name sync").setDesc("Choose if the folder note should be renamed when the folder name is changed").addToggle((toggle) => toggle.setValue(this.excludedFolder.disableSync).onChange(async (value) => {
+      this.excludedFolder.disableSync = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian4.Setting(contentEl).setName("Don't show folder in folder overview").setDesc("Choose if the folder should be shown in the folder overview").addToggle((toggle) => toggle.setValue(this.excludedFolder.excludeFromFolderOverview).onChange(async (value) => {
+      this.excludedFolder.excludeFromFolderOverview = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian4.Setting(contentEl).setName("Disable auto creation of folder notes in this folder").setDesc("Choose if a folder note should be created when a new folder is created").addToggle((toggle) => toggle.setValue(this.excludedFolder.disableAutoCreate).onChange(async (value) => {
+      this.excludedFolder.disableAutoCreate = value;
+      await this.plugin.saveSettings();
+    }));
+    new import_obsidian4.Setting(contentEl).setName("Disable open folder note").setDesc("Choose if the folder note should be opened when the folder is opened").addToggle((toggle) => toggle.setValue(this.excludedFolder.disableFolderNote).onChange(async (value) => {
+      this.excludedFolder.disableFolderNote = value;
+      await this.plugin.saveSettings();
+      this.display();
+    }));
+    if (!this.excludedFolder.disableFolderNote) {
+      new import_obsidian4.Setting(contentEl).setName("Collapse folder when opening folder note").setDesc("Choose if the folder should be collapsed when the folder note is opened").addToggle((toggle) => toggle.setValue(this.excludedFolder.enableCollapsing).onChange(async (value) => {
+        this.excludedFolder.enableCollapsing = value;
+        await this.plugin.saveSettings();
+      }));
+    }
+  }
+  onClose() {
+    const { contentEl } = this;
+    contentEl.empty();
+  }
+};
+
+// src/suggesters/FolderSuggester.ts
+var import_obsidian6 = require("obsidian");
 
 // src/suggesters/Suggest.ts
-var import_obsidian = require("obsidian");
+var import_obsidian5 = require("obsidian");
 
 // node_modules/@popperjs/core/lib/enums.js
 var top = "top";
@@ -1671,7 +1914,7 @@ var Suggest = class {
 var TextInputSuggest = class {
   constructor(inputEl) {
     this.inputEl = inputEl;
-    this.scope = new import_obsidian.Scope();
+    this.scope = new import_obsidian5.Scope();
     this.suggestEl = createDiv("suggestion-container");
     const suggestion = this.suggestEl.createDiv("suggestion");
     this.suggest = new Suggest(this, suggestion, this.scope);
@@ -1729,301 +1972,7 @@ var TextInputSuggest = class {
   }
 };
 
-// src/template.ts
-var import_obsidian2 = require("obsidian");
-async function applyTemplate(plugin, file, leaf, templatePath) {
-  const templateFile = templatePath ? plugin.app.vault.getAbstractFileByPath(templatePath) : null;
-  if (templateFile && templateFile instanceof import_obsidian2.TFile) {
-    try {
-      const {
-        templatesEnabled,
-        templaterEnabled,
-        templatesPlugin,
-        templaterPlugin
-      } = getTemplatePlugins(plugin.app);
-      const templateContent = await plugin.app.vault.read(templateFile);
-      if (templatesEnabled && templaterEnabled) {
-        if (/<%/.test(templateContent)) {
-          return await templaterPlugin.write_template_to_file(templateFile, file);
-        } else {
-          if (leaf instanceof import_obsidian2.WorkspaceLeaf) {
-            leaf.openFile(file).then(async () => {
-              return await templatesPlugin.instance.insertTemplate(templateFile, file);
-            });
-          }
-        }
-      }
-      if (templatesEnabled) {
-        if (leaf instanceof import_obsidian2.WorkspaceLeaf) {
-          leaf.openFile(file);
-        }
-        return await templatesPlugin.instance.insertTemplate(templateFile);
-      }
-      if (templaterEnabled) {
-        return await templaterPlugin.write_template_to_file(templateFile, file);
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  }
-}
-function getTemplatePlugins(app2) {
-  var _a;
-  const templatesPlugin = app2.internalPlugins.plugins.templates;
-  const templatesEnabled = templatesPlugin.enabled;
-  const templaterPlugin = app2.plugins.plugins["templater-obsidian"];
-  const templaterEnabled = app2.plugins.enabledPlugins.has("templater-obsidian");
-  const templaterEmptyFileTemplate = templaterPlugin && ((_a = this.app.plugins.plugins["templater-obsidian"].settings) == null ? void 0 : _a.empty_file_template);
-  const templateFolder = templatesEnabled ? templatesPlugin.instance.options.folder : templaterPlugin ? templaterPlugin.settings.template_folder : void 0;
-  return {
-    templatesPlugin,
-    templatesEnabled,
-    templaterPlugin: templaterPlugin == null ? void 0 : templaterPlugin.templater,
-    templaterEnabled,
-    templaterEmptyFileTemplate,
-    templateFolder
-  };
-}
-
-// src/suggesters/TemplateSuggester.ts
-var TemplateSuggest = class extends TextInputSuggest {
-  constructor(inputEl, plugin) {
-    super(inputEl);
-    this.inputEl = inputEl;
-    this.plugin = plugin;
-  }
-  get_error_msg(mode) {
-    switch (mode) {
-      case 0 /* TemplateFiles */:
-        return "Templates folder doesn't exist";
-      case 1 /* ScriptFiles */:
-        return "User Scripts folder doesn't exist";
-    }
-  }
-  getSuggestions(input_str) {
-    var _a, _b;
-    const { templateFolder, templaterPlugin } = getTemplatePlugins(this.plugin.app);
-    if ((!templateFolder || (templateFolder == null ? void 0 : templateFolder.trim()) === "") && !templaterPlugin) {
-      this.plugin.settings.templatePath = "";
-      this.plugin.saveSettings();
-      return [];
-    }
-    let folder;
-    if (templaterPlugin) {
-      folder = this.plugin.app.vault.getAbstractFileByPath((_b = (_a = templaterPlugin.plugin) == null ? void 0 : _a.settings) == null ? void 0 : _b.templates_folder);
-    } else {
-      folder = this.plugin.app.vault.getAbstractFileByPath(templateFolder);
-    }
-    const files = [];
-    const lower_input_str = input_str.toLowerCase();
-    import_obsidian3.Vault.recurseChildren(folder, (file) => {
-      if (file instanceof import_obsidian3.TFile && file.path.toLowerCase().contains(lower_input_str)) {
-        files.push(file);
-      }
-    });
-    return files;
-  }
-  renderSuggestion(file, el) {
-    el.setText(file.name.replace(".md", ""));
-  }
-  selectSuggestion(file) {
-    this.inputEl.value = file.name.replace(".md", "");
-    this.inputEl.trigger("input");
-    this.plugin.settings.templatePath = file.path;
-    this.plugin.saveSettings();
-    this.close();
-  }
-};
-
-// src/modals/ExistingNote.ts
-var import_obsidian4 = require("obsidian");
-var ExistingFolderNoteModal = class extends import_obsidian4.Modal {
-  constructor(app2, plugin, file, folder, folderNote) {
-    super(app2);
-    this.plugin = plugin;
-    this.app = app2;
-    this.file = file;
-    this.folder = folder;
-    this.folderNote = folderNote;
-  }
-  onOpen() {
-    var _a;
-    const { contentEl } = this;
-    contentEl.createEl("h2", { text: "A folder note for this folder already exists" });
-    const setting = new import_obsidian4.Setting(contentEl);
-    setting.infoEl.createEl("p", { text: "Are you sure you want to turn the note into a folder note and rename the existing folder note?" });
-    (_a = setting.infoEl.parentElement) == null ? void 0 : _a.classList.add("fn-delete-confirmation-modal");
-    const buttonContainer = setting.infoEl.createEl("div", { cls: "fn-delete-confirmation-modal-buttons" });
-    if (import_obsidian4.Platform.isMobileApp) {
-      const confirmButton = buttonContainer.createEl("button", { text: "Rename and don't ask again" });
-      confirmButton.classList.add("mod-warning", "fn-confirmation-modal-button");
-      confirmButton.addEventListener("click", async () => {
-        this.plugin.settings.showRenameConfirmation = false;
-        this.plugin.saveSettings();
-        this.close();
-        turnIntoFolderNote(this.plugin, this.file, this.folder, this.folderNote, true);
-      });
-    } else {
-      const checkbox = buttonContainer.createEl("input", { type: "checkbox" });
-      checkbox.addEventListener("change", (e) => {
-        const target = e.target;
-        if (target.checked) {
-          this.plugin.settings.showRenameConfirmation = false;
-        } else {
-          this.plugin.settings.showRenameConfirmation = true;
-        }
-      });
-      const checkBoxText = buttonContainer.createEl("span", { text: "Don't ask again" });
-      checkBoxText.addEventListener("click", () => {
-        checkbox.click();
-      });
-    }
-    const button = buttonContainer.createEl("button", { text: "Rename" });
-    button.classList.add("mod-warning", "fn-confirmation-modal-button");
-    button.addEventListener("click", async () => {
-      this.plugin.saveSettings();
-      this.close();
-      turnIntoFolderNote(this.plugin, this.file, this.folder, this.folderNote, true);
-    });
-    button.focus();
-    const cancelButton = buttonContainer.createEl("button", { text: "Cancel" });
-    cancelButton.addEventListener("click", async () => {
-      this.close();
-    });
-  }
-  onClose() {
-    const { contentEl } = this;
-    contentEl.empty();
-  }
-};
-
-// src/functions/folderNoteFunctions.ts
-var import_obsidian11 = require("obsidian");
-
-// src/modals/DeleteConfirmation.ts
-var import_obsidian5 = require("obsidian");
-var DeleteConfirmationModal = class extends import_obsidian5.Modal {
-  constructor(app2, plugin, file) {
-    super(app2);
-    this.plugin = plugin;
-    this.app = app2;
-    this.file = file;
-  }
-  onOpen() {
-    var _a;
-    const { contentEl } = this;
-    contentEl.createEl("h2", { text: "Delete folder note" });
-    const setting = new import_obsidian5.Setting(contentEl);
-    setting.infoEl.createEl("p", { text: `Are you sure you want to delete the folder note "${this.file.name}" ?` });
-    setting.infoEl.createEl("p", { text: "It will be moved to your system trash." });
-    (_a = setting.infoEl.parentElement) == null ? void 0 : _a.classList.add("fn-delete-confirmation-modal");
-    const buttonContainer = setting.infoEl.createEl("div", { cls: "fn-delete-confirmation-modal-buttons" });
-    if (import_obsidian5.Platform.isMobileApp) {
-      const confirmButton = buttonContainer.createEl("button", { text: "Delete and don't ask again" });
-      confirmButton.classList.add("mod-warning", "fn-confirmation-modal-button");
-      confirmButton.addEventListener("click", async () => {
-        this.plugin.settings.showDeleteConfirmation = false;
-        this.plugin.saveSettings();
-        this.close();
-        const folder = getFolder(this.plugin, this.file);
-        if (!folder)
-          return;
-        this.plugin.removeCSSClassFromEL(folder == null ? void 0 : folder.path, "has-folder-note");
-        this.app.vault.delete(this.file);
-      });
-    } else {
-      const checkbox = buttonContainer.createEl("input", { type: "checkbox" });
-      checkbox.addEventListener("change", (e) => {
-        const target = e.target;
-        if (target.checked) {
-          this.plugin.settings.showDeleteConfirmation = false;
-        } else {
-          this.plugin.settings.showDeleteConfirmation = true;
-        }
-        this.plugin.saveSettings();
-      });
-      const checkBoxText = buttonContainer.createEl("span", { text: "Don't ask again" });
-      checkBoxText.addEventListener("click", () => {
-        checkbox.click();
-      });
-    }
-    const button = buttonContainer.createEl("button", { text: "Delete" });
-    button.classList.add("mod-warning", "fn-confirmation-modal-button");
-    button.addEventListener("click", async () => {
-      this.close();
-      const folder = getFolder(this.plugin, this.file);
-      if (!folder)
-        return;
-      this.plugin.removeCSSClassFromEL(folder.path, "has-folder-note");
-      this.app.vault.delete(this.file);
-    });
-    button.focus();
-    const cancelButton = buttonContainer.createEl("button", { text: "Cancel" });
-    cancelButton.addEventListener("click", async () => {
-      this.close();
-    });
-  }
-  onClose() {
-    const { contentEl } = this;
-    contentEl.empty();
-  }
-};
-
-// src/excludedFolder.ts
-var import_obsidian9 = require("obsidian");
-
-// src/modals/ExcludeFolderSettings.ts
-var import_obsidian6 = require("obsidian");
-var ExcludedFolderSettings = class extends import_obsidian6.Modal {
-  constructor(app2, plugin, excludedFolder) {
-    super(app2);
-    this.plugin = plugin;
-    this.app = app2;
-    this.excludedFolder = excludedFolder;
-  }
-  onOpen() {
-    this.display();
-  }
-  display() {
-    const { contentEl } = this;
-    contentEl.empty();
-    contentEl.createEl("h2", { text: "Excluded folder settings" });
-    new import_obsidian6.Setting(contentEl).setName("Include subfolders").setDesc("Choose if the subfolders of the folder should also be excluded").addToggle((toggle) => toggle.setValue(this.excludedFolder.subFolders).onChange(async (value) => {
-      this.excludedFolder.subFolders = value;
-      await this.plugin.saveSettings();
-    }));
-    new import_obsidian6.Setting(contentEl).setName("Disable folder name sync").setDesc("Choose if the folder note should be renamed when the folder name is changed").addToggle((toggle) => toggle.setValue(this.excludedFolder.disableSync).onChange(async (value) => {
-      this.excludedFolder.disableSync = value;
-      await this.plugin.saveSettings();
-    }));
-    new import_obsidian6.Setting(contentEl).setName("Don't show folder in folder overview").setDesc("Choose if the folder should be shown in the folder overview").addToggle((toggle) => toggle.setValue(this.excludedFolder.excludeFromFolderOverview).onChange(async (value) => {
-      this.excludedFolder.excludeFromFolderOverview = value;
-      await this.plugin.saveSettings();
-    }));
-    new import_obsidian6.Setting(contentEl).setName("Disable auto creation of folder notes in this folder").setDesc("Choose if a folder note should be created when a new folder is created").addToggle((toggle) => toggle.setValue(this.excludedFolder.disableAutoCreate).onChange(async (value) => {
-      this.excludedFolder.disableAutoCreate = value;
-      await this.plugin.saveSettings();
-    }));
-    new import_obsidian6.Setting(contentEl).setName("Disable open folder note").setDesc("Choose if the folder note should be opened when the folder is opened").addToggle((toggle) => toggle.setValue(this.excludedFolder.disableFolderNote).onChange(async (value) => {
-      this.excludedFolder.disableFolderNote = value;
-      await this.plugin.saveSettings();
-      this.display();
-    }));
-    if (!this.excludedFolder.disableFolderNote) {
-      new import_obsidian6.Setting(contentEl).setName("Collapse folder when opening folder note").setDesc("Choose if the folder should be collapsed when the folder note is opened").addToggle((toggle) => toggle.setValue(this.excludedFolder.enableCollapsing).onChange(async (value) => {
-        this.excludedFolder.enableCollapsing = value;
-        await this.plugin.saveSettings();
-      }));
-    }
-  }
-  onClose() {
-    const { contentEl } = this;
-    contentEl.empty();
-  }
-};
-
 // src/suggesters/FolderSuggester.ts
-var import_obsidian7 = require("obsidian");
 var FolderSuggest = class extends TextInputSuggest {
   constructor(inputEl, plugin, folder) {
     super(inputEl);
@@ -2049,7 +1998,7 @@ var FolderSuggest = class extends TextInputSuggest {
       files = this.plugin.app.vault.getAllLoadedFiles();
     }
     files.forEach((folder) => {
-      if (folder instanceof import_obsidian7.TFolder && folder.path.toLowerCase().contains(lower_input_str) && !this.plugin.settings.excludeFolders.find((f) => f.path === folder.path)) {
+      if (folder instanceof import_obsidian6.TFolder && folder.path.toLowerCase().contains(lower_input_str) && !this.plugin.settings.excludeFolders.find((f) => f.path === folder.path)) {
         folders.push(folder);
       }
     });
@@ -2066,8 +2015,8 @@ var FolderSuggest = class extends TextInputSuggest {
 };
 
 // src/modals/PatternSettings.ts
-var import_obsidian8 = require("obsidian");
-var PatternSettings = class extends import_obsidian8.Modal {
+var import_obsidian7 = require("obsidian");
+var PatternSettings = class extends import_obsidian7.Modal {
   constructor(app2, plugin, pattern) {
     super(app2);
     this.plugin = plugin;
@@ -2081,25 +2030,25 @@ var PatternSettings = class extends import_obsidian8.Modal {
     const { contentEl } = this;
     contentEl.empty();
     contentEl.createEl("h2", { text: "Pattern settings" });
-    new import_obsidian8.Setting(contentEl).setName("Disable folder name sync").setDesc("Choose if the folder name should be renamed when the file name has been changed").addToggle((toggle) => toggle.setValue(this.pattern.disableSync).onChange(async (value) => {
+    new import_obsidian7.Setting(contentEl).setName("Disable folder name sync").setDesc("Choose if the folder name should be renamed when the file name has been changed").addToggle((toggle) => toggle.setValue(this.pattern.disableSync).onChange(async (value) => {
       this.pattern.disableSync = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian8.Setting(contentEl).setName("Disable auto creation of folder notes in this folder").setDesc("Choose if a folder note should be created when a new folder is created that matches this pattern").addToggle((toggle) => toggle.setValue(this.pattern.disableAutoCreate).onChange(async (value) => {
+    new import_obsidian7.Setting(contentEl).setName("Disable auto creation of folder notes in this folder").setDesc("Choose if a folder note should be created when a new folder is created that matches this pattern").addToggle((toggle) => toggle.setValue(this.pattern.disableAutoCreate).onChange(async (value) => {
       this.pattern.disableAutoCreate = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian8.Setting(contentEl).setName("Don't show folder in folder overview").setDesc("Choose if the folder should be shown in the folder overview").addToggle((toggle) => toggle.setValue(this.pattern.excludeFromFolderOverview).onChange(async (value) => {
+    new import_obsidian7.Setting(contentEl).setName("Don't show folder in folder overview").setDesc("Choose if the folder should be shown in the folder overview").addToggle((toggle) => toggle.setValue(this.pattern.excludeFromFolderOverview).onChange(async (value) => {
       this.pattern.excludeFromFolderOverview = value;
       await this.plugin.saveSettings();
     }));
-    new import_obsidian8.Setting(contentEl).setName("Disable open folder note").setDesc("Choose if the folder note should be opened when the folder is opened").addToggle((toggle) => toggle.setValue(this.pattern.disableFolderNote).onChange(async (value) => {
+    new import_obsidian7.Setting(contentEl).setName("Disable open folder note").setDesc("Choose if the folder note should be opened when the folder is opened").addToggle((toggle) => toggle.setValue(this.pattern.disableFolderNote).onChange(async (value) => {
       this.pattern.disableFolderNote = value;
       await this.plugin.saveSettings();
       this.display();
     }));
     if (!this.pattern.disableFolderNote) {
-      new import_obsidian8.Setting(contentEl).setName("Collapse folder when opening folder note").setDesc("Choose if the folder should be collapsed when the folder note is opened").addToggle((toggle) => toggle.setValue(this.pattern.enableCollapsing).onChange(async (value) => {
+      new import_obsidian7.Setting(contentEl).setName("Collapse folder when opening folder note").setDesc("Choose if the folder should be collapsed when the folder note is opened").addToggle((toggle) => toggle.setValue(this.pattern.enableCollapsing).onChange(async (value) => {
         this.pattern.enableCollapsing = value;
         await this.plugin.saveSettings();
       }));
@@ -2227,7 +2176,7 @@ function resyncArray(plugin) {
 }
 function addExcludePatternListItem(settings, containerEl, pattern) {
   const plugin = settings.plugin;
-  const setting = new import_obsidian9.Setting(containerEl);
+  const setting = new import_obsidian8.Setting(containerEl);
   setting.setClass("fn-exclude-folder-list");
   setting.addSearch((cb) => {
     cb.containerEl.addClass("fn-exclude-folder-path");
@@ -2302,7 +2251,7 @@ function addExcludePatternListItem(settings, containerEl, pattern) {
 }
 function addExcludeFolderListItem(settings, containerEl, excludedFolder) {
   const plugin = settings.plugin;
-  const setting = new import_obsidian9.Setting(containerEl);
+  const setting = new import_obsidian8.Setting(containerEl);
   setting.setClass("fn-exclude-folder-list");
   setting.addSearch((cb) => {
     new FolderSuggest(cb.inputEl, plugin);
@@ -2401,8 +2350,8 @@ async function getExcalidrawPlugin(app2) {
 }
 
 // src/modals/AskForExtension.ts
-var import_obsidian10 = require("obsidian");
-var AskForExtensionModal = class extends import_obsidian10.FuzzySuggestModal {
+var import_obsidian9 = require("obsidian");
+var AskForExtensionModal = class extends import_obsidian9.FuzzySuggestModal {
   constructor(plugin, folderPath, openFile, extension, useModal, existingNote) {
     super(plugin.app);
     this.plugin = plugin;
@@ -2430,7 +2379,7 @@ async function createFolderNote(plugin, folderPath, openFile, extension, useModa
   const leaf = plugin.app.workspace.getLeaf(false);
   const folderName = plugin.getFolderNameFromPathString(folderPath);
   const fileName = plugin.settings.folderNoteName.replace("{{folder_name}}", folderName);
-  let folderNoteType = extension || plugin.settings.folderNoteType;
+  let folderNoteType = extension != null ? extension : plugin.settings.folderNoteType;
   if (folderNoteType === ".excalidraw") {
     folderNoteType = ".md";
     extension = ".excalidraw";
@@ -2456,7 +2405,7 @@ async function createFolderNote(plugin, folderPath, openFile, extension, useModa
     if (extension !== ".md") {
       if (plugin.settings.templatePath && folderNoteType === "." + plugin.settings.templatePath.split(".").pop()) {
         const templateFile = plugin.app.vault.getAbstractFileByPath(plugin.settings.templatePath);
-        if (templateFile instanceof import_obsidian11.TFile) {
+        if (templateFile instanceof import_obsidian10.TFile) {
           if (["md", "canvas", "txt"].includes(templateFile.extension)) {
             content = await plugin.app.vault.read(templateFile);
           } else {
@@ -2491,7 +2440,7 @@ tags: [excalidraw]
     file = await plugin.app.vault.create(path, content);
   } else {
     file = existingNote;
-    plugin.app.vault.rename(existingNote, path);
+    plugin.app.fileManager.renameFile(existingNote, path);
   }
   if (openFile) {
     await leaf.openFile(file);
@@ -2503,7 +2452,7 @@ tags: [excalidraw]
     applyTemplate(plugin, file, leaf, plugin.settings.templatePath);
   }
   const folder = plugin.app.vault.getAbstractFileByPath(folderPath);
-  if (!(folder instanceof import_obsidian11.TFolder))
+  if (!(folder instanceof import_obsidian10.TFolder))
     return;
   plugin.addCSSClassToTitleEL(path, "is-folder-note", true);
   plugin.addCSSClassToTitleEL(folder.path, "has-folder-note");
@@ -2529,7 +2478,7 @@ async function turnIntoFolderNote(plugin, file, folder, folderNote, skipConfirma
       updateExcludedFolder(plugin, excludedFolder, excludedFolder);
     }
     const newPath = `${folder.path}/${folder.name} (${file.stat.ctime.toString().slice(10) + Math.floor(Math.random() * 1e3)}).${extension}`;
-    plugin.app.vault.rename(folderNote, newPath).then(() => {
+    plugin.app.fileManager.renameFile(folderNote, newPath).then(() => {
       if (!excludedFolder) {
         return;
       }
@@ -2554,7 +2503,7 @@ async function turnIntoFolderNote(plugin, file, folder, folderNote, skipConfirma
       path = `${parentFolderPath}/${fileName}.${extension}`;
     }
   }
-  await plugin.app.vault.rename(file, path);
+  await plugin.app.fileManager.renameFile(file, path);
   plugin.addCSSClassToTitleEL(path, "is-folder-note", true);
   plugin.addCSSClassToTitleEL(folder.path, "has-folder-note");
 }
@@ -2564,8 +2513,8 @@ async function openFolderNote(plugin, file, evt) {
   if (((_a = plugin.app.workspace.getActiveFile()) == null ? void 0 : _a.path) === path) {
     return;
   }
-  const leaf = plugin.app.workspace.getLeaf(import_obsidian11.Keymap.isModEvent(evt) || plugin.settings.openInNewTab);
-  if (file instanceof import_obsidian11.TFile) {
+  const leaf = plugin.app.workspace.getLeaf(import_obsidian10.Keymap.isModEvent(evt) || plugin.settings.openInNewTab);
+  if (file instanceof import_obsidian10.TFile) {
     await leaf.openFile(file);
   }
 }
@@ -2618,7 +2567,7 @@ function getFolderNote(plugin, folderPath, storageLocation, file) {
     folderNoteType = ".md";
   }
   let folderNote = plugin.app.vault.getAbstractFileByPath(path + folderNoteType);
-  if (folderNote instanceof import_obsidian11.TFile) {
+  if (folderNote instanceof import_obsidian10.TFile) {
     return folderNote;
   } else {
     const supportedFileTypes = plugin.settings.supportedFileTypes.filter((type) => type !== plugin.settings.folderNoteType.replace(".", ""));
@@ -2630,16 +2579,20 @@ function getFolderNote(plugin, folderPath, storageLocation, file) {
         type = "." + type;
       }
       folderNote = plugin.app.vault.getAbstractFileByPath(path + type);
-      if (folderNote instanceof import_obsidian11.TFile) {
+      if (folderNote instanceof import_obsidian10.TFile) {
         return folderNote;
       }
     }
   }
 }
 function getFolder(plugin, file, storageLocation) {
+  var _a, _b;
   if (!file)
     return null;
-  const folderName = extractFolderName(plugin.settings.folderNoteName, file.basename);
+  let folderName = extractFolderName(plugin.settings.folderNoteName, file.basename);
+  if (plugin.settings.folderNoteName === file.basename && plugin.settings.storageLocation === "insideFolder") {
+    folderName = (_b = (_a = file.parent) == null ? void 0 : _a.name) != null ? _b : "";
+  }
   if (!folderName)
     return null;
   let folderPath = plugin.getFolderPathFromString(file.path);
@@ -2688,6 +2641,53 @@ function getFolderNoteFolder(plugin, folderNote, fileName) {
   }
   return folder;
 }
+
+// src/settings/GeneralSettings.ts
+var import_obsidian15 = require("obsidian");
+
+// src/modals/AddSupportedFileType.ts
+var import_obsidian11 = require("obsidian");
+var AddSupportedFileModal = class extends import_obsidian11.Modal {
+  constructor(app2, plugin, settingsTab, list) {
+    super(app2);
+    this.plugin = plugin;
+    this.app = app2;
+    this.name = "";
+    this.list = list;
+    this.settingsTab = settingsTab;
+  }
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        this.close();
+      }
+    });
+    contentEl.createEl("h2", { text: "Extension name" });
+    new import_obsidian11.Setting(contentEl).setName('Enter the name of the extension (only the short form, e.g. "md")').addText((text) => text.setValue("").onChange(async (value) => {
+      if (value.trim() !== "") {
+        this.name = value.trim();
+      }
+    }));
+  }
+  async onClose() {
+    if (this.name.toLocaleLowerCase() === "markdown") {
+      this.name = "md";
+    }
+    const { contentEl } = this;
+    if (this.name === "") {
+      contentEl.empty();
+      this.settingsTab.display();
+    } else if (this.plugin.settings.supportedFileTypes.includes(this.name.toLowerCase())) {
+      return new import_obsidian11.Notice("This extension is already supported");
+    } else {
+      await this.list.addValue(this.name.toLowerCase());
+      this.settingsTab.display();
+      this.plugin.saveSettings();
+      contentEl.empty();
+    }
+  }
+};
 
 // src/events/FrontMatterTitle.ts
 var import_front_matter_plugin_api_provider = __toESM(require_lib());
@@ -2747,10 +2747,14 @@ var FrontMatterTitlePluginHandler = class {
     const resolver = (_b = (_a = this.api) == null ? void 0 : _a.getResolverFactory()) == null ? void 0 : _b.createResolver("#feature-id#");
     const newName = resolver == null ? void 0 : resolver.resolve((_c = file == null ? void 0 : file.path) != null ? _c : "");
     const folder = getFolder(this.plugin, file);
-    if ((extractFolderName(this.plugin.settings.folderNoteName, file.basename) || file.basename) !== (folder == null ? void 0 : folder.name)) {
+    if (!(folder instanceof import_obsidian12.TFolder)) {
       return;
     }
-    if (!(folder instanceof import_obsidian12.TFolder)) {
+    const folderNote = getFolderNote(this.plugin, folder.path);
+    if (!folderNote) {
+      return;
+    }
+    if (folderNote !== file) {
       return;
     }
     if (isEvent) {
@@ -2848,16 +2852,395 @@ var ConfirmationModal = class extends import_obsidian13.Modal {
   }
 };
 
+// src/suggesters/TemplateSuggester.ts
+var import_obsidian14 = require("obsidian");
+var TemplateSuggest = class extends TextInputSuggest {
+  constructor(inputEl, plugin) {
+    super(inputEl);
+    this.inputEl = inputEl;
+    this.plugin = plugin;
+  }
+  get_error_msg(mode) {
+    switch (mode) {
+      case 0 /* TemplateFiles */:
+        return "Templates folder doesn't exist";
+      case 1 /* ScriptFiles */:
+        return "User Scripts folder doesn't exist";
+    }
+  }
+  getSuggestions(input_str) {
+    var _a, _b;
+    const { templateFolder, templaterPlugin } = getTemplatePlugins(this.plugin.app);
+    if ((!templateFolder || (templateFolder == null ? void 0 : templateFolder.trim()) === "") && !templaterPlugin) {
+      this.plugin.settings.templatePath = "";
+      this.plugin.saveSettings();
+      return [];
+    }
+    let folder;
+    if (templaterPlugin) {
+      folder = this.plugin.app.vault.getAbstractFileByPath((_b = (_a = templaterPlugin.plugin) == null ? void 0 : _a.settings) == null ? void 0 : _b.templates_folder);
+    } else {
+      folder = this.plugin.app.vault.getAbstractFileByPath(templateFolder);
+    }
+    const files = [];
+    const lower_input_str = input_str.toLowerCase();
+    import_obsidian14.Vault.recurseChildren(folder, (file) => {
+      if (file instanceof import_obsidian14.TFile && file.path.toLowerCase().contains(lower_input_str)) {
+        files.push(file);
+      }
+    });
+    return files;
+  }
+  renderSuggestion(file, el) {
+    el.setText(file.name.replace(".md", ""));
+  }
+  selectSuggestion(file) {
+    this.inputEl.value = file.name.replace(".md", "");
+    this.inputEl.trigger("input");
+    this.plugin.settings.templatePath = file.path;
+    this.plugin.saveSettings();
+    this.close();
+  }
+};
+
+// src/settings/GeneralSettings.ts
+async function renderGeneral(settingsTab) {
+  settingsTab.settingsPage.createEl("h1", { text: "General settings" });
+  const containerEl = settingsTab.settingsPage;
+  const nameSetting = new import_obsidian15.Setting(containerEl).setName("Folder note name").setDesc("{{folder_name}} will be replaced with the name of the folder").addText((text) => text.setValue(settingsTab.plugin.settings.newFolderNoteName).onChange(async (value) => {
+    if (value.trim() === "") {
+      return;
+    }
+    settingsTab.plugin.settings.newFolderNoteName = value;
+    await settingsTab.plugin.saveSettings();
+  })).addButton((button) => button.setButtonText("Rename existing folder notes").setCta().onClick(async () => {
+    settingsTab.updateFolderNotes(settingsTab.plugin.settings.newFolderNoteName);
+  }));
+  nameSetting.infoEl.appendText("Make sure to back up your vault before renaming all folder notes and restart Obsidian after renaming them");
+  nameSetting.infoEl.style.color = settingsTab.app.vault.getConfig("accentColor") || "#7d5bed";
+  new import_obsidian15.Setting(containerEl).setName("Default folder note type for new folder notes").setDesc("Choose the default file type for new folder notes. (canvas, markdown, ...)").addDropdown((dropdown) => {
+    dropdown.addOption(".ask", "ask for file type");
+    settingsTab.plugin.settings.supportedFileTypes.forEach((type) => {
+      if (type === ".md" || type === "md") {
+        dropdown.addOption(".md", "markdown");
+      } else {
+        dropdown.addOption("." + type, type);
+      }
+    });
+    if (!settingsTab.plugin.settings.supportedFileTypes.includes(settingsTab.plugin.settings.folderNoteType.replace(".", "")) && settingsTab.plugin.settings.folderNoteType !== ".ask") {
+      settingsTab.plugin.settings.folderNoteType = ".md";
+      settingsTab.plugin.saveSettings();
+    }
+    const defaultType = settingsTab.plugin.settings.folderNoteType.startsWith(".") ? settingsTab.plugin.settings.folderNoteType : "." + settingsTab.plugin.settings.folderNoteType;
+    dropdown.setValue(defaultType).onChange(async (value) => {
+      settingsTab.plugin.settings.folderNoteType = value;
+      settingsTab.plugin.saveSettings();
+      settingsTab.display();
+    });
+  });
+  const setting0 = new import_obsidian15.Setting(containerEl);
+  setting0.setName("Supported file types for folder notes");
+  const desc0 = document.createDocumentFragment();
+  desc0.append("Choose the file types that should be supported for folder notes. (e.g. if you click on a folder name it searches for all file extensions that are supported)", desc0.createEl("br"), "Adding more file types may cause performance issues becareful when adding more file types and don't add too many.");
+  setting0.setDesc(desc0);
+  const list = setting0.createList((list2) => {
+    list2.addSettings(settingsTab);
+    list2.setValues(settingsTab.plugin.settings.supportedFileTypes || ["md", "canvas"]);
+    list2.addResetButton();
+  });
+  if (!settingsTab.plugin.settings.supportedFileTypes.includes("md") || !settingsTab.plugin.settings.supportedFileTypes.includes("canvas") || !settingsTab.plugin.settings.supportedFileTypes.includes("excalidraw")) {
+    setting0.addDropdown((dropdown) => {
+      const options = [
+        { value: "md", label: "Markdown" },
+        { value: "canvas", label: "Canvas" },
+        { value: "excalidraw", label: "excalidraw" },
+        { value: "custom", label: "Custom extension" }
+      ];
+      options.forEach((option) => {
+        var _a;
+        if (!((_a = settingsTab.plugin.settings.supportedFileTypes) == null ? void 0 : _a.includes(option.value))) {
+          dropdown.addOption(option.value, option.label);
+        }
+      });
+      dropdown.addOption("+", "+");
+      dropdown.setValue("+");
+      dropdown.onChange(async (value) => {
+        if (value === "custom") {
+          return new AddSupportedFileModal(settingsTab.app, settingsTab.plugin, settingsTab, list).open();
+        }
+        await list.addValue(value.toLowerCase());
+        settingsTab.display();
+        settingsTab.plugin.saveSettings();
+      });
+    });
+  } else {
+    setting0.addButton((button) => button.setButtonText("Add custom file type").setCta().onClick(async () => {
+      new AddSupportedFileModal(settingsTab.app, settingsTab.plugin, settingsTab, list).open();
+    }));
+  }
+  const setting = new import_obsidian15.Setting(containerEl);
+  const desc = document.createDocumentFragment();
+  desc.append("Restart after changing the template path");
+  setting.setName("Template path");
+  setting.setDesc(desc).descEl.style.color = settingsTab.app.vault.getConfig("accentColor") || "#7d5bed";
+  setting.addSearch((cb) => {
+    var _a;
+    new TemplateSuggest(cb.inputEl, settingsTab.plugin);
+    cb.setPlaceholder("Template path");
+    cb.setValue(((_a = settingsTab.plugin.app.vault.getAbstractFileByPath(settingsTab.plugin.settings.templatePath)) == null ? void 0 : _a.name.replace(".md", "")) || "");
+    cb.onChange(async (value) => {
+      if (value.trim() === "") {
+        settingsTab.plugin.settings.templatePath = "";
+        await settingsTab.plugin.saveSettings();
+        settingsTab.display();
+        return;
+      }
+    });
+  });
+  const storageLocation = new import_obsidian15.Setting(containerEl).setName("Storage location").setDesc("Choose where to store the folder notes").addDropdown((dropdown) => dropdown.addOption("insideFolder", "Inside the folder").addOption("parentFolder", "In the parent folder").setValue(settingsTab.plugin.settings.storageLocation).onChange(async (value) => {
+    settingsTab.plugin.settings.storageLocation = value;
+    await settingsTab.plugin.saveSettings();
+    settingsTab.display();
+    settingsTab.plugin.loadFileClasses();
+  }));
+  storageLocation.infoEl.appendText("Requires a restart to take effect");
+  storageLocation.infoEl.style.color = settingsTab.app.vault.getConfig("accentColor") || "#7d5bed";
+  const switchLocation = new import_obsidian15.Setting(containerEl).setName("Switch to new storage location").setDesc("Move all folder notes to the new storage location").addButton((button) => button.setButtonText("Switch").setCta().onClick(async () => {
+    let oldStorageLocation = settingsTab.plugin.settings.storageLocation;
+    if (settingsTab.plugin.settings.storageLocation === "parentFolder") {
+      oldStorageLocation = "insideFolder";
+    } else if (settingsTab.plugin.settings.storageLocation === "insideFolder") {
+      oldStorageLocation = "parentFolder";
+    }
+    settingsTab.switchStorageLocation(oldStorageLocation);
+  }));
+  switchLocation.infoEl.appendText("Requires a restart to take effect");
+  switchLocation.infoEl.style.color = settingsTab.app.vault.getConfig("accentColor") || "#7d5bed";
+  if (settingsTab.plugin.settings.storageLocation === "parentFolder") {
+    new import_obsidian15.Setting(containerEl).setName("Delete folder notes when deleting the folder").setDesc("Delete the folder note when deleting the folder").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.syncDelete).onChange(async (value) => {
+      settingsTab.plugin.settings.syncDelete = value;
+      await settingsTab.plugin.saveSettings();
+    }));
+    new import_obsidian15.Setting(containerEl).setName("Move folder notes when moving the folder").setDesc("Move the folder note when moving the folder").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.syncMove).onChange(async (value) => {
+      settingsTab.plugin.settings.syncMove = value;
+      await settingsTab.plugin.saveSettings();
+    }));
+  }
+  if (import_obsidian15.Platform.isDesktopApp) {
+    new import_obsidian15.Setting(containerEl).setName("Key for creating folder note").setDesc("The key combination to create a folder note").addDropdown((dropdown) => {
+      if (!import_obsidian15.Platform.isMacOS) {
+        dropdown.addOption("ctrl", "Ctrl + Click");
+      } else {
+        dropdown.addOption("ctrl", "Cmd + Click");
+      }
+      dropdown.addOption("alt", "Alt + Click");
+      dropdown.setValue(settingsTab.plugin.settings.ctrlKey ? "ctrl" : "alt");
+      dropdown.onChange(async (value) => {
+        settingsTab.plugin.settings.ctrlKey = value === "ctrl";
+        settingsTab.plugin.settings.altKey = value === "alt";
+        await settingsTab.plugin.saveSettings();
+        settingsTab.display();
+      });
+    });
+  }
+  new import_obsidian15.Setting(containerEl).setName("Sync folder name").setDesc("Automatically rename the folder note when the folder name is changed").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.syncFolderName).onChange(async (value) => {
+    settingsTab.plugin.settings.syncFolderName = value;
+    await settingsTab.plugin.saveSettings();
+    settingsTab.display();
+  }));
+  if (import_obsidian15.Platform.isDesktop) {
+    const setting3 = new import_obsidian15.Setting(containerEl);
+    setting3.setName("Open folder note in a new tab by default");
+    setting3.setDesc("Always open folder notes in a new tab (except when you try to open the same note) instead of having to use ctrl/cmd + click to open in a new tab");
+    setting3.addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.openInNewTab).onChange(async (value) => {
+      settingsTab.plugin.settings.openInNewTab = value;
+      await settingsTab.plugin.saveSettings();
+      settingsTab.display();
+    }));
+    setting3.infoEl.appendText("Requires a restart to take effect");
+    setting3.infoEl.style.color = settingsTab.app.vault.getConfig("accentColor") || "#7d5bed";
+  }
+  new import_obsidian15.Setting(containerEl).setName("Automatically create folder notes").setDesc("Automatically create a folder note when a new folder is created").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.autoCreate).onChange(async (value) => {
+    settingsTab.plugin.settings.autoCreate = value;
+    await settingsTab.plugin.saveSettings();
+    settingsTab.display();
+  }));
+  new import_obsidian15.Setting(containerEl).setName("Enable front matter title plugin integration").setDesc("Automatically rename a folder name when the folder note is renamed").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.frontMatterTitle.enabled).onChange(async (value) => {
+    var _a;
+    settingsTab.plugin.settings.frontMatterTitle.enabled = value;
+    await settingsTab.plugin.saveSettings();
+    if (value) {
+      settingsTab.plugin.fmtpHandler = new FrontMatterTitlePluginHandler(settingsTab.plugin);
+    } else {
+      if (settingsTab.plugin.fmtpHandler) {
+        settingsTab.plugin.updateBreadcrumbs(true);
+      }
+      settingsTab.plugin.app.vault.getFiles().forEach((file) => {
+        var _a2;
+        (_a2 = settingsTab.plugin.fmtpHandler) == null ? void 0 : _a2.handleRename({ id: "", result: false, path: file.path }, false);
+      });
+      (_a = settingsTab.plugin.fmtpHandler) == null ? void 0 : _a.deleteEvent();
+      settingsTab.plugin.fmtpHandler = null;
+    }
+    settingsTab.display();
+  }));
+  new import_obsidian15.Setting(containerEl).setName("Create folder note for every folder").setDesc("Create a folder note for every folder in the vault").addButton((cb) => {
+    cb.setIcon("plus");
+    cb.setTooltip("Create folder notes");
+    cb.onClick(async () => {
+      new ConfirmationModal(settingsTab.app, settingsTab.plugin).open();
+    });
+  });
+}
+
+// src/settings/FileExplorerSettings.ts
+var import_obsidian16 = require("obsidian");
+async function renderFileExplorer(settingsTab) {
+  const containerEl = settingsTab.settingsPage;
+  settingsTab.settingsPage.createEl("h1", { text: "File explorer settings" });
+  new import_obsidian16.Setting(containerEl).setName("Hide folder note").setDesc("Hide the folder note in the file explorer").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.hideFolderNote).onChange(async (value) => {
+    settingsTab.plugin.settings.hideFolderNote = value;
+    await settingsTab.plugin.saveSettings();
+    if (value) {
+      document.body.classList.add("hide-folder-note");
+    } else {
+      document.body.classList.remove("hide-folder-note");
+    }
+    settingsTab.display();
+  }));
+  const setting2 = new import_obsidian16.Setting(containerEl).setName("Don't open folder notes by clicking on the name (on mobile)").setDesc("Folder notes don't open when clicking on the name of the folder (on mobile)").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.disableOpenFolderNoteOnClick).onChange(async (value) => {
+    settingsTab.plugin.settings.disableOpenFolderNoteOnClick = value;
+    await settingsTab.plugin.saveSettings();
+  }));
+  setting2.infoEl.appendText("Requires a restart to take effect");
+  setting2.infoEl.style.color = settingsTab.app.vault.getConfig("accentColor") || "#7d5bed";
+  new import_obsidian16.Setting(containerEl).setName("Only open folder notes through the name").setDesc("Only open folder notes in the file explorer by clicking on the folder name").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.allowWhitespaceCollapsing).onChange(async (value) => {
+    if (!value) {
+      document.body.classList.add("fn-whitespace-stop-collapsing");
+    } else {
+      document.body.classList.remove("fn-whitespace-stop-collapsing");
+    }
+    settingsTab.plugin.settings.allowWhitespaceCollapsing = value;
+    await settingsTab.plugin.saveSettings();
+  }));
+  const disableSetting = new import_obsidian16.Setting(containerEl);
+  disableSetting.setName("Disable folder collapsing");
+  disableSetting.setDesc("Disable the ability to collapse folders by clicking exactly on the folder name");
+  disableSetting.addToggle((toggle) => toggle.setValue(!settingsTab.plugin.settings.enableCollapsing).onChange(async (value) => {
+    settingsTab.plugin.settings.enableCollapsing = !value;
+    await settingsTab.plugin.saveSettings();
+  }));
+  disableSetting.infoEl.appendText("Requires a restart to take effect");
+  disableSetting.infoEl.style.color = settingsTab.app.vault.getConfig("accentColor") || "#7d5bed";
+  new import_obsidian16.Setting(containerEl).setName("Use submenus").setDesc("Use submenus for file/folder commands").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.useSubmenus).onChange(async (value) => {
+    settingsTab.plugin.settings.useSubmenus = value;
+    await settingsTab.plugin.saveSettings();
+    settingsTab.display();
+  }));
+  if (settingsTab.plugin.settings.frontMatterTitle.enabled) {
+    new import_obsidian16.Setting(containerEl).setName("Change folder name in the file explorer").setDesc("Automatically rename a folder name in the file explorer when the folder note is renamed").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.frontMatterTitle.explorer).onChange(async (value) => {
+      settingsTab.plugin.settings.frontMatterTitle.explorer = value;
+      await settingsTab.plugin.saveSettings();
+      settingsTab.plugin.app.vault.getFiles().forEach((file) => {
+        var _a;
+        (_a = settingsTab.plugin.fmtpHandler) == null ? void 0 : _a.handleRename({ id: "", result: false, path: file.path }, false);
+      });
+    }));
+  }
+  settingsTab.settingsPage.createEl("h3", { text: "Style settings" });
+  new import_obsidian16.Setting(containerEl).setName("Underline the name of folder notes").setDesc("Add an underline to folders that have a folder note in the file explorer").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.underlineFolder).onChange(async (value) => {
+    settingsTab.plugin.settings.underlineFolder = value;
+    if (value) {
+      document.body.classList.add("folder-note-underline");
+    } else {
+      document.body.classList.remove("folder-note-underline");
+    }
+    await settingsTab.plugin.saveSettings();
+  }));
+  new import_obsidian16.Setting(containerEl).setName("Bold the name of folder notes").setDesc("Make the folder name bold in the file explorer").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.boldName).onChange(async (value) => {
+    settingsTab.plugin.settings.boldName = value;
+    if (value) {
+      document.body.classList.add("folder-note-bold");
+    } else {
+      document.body.classList.remove("folder-note-bold");
+    }
+    await settingsTab.plugin.saveSettings();
+  }));
+  new import_obsidian16.Setting(containerEl).setName("Cursive the name of folder notes").setDesc("Make the folder name cursive in the file explorer").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.cursiveName).onChange(async (value) => {
+    settingsTab.plugin.settings.cursiveName = value;
+    if (value) {
+      document.body.classList.add("folder-note-cursive");
+    } else {
+      document.body.classList.remove("folder-note-cursive");
+    }
+    await settingsTab.plugin.saveSettings();
+  }));
+}
+
+// src/settings/PathSettings.ts
+var import_obsidian17 = require("obsidian");
+async function renderPath(settingsTab) {
+  settingsTab.settingsPage.createEl("h1", { text: "Path settings" });
+  const containerEl = settingsTab.settingsPage;
+  new import_obsidian17.Setting(containerEl).setName("Open folder note through path").setDesc("Open a folder note when clicking on a folder name in the path if it is a folder note").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.openFolderNoteOnClickInPath).onChange(async (value) => {
+    settingsTab.plugin.settings.openFolderNoteOnClickInPath = value;
+    await settingsTab.plugin.saveSettings();
+    settingsTab.display();
+  }));
+  new import_obsidian17.Setting(containerEl).setName("Change folder name in the path").setDesc("Automatically rename a folder name in the path above a note when the folder note is renamed").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.frontMatterTitle.path).onChange(async (value) => {
+    settingsTab.plugin.settings.frontMatterTitle.path = value;
+    await settingsTab.plugin.saveSettings();
+    if (value) {
+      settingsTab.plugin.updateBreadcrumbs();
+    } else {
+      settingsTab.plugin.updateBreadcrumbs(true);
+    }
+  }));
+  settingsTab.settingsPage.createEl("h3", { text: "Style settings" });
+  if (settingsTab.plugin.settings.openFolderNoteOnClickInPath) {
+    new import_obsidian17.Setting(containerEl).setName("Underline folders in the path").setDesc("Add an underline to folders that have a folder note in the path above a note").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.underlineFolderInPath).onChange(async (value) => {
+      settingsTab.plugin.settings.underlineFolderInPath = value;
+      if (value) {
+        document.body.classList.add("folder-note-underline-path");
+      } else {
+        document.body.classList.remove("folder-note-underline-path");
+      }
+      await settingsTab.plugin.saveSettings();
+    }));
+  }
+  new import_obsidian17.Setting(containerEl).setName("Bold folders in the path").setDesc("Make the folder name bold in the path above a note").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.boldNameInPath).onChange(async (value) => {
+    settingsTab.plugin.settings.boldNameInPath = value;
+    if (value) {
+      document.body.classList.add("folder-note-bold-path");
+    } else {
+      document.body.classList.remove("folder-note-bold-path");
+    }
+    await settingsTab.plugin.saveSettings();
+  }));
+  new import_obsidian17.Setting(containerEl).setName("Cursive the name of folder notes in the path").setDesc("Make the folder name cursive in the path above a note").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.cursiveNameInPath).onChange(async (value) => {
+    settingsTab.plugin.settings.cursiveNameInPath = value;
+    if (value) {
+      document.body.classList.add("folder-note-cursive-path");
+    } else {
+      document.body.classList.remove("folder-note-cursive-path");
+    }
+    await settingsTab.plugin.saveSettings();
+  }));
+}
+
+// src/settings/FolderOverviewSettings.ts
+var import_obsidian20 = require("obsidian");
+
 // src/folderOverview/ModalSettings.ts
-var import_obsidian15 = require("obsidian");
+var import_obsidian19 = require("obsidian");
 
 // src/folderOverview/FolderOverview.ts
-var import_obsidian14 = require("obsidian");
+var import_obsidian18 = require("obsidian");
 var FolderOverview = class {
   constructor(plugin, ctx, source, el) {
     this.pathBlacklist = [];
     this.folders = [];
-    let yaml = (0, import_obsidian14.parseYaml)(source);
+    let yaml = (0, import_obsidian18.parseYaml)(source);
     if (!yaml) {
       yaml = {};
     }
@@ -2917,7 +3300,7 @@ var FolderOverview = class {
       }
     }
     if (!sourceFolder && (sourceFolderPath !== "/" && sourceFolderPath !== "")) {
-      return new import_obsidian14.Notice("Couldn't find the folder");
+      return new import_obsidian18.Notice("Folder overview: Couldn't find the folder");
     }
     if (!sourceFolder && sourceFolderPath == "") {
       sourceFolderPath = "/";
@@ -2949,7 +3332,7 @@ var FolderOverview = class {
       files.forEach(async (file) => {
         const gridItem = grid.createEl("div", { cls: "folder-overview-grid-item" });
         const gridArticle = gridItem.createEl("article", { cls: "folder-overview-grid-item-article" });
-        if (file instanceof import_obsidian14.TFile) {
+        if (file instanceof import_obsidian18.TFile) {
           const fileContent = await plugin.app.vault.read(file);
           const descriptionEl = gridArticle.createEl("p", { cls: "folder-overview-grid-item-description" });
           let description = fileContent.split("\n")[0];
@@ -2961,20 +3344,17 @@ var FolderOverview = class {
           const title = link.createEl("h1", { cls: "folder-overview-grid-item-link-title" });
           title.innerText = file.name.replace(".md", "").replace(".canvas", "");
           link.href = file.path;
-        } else if (file instanceof import_obsidian14.TFolder) {
+        } else if (file instanceof import_obsidian18.TFolder) {
           const folderItem = gridArticle.createEl("div", { cls: "folder-overview-grid-item-folder" });
           const folderName = folderItem.createEl("h1", { cls: "folder-overview-grid-item-folder-name" });
           folderName.innerText = file.name;
         }
       });
     } else if (this.yaml.style === "list") {
-      const folders = files.filter((f) => f instanceof import_obsidian14.TFolder);
-      files = this.sortFiles(files.filter((f) => f instanceof import_obsidian14.TFile));
-      if (this.yaml.sortByAsc) {
-        files = files.reverse();
-      }
+      const folders = this.sortFiles(files.filter((f) => f instanceof import_obsidian18.TFolder));
+      files = this.sortFiles(files.filter((f) => f instanceof import_obsidian18.TFile));
       folders.forEach((file) => {
-        if (file instanceof import_obsidian14.TFolder) {
+        if (file instanceof import_obsidian18.TFolder) {
           const folderItem = this.addFolderList(plugin, ul, this.pathBlacklist, file);
           if (!folderItem) {
             return;
@@ -2983,7 +3363,7 @@ var FolderOverview = class {
         }
       });
       files.forEach((file) => {
-        if (file instanceof import_obsidian14.TFile) {
+        if (file instanceof import_obsidian18.TFile) {
           this.addFileList(plugin, ul, this.pathBlacklist, file, this.yaml.includeTypes, this.yaml.disableFileTag);
         }
       });
@@ -3037,7 +3417,7 @@ var FolderOverview = class {
     newFolderElement.querySelectorAll("div.nav-folder-title ").forEach((el) => {
       var _a;
       const folder2 = plugin.app.vault.getAbstractFileByPath(el.getAttribute("data-path") || "");
-      if (!(folder2 instanceof import_obsidian14.TFolder))
+      if (!(folder2 instanceof import_obsidian18.TFolder))
         return;
       if (this.yaml.storeFolderCondition) {
         if (folder2.collapsed) {
@@ -3059,11 +3439,11 @@ var FolderOverview = class {
         }
       }
     });
-    if (tFolder instanceof import_obsidian14.TFolder) {
+    if (tFolder instanceof import_obsidian18.TFolder) {
       this.addFiles(tFolder.children, root);
     } else if (yaml.folderPath.trim() === "/") {
       const rootFiles = [];
-      plugin.app.vault.getAllLoadedFiles().filter((f) => f instanceof import_obsidian14.TFolder).forEach((file) => {
+      plugin.app.vault.getAllLoadedFiles().filter((f) => f instanceof import_obsidian18.TFolder).forEach((file) => {
         if (!file.path.includes("/")) {
           rootFiles.push(file);
         }
@@ -3084,10 +3464,10 @@ var FolderOverview = class {
     });
   }
   async addFiles(files, childrenElement) {
-    const folders = this.sortFiles(files.filter((file) => file instanceof import_obsidian14.TFolder));
-    const filesWithoutFolders = this.sortFiles(files.filter((file) => !(file instanceof import_obsidian14.TFolder)));
+    const folders = this.sortFiles(files.filter((file) => file instanceof import_obsidian18.TFolder));
+    const filesWithoutFolders = this.sortFiles(files.filter((file) => !(file instanceof import_obsidian18.TFolder)));
     for (const child of folders) {
-      if (child instanceof import_obsidian14.TFolder) {
+      if (child instanceof import_obsidian18.TFolder) {
         const folderNote = getFolderNote(this.plugin, child.path);
         if (folderNote) {
           this.pathBlacklist.push(folderNote.path);
@@ -3134,13 +3514,31 @@ var FolderOverview = class {
       }
     }
     for (const child of filesWithoutFolders) {
-      if (child instanceof import_obsidian14.TFile) {
+      if (child instanceof import_obsidian18.TFile) {
         if (this.pathBlacklist.includes(child.path) && !this.yaml.showFolderNotes) {
           continue;
         }
         const extension = child.extension.toLowerCase() == "md" ? "markdown" : child.extension.toLowerCase();
-        if (!this.yaml.includeTypes.includes(extension)) {
-          continue;
+        const includeTypes = this.yaml.includeTypes;
+        if (includeTypes.length > 0 && !includeTypes.includes("all")) {
+          if ((extension === "md" || extension === "markdown") && !includeTypes.includes("markdown"))
+            continue;
+          if (extension === "canvas" && !includeTypes.includes("canvas"))
+            continue;
+          if (extension === "pdf" && !includeTypes.includes("pdf"))
+            continue;
+          const imageTypes = ["jpg", "jpeg", "png", "gif", "svg", "webp"];
+          if (imageTypes.includes(extension) && !includeTypes.includes("image"))
+            continue;
+          const videoTypes = ["mp4", "webm", "ogv", "mov", "mkv"];
+          if (videoTypes.includes(extension) && !includeTypes.includes("video"))
+            continue;
+          const audioTypes = ["mp3", "wav", "m4a", "3gp", "flac", "ogg", "oga", "opus"];
+          if (audioTypes.includes(extension) && includeTypes.includes("audio"))
+            continue;
+          const allTypes = ["markdown", "md", "canvas", "pdf", ...imageTypes, ...videoTypes, ...audioTypes];
+          if (!allTypes.includes(extension) && !includeTypes.includes("other"))
+            continue;
         }
         const fileElement = childrenElement.createDiv({
           cls: "tree-item nav-file"
@@ -3172,12 +3570,12 @@ var FolderOverview = class {
     var _a, _b, _c, _d;
     el.classList.toggle("is-collapsed");
     if (el.classList.contains("is-collapsed")) {
-      if (!(folder instanceof import_obsidian14.TFolder))
+      if (!(folder instanceof import_obsidian18.TFolder))
         return;
       folder.collapsed = true;
       (_c = (_b = (_a = el.parentElement) == null ? void 0 : _a.parentElement) == null ? void 0 : _b.childNodes[1]) == null ? void 0 : _c.remove();
     } else {
-      if (!(folder instanceof import_obsidian14.TFolder))
+      if (!(folder instanceof import_obsidian18.TFolder))
         return;
       folder.collapsed = false;
       const folderElement = (_d = el.parentElement) == null ? void 0 : _d.parentElement;
@@ -3194,14 +3592,14 @@ var FolderOverview = class {
       depth--;
     }
     let files = this.filterFiles(folder.children, plugin, sourceFolderPath, depth, pathBlacklist);
-    files = this.sortFiles(files.filter((file) => !(file instanceof import_obsidian14.TFolder)));
+    files = this.sortFiles(files.filter((file) => !(file instanceof import_obsidian18.TFolder)));
     if (this.yaml.sortByAsc) {
       files = files.reverse();
     }
-    const folders = this.sortFiles(files.filter((file) => file instanceof import_obsidian14.TFolder));
+    const folders = this.sortFiles(files.filter((file) => file instanceof import_obsidian18.TFolder));
     const ul = list.createEl("ul", { cls: "folder-overview-list" });
     folders.forEach((file) => {
-      if (file instanceof import_obsidian14.TFolder) {
+      if (file instanceof import_obsidian18.TFolder) {
         const folderItem = this.addFolderList(plugin, ul, pathBlacklist, file);
         if (!folderItem)
           return;
@@ -3209,7 +3607,7 @@ var FolderOverview = class {
       }
     });
     files.forEach((file) => {
-      if (file instanceof import_obsidian14.TFile) {
+      if (file instanceof import_obsidian18.TFile) {
         this.addFileList(plugin, ul, pathBlacklist, file, includeTypes, disableFileTag);
       }
     });
@@ -3239,22 +3637,23 @@ var FolderOverview = class {
     const yaml = this.yaml;
     if (!(yaml == null ? void 0 : yaml.sortBy)) {
       yaml.sortBy = this.plugin.settings.defaultOverview.sortBy || "name";
+      yaml.sortByAsc = this.plugin.settings.defaultOverview.sortByAsc || false;
     }
-    return files.sort((a, b) => {
-      if (a instanceof import_obsidian14.TFolder && !(b instanceof import_obsidian14.TFolder)) {
+    files.sort((a, b) => {
+      if (a instanceof import_obsidian18.TFolder && !(b instanceof import_obsidian18.TFolder)) {
         return -1;
       }
-      if (!(a instanceof import_obsidian14.TFolder) && b instanceof import_obsidian14.TFolder) {
+      if (!(a instanceof import_obsidian18.TFolder) && b instanceof import_obsidian18.TFolder) {
         return 1;
       }
-      if (a instanceof import_obsidian14.TFolder && b instanceof import_obsidian14.TFolder) {
+      if (a instanceof import_obsidian18.TFolder && b instanceof import_obsidian18.TFolder) {
         if (a.name.localeCompare(b.name) < 0) {
           return -1;
         } else if (a.name.localeCompare(b.name) > 0) {
           return 1;
         }
       }
-      if (!(a instanceof import_obsidian14.TFile) || !(b instanceof import_obsidian14.TFile)) {
+      if (!(a instanceof import_obsidian18.TFile) || !(b instanceof import_obsidian18.TFile)) {
         return -1;
       }
       if (yaml.sortBy === "created") {
@@ -3270,14 +3669,18 @@ var FolderOverview = class {
           return 1;
         }
       } else if (yaml.sortBy === "name") {
-        if (a.name.localeCompare(b.name) > 0) {
+        if (a.basename.localeCompare(b.basename) < 0) {
           return -1;
-        } else if (a.name.localeCompare(b.name) < 0) {
+        } else if (a.basename.localeCompare(b.basename) > 0) {
           return 1;
         }
       }
       return 0;
     });
+    if (!(yaml == null ? void 0 : yaml.sortByAsc)) {
+      files = files.reverse();
+    }
+    return files;
   }
   removeEmptyFolders(ul, depth, yaml) {
     const childrensToRemove = [];
@@ -3306,7 +3709,7 @@ var FolderOverview = class {
   addFolderList(plugin, list, pathBlacklist, folder) {
     const folderItem = list.createEl("li", { cls: "folder-overview-list folder-list" });
     const folderNote = getFolderNote(plugin, folder.path);
-    if (folderNote instanceof import_obsidian14.TFile) {
+    if (folderNote instanceof import_obsidian18.TFile) {
       const folderNoteLink = folderItem.createEl("a", { cls: "folder-overview-list-item folder-name-item internal-link", href: folderNote.path });
       folderNoteLink.innerText = folder.name;
       pathBlacklist.push(folderNote.path);
@@ -3352,7 +3755,7 @@ var FolderOverview = class {
   getAllFiles(files, sourceFolderPath, depth) {
     const allFiles = [];
     files.forEach((file) => {
-      if (file instanceof import_obsidian14.TFolder) {
+      if (file instanceof import_obsidian18.TFolder) {
         if (file.path.split("/").length - sourceFolderPath.split("/").length - 1 < depth - 1) {
           allFiles.push(...this.getAllFiles(file.children, sourceFolderPath, depth));
         }
@@ -3365,9 +3768,9 @@ var FolderOverview = class {
 };
 async function updateYaml(plugin, ctx, el, yaml) {
   const file = plugin.app.vault.getAbstractFileByPath(ctx.sourcePath);
-  if (!(file instanceof import_obsidian14.TFile))
+  if (!(file instanceof import_obsidian18.TFile))
     return;
-  let stringYaml = (0, import_obsidian14.stringifyYaml)(yaml);
+  let stringYaml = (0, import_obsidian18.stringifyYaml)(yaml);
   await plugin.app.vault.process(file, (text) => {
     const info = ctx.getSectionInfo(el);
     if (stringYaml[stringYaml.length - 1] !== "\n") {
@@ -3405,7 +3808,7 @@ function getCodeBlockEndLine(text, startLine, count = 1) {
 }
 
 // src/folderOverview/ModalSettings.ts
-var FolderOverviewSettings = class extends import_obsidian15.Modal {
+var FolderOverviewSettings = class extends import_obsidian19.Modal {
   constructor(app2, plugin, yaml, ctx, el, defaultSettings) {
     super(app2);
     this.plugin = plugin;
@@ -3440,6 +3843,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
     if (defaultSettings) {
       this.yaml = this.plugin.settings.defaultOverview;
       this.defaultSettings = true;
+      return;
     }
     updateYaml(this.plugin, this.ctx, this.el, this.yaml);
   }
@@ -3460,7 +3864,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
     } else {
       contentEl.createEl("h2", { text: "Default folder overview settings" });
     }
-    new import_obsidian15.Setting(contentEl).setName("Show the title").setDesc("Choose if the title should be shown").addToggle((toggle) => toggle.setValue(this.yaml.showTitle).onChange(async (value) => {
+    new import_obsidian19.Setting(contentEl).setName("Show the title").setDesc("Choose if the title should be shown").addToggle((toggle) => toggle.setValue(this.yaml.showTitle).onChange(async (value) => {
       this.yaml.showTitle = value;
       this.display();
       if (this.defaultSettings) {
@@ -3470,7 +3874,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
       ;
     }));
     if (this.yaml.showTitle) {
-      new import_obsidian15.Setting(contentEl).setName("Title").setDesc("Choose the title of the folder overview").addText((text) => {
+      new import_obsidian19.Setting(contentEl).setName("Title").setDesc("Choose the title of the folder overview").addText((text) => {
         var _a2;
         return text.setValue(((_a2 = this.yaml) == null ? void 0 : _a2.title) || "{{folderName}} overview").onChange(async (value) => {
           this.yaml.title = value;
@@ -3482,11 +3886,11 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
         });
       });
     }
-    new import_obsidian15.Setting(contentEl).setName("Folder path for the overview").setDesc("Choose the folder path for the overview").addSearch((search) => {
+    new import_obsidian19.Setting(contentEl).setName("Folder path for the overview").setDesc("Choose the folder path for the overview").addSearch((search) => {
       var _a2;
       new FolderSuggest(search.inputEl, this.plugin);
       search.setPlaceholder("Folder path").setValue(((_a2 = this.yaml) == null ? void 0 : _a2.folderPath) || "").onChange(async (value) => {
-        if (!(this.app.vault.getAbstractFileByPath(value) instanceof import_obsidian15.TFolder) && value !== "")
+        if (!(this.app.vault.getAbstractFileByPath(value) instanceof import_obsidian19.TFolder) && value !== "")
           return;
         this.yaml.folderPath = value;
         if (this.defaultSettings) {
@@ -3496,7 +3900,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
         ;
       });
     });
-    new import_obsidian15.Setting(contentEl).setName("Overview style").setDesc("Choose the style of the overview (grid style soon)").addDropdown((dropdown) => {
+    new import_obsidian19.Setting(contentEl).setName("Overview style").setDesc("Choose the style of the overview (grid style soon)").addDropdown((dropdown) => {
       var _a2;
       return dropdown.addOption("list", "List").addOption("explorer", "Explorer").setValue(((_a2 = this.yaml) == null ? void 0 : _a2.style) || "list").onChange(async (value) => {
         this.yaml.style = value;
@@ -3508,7 +3912,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
       });
     });
     if (this.yaml.style === "explorer") {
-      new import_obsidian15.Setting(contentEl).setName("Store collapsed condition").setDesc("Choose if the collapsed condition should be stored stored until you restart Obsidian").addToggle((toggle) => toggle.setValue(this.yaml.storeFolderCondition).onChange(async (value) => {
+      new import_obsidian19.Setting(contentEl).setName("Store collapsed condition").setDesc("Choose if the collapsed condition should be stored stored until you restart Obsidian").addToggle((toggle) => toggle.setValue(this.yaml.storeFolderCondition).onChange(async (value) => {
         this.yaml.storeFolderCondition = value;
         if (this.defaultSettings) {
           return this.plugin.saveSettings();
@@ -3517,7 +3921,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
         ;
       }));
     }
-    const setting = new import_obsidian15.Setting(contentEl);
+    const setting = new import_obsidian19.Setting(contentEl);
     setting.setName("Include types");
     const list = setting.createList((list2) => {
       var _a2;
@@ -3567,7 +3971,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
       type === "folder" || type === "markdown" ? disableFileTag = true : null;
     });
     if (disableFileTag) {
-      new import_obsidian15.Setting(contentEl).setName("Disable file tag").setDesc("Choose if the file tag should be shown after the file name").addToggle((toggle) => {
+      new import_obsidian19.Setting(contentEl).setName("Disable file tag").setDesc("Choose if the file tag should be shown after the file name").addToggle((toggle) => {
         toggle.setValue(this.yaml.disableFileTag).onChange(async (value) => {
           this.yaml.disableFileTag = value;
           if (this.defaultSettings) {
@@ -3577,7 +3981,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
         });
       });
     }
-    new import_obsidian15.Setting(contentEl).setName("Show folder notes").setDesc("Choose if folder notes (the note itself and not the folder name) should be shown in the overview").addToggle((toggle) => toggle.setValue(this.yaml.showFolderNotes).onChange(async (value) => {
+    new import_obsidian19.Setting(contentEl).setName("Show folder notes").setDesc("Choose if folder notes (the note itself and not the folder name) should be shown in the overview").addToggle((toggle) => toggle.setValue(this.yaml.showFolderNotes).onChange(async (value) => {
       this.yaml.showFolderNotes = value;
       if (this.defaultSettings) {
         return this.plugin.saveSettings();
@@ -3585,7 +3989,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
       await updateYaml(this.plugin, this.ctx, this.el, this.yaml);
     }));
     if (this.yaml.style !== "explorer") {
-      new import_obsidian15.Setting(contentEl).setName("File depth").setDesc("File & folder = +1 depth").addSlider((slider) => {
+      new import_obsidian19.Setting(contentEl).setName("File depth").setDesc("File & folder = +1 depth").addSlider((slider) => {
         var _a2;
         return slider.setValue(((_a2 = this.yaml) == null ? void 0 : _a2.depth) || 2).setLimits(1, 10, 1).onChange(async (value) => {
           this.yaml.depth = value;
@@ -3596,7 +4000,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
         });
       });
     }
-    new import_obsidian15.Setting(contentEl).setName("Sort files by").setDesc("Choose how the files should be sorted").addDropdown((dropdown) => {
+    new import_obsidian19.Setting(contentEl).setName("Sort files by").setDesc("Choose how the files should be sorted").addDropdown((dropdown) => {
       var _a2;
       return dropdown.addOption("name", "Name").addOption("created", "Created").addOption("modified", "Modified").setValue(((_a2 = this.yaml) == null ? void 0 : _a2.sortBy) || "name").onChange(async (value) => {
         this.yaml.sortBy = value;
@@ -3625,7 +4029,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
       });
     });
     if (this.yaml.style === "list") {
-      new import_obsidian15.Setting(contentEl).setName("Show folder names of folders that appear empty in the folder overview").setDesc("Show the names of folders that appear to have no files/folders in the folder overview. That's mostly the case when you set the file depth to 1.").addToggle((toggle) => {
+      new import_obsidian19.Setting(contentEl).setName("Show folder names of folders that appear empty in the folder overview").setDesc("Show the names of folders that appear to have no files/folders in the folder overview. That's mostly the case when you set the file depth to 1.").addToggle((toggle) => {
         toggle.setValue(this.yaml.showEmptyFolders).onChange(async (value) => {
           this.yaml.showEmptyFolders = value;
           this.yaml.onlyIncludeSubfolders = false;
@@ -3637,7 +4041,7 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
         });
       });
       if (this.yaml.showEmptyFolders) {
-        new import_obsidian15.Setting(contentEl).setName("Only show first empty subfolders of current folder").addToggle((toggle) => {
+        new import_obsidian19.Setting(contentEl).setName("Only show first empty subfolders of current folder").addToggle((toggle) => {
           toggle.setValue(this.yaml.onlyIncludeSubfolders).onChange(async (value) => {
             this.yaml.onlyIncludeSubfolders = value;
             if (this.defaultSettings) {
@@ -3655,51 +4059,50 @@ var FolderOverviewSettings = class extends import_obsidian15.Modal {
   }
 };
 
-// src/modals/AddSupportedFileType.ts
-var import_obsidian16 = require("obsidian");
-var AddSupportedFileModal = class extends import_obsidian16.Modal {
-  constructor(app2, plugin, settingsTab, list) {
-    super(app2);
-    this.plugin = plugin;
-    this.app = app2;
-    this.name = "";
-    this.list = list;
-    this.settingsTab = settingsTab;
-  }
-  onOpen() {
-    const { contentEl } = this;
-    contentEl.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        this.close();
-      }
-    });
-    contentEl.createEl("h2", { text: "Extension name" });
-    new import_obsidian16.Setting(contentEl).setName('Enter the name of the extension (only the short form, e.g. "md")').addText((text) => text.setValue("").onChange(async (value) => {
-      if (value.trim() !== "") {
-        this.name = value.trim();
-      }
-    }));
-  }
-  async onClose() {
-    if (this.name.toLocaleLowerCase() === "markdown") {
-      this.name = "md";
-    }
-    const { contentEl } = this;
-    if (this.name === "") {
-      contentEl.empty();
-      this.settingsTab.display();
-    } else if (this.plugin.settings.supportedFileTypes.includes(this.name.toLowerCase())) {
-      return new import_obsidian16.Notice("This extension is already supported");
-    } else {
-      await this.list.addValue(this.name.toLowerCase());
-      this.settingsTab.display();
-      this.plugin.saveSettings();
-      contentEl.empty();
-    }
-  }
-};
+// src/settings/FolderOverviewSettings.ts
+async function renderFolderOverview(settingsTab) {
+  settingsTab.settingsPage.createEl("h1", { text: "Folder overview settings" });
+  const containerEl = settingsTab.settingsPage;
+  new import_obsidian20.Setting(containerEl).setName("Manage folder overview defaults").setDesc("Manage the default settings for the folder overview plugin").addButton((button) => button.setButtonText("Manage").setCta().onClick(async () => {
+    new FolderOverviewSettings(settingsTab.plugin.app, settingsTab.plugin, settingsTab.plugin.settings.defaultOverview, null, null, true).open();
+  }));
+}
 
-// src/Settings.ts
+// src/settings/ExcludedFoldersSettings.ts
+var import_obsidian21 = require("obsidian");
+async function renderExcludeFolders(settingsTab) {
+  settingsTab.settingsPage.createEl("h1", { text: "Exclude folders settings" });
+  const containerEl = settingsTab.settingsPage;
+  const manageExcluded = new import_obsidian21.Setting(containerEl).setHeading().setClass("fn-excluded-folder-heading").setName("Manage excluded folders");
+  const desc3 = document.createDocumentFragment();
+  desc3.append("Add {regex} at the beginning of the folder name to use a regex pattern.", desc3.createEl("br"), "Use * before and after to exclude folders that include the name between the *s.", desc3.createEl("br"), "Use * before the folder name to exclude folders that end with the folder name.", desc3.createEl("br"), "Use * after the folder name to exclude folders that start with the folder name.");
+  manageExcluded.setDesc(desc3);
+  manageExcluded.infoEl.appendText("The regexes and wildcards are only for the folder name, not the path.");
+  manageExcluded.infoEl.createEl("br");
+  manageExcluded.infoEl.appendText("If you want to switch to a folder path delete the pattern first.");
+  manageExcluded.infoEl.style.color = settingsTab.app.vault.getConfig("accentColor") || "#7d5bed";
+  new import_obsidian21.Setting(containerEl).setName("Add excluded folder").setClass("add-exclude-folder-item").addButton((cb) => {
+    cb.setIcon("plus");
+    cb.setClass("add-exclude-folder");
+    cb.setTooltip("Add excluded folder");
+    cb.onClick(() => {
+      const excludedFolder = new ExcludedFolder("", settingsTab.plugin.settings.excludeFolders.length);
+      addExcludeFolderListItem(settingsTab, containerEl, excludedFolder);
+      addExcludedFolder(settingsTab.plugin, excludedFolder);
+      settingsTab.display();
+    });
+  });
+  settingsTab.plugin.settings.excludeFolders.sort((a, b) => a.position - b.position).forEach((excludedFolder) => {
+    var _a, _b;
+    if (((_a = excludedFolder.string) == null ? void 0 : _a.trim()) !== "" && ((_b = excludedFolder.path) == null ? void 0 : _b.trim()) === "") {
+      addExcludePatternListItem(settingsTab, containerEl, excludedFolder);
+    } else {
+      addExcludeFolderListItem(settingsTab, containerEl, excludedFolder);
+    }
+  });
+}
+
+// src/settings/SettingsTab.ts
 var DEFAULT_SETTINGS = {
   syncFolderName: true,
   ctrlKey: true,
@@ -3746,9 +4149,14 @@ var DEFAULT_SETTINGS = {
     path: true
   },
   settingsTab: "general",
-  supportedFileTypes: ["md", "canvas"]
+  supportedFileTypes: ["md", "canvas"],
+  boldName: false,
+  boldNameInPath: false,
+  cursiveName: false,
+  cursiveNameInPath: false,
+  disableOpenFolderNoteOnClick: false
 };
-var SettingsTab = class extends import_obsidian17.PluginSettingTab {
+var SettingsTab = class extends import_obsidian22.PluginSettingTab {
   constructor(app2, plugin) {
     super(app2, plugin);
     this.TABS = {
@@ -3778,19 +4186,19 @@ var SettingsTab = class extends import_obsidian17.PluginSettingTab {
     this.settingsPage.empty();
     switch (tabId.toLocaleLowerCase()) {
       case this.TABS.GENERAL.id:
-        this.renderGeneral();
+        renderGeneral(this);
         break;
       case this.TABS.FOLDER_OVERVIEW.id:
-        this.renderFolderOverview();
+        renderFolderOverview(this);
         break;
       case this.TABS.EXCLUDE_FOLDERS.id:
-        this.renderExcludeFolders();
+        renderExcludeFolders(this);
         break;
       case this.TABS.FILE_EXPLORER.id:
-        this.renderFileExplorer();
+        renderFileExplorer(this);
         break;
       case this.TABS.PATH.id:
-        this.renderPath();
+        renderPath(this);
         break;
     }
   }
@@ -3817,354 +4225,32 @@ var SettingsTab = class extends import_obsidian17.PluginSettingTab {
     this.settingsPage = containerEl.createDiv({ cls: "fn-settings-page" });
     this.renderSettingsPage(this.plugin.settings.settingsTab);
   }
-  renderGeneral() {
-    this.settingsPage.createEl("h1", { text: "General settings" });
-    const containerEl = this.settingsPage;
-    const nameSetting = new import_obsidian17.Setting(containerEl).setName("Folder note name").setDesc("{{folder_name}} will be replaced with the name of the folder").addText((text) => text.setValue(this.plugin.settings.newFolderNoteName).onChange(async (value) => {
-      if (value.trim() === "") {
-        return;
-      }
-      this.plugin.settings.newFolderNoteName = value;
-      await this.plugin.saveSettings();
-    })).addButton((button) => button.setButtonText("Rename existing folder notes").setCta().onClick(async () => {
-      this.updateFolderNotes(this.plugin.settings.folderNoteName, this.plugin.settings.newFolderNoteName);
-    }));
-    nameSetting.infoEl.appendText("Make sure to back up your vault before renaming all folder notes and restart Obsidian after renaming them");
-    nameSetting.infoEl.style.color = this.app.vault.getConfig("accentColor") || "#7d5bed";
-    new import_obsidian17.Setting(containerEl).setName("Default folder note type for new folder notes").setDesc("Choose the default file type for new folder notes. (canvas, markdown, ...)").addDropdown((dropdown) => {
-      dropdown.addOption(".ask", "ask for file type");
-      this.plugin.settings.supportedFileTypes.forEach((type) => {
-        if (type === ".md" || type === "md") {
-          dropdown.addOption(".md", "markdown");
-        } else {
-          dropdown.addOption("." + type, type);
+  updateFolderNotes(newTemplate) {
+    new import_obsidian22.Notice("Starting to update folder notes...");
+    for (const folder of this.app.vault.getAllLoadedFiles()) {
+      if (folder instanceof import_obsidian22.TFolder) {
+        const folderNote = getFolderNote(this.plugin, folder.path);
+        if (!(folderNote instanceof import_obsidian22.TFile)) {
+          continue;
         }
-      });
-      if (!this.plugin.settings.supportedFileTypes.includes(this.plugin.settings.folderNoteType.replace(".", "")) && this.plugin.settings.folderNoteType !== ".ask") {
-        this.plugin.settings.folderNoteType = ".md";
-        this.plugin.saveSettings();
-      }
-      const defaultType = this.plugin.settings.folderNoteType.startsWith(".") ? this.plugin.settings.folderNoteType : "." + this.plugin.settings.folderNoteType;
-      dropdown.setValue(defaultType).onChange(async (value) => {
-        this.plugin.settings.folderNoteType = value;
-        this.plugin.saveSettings();
-        this.display();
-      });
-    });
-    const setting0 = new import_obsidian17.Setting(containerEl);
-    setting0.setName("Supported file types for folder notes");
-    const desc0 = document.createDocumentFragment();
-    desc0.append("Choose the file types that should be supported for folder notes. (e.g. if you click on a folder name it searches for all file extensions that are supported)", desc0.createEl("br"), "Adding more file types may cause performance issues becareful when adding more file types and don't add too many.");
-    setting0.setDesc(desc0);
-    const list = setting0.createList((list2) => {
-      list2.addSettings(this);
-      list2.setValues(this.plugin.settings.supportedFileTypes || ["md", "canvas"]);
-      list2.addResetButton();
-    });
-    if (!this.plugin.settings.supportedFileTypes.includes("md") || !this.plugin.settings.supportedFileTypes.includes("canvas") || !this.plugin.settings.supportedFileTypes.includes("excalidraw")) {
-      setting0.addDropdown((dropdown) => {
-        const options = [
-          { value: "md", label: "Markdown" },
-          { value: "canvas", label: "Canvas" },
-          { value: "excalidraw", label: "excalidraw" },
-          { value: "custom", label: "Custom extension" }
-        ];
-        options.forEach((option) => {
-          var _a;
-          if (!((_a = this.plugin.settings.supportedFileTypes) == null ? void 0 : _a.includes(option.value))) {
-            dropdown.addOption(option.value, option.label);
-          }
-        });
-        dropdown.addOption("+", "+");
-        dropdown.setValue("+");
-        dropdown.onChange(async (value) => {
-          if (value === "custom") {
-            return new AddSupportedFileModal(this.app, this.plugin, this, list).open();
-          }
-          await list.addValue(value.toLowerCase());
-          this.display();
-          this.plugin.saveSettings();
-        });
-      });
-    } else {
-      setting0.addButton((button) => button.setButtonText("Add custom file type").setCta().onClick(async () => {
-        new AddSupportedFileModal(this.app, this.plugin, this, list).open();
-      }));
-    }
-    const setting = new import_obsidian17.Setting(containerEl);
-    const desc = document.createDocumentFragment();
-    desc.append("Restart after changing the template path");
-    setting.setName("Template path");
-    setting.setDesc(desc).descEl.style.color = this.app.vault.getConfig("accentColor") || "#7d5bed";
-    setting.addSearch((cb) => {
-      var _a;
-      new TemplateSuggest(cb.inputEl, this.plugin);
-      cb.setPlaceholder("Template path");
-      cb.setValue(((_a = this.plugin.app.vault.getAbstractFileByPath(this.plugin.settings.templatePath)) == null ? void 0 : _a.name.replace(".md", "")) || "");
-      cb.onChange(async (value) => {
-        if (value.trim() === "") {
-          this.plugin.settings.templatePath = "";
-          await this.plugin.saveSettings();
-          this.display();
-          return;
+        const folderNoteName = newTemplate.replace("{{folder_name}}", folder.name);
+        const newPath = `${folder.path}/${folderNoteName}.${folderNote.extension}`;
+        if (this.plugin.app.vault.getAbstractFileByPath(newPath)) {
+          continue;
         }
-      });
-    });
-    const storageLocation = new import_obsidian17.Setting(containerEl).setName("Storage location").setDesc("Choose where to store the folder notes").addDropdown((dropdown) => dropdown.addOption("insideFolder", "Inside the folder").addOption("parentFolder", "In the parent folder").setValue(this.plugin.settings.storageLocation).onChange(async (value) => {
-      this.plugin.settings.storageLocation = value;
-      await this.plugin.saveSettings();
-      this.display();
-      this.plugin.loadFileClasses();
-    }));
-    storageLocation.infoEl.appendText("Requires a restart to take effect");
-    storageLocation.infoEl.style.color = this.app.vault.getConfig("accentColor") || "#7d5bed";
-    const switchLocation = new import_obsidian17.Setting(containerEl).setName("Switch to new storage location").setDesc("Move all folder notes to the new storage location").addButton((button) => button.setButtonText("Switch").setCta().onClick(async () => {
-      let oldStorageLocation = this.plugin.settings.storageLocation;
-      if (this.plugin.settings.storageLocation === "parentFolder") {
-        oldStorageLocation = "insideFolder";
-      } else if (this.plugin.settings.storageLocation === "insideFolder") {
-        oldStorageLocation = "parentFolder";
+        this.plugin.app.fileManager.renameFile(folderNote, newPath);
       }
-      this.switchStorageLocation(oldStorageLocation);
-    }));
-    switchLocation.infoEl.appendText("Requires a restart to take effect");
-    switchLocation.infoEl.style.color = this.app.vault.getConfig("accentColor") || "#7d5bed";
-    if (this.plugin.settings.storageLocation === "parentFolder") {
-      new import_obsidian17.Setting(containerEl).setName("Delete folder notes when deleting the folder").setDesc("Delete the folder note when deleting the folder").addToggle((toggle) => toggle.setValue(this.plugin.settings.syncDelete).onChange(async (value) => {
-        this.plugin.settings.syncDelete = value;
-        await this.plugin.saveSettings();
-      }));
-      new import_obsidian17.Setting(containerEl).setName("Move folder notes when moving the folder").setDesc("Move the folder note when moving the folder").addToggle((toggle) => toggle.setValue(this.plugin.settings.syncMove).onChange(async (value) => {
-        this.plugin.settings.syncMove = value;
-        await this.plugin.saveSettings();
-      }));
     }
-    if (import_obsidian17.Platform.isDesktopApp) {
-      new import_obsidian17.Setting(containerEl).setName("Key for creating folder note").setDesc("The key combination to create a folder note").addDropdown((dropdown) => {
-        if (!import_obsidian17.Platform.isMacOS) {
-          dropdown.addOption("ctrl", "Ctrl + Click");
-        } else {
-          dropdown.addOption("ctrl", "Cmd + Click");
-        }
-        dropdown.addOption("alt", "Alt + Click");
-        dropdown.setValue(this.plugin.settings.ctrlKey ? "ctrl" : "alt");
-        dropdown.onChange(async (value) => {
-          this.plugin.settings.ctrlKey = value === "ctrl";
-          this.plugin.settings.altKey = value === "alt";
-          await this.plugin.saveSettings();
-          this.display();
-        });
-      });
-    }
-    new import_obsidian17.Setting(containerEl).setName("Sync folder name").setDesc("Automatically rename the folder note when the folder name is changed").addToggle((toggle) => toggle.setValue(this.plugin.settings.syncFolderName).onChange(async (value) => {
-      this.plugin.settings.syncFolderName = value;
-      await this.plugin.saveSettings();
-      this.display();
-    }));
-    if (import_obsidian17.Platform.isDesktop) {
-      const setting3 = new import_obsidian17.Setting(containerEl);
-      setting3.setName("Open folder note in a new tab by default");
-      setting3.setDesc("Always open folder notes in a new tab (except when you try to open the same note) instead of having to use ctrl/cmd + click to open in a new tab");
-      setting3.addToggle((toggle) => toggle.setValue(this.plugin.settings.openInNewTab).onChange(async (value) => {
-        this.plugin.settings.openInNewTab = value;
-        await this.plugin.saveSettings();
-        this.display();
-      }));
-      setting3.infoEl.appendText("Requires a restart to take effect");
-      setting3.infoEl.style.color = this.app.vault.getConfig("accentColor") || "#7d5bed";
-    }
-    new import_obsidian17.Setting(containerEl).setName("Automatically create folder notes").setDesc("Automatically create a folder note when a new folder is created").addToggle((toggle) => toggle.setValue(this.plugin.settings.autoCreate).onChange(async (value) => {
-      this.plugin.settings.autoCreate = value;
-      await this.plugin.saveSettings();
-      this.display();
-    }));
-    new import_obsidian17.Setting(containerEl).setName("Enable front matter title plugin integration").setDesc("Automatically rename a folder name when the folder note is renamed").addToggle((toggle) => toggle.setValue(this.plugin.settings.frontMatterTitle.enabled).onChange(async (value) => {
-      var _a;
-      this.plugin.settings.frontMatterTitle.enabled = value;
-      await this.plugin.saveSettings();
-      if (value) {
-        this.plugin.fmtpHandler = new FrontMatterTitlePluginHandler(this.plugin);
-      } else {
-        if (this.plugin.fmtpHandler) {
-          this.plugin.updateBreadcrumbs(true);
-        }
-        this.plugin.app.vault.getFiles().forEach((file) => {
-          var _a2;
-          (_a2 = this.plugin.fmtpHandler) == null ? void 0 : _a2.handleRename({ id: "", result: false, path: file.path }, false);
-        });
-        (_a = this.plugin.fmtpHandler) == null ? void 0 : _a.deleteEvent();
-        this.plugin.fmtpHandler = null;
-      }
-      this.display();
-    }));
-    new import_obsidian17.Setting(containerEl).setName("Create folder note for every folder").setDesc("Create a folder note for every folder in the vault").addButton((cb) => {
-      cb.setIcon("plus");
-      cb.setTooltip("Create folder notes");
-      cb.onClick(async () => {
-        new ConfirmationModal(this.app, this.plugin).open();
-      });
-    });
-  }
-  renderFileExplorer() {
-    const containerEl = this.settingsPage;
-    this.settingsPage.createEl("h1", { text: "File explorer settings" });
-    new import_obsidian17.Setting(containerEl).setName("Add underline to folders with folder notes").setDesc("Add an underline to folders that have a folder note in the file explorer").addToggle((toggle) => toggle.setValue(this.plugin.settings.underlineFolder).onChange(async (value) => {
-      this.plugin.settings.underlineFolder = value;
-      if (value) {
-        document.body.classList.add("folder-note-underline");
-      } else {
-        document.body.classList.remove("folder-note-underline");
-      }
-      await this.plugin.saveSettings();
-    }));
-    new import_obsidian17.Setting(containerEl).setName("Hide folder note").setDesc("Hide the folder note in the file explorer").addToggle((toggle) => toggle.setValue(this.plugin.settings.hideFolderNote).onChange(async (value) => {
-      this.plugin.settings.hideFolderNote = value;
-      await this.plugin.saveSettings();
-      if (value) {
-        document.body.classList.add("hide-folder-note");
-      } else {
-        document.body.classList.remove("hide-folder-note");
-      }
-      this.display();
-    }));
-    new import_obsidian17.Setting(containerEl).setName("Only open folder notes through the name").setDesc("Only open folder notes in the file explorer by clicking on the folder name").addToggle((toggle) => toggle.setValue(this.plugin.settings.allowWhitespaceCollapsing).onChange(async (value) => {
-      if (!value) {
-        document.body.classList.add("fn-whitespace-stop-collapsing");
-      } else {
-        document.body.classList.remove("fn-whitespace-stop-collapsing");
-      }
-      this.plugin.settings.allowWhitespaceCollapsing = value;
-      await this.plugin.saveSettings();
-    }));
-    const disableSetting = new import_obsidian17.Setting(containerEl);
-    disableSetting.setName("Disable folder collapsing");
-    disableSetting.setDesc("Disable the ability to collapse folders by clicking exactly on the folder name");
-    disableSetting.addToggle((toggle) => toggle.setValue(!this.plugin.settings.enableCollapsing).onChange(async (value) => {
-      this.plugin.settings.enableCollapsing = !value;
-      await this.plugin.saveSettings();
-    }));
-    disableSetting.infoEl.appendText("Requires a restart to take effect");
-    disableSetting.infoEl.style.color = this.app.vault.getConfig("accentColor") || "#7d5bed";
-    new import_obsidian17.Setting(containerEl).setName("Use submenus").setDesc("Use submenus for file/folder commands").addToggle((toggle) => toggle.setValue(this.plugin.settings.useSubmenus).onChange(async (value) => {
-      this.plugin.settings.useSubmenus = value;
-      await this.plugin.saveSettings();
-      this.display();
-    }));
-    if (this.plugin.settings.frontMatterTitle.enabled) {
-      new import_obsidian17.Setting(containerEl).setName("Change folder name in the file explorer").setDesc("Automatically rename a folder name in the file explorer when the folder note is renamed").addToggle((toggle) => toggle.setValue(this.plugin.settings.frontMatterTitle.explorer).onChange(async (value) => {
-        this.plugin.settings.frontMatterTitle.explorer = value;
-        await this.plugin.saveSettings();
-        this.plugin.app.vault.getFiles().forEach((file) => {
-          var _a;
-          (_a = this.plugin.fmtpHandler) == null ? void 0 : _a.handleRename({ id: "", result: false, path: file.path }, false);
-        });
-      }));
-    }
-  }
-  renderExcludeFolders() {
-    this.settingsPage.createEl("h1", { text: "Exclude folders settings" });
-    const containerEl = this.settingsPage;
-    const manageExcluded = new import_obsidian17.Setting(containerEl).setHeading().setClass("fn-excluded-folder-heading").setName("Manage excluded folders");
-    const desc3 = document.createDocumentFragment();
-    desc3.append("Add {regex} at the beginning of the folder name to use a regex pattern.", desc3.createEl("br"), "Use * before and after to exclude folders that include the name between the *s.", desc3.createEl("br"), "Use * before the folder name to exclude folders that end with the folder name.", desc3.createEl("br"), "Use * after the folder name to exclude folders that start with the folder name.");
-    manageExcluded.setDesc(desc3);
-    manageExcluded.infoEl.appendText("The regexes and wildcards are only for the folder name, not the path.");
-    manageExcluded.infoEl.createEl("br");
-    manageExcluded.infoEl.appendText("If you want to switch to a folder path delete the pattern first.");
-    manageExcluded.infoEl.style.color = this.app.vault.getConfig("accentColor") || "#7d5bed";
-    new import_obsidian17.Setting(containerEl).setName("Add excluded folder").setClass("add-exclude-folder-item").addButton((cb) => {
-      cb.setIcon("plus");
-      cb.setClass("add-exclude-folder");
-      cb.setTooltip("Add excluded folder");
-      cb.onClick(() => {
-        const excludedFolder = new ExcludedFolder("", this.plugin.settings.excludeFolders.length);
-        addExcludeFolderListItem(this, containerEl, excludedFolder);
-        addExcludedFolder(this.plugin, excludedFolder);
-        this.display();
-      });
-    });
-    this.plugin.settings.excludeFolders.sort((a, b) => a.position - b.position).forEach((excludedFolder) => {
-      var _a, _b;
-      if (((_a = excludedFolder.string) == null ? void 0 : _a.trim()) !== "" && ((_b = excludedFolder.path) == null ? void 0 : _b.trim()) === "") {
-        addExcludePatternListItem(this, containerEl, excludedFolder);
-      } else {
-        addExcludeFolderListItem(this, containerEl, excludedFolder);
-      }
-    });
-  }
-  renderFolderOverview() {
-    this.settingsPage.createEl("h1", { text: "Folder overview settings" });
-    const containerEl = this.settingsPage;
-    new import_obsidian17.Setting(containerEl).setName("Manage folder overview defaults").setDesc("Manage the default settings for the folder overview plugin").addButton((button) => button.setButtonText("Manage").setCta().onClick(async () => {
-      new FolderOverviewSettings(this.plugin.app, this.plugin, this.plugin.settings.defaultOverview, null, null, true).open();
-    }));
-  }
-  renderPath() {
-    this.settingsPage.createEl("h1", { text: "Path settings" });
-    const containerEl = this.settingsPage;
-    new import_obsidian17.Setting(containerEl).setName("Open folder note through path").setDesc("Open a folder note when clicking on a folder name in the path if it is a folder note").addToggle((toggle) => toggle.setValue(this.plugin.settings.openFolderNoteOnClickInPath).onChange(async (value) => {
-      this.plugin.settings.openFolderNoteOnClickInPath = value;
-      await this.plugin.saveSettings();
-      this.display();
-    }));
-    if (this.plugin.settings.openFolderNoteOnClickInPath) {
-      new import_obsidian17.Setting(containerEl).setName("Underline folders in the path").setDesc("Add an underline to folders that have a folder note in the path above a note").addToggle((toggle) => toggle.setValue(this.plugin.settings.underlineFolderInPath).onChange(async (value) => {
-        this.plugin.settings.underlineFolderInPath = value;
-        if (value) {
-          document.body.classList.add("folder-note-underline-path");
-        } else {
-          document.body.classList.remove("folder-note-underline-path");
-        }
-        await this.plugin.saveSettings();
-      }));
-    }
-    new import_obsidian17.Setting(containerEl).setName("Change folder name in the path").setDesc("Automatically rename a folder name in the path above a note when the folder note is renamed").addToggle((toggle) => toggle.setValue(this.plugin.settings.frontMatterTitle.path).onChange(async (value) => {
-      this.plugin.settings.frontMatterTitle.path = value;
-      await this.plugin.saveSettings();
-      if (value) {
-        this.plugin.updateBreadcrumbs();
-      } else {
-        this.plugin.updateBreadcrumbs(true);
-      }
-    }));
-  }
-  updateFolderNotes(oldTemplate, newTemplate) {
     this.plugin.settings.folderNoteName = newTemplate;
     this.plugin.saveSettings();
-    new import_obsidian17.Notice("Starting to update folder notes...");
-    this.app.vault.getFiles().forEach((file) => {
-      if (file instanceof import_obsidian17.TFile) {
-        const folderPath = this.plugin.getFolderPathFromString(file.path);
-        let folder = this.app.vault.getAbstractFileByPath(folderPath);
-        let folderName = file.name.slice(0, -file.extension.length - 1);
-        folderName = extractFolderName(oldTemplate, folderName) || "";
-        if (!(folder instanceof import_obsidian17.TFolder) || folderName !== (folder == null ? void 0 : folder.name)) {
-          if (folderPath.trim() === "") {
-            folder = this.app.vault.getAbstractFileByPath(folderName);
-          } else {
-            folder = this.app.vault.getAbstractFileByPath(folderPath + "/" + folderName);
-          }
-        }
-        if (!(folder instanceof import_obsidian17.TFolder)) {
-          return;
-        }
-        if (folderName === (folder == null ? void 0 : folder.name)) {
-          const newPath = `${folder == null ? void 0 : folder.path}/${this.plugin.settings.folderNoteName.replace("{{folder_name}}", folderName)}.${file.extension}`;
-          this.app.vault.rename(file, newPath);
-        } else if ((folder == null ? void 0 : folder.name) === file.name.slice(0, -file.extension.length - 1) || "") {
-          const newPath = `${folder == null ? void 0 : folder.path}/${this.plugin.settings.folderNoteName.replace("{{folder_name}}", file.name.slice(0, -file.extension.length - 1) || "")}.${file.extension}`;
-          this.app.vault.rename(file, newPath);
-        }
-      }
-    });
-    new import_obsidian17.Notice("Finished updating folder notes");
+    new import_obsidian22.Notice("Finished updating folder notes");
   }
   switchStorageLocation(oldMethod) {
-    new import_obsidian17.Notice("Starting to switch storage location...");
+    new import_obsidian22.Notice("Starting to switch storage location...");
     this.app.vault.getAllLoadedFiles().forEach((file) => {
-      if (file instanceof import_obsidian17.TFolder) {
+      if (file instanceof import_obsidian22.TFolder) {
         const folderNote = getFolderNote(this.plugin, file.path, oldMethod);
-        if (folderNote instanceof import_obsidian17.TFile) {
+        if (folderNote instanceof import_obsidian22.TFile) {
           if (this.plugin.settings.storageLocation === "parentFolder") {
             let newPath = "";
             if (this.plugin.getFolderPathFromString(file.path).trim() === "") {
@@ -4172,24 +4258,24 @@ var SettingsTab = class extends import_obsidian17.PluginSettingTab {
             } else {
               newPath = `${this.plugin.getFolderPathFromString(file.path)}/${folderNote.name}`;
             }
-            this.app.vault.rename(folderNote, newPath);
+            this.plugin.app.fileManager.renameFile(folderNote, newPath);
           } else if (this.plugin.settings.storageLocation === "insideFolder") {
             if (this.plugin.getFolderPathFromString(folderNote.path) === file.path) {
               return;
             } else {
               const newPath = `${file.path}/${folderNote.name}`;
-              this.app.vault.rename(folderNote, newPath);
+              this.plugin.app.fileManager.renameFile(folderNote, newPath);
             }
           }
         }
       }
     });
-    new import_obsidian17.Notice("Finished switching storage location");
+    new import_obsidian22.Notice("Finished switching storage location");
   }
 };
 
 // src/Commands.ts
-var import_obsidian18 = require("obsidian");
+var import_obsidian23 = require("obsidian");
 var Commands = class {
   constructor(app2, plugin) {
     this.plugin = plugin;
@@ -4206,10 +4292,10 @@ var Commands = class {
       name: "Make current active note a folder note for the folder of the active note",
       callback: () => {
         const file = this.app.workspace.getActiveFile();
-        if (!(file instanceof import_obsidian18.TFile))
+        if (!(file instanceof import_obsidian23.TFile))
           return;
         const folder = file.parent;
-        if (!(folder instanceof import_obsidian18.TFolder))
+        if (!(folder instanceof import_obsidian23.TFolder))
           return;
         const folderNote = getFolderNote(this.plugin, folder.path);
         turnIntoFolderNote(this.plugin, file, folder, folderNote);
@@ -4221,47 +4307,69 @@ var Commands = class {
       callback: async () => {
         var _a, _b, _c;
         const file = this.app.workspace.getActiveFile();
-        if (!(file instanceof import_obsidian18.TFile))
+        if (!(file instanceof import_obsidian23.TFile))
           return;
         let newPath = ((_a = file.parent) == null ? void 0 : _a.path) + "/" + file.basename;
         if (((_b = file.parent) == null ? void 0 : _b.path) === "" || ((_c = file.parent) == null ? void 0 : _c.path) === "/") {
           newPath = file.basename;
         }
         if (this.plugin.app.vault.getAbstractFileByPath(newPath)) {
-          return new import_obsidian18.Notice("Folder already exists");
+          return new import_obsidian23.Notice("Folder already exists");
         }
+        const automaticallyCreateFolderNote = this.plugin.settings.autoCreate;
+        this.plugin.settings.autoCreate = false;
+        this.plugin.saveSettings();
         await this.plugin.app.vault.createFolder(newPath);
         const folder = this.plugin.app.vault.getAbstractFileByPath(newPath);
-        if (!(folder instanceof import_obsidian18.TFolder))
+        if (!(folder instanceof import_obsidian23.TFolder))
           return;
-        createFolderNote(this.plugin, folder.path, true, file.extension, false, file);
+        createFolderNote(this.plugin, folder.path, true, "." + file.extension, false, file);
+        this.plugin.settings.autoCreate = automaticallyCreateFolderNote;
+        this.plugin.saveSettings();
       }
     });
     this.plugin.addCommand({
       id: "create-folder-note-for-current-folder",
-      name: "Create folder note for current folder of active note",
+      name: "Create markdown folder note for current folder of active note",
       callback: () => {
         const file = this.app.workspace.getActiveFile();
-        if (!(file instanceof import_obsidian18.TFile))
+        if (!(file instanceof import_obsidian23.TFile))
           return;
         const folder = file.parent;
-        if (!(folder instanceof import_obsidian18.TFolder))
+        if (!(folder instanceof import_obsidian23.TFolder))
           return;
-        createFolderNote(this.plugin, folder.path, true, void 0, false);
+        createFolderNote(this.plugin, folder.path, true, ".md", false);
       }
+    });
+    this.plugin.settings.supportedFileTypes.forEach((fileType) => {
+      if (fileType === "md")
+        return;
+      this.plugin.addCommand({
+        id: `create-${fileType}-folder-note-for-current-folder`,
+        name: `Create ${fileType} folder note for current folder of active note`,
+        callback: () => {
+          const file = this.app.workspace.getActiveFile();
+          if (!(file instanceof import_obsidian23.TFile))
+            return;
+          const folder = file.parent;
+          if (!(folder instanceof import_obsidian23.TFolder))
+            return;
+          createFolderNote(this.plugin, folder.path, true, "." + fileType, false);
+        }
+      });
     });
     this.plugin.addCommand({
       id: "delete-folder-note-for-current-folder",
       name: "Delete folder note of current folder of active note",
       callback: () => {
         const file = this.app.workspace.getActiveFile();
-        if (!(file instanceof import_obsidian18.TFile))
+        if (!(file instanceof import_obsidian23.TFile))
           return;
         const folder = file.parent;
-        if (!(folder instanceof import_obsidian18.TFolder))
+        if (!(folder instanceof import_obsidian23.TFolder))
           return;
         const folderNote = getFolderNote(this.plugin, folder.path);
-        if (!(folderNote instanceof import_obsidian18.TFile))
+        if (!(folderNote instanceof import_obsidian23.TFile))
           return;
         deleteFolderNote(this.plugin, folderNote);
       }
@@ -4271,13 +4379,13 @@ var Commands = class {
       name: "Open folder note of current folder of active note",
       callback: () => {
         const file = this.app.workspace.getActiveFile();
-        if (!(file instanceof import_obsidian18.TFile))
+        if (!(file instanceof import_obsidian23.TFile))
           return;
         const folder = file.parent;
-        if (!(folder instanceof import_obsidian18.TFolder))
+        if (!(folder instanceof import_obsidian23.TFolder))
           return;
         const folderNote = getFolderNote(this.plugin, folder.path);
-        if (!(folderNote instanceof import_obsidian18.TFile))
+        if (!(folderNote instanceof import_obsidian23.TFile))
           return;
         openFolderNote(this.plugin, folderNote);
       }
@@ -4292,7 +4400,7 @@ var Commands = class {
           if (!checking) {
             let json = Object.assign({}, this.plugin.settings.defaultOverview);
             json.id = crypto.randomUUID();
-            const yaml = (0, import_obsidian18.stringifyYaml)(json);
+            const yaml = (0, import_obsidian23.stringifyYaml)(json);
             if (lineText.trim() === "") {
               editor.replaceSelection(`\`\`\`folder-overview
 ${yaml}\`\`\`
@@ -4319,7 +4427,7 @@ ${newLines.join("\n")}\`\`\`
         const text = editor.getSelection().trim();
         const line = editor.getCursor().line;
         const file = view.file;
-        if (!(file instanceof import_obsidian18.TFile))
+        if (!(file instanceof import_obsidian23.TFile))
           return false;
         if (text && text.trim() !== "") {
           if (checking) {
@@ -4328,20 +4436,20 @@ ${newLines.join("\n")}\`\`\`
           const blacklist = ["*", "\\", '"', "/", "<", ">", "?", "|", ":"];
           for (const char of blacklist) {
             if (text.includes(char)) {
-              new import_obsidian18.Notice('File name cannot contain any of the following characters: * " \\ / < > : | ?');
+              new import_obsidian23.Notice('File name cannot contain any of the following characters: * " \\ / < > : | ?');
               return false;
             }
           }
           if (text.endsWith(".")) {
-            new import_obsidian18.Notice("File name cannot end with a dot");
+            new import_obsidian23.Notice("File name cannot end with a dot");
             return;
           }
           let folder;
           const folderPath = this.plugin.getFolderPathFromString(file.path);
           if (folderPath === "") {
             folder = this.plugin.app.vault.getAbstractFileByPath(text);
-            if (folder instanceof import_obsidian18.TFolder) {
-              new import_obsidian18.Notice("Folder note already exists");
+            if (folder instanceof import_obsidian23.TFolder) {
+              new import_obsidian23.Notice("Folder note already exists");
               return false;
             } else {
               this.plugin.app.vault.createFolder(text);
@@ -4349,13 +4457,13 @@ ${newLines.join("\n")}\`\`\`
             }
           } else {
             folder = this.plugin.app.vault.getAbstractFileByPath(folderPath + "/" + text);
-            if (folder instanceof import_obsidian18.TFolder) {
-              new import_obsidian18.Notice("Folder note already exists");
+            if (folder instanceof import_obsidian23.TFolder) {
+              new import_obsidian23.Notice("Folder note already exists");
               return false;
             }
             if (this.plugin.settings.storageLocation === "parentFolder") {
               if (this.app.vault.getAbstractFileByPath(folderPath + "/" + text + this.plugin.settings.folderNoteType)) {
-                new import_obsidian18.Notice("File already exists");
+                new import_obsidian23.Notice("File already exists");
                 return false;
               }
             }
@@ -4378,7 +4486,7 @@ ${newLines.join("\n")}\`\`\`
     this.plugin.registerEvent(this.app.workspace.on("file-menu", (menu, file) => {
       var _a, _b, _c;
       let folder = file.parent;
-      if (file instanceof import_obsidian18.TFile) {
+      if (file instanceof import_obsidian23.TFile) {
         if (this.plugin.settings.storageLocation === "insideFolder") {
           folder = file.parent;
         } else {
@@ -4391,27 +4499,27 @@ ${newLines.join("\n")}\`\`\`
             }
           }
         }
-        if (folder instanceof import_obsidian18.TFolder) {
+        if (folder instanceof import_obsidian23.TFolder) {
           const folderNote = getFolderNote(this.plugin, folder.path);
           if ((folderNote == null ? void 0 : folderNote.path) === file.path) {
             return;
           }
-        } else if (file.parent instanceof import_obsidian18.TFolder) {
+        } else if (file.parent instanceof import_obsidian23.TFolder) {
           folder = file.parent;
         }
       }
       menu.addItem((item) => {
-        if (import_obsidian18.Platform.isDesktop && !import_obsidian18.Platform.isTablet && this.plugin.settings.useSubmenus) {
+        if (import_obsidian23.Platform.isDesktop && !import_obsidian23.Platform.isTablet && this.plugin.settings.useSubmenus) {
           item.setTitle("Folder Note Commands").setIcon("folder-edit");
         }
         let subMenu;
-        if (!import_obsidian18.Platform.isDesktopApp || !import_obsidian18.Platform.isDesktop || import_obsidian18.Platform.isTablet || !this.plugin.settings.useSubmenus) {
+        if (!import_obsidian23.Platform.isDesktopApp || !import_obsidian23.Platform.isDesktop || import_obsidian23.Platform.isTablet || !this.plugin.settings.useSubmenus) {
           subMenu = menu;
           item.setDisabled(true);
         } else {
           subMenu = item.setSubmenu();
         }
-        if (file instanceof import_obsidian18.TFile) {
+        if (file instanceof import_obsidian23.TFile) {
           subMenu.addItem((item2) => {
             item2.setTitle("Create folder note").setIcon("edit").onClick(async () => {
               if (!folder)
@@ -4421,36 +4529,41 @@ ${newLines.join("\n")}\`\`\`
                 newPath = file.basename;
               }
               if (this.plugin.app.vault.getAbstractFileByPath(newPath)) {
-                return new import_obsidian18.Notice("Folder already exists");
+                return new import_obsidian23.Notice("Folder already exists");
               }
+              const automaticallyCreateFolderNote = this.plugin.settings.autoCreate;
+              this.plugin.settings.autoCreate = false;
+              this.plugin.saveSettings();
               await this.plugin.app.vault.createFolder(newPath);
               const newFolder = this.plugin.app.vault.getAbstractFileByPath(newPath);
-              if (!(newFolder instanceof import_obsidian18.TFolder))
+              if (!(newFolder instanceof import_obsidian23.TFolder))
                 return;
-              createFolderNote(this.plugin, newFolder.path, true, void 0, false, file);
+              await createFolderNote(this.plugin, newFolder.path, true, "." + file.extension, false, file);
+              this.plugin.settings.autoCreate = automaticallyCreateFolderNote;
+              this.plugin.saveSettings();
             });
           });
           if (this.plugin.getFolderPathFromString(file.path) === "")
             return;
-          if (!(folder instanceof import_obsidian18.TFolder))
+          if (!(folder instanceof import_obsidian23.TFolder))
             return;
           subMenu.addItem((item2) => {
             item2.setTitle("Turn into folder note").setIcon("edit").onClick(() => {
-              if (!folder || !(folder instanceof import_obsidian18.TFolder))
+              if (!folder || !(folder instanceof import_obsidian23.TFolder))
                 return;
               const folderNote2 = getFolderNote(this.plugin, folder.path);
               turnIntoFolderNote(this.plugin, file, folder, folderNote2);
             });
           });
         }
-        if (!(file instanceof import_obsidian18.TFolder))
+        if (!(file instanceof import_obsidian23.TFolder))
           return;
         if (this.plugin.settings.excludeFolders.find((folder2) => folder2.path === file.path)) {
           subMenu.addItem((item2) => {
             item2.setTitle("Remove folder from excluded folders").setIcon("trash").onClick(() => {
               this.plugin.settings.excludeFolders = this.plugin.settings.excludeFolders.filter((folder2) => folder2.path !== file.path);
               this.plugin.saveSettings();
-              new import_obsidian18.Notice("Successfully removed folder from excluded folders");
+              new import_obsidian23.Notice("Successfully removed folder from excluded folders");
             });
           });
           return;
@@ -4460,13 +4573,13 @@ ${newLines.join("\n")}\`\`\`
             const excludedFolder = new ExcludedFolder(file.path, this.plugin.settings.excludeFolders.length);
             this.plugin.settings.excludeFolders.push(excludedFolder);
             this.plugin.saveSettings();
-            new import_obsidian18.Notice("Successfully excluded folder from folder notes");
+            new import_obsidian23.Notice("Successfully excluded folder from folder notes");
           });
         });
-        if (!(file instanceof import_obsidian18.TFolder))
+        if (!(file instanceof import_obsidian23.TFolder))
           return;
         const folderNote = getFolderNote(this.plugin, file.path);
-        if (folderNote instanceof import_obsidian18.TFile) {
+        if (folderNote instanceof import_obsidian23.TFile) {
           subMenu.addItem((item2) => {
             item2.setTitle("Delete folder note").setIcon("trash").onClick(() => {
               deleteFolderNote(this.plugin, folderNote);
@@ -4479,8 +4592,17 @@ ${newLines.join("\n")}\`\`\`
           });
         } else {
           subMenu.addItem((item2) => {
-            item2.setTitle("Create folder note").setIcon("edit").onClick(() => {
-              createFolderNote(this.plugin, file.path, true);
+            item2.setTitle("Create markdown folder note").setIcon("edit").onClick(() => {
+              createFolderNote(this.plugin, file.path, true, ".md");
+            });
+          });
+          this.plugin.settings.supportedFileTypes.forEach((fileType) => {
+            if (fileType === "md")
+              return;
+            subMenu.addItem((item2) => {
+              item2.setTitle(`Create ${fileType} folder note`).setIcon("edit").onClick(() => {
+                createFolderNote(this.plugin, file.path, true, "." + fileType);
+              });
             });
           });
         }
@@ -4497,7 +4619,7 @@ ${newLines.join("\n")}\`\`\`
           item.setTitle("Create folder overview").setIcon("edit").onClick(() => {
             let json = Object.assign({}, this.plugin.settings.defaultOverview);
             json.id = crypto.randomUUID();
-            const yaml = (0, import_obsidian18.stringifyYaml)(json);
+            const yaml = (0, import_obsidian23.stringifyYaml)(json);
             if (lineText.trim() === "") {
               editor.replaceSelection(`\`\`\`folder-overview
 ${yaml}\`\`\`
@@ -4519,17 +4641,17 @@ ${newLines.join("\n")}\`\`\`
       menu.addItem((item) => {
         item.setTitle("Create folder note").setIcon("edit").onClick(() => {
           const file = view.file;
-          if (!(file instanceof import_obsidian18.TFile))
+          if (!(file instanceof import_obsidian23.TFile))
             return;
           const blacklist = ["*", "\\", '"', "/", "<", ">", "?", "|", ":"];
           for (const char of blacklist) {
             if (text.includes(char)) {
-              new import_obsidian18.Notice('File name cannot contain any of the following characters: * " \\ / < > : | ?');
+              new import_obsidian23.Notice('File name cannot contain any of the following characters: * " \\ / < > : | ?');
               return;
             }
           }
           if (text.endsWith(".")) {
-            new import_obsidian18.Notice("File name cannot end with a dot");
+            new import_obsidian23.Notice("File name cannot end with a dot");
             return;
           }
           let folder;
@@ -4537,20 +4659,20 @@ ${newLines.join("\n")}\`\`\`
           const fileName = this.plugin.settings.folderNoteName.replace("{{folder_name}}", text);
           if (folderPath === "") {
             folder = this.plugin.app.vault.getAbstractFileByPath(text);
-            if (folder instanceof import_obsidian18.TFolder) {
-              return new import_obsidian18.Notice("Folder note already exists");
+            if (folder instanceof import_obsidian23.TFolder) {
+              return new import_obsidian23.Notice("Folder note already exists");
             } else {
               this.plugin.app.vault.createFolder(text);
               createFolderNote(this.plugin, text, false);
             }
           } else {
             folder = this.plugin.app.vault.getAbstractFileByPath(folderPath + "/" + text);
-            if (folder instanceof import_obsidian18.TFolder) {
-              return new import_obsidian18.Notice("Folder note already exists");
+            if (folder instanceof import_obsidian23.TFolder) {
+              return new import_obsidian23.Notice("Folder note already exists");
             }
             if (this.plugin.settings.storageLocation === "parentFolder") {
               if (this.app.vault.getAbstractFileByPath(folderPath + "/" + fileName + this.plugin.settings.folderNoteType)) {
-                return new import_obsidian18.Notice("File already exists");
+                return new import_obsidian23.Notice("File already exists");
               }
             }
             this.plugin.app.vault.createFolder(folderPath + "/" + text);
@@ -4568,7 +4690,7 @@ ${newLines.join("\n")}\`\`\`
 };
 
 // src/events/handleClick.ts
-var import_obsidian19 = require("obsidian");
+var import_obsidian24 = require("obsidian");
 async function handleViewHeaderClick(event, plugin) {
   if (!(event.target instanceof HTMLElement))
     return;
@@ -4590,8 +4712,8 @@ async function handleViewHeaderClick(event, plugin) {
   const folderNote = getFolderNote(plugin, folderPath);
   if (folderNote) {
     return openFolderNote(plugin, folderNote, event);
-  } else if (event.altKey || import_obsidian19.Keymap.isModEvent(event) === "tab") {
-    if (plugin.settings.altKey && event.altKey || plugin.settings.ctrlKey && import_obsidian19.Keymap.isModEvent(event) === "tab") {
+  } else if (event.altKey || import_obsidian24.Keymap.isModEvent(event) === "tab") {
+    if (plugin.settings.altKey && event.altKey || plugin.settings.ctrlKey && import_obsidian24.Keymap.isModEvent(event) === "tab") {
       await createFolderNote(plugin, folderPath, true, void 0, true);
       plugin.addCSSClassToTitleEL(folderPath, "has-folder-note");
       plugin.removeCSSClassFromEL(folderPath, "has-not-folder-note");
@@ -4604,6 +4726,8 @@ async function handleViewHeaderClick(event, plugin) {
 async function handleFolderClick(event, plugin) {
   var _a;
   if (!(event.target instanceof HTMLElement))
+    return;
+  if (!event || !event.target)
     return;
   event.stopImmediatePropagation();
   const folderPath = (_a = event.target.parentElement) == null ? void 0 : _a.getAttribute("data-path");
@@ -4622,8 +4746,8 @@ async function handleFolderClick(event, plugin) {
   const folderNote = getFolderNote(plugin, folderPath);
   if (folderNote) {
     return openFolderNote(plugin, folderNote, event);
-  } else if (event.altKey || import_obsidian19.Keymap.isModEvent(event) === "tab") {
-    if (plugin.settings.altKey && event.altKey || plugin.settings.ctrlKey && import_obsidian19.Keymap.isModEvent(event) === "tab") {
+  } else if (event.altKey || import_obsidian24.Keymap.isModEvent(event) === "tab") {
+    if (plugin.settings.altKey && event.altKey || plugin.settings.ctrlKey && import_obsidian24.Keymap.isModEvent(event) === "tab") {
       await createFolderNote(plugin, folderPath, true, void 0, true);
       plugin.addCSSClassToTitleEL(folderPath, "has-folder-note");
       plugin.removeCSSClassFromEL(folderPath, "has-not-folder-note");
@@ -4635,14 +4759,14 @@ async function handleFolderClick(event, plugin) {
 }
 
 // src/events/handleRename.ts
-var import_obsidian20 = require("obsidian");
+var import_obsidian25 = require("obsidian");
 function handleFolderRename(file, oldPath, plugin) {
   const fileName = plugin.settings.folderNoteName.replace("{{folder_name}}", file.name);
   const folder = plugin.app.vault.getAbstractFileByPath(file.path);
   const folderNote = getFolderNote(plugin, oldPath);
-  if (!(folderNote instanceof import_obsidian20.TFile))
+  if (!(folderNote instanceof import_obsidian25.TFile))
     return;
-  if (!(folder instanceof import_obsidian20.TFolder))
+  if (!(folder instanceof import_obsidian25.TFolder))
     return;
   const excludedFolders = plugin.settings.excludeFolders.filter((excludedFolder2) => excludedFolder2.path.includes(oldPath));
   excludedFolders.forEach((excludedFolder2) => {
@@ -4702,7 +4826,7 @@ function handleFileRename(file, oldPath, plugin) {
     return;
   }
   if (folderName === (newFolder == null ? void 0 : newFolder.name) && folderNote) {
-    new import_obsidian20.Notice("Folder with same name already exists!");
+    new import_obsidian25.Notice("Folder with same name already exists!");
     let excludedFolderExisted = true;
     let disabledSync = false;
     if (!excludedFolder) {
@@ -4714,7 +4838,7 @@ function handleFileRename(file, oldPath, plugin) {
       excludedFolder.disableSync = true;
       updateExcludedFolder(plugin, excludedFolder, excludedFolder);
     }
-    return plugin.app.vault.rename(file, oldPath).then(() => {
+    return plugin.app.fileManager.renameFile(file, oldPath).then(() => {
       if (!excludedFolder) {
         return;
       }
@@ -4769,14 +4893,14 @@ async function renameFolderOnFileRename(file, oldPath, oldFolder, plugin) {
     }
   }
   if (plugin.app.vault.getAbstractFileByPath(newFolderPath) || plugin.app.vault.getAbstractFileByPath(newFolderName || "")) {
-    await plugin.app.vault.rename(file, oldPath);
-    return new import_obsidian20.Notice("A folder with the same name already exists");
+    await plugin.app.fileManager.renameFile(file, oldPath);
+    return new import_obsidian25.Notice("A folder with the same name already exists");
   }
-  await plugin.app.vault.rename(oldFolder, newFolderPath);
+  plugin.app.fileManager.renameFile(oldFolder, newFolderPath);
 }
 
 // src/functions/ListComponent.ts
-var import_obsidian21 = require("obsidian");
+var import_obsidian26 = require("obsidian");
 var ListComponent = class {
   constructor(containerEl) {
     this.containerEl = containerEl;
@@ -4862,12 +4986,23 @@ var ListComponent = class {
     return this;
   }
   removeValue(value) {
-    this.values = this.values.filter((v) => v !== value);
-    this.setValues(this.values);
-    if (this.modal) {
-      this.modal.display();
-    } else if (this.settings) {
-      this.settings.display();
+    if (value === "all") {
+      if (this.modal) {
+        this.modal.plugin.loadSettings();
+        this.setValues(this.modal.plugin.settings.defaultOverview.includeTypes || []);
+        this.modal.display();
+      } else if (this.settings) {
+        this.setValues(["md", "canvas"]);
+        this.settings.display();
+      }
+    } else {
+      this.values = this.values.filter((v) => v !== value);
+      this.setValues(this.values);
+      if (this.modal) {
+        this.modal.display();
+      } else if (this.settings) {
+        this.settings.display();
+      }
     }
   }
 };
@@ -4876,10 +5011,10 @@ function createList(cb) {
   cb(list);
   return list;
 }
-import_obsidian21.Setting.prototype.createList = createList;
+import_obsidian26.Setting.prototype.createList = createList;
 
 // src/main.ts
-var FolderNotesPlugin = class extends import_obsidian22.Plugin {
+var FolderNotesPlugin = class extends import_obsidian27.Plugin {
   constructor() {
     super(...arguments);
     this.fmtpHandler = null;
@@ -4914,6 +5049,8 @@ var FolderNotesPlugin = class extends import_obsidian22.Plugin {
         if (rec.type === "childList") {
           rec.target.querySelectorAll("div.nav-folder-title-content").forEach((element) => {
             if (element.onclick)
+              return;
+            if (import_obsidian27.Platform.isMobile && this.settings.disableOpenFolderNoteOnClick)
               return;
             element.onclick = (event) => handleFolderClick(event, this);
           });
@@ -4965,18 +5102,14 @@ var FolderNotesPlugin = class extends import_obsidian22.Plugin {
       this.loadFileClasses();
     }));
     this.registerEvent(this.app.vault.on("delete", (file) => {
-      if (!(file instanceof import_obsidian22.TFile)) {
+      if (!(file instanceof import_obsidian27.TFile)) {
         return;
       }
-      const parentPath = this.getFolderPathFromString(file.path);
-      const parentName = this.getFileNameFromPathString(parentPath);
-      if (parentName !== file.basename) {
-        return;
-      }
-      this.removeCSSClassFromEL(parentPath, "has-folder-note");
+      const parentFolder = getFolder(this, file);
+      this.removeCSSClassFromEL(parentFolder == null ? void 0 : parentFolder.path, "has-folder-note");
     }));
     this.registerEvent(this.app.vault.on("create", (file) => {
-      if (file instanceof import_obsidian22.TFile) {
+      if (file instanceof import_obsidian27.TFile) {
         const folderName = extractFolderName(this.settings.folderNoteName, file.basename);
         const folder = getFolder(this, file);
         if (!folder) {
@@ -4992,7 +5125,7 @@ var FolderNotesPlugin = class extends import_obsidian22.Plugin {
         return;
       if (!this.settings.autoCreate)
         return;
-      if (!(file instanceof import_obsidian22.TFolder))
+      if (!(file instanceof import_obsidian27.TFolder))
         return;
       const excludedFolder = getExcludedFolder(this, file.path);
       if (excludedFolder == null ? void 0 : excludedFolder.disableAutoCreate)
@@ -5028,21 +5161,21 @@ var FolderNotesPlugin = class extends import_obsidian22.Plugin {
         this.removeCSSClassFromEL(file.path, "is-folder-note");
         return;
       }
-      if (file instanceof import_obsidian22.TFolder) {
+      if (file instanceof import_obsidian27.TFolder) {
         return handleFolderRename(file, oldPath, this);
-      } else if (file instanceof import_obsidian22.TFile) {
+      } else if (file instanceof import_obsidian27.TFile) {
         return handleFileRename(file, oldPath, this);
       }
     }));
     this.registerEvent(this.app.vault.on("delete", (file) => {
-      if (file instanceof import_obsidian22.TFile) {
+      if (file instanceof import_obsidian27.TFile) {
         const folder = getFolder(this, file);
         if (!folder) {
           return;
         }
         this.removeCSSClassFromEL(folder.path, "has-folder-note");
       }
-      if (!(file instanceof import_obsidian22.TFolder)) {
+      if (!(file instanceof import_obsidian27.TFolder)) {
         return;
       }
       const folderNote = getFolderNote(this, file.path);
@@ -5073,7 +5206,7 @@ var FolderNotesPlugin = class extends import_obsidian22.Plugin {
           e.stopImmediatePropagation();
           e.preventDefault();
           e.stopPropagation();
-          new FolderOverviewSettings(this.app, this, (0, import_obsidian22.parseYaml)(source), ctx, el).open();
+          new FolderOverviewSettings(this.app, this, (0, import_obsidian27.parseYaml)(source), ctx, el).open();
         }, { capture: true });
       }
     });
@@ -5083,9 +5216,9 @@ var FolderNotesPlugin = class extends import_obsidian22.Plugin {
     });
     try {
       const folderOverview = new FolderOverview(this, ctx, source, el);
-      folderOverview.create(this, (0, import_obsidian22.parseYaml)(source), el, ctx);
+      folderOverview.create(this, (0, import_obsidian27.parseYaml)(source), el, ctx);
     } catch (e) {
-      new import_obsidian22.Notice("Error creating folder overview (folder notes plugin) - check console for more details");
+      new import_obsidian27.Notice("Error creating folder overview (folder notes plugin) - check console for more details");
       console.error(e);
     }
   }
@@ -5166,14 +5299,14 @@ var FolderNotesPlugin = class extends import_obsidian22.Plugin {
       return;
     }
     const viewHeaderItems = document.querySelectorAll("span.view-header-breadcrumb");
-    const files = this.app.vault.getAllLoadedFiles().filter((file) => file instanceof import_obsidian22.TFolder);
+    const files = this.app.vault.getAllLoadedFiles().filter((file) => file instanceof import_obsidian27.TFolder);
     viewHeaderItems.forEach((item) => {
       if (!item.hasAttribute("data-path")) {
         return;
       }
       const path = item.getAttribute("data-path");
       const folder = files.find((file) => file.path === path);
-      if (!(folder instanceof import_obsidian22.TFolder)) {
+      if (!(folder instanceof import_obsidian27.TFolder)) {
         return;
       }
       if (remove) {
@@ -5218,7 +5351,7 @@ var FolderNotesPlugin = class extends import_obsidian22.Plugin {
     }
     this.activeFileExplorer = this.getFileExplorer();
     this.app.vault.getAllLoadedFiles().forEach((file) => {
-      if (!(file instanceof import_obsidian22.TFolder)) {
+      if (!(file instanceof import_obsidian27.TFolder)) {
         return;
       }
       const folderNote = getFolderNote(this, file.path);

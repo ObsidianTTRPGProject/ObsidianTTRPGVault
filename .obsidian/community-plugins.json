@@ -19,11 +19,11 @@
   "aprils-automatic-timelines",
   "table-editor-obsidian",
   "obsidian-kanban",
-  "obsidian-icon-folder",
   "obsidian-meta-bind-plugin",
   "new-tab-default-page",
   "obsidian-view-mode-by-frontmatter",
   "markdown-attributes",
   "folder-notes",
-  "image-converter"
+  "image-converter",
+  "obsidian-icon-folder"
 ]

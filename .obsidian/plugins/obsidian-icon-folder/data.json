@@ -29,7 +29,9 @@
     },
     "iconInTabsEnabled": true,
     "iconInTitleEnabled": false,
-    "iconsBackgroundCheckEnabled": false
+    "iconsBackgroundCheckEnabled": false,
+    "iconInFrontmatterEnabled": false,
+    "iconsInNotesEnabled": true
   },
   "1-DM Toolkit/DM Board.md": "RaCog",
   "1-DM Toolkit/DnD5e-SideScreen.md": "RaScrollUnfurled",
