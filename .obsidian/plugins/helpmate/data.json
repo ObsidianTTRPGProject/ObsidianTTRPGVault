@@ -1,0 +1,10 @@
+{
+  "acknowledgedWebUse": true,
+  "includeObsidianHelp": true,
+  "obsidianHelpUrl": "https://help.obsidian.md",
+  "includeObsidianDevHelp": false,
+  "obsidianDevHelpUrl": "https://docs.obsidian.md/Home",
+  "includeHelpMateHelp": false,
+  "userResources": "ObsidianTTRPGTutorials | https://obsidianttrpgtutorials.com/",
+  "forceIframe": false
+}

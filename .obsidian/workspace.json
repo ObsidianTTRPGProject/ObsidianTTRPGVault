@@ -8,67 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e5b2ab75e55880c8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-DM Toolkit/DM Board.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ae5fe6e17a16997c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2ce7a39a3b602deb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "912fa05294d9dfc3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "a8baabc8ce59ab56",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-DM Toolkit/Home.md",
+                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
                 "mode": "preview",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -117,29 +68,32 @@
           {
             "id": "2e6355ae312b2c82",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
                 "file": "1-DM Toolkit/DnD5e-SideScreen.md",
                 "mode": "preview",
                 "source": false
-              }
+              },
+              "pinned": true
             }
           },
           {
             "id": "2b8fc968ce117308",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
                 "file": "1-DM Toolkit/DM Board.md",
                 "mode": "preview",
                 "source": false
-              }
+              },
+              "pinned": true
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -159,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -176,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -199,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md"
               }
             }
           },
@@ -226,13 +180,21 @@
               "type": "DICE_ROLLER_VIEW",
               "state": {}
             }
+          },
+          {
+            "id": "082d00d22d181097",
+            "type": "leaf",
+            "state": {
+              "type": "help-mate",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
-    "width": 313.5
+    "width": 405.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -250,33 +212,38 @@
       "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-5e-statblocks:Open Creature Pane": false,
       "obsidian42-brat:BRAT": false,
-      "obsidian-import-json:JSON/CSV Importer": false
+      "obsidian-import-json:JSON/CSV Importer": false,
+      "helpmate:HelpMate": false
     }
   },
-  "active": "2ce7a39a3b602deb",
+  "active": "082d00d22d181097",
   "lastOpenFiles": [
-    "1-DM Toolkit/DM Board.md",
-    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "1-DM Toolkit/DnD5e-DM Screen.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
     "README.md",
-    "3-Mechanics/NPCs/Wilma.md",
+    "0-Scratch Notes/Chart Test.md",
+    "1-DM Toolkit/Home.md",
+    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "1-DM Toolkit/DM Board.md",
+    "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
+    "3-Mechanics/Items/del5.md",
+    "3-Mechanics/Guilds and Groups/del4.md",
+    "2-World/del3.md",
+    "3-Mechanics/NPCs/del2.md",
+    "1-Session Journals/delete.md",
+    "1-Session Journals/Test.md",
+    "1-Session Journals/Button Templater Test.md",
     "3-Mechanics/Guilds and Groups/Harpers.md",
+    "3-Mechanics/NPCs/Wilma.md",
     "3-Mechanics/Where To Get Mechanics.md",
     "3-Mechanics/Items/Broken Stick.md",
     "0-Scratch Notes/Add Random Notes Here.md",
-    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
     "1-Session Journals/2023-10-26.md",
     "1-Session Journals/2000-01-01.md",
     "1-Party/Example Party 1/Bob.md",
     "3-Mechanics/CLI/CLI.md",
     "3-Mechanics/Guilds and Groups/Magicians.md",
     "2-World/Lampoteuo/Lampoteuo.md",
-    "1-Party/Example Party 1/Fred.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "1-DM Toolkit/Travel Calculator.md",
-    "1-DM Toolkit/Journey Board.md",
-    "1-DM Toolkit/Home.md",
-    "1-DM Toolkit/DnD5e-DM Screen.md",
-    "1-DM Toolkit/[[Lampoteuo]].md",
     "z_Assets/Placeholder Images/MiscCombatRulesTitleBar.png",
     "z_Assets/Placeholder Images/MagicTitleBar.png",
     "z_Assets/Placeholder Images/HealDeathDmgTitleBar.png",
@@ -287,10 +254,6 @@
     "z_Assets/Placeholder Images/WeaponsArmorItemsTitleBar.png",
     "z_Assets/Placeholder Images/SkillsTitleBar.png",
     "z_Assets/Placeholder Images/RestTravelTitleBar.png",
-    "1-DM Toolkit/Map-Faerun.md",
-    "2-World/Lampoteuo/The Wound/The Wound.md",
-    "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
-    "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
     "2-World/Lampoteuo/The Wound",
     "2-World/Lampoteuo/Lampoteuo City/Lucky Grain Inn",
     "Untitled.canvas",

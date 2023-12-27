@@ -8,45 +8,60 @@ where contains(Role, "Player")
 where contains(Status, "Active")
 ```
 
-```button
-name New Journal Entry
-type note(NewJournal, split) template
-action TemplateJournal
-templater true
+```meta-bind-button
+label: New Journal Entry
+hidden: false
+id: ""
+style: primary
+actions:
+  - type: templaterCreateNote
+    templateFile: "z_Templates/TemplateJournal.md"
+    fileName: NewJournal
 ```
-^button-NewJournalID
 
-```button
-name New NPC
-type note(NewNPC, split) template
-action TemplateNPC
-templater true
+```meta-bind-button
+label: New NPC
+hidden: false
+id: ""
+style: primary
+actions:
+  - type: templaterCreateNote
+    templateFile: "z_Templates/TemplateNPC.md"
+    fileName: NewNPC
 ```
-^button-NewNPCID
 
-```button
-name New Location
-type note(NewLocation, split) template
-action TemplateSettlement
-templater true
+```meta-bind-button
+label: New Location
+hidden: false
+id: ""
+style: primary
+actions:
+  - type: templaterCreateNote
+    templateFile: "z_Templates/TemplateSettlement.md"
+    fileName: NewLocation
 ```
-^button-NewLocationID
 
-```button
-name New Guild
-type note(NewGroup, split) template
-action TemplateGroup
-templater true
+```meta-bind-button
+label: New Guild or Group
+hidden: false
+id: ""
+style: primary
+actions:
+  - type: templaterCreateNote
+    templateFile: "z_Templates/TemplateGroup.md"
+    fileName: NewGroup
 ```
-^button-NewGroupID
 
-```button
-name New Magic Item
-type note(NewMagicItem, split) template
-action TemplateMagicItem
-templater true
+```meta-bind-button
+label: New Magic Item
+hidden: false
+id: ""
+style: primary
+actions:
+  - type: templaterCreateNote
+    templateFile: "z_Templates/TemplateMagicItem.md"
+    fileName: NewMagicItem
 ```
-^button-NewMagicItemID
 
 ## Known Languages
 
