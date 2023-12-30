@@ -12,7 +12,7 @@ https://obsidianttrpgtutorials.com/Obsidian+TTRPG+Tutorials/Plugin+Tutorials/TTR
 Stick the notes created in the `3-Mechanics\CLI\` folder. 
 
 ### Pathfinder 2e
-Download one of the following and copy it into your vault. 
+Download **one** of the following and copy the content it into your vault. 
 - Pathfinder 2e - [Pathfinder-2E-SRD-Markdown](https://github.com/Obsidian-TTRPG-Community/Pathfinder-2E-SRD-Markdown)
 - Pathfinder 2e Remaster - [Pathfinder-2e-Remaster-SRD-Markdown](https://github.com/Obsidian-TTRPG-Community/Pathfinder-2e-Remaster-SRD-Markdown)
 

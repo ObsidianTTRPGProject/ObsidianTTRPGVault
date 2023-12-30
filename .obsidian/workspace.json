@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
-                "mode": "preview",
+                "file": "3-Mechanics/CLI/CLI.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -113,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "file": "3-Mechanics/CLI/CLI.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "file": "3-Mechanics/CLI/CLI.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -153,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md"
+                "file": "3-Mechanics/CLI/CLI.md"
               }
             }
           },
@@ -216,11 +216,14 @@
       "helpmate:HelpMate": false
     }
   },
-  "active": "082d00d22d181097",
+  "active": "a8baabc8ce59ab56",
   "lastOpenFiles": [
-    "1-DM Toolkit/DnD5e-DM Screen.md",
-    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "3-Mechanics/Where To Get Mechanics.md",
+    "3-Mechanics/CLI/CLI.md",
     "README.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "1-DM Toolkit/DnD5e-DM Screen.md",
+    "1-DM Toolkit/Conditions.md",
     "0-Scratch Notes/Chart Test.md",
     "1-DM Toolkit/Home.md",
     "1-DM Toolkit/DnD5e-SideScreen.md",
@@ -235,15 +238,12 @@
     "1-Session Journals/Button Templater Test.md",
     "3-Mechanics/Guilds and Groups/Harpers.md",
     "3-Mechanics/NPCs/Wilma.md",
-    "3-Mechanics/Where To Get Mechanics.md",
     "3-Mechanics/Items/Broken Stick.md",
     "0-Scratch Notes/Add Random Notes Here.md",
     "1-Session Journals/2023-10-26.md",
     "1-Session Journals/2000-01-01.md",
     "1-Party/Example Party 1/Bob.md",
-    "3-Mechanics/CLI/CLI.md",
     "3-Mechanics/Guilds and Groups/Magicians.md",
-    "2-World/Lampoteuo/Lampoteuo.md",
     "z_Assets/Placeholder Images/MiscCombatRulesTitleBar.png",
     "z_Assets/Placeholder Images/MagicTitleBar.png",
     "z_Assets/Placeholder Images/HealDeathDmgTitleBar.png",
