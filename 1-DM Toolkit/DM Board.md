@@ -63,6 +63,17 @@ actions:
     fileName: NewMagicItem
 ```
 
+```meta-bind-button
+label: New Player
+hidden: false
+id: ""
+style: primary
+actions:
+  - type: templaterCreateNote
+    templateFile: "z_Templates/TemplatePlayer.md"
+    fileName: NewPlayer
+```
+
 ## Known Languages
 
 %% This will scan the player notes for any known languages and list the unique languages that the party know here. This is handy to determine quickly if the party can understand someone. %%
