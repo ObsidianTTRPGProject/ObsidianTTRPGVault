@@ -4,22 +4,59 @@
     "type": "split",
     "children": [
       {
-        "id": "ab7ce9cc2c01631a",
+        "id": "5068e1c0132abbc2",
         "type": "tabs",
         "children": [
           {
-            "id": "a8baabc8ce59ab56",
+            "id": "148b3156f26ef329",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "file": "z_Templates/TemplateGroup.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "4dca95cc6ff02632",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-DM Toolkit/Vault Report.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "25cd30c773623a3a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "z_Templates/TemplatePlayer.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2bc9b198d7d0dca0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "z_Templates/TemplateSettlement.md",
                 "mode": "preview",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -87,18 +124,17 @@
               "type": "markdown",
               "state": {
                 "file": "1-DM Toolkit/DM Board.md",
-                "mode": "preview",
-                "source": false
+                "mode": "source",
+                "source": true
               },
               "pinned": true
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 335.5
+    "width": 300.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -114,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "file": "z_Templates/TemplateSettlement.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "file": "z_Templates/TemplateSettlement.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -154,7 +190,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md"
+                "file": "z_Templates/TemplateSettlement.md"
               }
             }
           },
@@ -207,7 +243,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 405.5
+    "width": 541.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -229,34 +265,36 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "a8baabc8ce59ab56",
+  "active": "2bc9b198d7d0dca0",
   "lastOpenFiles": [
     "z_Templates/TemplatePlayer.md",
-    "1-Party/Frederick.md",
-    "1-DM Toolkit/DM Board.md",
     "z_Templates/TemplateNPC.md",
-    "1-DM Toolkit/DnD5e-SideScreen.md",
-    "1-Party/Example Party 1/Bob.md",
-    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
-    "1-Session Journals/2023-10-26.md",
-    "1-Session Journals/2000-01-01.md",
+    "z_Templates/TemplateMagicItem.md",
+    "z_Templates/TemplateJournal.md",
+    "z_Templates/TemplateGroup.md",
     "1-DM Toolkit/Home.md",
-    "1-DM Toolkit/DnD5e-DM Screen.md",
     "1-Party/Example Party 1/Example Party 1.md",
     "2-World/Lampoteuo/Lampoteuo.md",
-    "3-Mechanics/CLI/CLI.md",
-    "3-Mechanics/Where To Get Mechanics.md",
+    "1-DM Toolkit/Journey Board.md",
+    "1-Session Journals/2023-10-26.md",
+    "1-Session Journals/2000-01-01.md",
+    "z_Templates/TemplateSettlement.md",
+    "1-DM Toolkit/Vault Report.md",
+    "1-Party/Example Party 1/Bob.md",
     "README.md",
-    "1-DM Toolkit/Conditions.md",
-    "0-Scratch Notes/Chart Test.md",
-    "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
-    "3-Mechanics/Items/del5.md",
-    "3-Mechanics/Guilds and Groups/del4.md",
-    "2-World/del3.md",
-    "3-Mechanics/NPCs/del2.md",
-    "1-Session Journals/delete.md",
-    "1-Session Journals/Test.md",
-    "1-Session Journals/Button Templater Test.md",
+    "z_Example Notes/Untitled.md",
+    "1-DM Toolkit/DM Board.md",
+    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "z_Example Notes/Untitled 2.md",
+    "z_Example Notes/Untitled 1.md",
+    "NewFolder",
+    "0-Scratch Notes/Untitled.md",
+    "z_Example Notes/z_Example Notes.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "z_Example Notes",
+    "1-Party/Frederick.md",
+    "1-DM Toolkit/DnD5e-DM Screen.md",
+    "3-Mechanics/CLI/CLI.md",
     "z_Assets/Placeholder Images/MiscCombatRulesTitleBar.png",
     "z_Assets/Placeholder Images/MagicTitleBar.png",
     "z_Assets/Placeholder Images/HealDeathDmgTitleBar.png",
@@ -275,8 +313,6 @@
     "3-Mechanics/Guilds and Groups",
     "1-DM Toolkit/Travel Calc",
     "3-Mechanics/Items",
-    "3-Mechanics/NPCs",
-    "z_Templates/4_Markdown/Call Out Boxes.zip",
-    "2-World/Lampoteuo/Creepers Cave"
+    "3-Mechanics/NPCs"
   ]
 }

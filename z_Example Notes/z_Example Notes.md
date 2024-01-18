@@ -1,0 +1,1 @@
+This section contains some example notes with various formatting options so that you can see what's possible. 

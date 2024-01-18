@@ -4,6 +4,7 @@ obsidianUIMode: preview
 
 ```dataview
 TABLE WITHOUT ID link(file.name) AS "Character Name", Player, AC, pasperc As "Pass Perc (WIS)"
+from "1-Party"
 where contains(Role, "Player") 
 where contains(Status, "Active")
 ```
@@ -83,3 +84,5 @@ dv.list(dv.pages()
 		.where(p => p.Status && p.Status.includes("Active") && p.Role && p.Role.includes("Player"))
 		.PlayerKnownLanguages.distinct())
 ```
+
+

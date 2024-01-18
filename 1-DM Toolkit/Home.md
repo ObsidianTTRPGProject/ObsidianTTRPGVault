@@ -19,7 +19,6 @@ obsidianUIMode: preview
 
 > [!infobox]
 > # Session Journals
-> #### [[Create New Session Journal|+New]]
 > ```dataview
 TABLE WITHOUT ID link(file.name) AS "Session Date", Status, players
 from "1-Session Journals"
@@ -70,5 +69,7 @@ AND file.name != this.file.name
 SORT file.mtime DESC
 LIMIT 10
 ```
+
+![[Vault Report]]
 
 

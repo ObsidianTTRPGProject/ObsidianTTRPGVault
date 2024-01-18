@@ -1,4 +1,5 @@
 ---
+NoteIcon: journal
 aat-render-enabled: true
 fc-category:
   - Event Category 1

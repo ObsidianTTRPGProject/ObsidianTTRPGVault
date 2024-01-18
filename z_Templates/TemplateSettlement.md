@@ -1,5 +1,5 @@
 ---
-NoteIcon: Settlement
+NoteIcon: settlement
 Tags: Category/Settlement
 Community-Size: Outpost
 Alignment: Chaotic Evil

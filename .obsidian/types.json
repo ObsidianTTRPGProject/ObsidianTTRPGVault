@@ -8,7 +8,7 @@
     "sessionstatus": "multitext",
     "fc-category": "multitext",
     "type": "text",
-    "Status": "multitext",
+    "Status": "text",
     "PrimaryHome": "multitext"
   }
 }
