@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Templates/TemplateSettlement.md",
+                "file": "2-World/Lampoteuo/Lampoteuo.md",
                 "mode": "preview",
                 "source": false
               }
@@ -130,7 +130,8 @@
               "pinned": true
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -150,7 +151,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "z_Templates/TemplateSettlement.md",
+                "file": "2-World/Lampoteuo/Lampoteuo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +168,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "z_Templates/TemplateSettlement.md",
+                "file": "2-World/Lampoteuo/Lampoteuo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -190,7 +191,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "z_Templates/TemplateSettlement.md"
+                "file": "2-World/Lampoteuo/Lampoteuo.md"
               }
             }
           },
@@ -267,6 +268,8 @@
   },
   "active": "2bc9b198d7d0dca0",
   "lastOpenFiles": [
+    "z_Templates/TemplateSettlement.md",
+    "1-DM Toolkit/DM Board.md",
     "z_Templates/TemplatePlayer.md",
     "z_Templates/TemplateNPC.md",
     "z_Templates/TemplateMagicItem.md",
@@ -278,12 +281,10 @@
     "1-DM Toolkit/Journey Board.md",
     "1-Session Journals/2023-10-26.md",
     "1-Session Journals/2000-01-01.md",
-    "z_Templates/TemplateSettlement.md",
     "1-DM Toolkit/Vault Report.md",
     "1-Party/Example Party 1/Bob.md",
     "README.md",
     "z_Example Notes/Untitled.md",
-    "1-DM Toolkit/DM Board.md",
     "1-DM Toolkit/DnD5e-SideScreen.md",
     "z_Example Notes/Untitled 2.md",
     "z_Example Notes/Untitled 1.md",
