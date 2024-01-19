@@ -8,13 +8,13 @@ obsidianUIMode: preview
 > [![[Northern Faerun Map.jpg\|sban htiny ctr]]](Lampoteuo)
 > 
 > **[[Link]]**
-> [![[JourneyBoard.png\|sban htiny ctr]]](obsidian://open?vault=ObsidianTTRPGVault&file=1-DM%20Toolkit%2FJourney%20Board)
+> [![[JourneyBoard.png\|sban htiny ctr]]](Journey%20Board)
 >
 > **[[Link]]**
-> [![[AdventureIcon.png\|sban htiny ctr]]](obsidian://open?vault=ObsidianTTRPGVault&file=2-World%2FLampoteuo%2FLampoteuo)
+> [![[AdventureIcon.png\|sban htiny ctr]]](Lampoteuo)
 > 
 > **[[Link]]**
-> [![[PartyLogo.jpg\|sban htiny ctr p+t]]|](obsidian://open?vault=ObsidianTTRPGVault&file=1-Party%2FExample%20Party%201%2FExample%20Party%201)
+> [![[PartyLogo.jpg\|sban htiny ctr p+t]]|](Party%201%2FExample%20Party%201)
 
 
 > [!infobox]

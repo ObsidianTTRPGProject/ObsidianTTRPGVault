@@ -54,9 +54,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "578ae5e9e8cb58b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-Scratch Notes/Chart Test.md",
+                "mode": "source",
+                "source": true
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -130,8 +142,7 @@
               "pinned": true
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -151,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2-World/Lampoteuo/Lampoteuo.md",
+                "file": "0-Scratch Notes/Chart Test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -168,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2-World/Lampoteuo/Lampoteuo.md",
+                "file": "0-Scratch Notes/Chart Test.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -191,7 +202,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2-World/Lampoteuo/Lampoteuo.md"
+                "file": "0-Scratch Notes/Chart Test.md"
               }
             }
           },
@@ -266,8 +277,10 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "2bc9b198d7d0dca0",
+  "active": "578ae5e9e8cb58b7",
   "lastOpenFiles": [
+    "1-DM Toolkit/Home.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
     "z_Templates/TemplateSettlement.md",
     "1-DM Toolkit/DM Board.md",
     "z_Templates/TemplatePlayer.md",
@@ -275,9 +288,7 @@
     "z_Templates/TemplateMagicItem.md",
     "z_Templates/TemplateJournal.md",
     "z_Templates/TemplateGroup.md",
-    "1-DM Toolkit/Home.md",
     "1-Party/Example Party 1/Example Party 1.md",
-    "2-World/Lampoteuo/Lampoteuo.md",
     "1-DM Toolkit/Journey Board.md",
     "1-Session Journals/2023-10-26.md",
     "1-Session Journals/2000-01-01.md",

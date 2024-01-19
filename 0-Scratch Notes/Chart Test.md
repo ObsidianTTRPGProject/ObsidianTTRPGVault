@@ -42,3 +42,9 @@ options:
     count:
       alias: "Count"
 ```
+
+
+```statblock
+monster: Goblin
+```
+
