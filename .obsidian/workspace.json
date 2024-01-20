@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-Scratch Notes/Chart Test.md",
+                "file": "z_Templates/TemplateSettlement.md",
                 "mode": "source",
                 "source": true
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "0-Scratch Notes/Chart Test.md",
+                "file": "z_Templates/TemplateSettlement.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -179,7 +179,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "0-Scratch Notes/Chart Test.md",
+                "file": "z_Templates/TemplateSettlement.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -202,7 +202,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "0-Scratch Notes/Chart Test.md"
+                "file": "z_Templates/TemplateSettlement.md"
               }
             }
           },
@@ -279,9 +279,14 @@
   },
   "active": "578ae5e9e8cb58b7",
   "lastOpenFiles": [
-    "1-DM Toolkit/Home.md",
+    "2-World/Lampoteuo/The Wound/The Wound.md",
+    "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
+    "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
     "2-World/Lampoteuo/Lampoteuo.md",
     "z_Templates/TemplateSettlement.md",
+    "1-DM Toolkit/Travel Calculator.md",
+    "0-Scratch Notes/Chart Test.md",
+    "1-DM Toolkit/Home.md",
     "1-DM Toolkit/DM Board.md",
     "z_Templates/TemplatePlayer.md",
     "z_Templates/TemplateNPC.md",
@@ -301,12 +306,7 @@
     "z_Example Notes/Untitled 1.md",
     "NewFolder",
     "0-Scratch Notes/Untitled.md",
-    "z_Example Notes/z_Example Notes.md",
-    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
     "z_Example Notes",
-    "1-Party/Frederick.md",
-    "1-DM Toolkit/DnD5e-DM Screen.md",
-    "3-Mechanics/CLI/CLI.md",
     "z_Assets/Placeholder Images/MiscCombatRulesTitleBar.png",
     "z_Assets/Placeholder Images/MagicTitleBar.png",
     "z_Assets/Placeholder Images/HealDeathDmgTitleBar.png",

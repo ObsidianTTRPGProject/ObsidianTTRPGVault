@@ -51,11 +51,11 @@ _%>
 > Type | `=this.type` |
 > Size | `=this.size` |
 > Region | `=this.region` |
-> ###### Travel (`=[[Party Configuration]].HoursPerDay` hrs per day)
-> ###### [[Travel Calculator]]  / [[Exhaustion]]:  `=[[Party Configuration]].ExhaustionLevel`
+> ###### Travel (`=[[Travel Calculator]].HoursPerDay` hrs per day)
+> ###### [[Travel Calculator]]  / [[Exhaustion]]:  `=[[Travel Calculator]].ExhaustionLevel`
 > Destination |  Travel Days  |
 > ---|---|
-> [[Voonlar]] | 🕓: `VIEW[round(88 * (8.94-7.94*{Travel Calculator#metric})/max(min({Travel Calculator#HoursPerDay}, 24),0)*1/(max((1-0.82*{Travel Calculator#metric})*{Travel Calculator#SpeedMultiplier}*({Travel Calculator#BaseSpeed}+{Travel Calculator#AdditionalBonus}+{Travel Calculator#Encumbrance}+({Travel Calculator#Horseshoes} == 30 ? {Travel Calculator#Horseshoes}:0))*({Travel Calculator#ExhaustionLevel} > 1 ? 0.5:1)*({Travel Calculator#ExhaustionLevel} > 4 ? 0:1)*({Travel Calculator#DiffTerrain} ? ({Travel Calculator#Horseshoes} == 0 ? 1:0.5):1),0)),1)]`      |
+> [[Voonlar]] | 🕓: `VIEW[round((88* {Travel Calculator#TravelCalc}) / 60 / {Travel Calculator#HoursPerDay}, 1)]`      |
 > ###### Politics
 > Type |  Stat |
 > ---|---|
