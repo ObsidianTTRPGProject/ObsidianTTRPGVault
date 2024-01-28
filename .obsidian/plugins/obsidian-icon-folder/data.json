@@ -1,6 +1,6 @@
 {
   "settings": {
-    "migrated": 3,
+    "migrated": 4,
     "iconPacksPath": ".obsidian/icons",
     "fontSize": 18,
     "emojiStyle": "none",
@@ -31,7 +31,8 @@
     "iconInTitleEnabled": false,
     "iconsBackgroundCheckEnabled": false,
     "iconInFrontmatterEnabled": false,
-    "iconsInNotesEnabled": true
+    "iconsInNotesEnabled": true,
+    "iconIdentifier": ":"
   },
   "1-DM Toolkit/DM Board.md": "RaCog",
   "1-DM Toolkit/DnD5e-SideScreen.md": "RaScrollUnfurled",

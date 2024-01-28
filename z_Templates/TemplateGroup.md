@@ -8,7 +8,6 @@ PrimaryHome:
 NoteIcon: group
 ---
 
-<% tp.file.title %>  
 <% await tp.file.move("/3-Mechanics/Guilds and Groups/" + tp.file.title) %>
 
 <%*  

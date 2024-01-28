@@ -215,26 +215,10 @@
             }
           },
           {
-            "id": "9f994e13f8952f1f",
-            "type": "leaf",
-            "state": {
-              "type": "initiative-tracker-view",
-              "state": {}
-            }
-          },
-          {
             "id": "082d00d22d181097",
             "type": "leaf",
             "state": {
               "type": "help-mate",
-              "state": {}
-            }
-          },
-          {
-            "id": "29ad6de93c2bca94",
-            "type": "leaf",
-            "state": {
-              "type": "DICE_ROLLER_VIEW",
               "state": {}
             }
           },
@@ -249,9 +233,25 @@
                 "searchQuery": ""
               }
             }
+          },
+          {
+            "id": "6d1d26e92b5af461",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {}
+            }
+          },
+          {
+            "id": "afc6486c6fa26ac3",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-view",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -266,33 +266,34 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "obsidian-custom-frames:Open Obsidian Forum": false,
-      "initiative-tracker:Initiative Tracker Encounter Builder": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "templater-obsidian:Templater": false,
       "obsidian-leaflet-plugin:Open Leaflet Map": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-5e-statblocks:Open Creature Pane": false,
+      "initiative-tracker:Initiative Tracker Encounter Builder": false,
       "obsidian42-brat:BRAT": false,
       "obsidian-import-json:JSON/CSV Importer": false,
       "helpmate:HelpMate": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
   "active": "578ae5e9e8cb58b7",
   "lastOpenFiles": [
-    "2-World/Lampoteuo/The Wound/The Wound.md",
-    "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
-    "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
-    "2-World/Lampoteuo/Lampoteuo.md",
-    "z_Templates/TemplateSettlement.md",
-    "1-DM Toolkit/Travel Calculator.md",
-    "0-Scratch Notes/Chart Test.md",
-    "1-DM Toolkit/Home.md",
-    "1-DM Toolkit/DM Board.md",
     "z_Templates/TemplatePlayer.md",
     "z_Templates/TemplateNPC.md",
     "z_Templates/TemplateMagicItem.md",
     "z_Templates/TemplateJournal.md",
     "z_Templates/TemplateGroup.md",
+    "z_Templates/TemplateSettlement.md",
+    "z_Assets/TemplateSettlement-20240122215419380.webp",
+    "2-World/Lampoteuo/The Wound/The Wound.md",
+    "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
+    "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
+    "1-DM Toolkit/Travel Calculator.md",
+    "0-Scratch Notes/Chart Test.md",
+    "1-DM Toolkit/Home.md",
+    "1-DM Toolkit/DM Board.md",
     "1-Party/Example Party 1/Example Party 1.md",
     "1-DM Toolkit/Journey Board.md",
     "1-Session Journals/2023-10-26.md",
@@ -305,7 +306,6 @@
     "z_Example Notes/Untitled 2.md",
     "z_Example Notes/Untitled 1.md",
     "NewFolder",
-    "0-Scratch Notes/Untitled.md",
     "z_Example Notes",
     "z_Assets/Placeholder Images/MiscCombatRulesTitleBar.png",
     "z_Assets/Placeholder Images/MagicTitleBar.png",
@@ -316,7 +316,6 @@
     "z_Assets/Placeholder Images/AbilitiesTitleBar.png",
     "z_Assets/Placeholder Images/WeaponsArmorItemsTitleBar.png",
     "z_Assets/Placeholder Images/SkillsTitleBar.png",
-    "z_Assets/Placeholder Images/RestTravelTitleBar.png",
     "2-World/Lampoteuo/The Wound",
     "2-World/Lampoteuo/Lampoteuo City/Lucky Grain Inn",
     "Untitled.canvas",

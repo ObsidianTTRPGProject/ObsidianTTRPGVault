@@ -2517,7 +2517,7 @@ async function turnIntoFolderNote(plugin, file, folder, folderNote, skipConfirma
 async function openFolderNote(plugin, file, evt) {
   var _a;
   const path = file.path;
-  if (((_a = plugin.app.workspace.getActiveFile()) == null ? void 0 : _a.path) === path) {
+  if (((_a = plugin.app.workspace.getActiveFile()) == null ? void 0 : _a.path) === path && !(import_obsidian10.Keymap.isModEvent(evt) == "tab")) {
     return;
   }
   const leaf = plugin.app.workspace.getLeaf(import_obsidian10.Keymap.isModEvent(evt) || plugin.settings.openInNewTab);
@@ -3178,6 +3178,15 @@ async function renderFileExplorer(settingsTab) {
     }));
   }
   settingsTab.settingsPage.createEl("h3", { text: "Style settings" });
+  new import_obsidian16.Setting(containerEl).setName("Hide collapse icon").setDesc("Hide the collapse icon in the file explorer next to the name of a folder when a folder only contains a folder note").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.hideCollapsingIcon).onChange(async (value) => {
+    settingsTab.plugin.settings.hideCollapsingIcon = value;
+    await settingsTab.plugin.saveSettings();
+    if (value) {
+      document.body.classList.add("fn-hide-collapse-icon");
+    } else {
+      document.body.classList.remove("fn-hide-collapse-icon");
+    }
+  }));
   new import_obsidian16.Setting(containerEl).setName("Underline the name of folder notes").setDesc("Add an underline to folders that have a folder note in the file explorer").addToggle((toggle) => toggle.setValue(settingsTab.plugin.settings.underlineFolder).onChange(async (value) => {
     settingsTab.plugin.settings.underlineFolder = value;
     if (value) {
@@ -4246,7 +4255,8 @@ var DEFAULT_SETTINGS = {
     position: 0,
     excludeFromFolderOverview: false,
     string: ""
-  }
+  },
+  hideCollapsingIcon: false
 };
 var SettingsTab = class extends import_obsidian22.PluginSettingTab {
   constructor(app2, plugin) {
@@ -4680,6 +4690,11 @@ ${newLines.join("\n")}\`\`\`
           subMenu.addItem((item2) => {
             item2.setTitle("Open folder note").setIcon("chevron-right-square").onClick(() => {
               openFolderNote(this.plugin, folderNote);
+            });
+          });
+          subMenu.addItem((item2) => {
+            item2.setTitle("Copy Obsidian URL").setIcon("link").onClick(() => {
+              this.app.copyObsidianUrl(folderNote);
             });
           });
         } else {
@@ -5160,6 +5175,9 @@ var FolderNotesPlugin = class extends import_obsidian27.Plugin {
     if (!this.settings.allowWhitespaceCollapsing) {
       document.body.classList.add("fn-whitespace-stop-collapsing");
     }
+    if (this.settings.hideCollapsingIcon) {
+      document.body.classList.add("fn-hide-collapse-icon");
+    }
     new Commands(this.app, this).registerCommands();
     this.app.workspace.onLayoutReady(() => {
       if (this.settings.frontMatterTitle.enabled) {
@@ -5174,6 +5192,11 @@ var FolderNotesPlugin = class extends import_obsidian27.Plugin {
               return;
             if (import_obsidian27.Platform.isMobile && this.settings.disableOpenFolderNoteOnClick)
               return;
+            element.addEventListener("auxclick", (event) => {
+              if (event.button == 1) {
+                handleFolderClick(event, this);
+              }
+            }, { capture: true });
             element.onclick = (event) => handleFolderClick(event, this);
             this.registerDomEvent(element, "pointerover", (event) => {
               var _a, _b;
@@ -5533,15 +5556,20 @@ var FolderNotesPlugin = class extends import_obsidian27.Plugin {
       const folderNote = getFolderNote(this, file.path);
       if (!folderNote) {
         this.removeCSSClassFromEL(file == null ? void 0 : file.path, "has-folder-note");
+        this.removeCSSClassFromEL(file == null ? void 0 : file.path, "only-has-folder-note");
         return;
       }
       const excludedFolder = getExcludedFolder(this, file.path);
       if (excludedFolder == null ? void 0 : excludedFolder.disableFolderNote) {
         this.removeCSSClassFromEL(folderNote.path, "is-folder-note");
         this.removeCSSClassFromEL(file.path, "has-folder-note");
+        this.removeCSSClassFromEL(file == null ? void 0 : file.path, "only-has-folder-note");
       } else {
         this.addCSSClassToTitleEL(folderNote.path, "is-folder-note");
         this.addCSSClassToTitleEL(file.path, "has-folder-note");
+        if (file.children.length == 1) {
+          this.addCSSClassToTitleEL(file.path, "only-has-folder-note");
+        }
       }
     });
   }

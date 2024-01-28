@@ -11,7 +11,6 @@ NoteIcon: npc
 Vitality: Deceased
 ---
 
-<% tp.file.title %>
 <% await tp.file.move("/3-Mechanics/NPCs/" + tp.file.title) %>
 
 <%*

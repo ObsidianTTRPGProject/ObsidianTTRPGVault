@@ -16,7 +16,6 @@ timelines:
   - journal
 ---
 
-<% tp.file.title %>
 <% await tp.file.move("/1-Session Journals/" + tp.file.title) %>
 
 <%*

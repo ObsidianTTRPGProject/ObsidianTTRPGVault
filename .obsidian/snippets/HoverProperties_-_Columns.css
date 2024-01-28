@@ -10,16 +10,11 @@
 /****  font-family: "Century Gothic"; ****/
 } 
 
-
-/*Hides DropdownArrow, It bugs out using multi column*/
-.collapse-indicator {
-	display: none;	
-}
 /* Adjust column count to your preference*/
 .metadata-content {
   
   column-count: 2;     /****Column #****/
-  column-gap: 40px;     /****Gap Amount****/
+  column-gap: 5px;     /****Gap Amount****/
   display: inline-block;
     display: block;
     margin-left: auto;
@@ -44,4 +39,9 @@
 }
 /* Value Key CSS*/
 .metadata-property-key-input {
+}
+
+/* adjust properties label width - default is 9em */
+body {
+    --metadata-label-width: 15em;
 }

@@ -23,7 +23,6 @@ PlayerKnownLanguages:
   - Dwarvish
 ---
 
-<% tp.file.title %>
 <% await tp.file.move("/1-Party/" + tp.file.title) %>
 
 <%*

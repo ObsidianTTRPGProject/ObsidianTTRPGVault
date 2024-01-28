@@ -83,5 +83,6 @@
     "position": 0,
     "excludeFromFolderOverview": false,
     "string": ""
-  }
+  },
+  "hideCollapsingIcon": false
 }
