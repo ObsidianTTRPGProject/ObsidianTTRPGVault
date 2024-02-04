@@ -6745,7 +6745,7 @@ var require_array = __commonJS({
         return "";
       array = util.result(array);
       if (Array.isArray(array)) {
-        return array.slice(0, -n);
+        return array.slice(0, n - 1);
       }
       return "";
     };
@@ -11672,11 +11672,7 @@ var require_string = __commonJS({
         b = "";
       return str.replace(a, b);
     };
-    helpers.reverse = function(str) {
-      if (typeof str !== "string")
-        return "";
-      return str.split("").reverse().join("");
-    };
+    helpers.reverse = require_array().reverse;
     helpers.sentence = function(str) {
       if (typeof str !== "string")
         return "";
@@ -11754,9 +11750,10 @@ var require_string = __commonJS({
         }
         var num = Number(count);
         var arr = str.split(/[ \t]/);
-        if (num > arr.length) {
-          arr = arr.slice(0, num);
+        if (num >= arr.length) {
+          return str;
         }
+        arr = arr.slice(0, num);
         var val = arr.join(" ").trim();
         return val + suffix;
       }
@@ -12592,7 +12589,7 @@ var require_handlebars_helpers = __commonJS({
         var hbs = options.handlebars || options.hbs || require_handlebars();
         module2.exports.handlebars = hbs;
         hbs.registerHelper(group);
-        return hbs.helpers;
+        return group;
       };
     }
     module2.exports.utils = require_utils2();
@@ -12625,7 +12622,8 @@ var DEFAULT_SETTINGS = {
   noteSuffix: "",
   handleExistingNote: 0,
   forceArray: true,
-  multipleJSON: false
+  multipleJSON: false,
+  uniqueNames: false
 };
 function convertCsv(source) {
   var _a;
@@ -12794,6 +12792,8 @@ var JsonImport = class extends import_obsidian.Plugin {
       let sourcefilename = sourcefile.name;
       this.knownpaths = new Set();
       this.namepath = settings.jsonNamePath;
+      if (settings.uniqueNames)
+        this.nameMap = new Set();
       const compileoptions = {
         noEscape: true
       };
@@ -12845,7 +12845,8 @@ var JsonImport = class extends import_obsidian.Plugin {
         row.dataRoot = objdata;
         if (sourcefilename)
           row.SourceFilename = sourcefilename;
-        let notefile = objfield(row, settings.jsonName);
+        let notefile = settings.jsonName;
+        notefile = notefile.contains("${") ? new Function("row", `return \`${notefile.replaceAll("${", "${row.")}\``)(row) : objfield(row, notefile);
         if (typeof notefile === "number")
           notefile = notefile.toString();
         if (!notefile || notefile.length == 0)
@@ -12864,7 +12865,16 @@ FOR ROW:
           console.log(`[object Object] appears in '${notefile}'`);
           new import_obsidian.Notice(`Incomplete conversion for '${notefile}'. Look for '[object Object]' (also reported in console)`);
         }
-        let filename = settings.folderName + path.sep + this.validFilename(notefile) + ".md";
+        let filename = settings.folderName + path.sep + this.validFilename(notefile);
+        if (settings.uniqueNames) {
+          let basename = filename;
+          let counter = 0;
+          while (this.nameMap.has(filename)) {
+            filename = basename + ++counter;
+          }
+          this.nameMap.add(filename);
+        }
+        filename += ".md";
         filename = filename.replaceAll(/(\/|\\)+/g, path.sep);
         yield this.checkPath(filename);
         let file = this.app.vault.getAbstractFileByPath(filename);
@@ -12963,6 +12973,13 @@ var FileSelectionModal = class extends import_obsidian.Modal {
       }
     });
     inputJsonName.value = this.default_settings.jsonName;
+    const settingUniqueNames = new import_obsidian.Setting(this.contentEl).setName("Add suffix on duplicate Note Names").setDesc("When checked, if a second or subsequent Note has the same name as a Note created during this import, then the second or subsequent note will have a numeric identifier added to the end of the Note Name to make it unique");
+    const inputUniqueNames = settingUniqueNames.controlEl.createEl("input", {
+      attr: {
+        type: "checkbox"
+      }
+    });
+    inputUniqueNames.checked = this.default_settings.uniqueNames;
     const settingPrefix = new import_obsidian.Setting(this.contentEl).setName("Note name prefix/suffix").setDesc("Optional prefix/suffix to be added either side of the value from the above Note name field");
     const inputNotePrefix = settingPrefix.controlEl.createEl("input", {
       attr: {
@@ -13021,7 +13038,8 @@ var FileSelectionModal = class extends import_obsidian.Modal {
         noteSuffix: inputNoteSuffix.value,
         handleExistingNote: parseInt(inputHandleExisting.value),
         forceArray: !inputForceArray.checked,
-        multipleJSON: inputMultipleJSON.checked
+        multipleJSON: inputMultipleJSON.checked,
+        uniqueNames: inputUniqueNames.checked
       };
       function parsejson(text) {
         return settings.multipleJSON ? text.split(/(?<=})\s*(?={)/).map((obj) => JSON.parse(obj)) : [JSON.parse(text)];

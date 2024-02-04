@@ -9,7 +9,7 @@
   "excludeFolders": [],
   "showDeleteConfirmation": true,
   "underlineFolder": false,
-  "allowWhitespaceCollapsing": false,
+  "stopWhitespaceCollapsing": false,
   "underlineFolderInPath": true,
   "openFolderNoteOnClickInPath": true,
   "openInNewTab": false,
@@ -84,5 +84,7 @@
     "excludeFromFolderOverview": false,
     "string": ""
   },
-  "hideCollapsingIcon": false
+  "hideCollapsingIcon": false,
+  "tabManagerEnabled": true,
+  "ignoreAttachmentFolder": true
 }
