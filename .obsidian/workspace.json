@@ -4,83 +4,47 @@
     "type": "split",
     "children": [
       {
-        "id": "5068e1c0132abbc2",
+        "id": "9761188167cbb3fb",
         "type": "tabs",
         "children": [
           {
-            "id": "148b3156f26ef329",
+            "id": "cf2ae1e3f2b9d1c1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Templates/TemplateGroup.md",
+                "file": "1-Party/Example Party 1/Example Party 1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "182cbfb32ebd732e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "z_Templates/TemplateJournal.md",
                 "mode": "source",
                 "source": true
               }
             }
           },
           {
-            "id": "4dca95cc6ff02632",
+            "id": "e4e1719a48dd9b39",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-DM Toolkit/Vault Report.md",
+                "file": "z_Templates/How To Create New Templates.md",
                 "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "25cd30c773623a3a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "z_Templates/TemplatePlayer.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2bc9b198d7d0dca0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2-World/Lampoteuo/Lampoteuo.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "578ae5e9e8cb58b7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "z_Templates/TemplateSettlement.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "d8855e62e3cdb159",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-DM Toolkit/Travel Calculator.md",
-                "mode": "preview",
                 "source": true
               }
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -139,6 +103,20 @@
               },
               "pinned": true
             }
+          },
+          {
+            "id": "f6ef017cc52d2e49",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-DM Toolkit/DM Board.md",
+                "mode": "preview",
+                "source": true
+              },
+              "pinned": true
+            }
           }
         ]
       }
@@ -160,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-DM Toolkit/Travel Calculator.md",
+                "file": "z_Templates/How To Create New Templates.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -177,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1-DM Toolkit/Travel Calculator.md",
+                "file": "z_Templates/How To Create New Templates.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -200,7 +178,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1-DM Toolkit/Travel Calculator.md"
+                "file": "z_Templates/How To Create New Templates.md"
               }
             }
           },
@@ -249,7 +227,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 8
       }
     ],
     "direction": "horizontal",
@@ -265,45 +243,45 @@
       "templates:Insert template": false,
       "obsidian-custom-frames:Open Obsidian Forum": false,
       "obsidian42-brat:BRAT": false,
-      "obsidian-import-json:JSON/CSV Importer": false,
       "helpmate:HelpMate": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "templater-obsidian:Templater": false,
       "obsidian-leaflet-plugin:Open Leaflet Map": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-5e-statblocks:Open Creature Pane": false,
-      "initiative-tracker:Initiative Tracker Encounter Builder": false
+      "initiative-tracker:Initiative Tracker Encounter Builder": false,
+      "obsidian-import-json:JSON/CSV Importer": false
     }
   },
-  "active": "d8855e62e3cdb159",
+  "active": "e4e1719a48dd9b39",
   "lastOpenFiles": [
-    "3-Mechanics/NPCs/Wilma.md",
-    "z_Templates/TemplateJournal.md",
-    "1-DM Toolkit/Home.md",
-    "1-DM Toolkit/PF2e-DM Screen.md",
-    "1-DM Toolkit/DM Screen.md",
     "1-DM Toolkit/DM Board.md",
-    "1-DM Toolkit/DM Board-5e.md",
+    "z_Templates/How To Create New Templates.md",
+    "z_Templates/TemplateGroup.md",
     "z_Templates/TemplateSettlement.md",
     "z_Templates/TemplatePlayer.md",
     "z_Templates/TemplateNPC.md",
+    "1-DM Toolkit/Home.md",
+    "1-Party/Example Party 1/Example Party 1.md",
+    "1-Party/Example Party 1/Bob.md",
+    "1-DM Toolkit/DnD5e-DM Screen.md",
+    "z_Templates/TemplateJournal.md",
+    "z_Templates/TemplateLore.md",
+    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "1-Party/Example Party 1/Fred.md",
+    "1-Session Journals/2000-01-01.md",
+    "1-DM Toolkit/Travel Calculator.md",
+    "3-Mechanics/NPCs/Wilma.md",
+    "1-DM Toolkit/PF2e-DM Screen.md",
+    "1-DM Toolkit/DM Screen.md",
+    "1-DM Toolkit/DM Board-5e.md",
     "z_Templates/TemplateMagicItem.md",
-    "z_Templates/TemplateGroup.md",
     "z_Assets/TemplateSettlement-20240122215419380.webp",
     "2-World/Lampoteuo/The Wound/The Wound.md",
     "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
     "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
     "2-World/Lampoteuo/Lampoteuo.md",
-    "1-DM Toolkit/Travel Calculator.md",
     "0-Scratch Notes/Chart Test.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "1-DM Toolkit/Journey Board.md",
-    "1-Session Journals/2023-10-26.md",
-    "1-Session Journals/2000-01-01.md",
-    "1-DM Toolkit/Vault Report.md",
-    "1-Party/Example Party 1/Bob.md",
-    "README.md",
-    "z_Example Notes/Untitled.md",
     "NewFolder",
     "z_Example Notes",
     "z_Assets/Placeholder Images/MiscCombatRulesTitleBar.png",
