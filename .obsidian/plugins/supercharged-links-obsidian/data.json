@@ -1,0 +1,88 @@
+{
+  "targetAttributes": [
+    "NoteIcon"
+  ],
+  "targetTags": true,
+  "getFromInlineField": true,
+  "enableTabHeader": true,
+  "activateSnippet": true,
+  "enableEditor": true,
+  "enableFileList": true,
+  "enableBacklinks": true,
+  "enableQuickSwitcher": true,
+  "enableSuggestor": true,
+  "selectors": [
+    {
+      "type": "attribute",
+      "name": "NoteIcon",
+      "value": "player",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "b076-3eaf",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "attribute",
+      "name": "NoteIcon",
+      "value": "journal",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "3862-844d",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "attribute",
+      "name": "NoteIcon",
+      "value": "Settlement",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "04aa-e3dd",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "attribute",
+      "name": "NoteIcon",
+      "value": "group",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "1d74-3416",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "attribute",
+      "name": "NoteIcon",
+      "value": "magicitem",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "3059-0c32",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "attribute",
+      "name": "NoteIcon",
+      "value": "npc",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "7c37-4ee7",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    }
+  ]
+}

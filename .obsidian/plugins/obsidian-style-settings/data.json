@@ -21,5 +21,14 @@
   "ITS@@mini": false,
   "ITS@@notion": false,
   "ITS@@its-d": false,
-  "ITS@@select": "none"
+  "ITS@@select": "none",
+  "supercharged-links@@b076-3eaf-before": "🧑",
+  "supercharged-links@@3862-844d-before": "📑",
+  "supercharged-links@@3862-844d-weight": "bold",
+  "supercharged-links@@3862-844d-decoration": "initial",
+  "supercharged-links@@3862-844d-color": "#266FE3",
+  "supercharged-links@@04aa-e3dd-before": "🛖",
+  "supercharged-links@@1d74-3416-before": "👨‍👩‍👧‍👦",
+  "supercharged-links@@3059-0c32-before": "⚔️",
+  "supercharged-links@@7c37-4ee7-before": "👩‍🌾"
 }
