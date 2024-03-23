@@ -1,5 +1,277 @@
 {
-  "userAdmonitions": {},
+  "userAdmonitions": {
+    "statblock": {
+      "type": "statblock",
+      "icon": {
+        "name": "dragon",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false,
+      "color": "137, 76, 165"
+    },
+    "flowchart": {
+      "type": "flowchart",
+      "icon": {
+        "name": "map",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": true,
+      "copy": false,
+      "color": "64, 213, 43"
+    },
+    "gallery": {
+      "type": "gallery",
+      "icon": {
+        "name": "image",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": true,
+      "copy": false,
+      "color": "46, 223, 23"
+    },
+    "readaloud": {
+      "type": "readaloud",
+      "icon": {
+        "name": "book-reader",
+        "type": "font-awesome"
+      },
+      "title": "Read Aloud",
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false,
+      "color": "203, 234, 242"
+    },
+    "embed-feat": {
+      "type": "embed-feat",
+      "color": "239, 187, 189",
+      "icon": {
+        "name": "fort-awesome-alt",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": true
+    },
+    "embed-ability": {
+      "type": "embed-ability",
+      "color": "182, 197, 200",
+      "icon": {
+        "type": "obsidian",
+        "name": "lucide-swords"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": true
+    },
+    "inline-affliction": {
+      "type": "inline-affliction",
+      "color": "217, 216, 218",
+      "icon": {
+        "name": "virus-slash",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": true,
+      "copy": true
+    },
+    "embed-avatar": {
+      "type": "embed-avatar",
+      "color": "236, 202, 99",
+      "icon": {
+        "name": "superpowers",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": true
+    },
+    "embed-action": {
+      "type": "embed-action",
+      "color": "206, 206, 197",
+      "icon": {
+        "type": "obsidian",
+        "name": "lucide-hammer"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": true
+    },
+    "embed-disease": {
+      "type": "embed-disease",
+      "color": "36, 36, 36",
+      "icon": {
+        "name": "head-side-virus",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": true
+    },
+    "embed-item": {
+      "type": "embed-item",
+      "color": "163, 200, 209",
+      "icon": {
+        "type": "obsidian",
+        "name": "lucide-coins"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": true
+    },
+    "embed-ritual": {
+      "type": "embed-ritual",
+      "color": "158, 187, 144",
+      "icon": {
+        "name": "circle-notch",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": true
+    },
+    "inline-attack": {
+      "type": "inline-attack",
+      "color": "233, 195, 99",
+      "icon": {
+        "name": "fire-alt",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": true,
+      "copy": true
+    },
+    "pf2-note": {
+      "type": "pf2-note",
+      "color": "227, 223, 187",
+      "icon": {
+        "name": "scroll",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": true
+    },
+    "pf2-summary": {
+      "type": "pf2-summary",
+      "color": "209, 224, 224",
+      "icon": {
+        "name": "book-open",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": true
+    },
+    "statblock-pf2e": {
+      "type": "statblock-pf2e",
+      "color": "196, 153, 33",
+      "icon": {
+        "name": "dragon",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": true,
+      "copy": false
+    },
+    "charm": {
+      "type": "charm",
+      "icon": {
+        "name": "magic",
+        "type": "font-awesome"
+      },
+      "title": "Charm",
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false,
+      "color": "3, 64, 20"
+    },
+    "letter": {
+      "type": "letter",
+      "icon": {
+        "name": "envelope-open-text",
+        "type": "font-awesome"
+      },
+      "title": "Letter",
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false,
+      "color": "173, 0, 236"
+    },
+    "npc": {
+      "type": "npc",
+      "icon": {
+        "name": "address-card",
+        "type": "font-awesome"
+      },
+      "title": "NPC",
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false,
+      "color": "133, 194, 98"
+    },
+    "scene": {
+      "type": "scene",
+      "icon": {
+        "name": "archway",
+        "type": "font-awesome"
+      },
+      "title": "Scene",
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false,
+      "color": "65, 125, 230"
+    },
+    "skill": {
+      "type": "skill",
+      "icon": {
+        "name": "hand-sparkles",
+        "type": "font-awesome"
+      },
+      "title": "Skill Check",
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false,
+      "color": "183, 130, 148"
+    },
+    "weather": {
+      "type": "weather",
+      "icon": {
+        "name": "cloud-sun",
+        "type": "font-awesome"
+      },
+      "title": "Weather",
+      "command": false,
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false,
+      "color": "98, 224, 240"
+    }
+  },
   "syntaxHighlight": false,
   "copyButton": false,
   "version": "10.1.2",

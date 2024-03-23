@@ -5,7 +5,12 @@
   "enabledCssSnippets": [
     "S - Encoded Fonts",
     "S - Encoded Icons",
-    "HoverProperties_-_Columns"
+    "HoverProperties_-_Columns",
+    "supercharged-links-gen",
+    "dnd5e-compendium",
+    "dnd5e-float-images",
+    "dnd5e-only-admonitions",
+    "dnd5e-only-statblock"
   ],
   "baseFontSize": 15
 }

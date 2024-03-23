@@ -37,14 +37,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3-Mechanics/NPCs/Wilma.md",
+                "file": "2-World/Lampoteuo/Lampoteuo.md",
                 "mode": "source",
-                "source": true
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6426364bcc93952c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "astral-brig-mtf.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -138,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3-Mechanics/NPCs/Wilma.md",
+                "file": "astral-brig-mtf.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "3-Mechanics/NPCs/Wilma.md",
+                "file": "astral-brig-mtf.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -178,7 +190,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3-Mechanics/NPCs/Wilma.md"
+                "file": "astral-brig-mtf.md"
               }
             }
           },
@@ -231,7 +243,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 541.5
+    "width": 541.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -253,8 +266,15 @@
       "obsidian-import-json:JSON/CSV Importer": false
     }
   },
-  "active": "e4e1719a48dd9b39",
+  "active": "6426364bcc93952c",
   "lastOpenFiles": [
+    "astral-brig-mtf.md",
+    "1-Party/Example Party 1/Example Party 1.md",
+    "1-Party/Example Party 1/Bob.md",
+    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "1-DM Toolkit/DnD5e-DM Screen.md",
+    "1-DM Toolkit/DM Board.md",
+    "3-Mechanics/NPCs/Wilma.md",
     "3-Mechanics/Items/Broken Stick.md",
     "3-Mechanics/Guilds and Groups/Harpers.md",
     "3-Mechanics/CLI/CLI.md",
@@ -262,25 +282,18 @@
     "1-Session Journals/2000-01-01.md",
     "1-Session Journals/2023-10-26.md",
     "1-Party/Example Party 1/Fred.md",
-    "1-Party/Example Party 1/Bob.md",
     "1-DM Toolkit/Vault Report.md",
-    "1-DM Toolkit/DnD5e-SideScreen.md",
-    "1-DM Toolkit/DM Board.md",
-    "1-DM Toolkit/DnD5e-DM Screen.md",
     "z_Templates/How To Create New Templates.md",
     "z_Templates/TemplateGroup.md",
     "z_Templates/TemplateSettlement.md",
     "z_Templates/TemplatePlayer.md",
     "z_Templates/TemplateNPC.md",
     "1-DM Toolkit/Home.md",
-    "1-Party/Example Party 1/Example Party 1.md",
     "z_Templates/TemplateJournal.md",
     "z_Templates/TemplateLore.md",
     "1-DM Toolkit/Travel Calculator.md",
-    "3-Mechanics/NPCs/Wilma.md",
     "1-DM Toolkit/PF2e-DM Screen.md",
     "1-DM Toolkit/DM Screen.md",
-    "1-DM Toolkit/DM Board-5e.md",
     "z_Assets/TemplateSettlement-20240122215419380.webp",
     "NewFolder",
     "z_Example Notes",
