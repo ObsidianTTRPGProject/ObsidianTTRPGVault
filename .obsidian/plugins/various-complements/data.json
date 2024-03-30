@@ -19,6 +19,7 @@
     "^~~~.*",
     "^```.*"
   ],
+  "phrasePatternsToSuppressTrigger": [],
   "noAutoFocusUntilCycle": false,
   "showMatchStrategy": true,
   "showComplementAutomatically": true,
@@ -74,7 +75,7 @@
   "caretLocationSymbolAfterComplement": "",
   "displayedTextSuffix": " => ...",
   "enableInternalLinkComplement": true,
-  "suggestInternalLinkWithAlias": false,
+  "suggestInternalLinkWithAlias": true,
   "excludeInternalLinkPathPrefixPatterns": "",
   "updateInternalLinksOnSave": true,
   "insertAliasTransformedFromDisplayedInternalLink": {

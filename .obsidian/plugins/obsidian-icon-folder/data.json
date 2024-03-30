@@ -32,7 +32,8 @@
     "iconsBackgroundCheckEnabled": false,
     "iconInFrontmatterEnabled": false,
     "iconsInNotesEnabled": true,
-    "iconIdentifier": ":"
+    "iconIdentifier": ":",
+    "iconsInLinksEnabled": true
   },
   "1-DM Toolkit/DnD5e-SideScreen.md": "RaScrollUnfurled",
   "1-DM Toolkit/DnD5e-DM Screen.md": "RaScrollUnfurled",

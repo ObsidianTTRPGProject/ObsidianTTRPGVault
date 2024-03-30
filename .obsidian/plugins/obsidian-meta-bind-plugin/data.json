@@ -16,7 +16,42 @@
   "enableSyntaxHighlighting": true,
   "enableEditorRightClickMenu": true,
   "inputFieldTemplates": [],
-  "buttonTemplates": [],
+  "buttonTemplates": [
+    {
+      "label": "Test Button",
+      "hidden": false,
+      "class": "",
+      "tooltip": "Tooltip",
+      "id": "Button_1",
+      "style": "default",
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/TemplatePlayer.md",
+          "folderPath": "1-Session Journals",
+          "fileName": "FileName",
+          "openNote": true
+        }
+      ]
+    },
+    {
+      "label": "Do This",
+      "hidden": false,
+      "class": "center",
+      "tooltip": "This is a tooltip",
+      "id": "Button_2",
+      "style": "destructive",
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/TemplateMagicItem.md",
+          "folderPath": "0-Scratch Notes",
+          "fileName": "DefaultName",
+          "openNote": true
+        }
+      ]
+    }
+  ],
   "excludedFolders": [
     "templates"
   ]

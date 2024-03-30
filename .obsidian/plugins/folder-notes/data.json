@@ -7,6 +7,7 @@
   "autoCreate": false,
   "enableCollapsing": false,
   "excludeFolders": [],
+  "whitelistFolders": [],
   "showDeleteConfirmation": true,
   "underlineFolder": false,
   "stopWhitespaceCollapsing": true,
@@ -47,7 +48,7 @@
     "explorer": true,
     "path": true
   },
-  "settingsTab": "file_explorer",
+  "settingsTab": "general",
   "supportedFileTypes": [
     "md",
     "canvas"

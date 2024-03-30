@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-Party/Example Party 1/Example Party 1.md",
-                "mode": "source",
-                "source": false
+                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "mode": "preview",
+                "source": true
               }
             }
           },
@@ -49,8 +49,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "astral-brig-mtf.md",
-                "mode": "source",
+                "file": "z_Templates/TemplateJournal.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -134,7 +134,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300.5
+    "width": 396.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -150,7 +150,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "astral-brig-mtf.md",
+                "file": "z_Templates/TemplateJournal.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +167,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "astral-brig-mtf.md",
+                "file": "z_Templates/TemplateJournal.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -190,7 +190,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "astral-brig-mtf.md"
+                "file": "z_Templates/TemplateJournal.md"
               }
             }
           },
@@ -223,7 +223,7 @@
             }
           },
           {
-            "id": "5c08c96bceb94e29",
+            "id": "b5834df24cd765c1",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
@@ -231,7 +231,7 @@
             }
           },
           {
-            "id": "45ed13226cbfa824",
+            "id": "bb21e6fb9beae31a",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -239,12 +239,11 @@
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
-    "width": 541.5,
-    "collapsed": true
+    "width": 541.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -254,47 +253,50 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "obsidian-custom-frames:Open Obsidian Forum": false,
-      "obsidian42-brat:BRAT": false,
       "helpmate:HelpMate": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-import-json:JSON/CSV Importer": false,
       "templater-obsidian:Templater": false,
       "obsidian-leaflet-plugin:Open Leaflet Map": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
-      "obsidian-5e-statblocks:Open Creature Pane": false,
+      "obsidian-5e-statblocks:Open Creature pane": false,
       "initiative-tracker:Initiative Tracker Encounter Builder": false,
-      "obsidian-import-json:JSON/CSV Importer": false
+      "obsidian42-brat:BRAT": false,
+      "obsidian-custom-frames:Open Obsidian Forum": false
     }
   },
   "active": "6426364bcc93952c",
   "lastOpenFiles": [
-    "astral-brig-mtf.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "1-Party/Example Party 1/Bob.md",
-    "1-DM Toolkit/DnD5e-SideScreen.md",
-    "1-DM Toolkit/DnD5e-DM Screen.md",
-    "1-DM Toolkit/DM Board.md",
-    "3-Mechanics/NPCs/Wilma.md",
-    "3-Mechanics/Items/Broken Stick.md",
-    "3-Mechanics/Guilds and Groups/Harpers.md",
-    "3-Mechanics/CLI/CLI.md",
-    "2-World/Lampoteuo/Lampoteuo.md",
-    "1-Session Journals/2000-01-01.md",
-    "1-Session Journals/2023-10-26.md",
-    "1-Party/Example Party 1/Fred.md",
-    "1-DM Toolkit/Vault Report.md",
-    "z_Templates/How To Create New Templates.md",
-    "z_Templates/TemplateGroup.md",
-    "z_Templates/TemplateSettlement.md",
-    "z_Templates/TemplatePlayer.md",
-    "z_Templates/TemplateNPC.md",
+    "A New Folder/A New Folder.md",
+    "A New Folder/A New Note.md",
     "1-DM Toolkit/Home.md",
+    "A New Folder",
     "z_Templates/TemplateJournal.md",
-    "z_Templates/TemplateLore.md",
-    "1-DM Toolkit/Travel Calculator.md",
-    "1-DM Toolkit/PF2e-DM Screen.md",
-    "1-DM Toolkit/DM Screen.md",
+    "New Folder Note/New Folder Note.md",
+    "New Folder Note/New Note.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "New Folder Note",
     "z_Assets/TemplateSettlement-20240122215419380.webp",
+    "2-World/Lampoteuo/Lampoteuo.md",
+    "1-DM Toolkit/DnD5e-DM Screen.md",
+    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "1-DM Toolkit/Journey Board.md",
+    "1-DM Toolkit/PF2e-DM Screen.md",
+    "1-DM Toolkit/Untitled Kanban.md",
+    "1-DM Toolkit/Vault Report.md",
+    "1-DM Toolkit/DM Board.md",
+    "0-Scratch Notes/Chart Test.md",
+    "0-Scratch Notes/CPR - Character Sheet - Fillable.pdf",
+    "0-Scratch Notes/CyberPunk Red Character.md",
+    "1-Party/Example Party 1/Bob.md",
+    "1-Party/Example Party 1/Example Party 1.md",
+    "1-DM Toolkit/Party 1%2FExample Party 1.md",
+    "3-Mechanics/Items/DefaultName.md",
+    "1-DM Toolkit/Travel Calculator.md",
+    "1-Session Journals/2023-10-26.md",
+    "1-Session Journals/2000-01-01.md",
+    "astral-brig-mtf.md",
+    "3-Mechanics/NPCs/Wilma.md",
     "NewFolder",
     "z_Example Notes",
     "z_Assets/Placeholder Images/MiscCombatRulesTitleBar.png",
@@ -311,9 +313,6 @@
     "Untitled.canvas",
     "3-Mechanics/CLI",
     "0-Scratch Notes",
-    "3-Mechanics/Guilds and Groups",
-    "1-DM Toolkit/Travel Calc",
-    "3-Mechanics/Items",
-    "3-Mechanics/NPCs"
+    "3-Mechanics/Guilds and Groups"
   ]
 }

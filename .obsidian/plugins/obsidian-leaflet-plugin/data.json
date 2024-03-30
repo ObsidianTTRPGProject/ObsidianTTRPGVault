@@ -11401,7 +11401,7 @@
     {
       "id": "Regional_Lampoteuo",
       "locked": true,
-      "lastAccessed": 1705746141800,
+      "lastAccessed": 1711357364332,
       "markers": [
         {
           "id": "ID_6b7a8be94beb",
@@ -11615,11 +11615,11 @@
   "long": -82.98333,
   "notePreview": true,
   "layerMarkers": true,
-  "previousVersion": "6.0.2",
+  "previousVersion": "6.0.4",
   "version": {
     "major": 6,
     "minor": 0,
-    "patch": 2
+    "patch": 4
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,
