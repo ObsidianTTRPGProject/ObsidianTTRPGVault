@@ -10,6 +10,8 @@ Character-Role:
 Location: 
 NoteIcon: npc
 Vitality: Deceased
+tags:
+  - npc
 ---
 
 NewNPC

@@ -6,6 +6,7 @@
       {
         "id": "9761188167cbb3fb",
         "type": "tabs",
+        "dimension": 46.83288409703504,
         "children": [
           {
             "id": "cf2ae1e3f2b9d1c1",
@@ -13,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "file": "2-Campaign/Quests/Quests.md",
                 "mode": "preview",
                 "source": true
               }
@@ -55,8 +56,26 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
+      },
+      {
+        "id": "c917de32e37139e0",
+        "type": "tabs",
+        "dimension": 53.16711590296496,
+        "children": [
+          {
+            "id": "55a8f8d9ace91bdd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2-Campaign/Quests/Quests.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -150,7 +169,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "z_Templates/TemplateJournal.md",
+                "file": "2-Campaign/Quests/Quests.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -167,7 +186,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "z_Templates/TemplateJournal.md",
+                "file": "2-Campaign/Quests/Quests.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -190,7 +209,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "z_Templates/TemplateJournal.md"
+                "file": "2-Campaign/Quests/Quests.md"
               }
             }
           },
@@ -243,7 +262,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 541.5
+    "width": 541.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -265,38 +285,40 @@
       "obsidian-custom-frames:Open Obsidian Forum": false
     }
   },
-  "active": "6426364bcc93952c",
+  "active": "cf2ae1e3f2b9d1c1",
   "lastOpenFiles": [
-    "A New Folder/A New Folder.md",
-    "A New Folder/A New Note.md",
-    "1-DM Toolkit/Home.md",
-    "A New Folder",
+    "2-Campaign/Quests/Warn the Midwife.md",
+    "2-Campaign/Quests/Beat the Goblin.md",
+    "2-Campaign/Quests/Quests.md",
+    "1-DM Toolkit/DM Board.md",
+    "2-Campaign/Quests/Quest Name.md",
+    "z_Templates/TemplateQuest.md",
+    "2-Campaign/Quests/Beat the Town Cryer Senseless.md",
+    "2-Campaign/Quests/Quest 1.md",
+    "2-World/Logger's Camp.md",
+    "z_Templates/TemplatePlayer.md",
+    "z_Templates/TemplateSettlement.md",
+    "1-Party/Example Party 1/Example Party 1.md",
+    "z_Templates/TemplateMagicItem.md",
     "z_Templates/TemplateJournal.md",
-    "New Folder Note/New Folder Note.md",
-    "New Folder Note/New Note.md",
-    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
-    "New Folder Note",
-    "z_Assets/TemplateSettlement-20240122215419380.webp",
-    "2-World/Lampoteuo/Lampoteuo.md",
+    "z_Templates/TemplateGroup.md",
     "1-DM Toolkit/DnD5e-DM Screen.md",
     "1-DM Toolkit/DnD5e-SideScreen.md",
-    "1-DM Toolkit/Journey Board.md",
-    "1-DM Toolkit/PF2e-DM Screen.md",
-    "1-DM Toolkit/Untitled Kanban.md",
-    "1-DM Toolkit/Vault Report.md",
-    "1-DM Toolkit/DM Board.md",
-    "0-Scratch Notes/Chart Test.md",
-    "0-Scratch Notes/CPR - Character Sheet - Fillable.pdf",
-    "0-Scratch Notes/CyberPunk Red Character.md",
-    "1-Party/Example Party 1/Bob.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "1-DM Toolkit/Party 1%2FExample Party 1.md",
+    "1-DM Toolkit/Home.md",
+    "3-Mechanics/Items/Broken Stick.md",
     "3-Mechanics/Items/DefaultName.md",
-    "1-DM Toolkit/Travel Calculator.md",
     "1-Session Journals/2023-10-26.md",
     "1-Session Journals/2000-01-01.md",
-    "astral-brig-mtf.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
     "3-Mechanics/NPCs/Wilma.md",
+    "1-DM Toolkit/Vault Report.md",
+    "2-Campaign/Quests",
+    "2-Campaign",
+    "1-DM Toolkit/Travel Calculator.md",
+    "A New Folder",
+    "New Folder Note",
+    "z_Assets/TemplateSettlement-20240122215419380.webp",
+    "0-Scratch Notes/CPR - Character Sheet - Fillable.pdf",
     "NewFolder",
     "z_Example Notes",
     "z_Assets/Placeholder Images/MiscCombatRulesTitleBar.png",
@@ -311,8 +333,6 @@
     "2-World/Lampoteuo/The Wound",
     "2-World/Lampoteuo/Lampoteuo City/Lucky Grain Inn",
     "Untitled.canvas",
-    "3-Mechanics/CLI",
-    "0-Scratch Notes",
-    "3-Mechanics/Guilds and Groups"
+    "3-Mechanics/CLI"
   ]
 }

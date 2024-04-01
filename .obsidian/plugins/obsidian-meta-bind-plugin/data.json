@@ -18,35 +18,18 @@
   "inputFieldTemplates": [],
   "buttonTemplates": [
     {
-      "label": "Test Button",
+      "label": "New Quest",
       "hidden": false,
       "class": "",
-      "tooltip": "Tooltip",
-      "id": "Button_1",
-      "style": "default",
+      "tooltip": "Click this to create a quest. ",
+      "id": "button_quest",
+      "style": "primary",
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplatePlayer.md",
-          "folderPath": "1-Session Journals",
-          "fileName": "FileName",
-          "openNote": true
-        }
-      ]
-    },
-    {
-      "label": "Do This",
-      "hidden": false,
-      "class": "center",
-      "tooltip": "This is a tooltip",
-      "id": "Button_2",
-      "style": "destructive",
-      "actions": [
-        {
-          "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplateMagicItem.md",
-          "folderPath": "0-Scratch Notes",
-          "fileName": "DefaultName",
+          "templateFile": "z_Templates/TemplateQuest.md",
+          "folderPath": "2-Campaign/Quests",
+          "fileName": "NewQuest",
           "openNote": true
         }
       ]

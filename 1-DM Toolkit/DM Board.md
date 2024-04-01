@@ -75,6 +75,8 @@ actions:
     fileName: NewPlayer
 ```
 
+`BUTTON[button_quest]`
+
 ## Known Languages
 
 %% This will scan the player notes for any known languages and list the unique languages that the party know here. This is handy to determine quickly if the party can understand someone. %%

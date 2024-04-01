@@ -1,9 +1,11 @@
 ---
 obsidianUIMode: preview
-cssclass: json5e-item
+cssclasses:
+  - json5e-item
 tags:
-aliases:
-SourceType: "Magic Item"
+  - item
+aliases: 
+SourceType: Magic Item
 NoteIcon: magicitem
 BookSource:
 ---

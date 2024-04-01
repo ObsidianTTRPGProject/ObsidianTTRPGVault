@@ -83,6 +83,18 @@
       "selectAppend": true,
       "selectPrepend": true,
       "selectBackground": true
+    },
+    {
+      "type": "attribute",
+      "name": "NoteIcon",
+      "value": "quest",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "c52e-3164",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
     }
   ]
 }
