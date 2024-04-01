@@ -1,6 +1,5 @@
 ---
 questObtained: 
-questName: Quest Name
 questStatus: Not Started
 questGiver: 
 questLocationObtained: 
@@ -27,8 +26,8 @@ _%>
 # `=this.file.name`
 
 > [!infobox]+
-> # `INPUT[text:questName]`
-> ###### Quest Details
+> # `=this.file.name`
+> ## Quest Details
 > Type |  Stat |
 > ---|---|
 > Date Obtained | `INPUT[datePicker:questObtained]` |

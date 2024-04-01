@@ -6,7 +6,7 @@
       {
         "id": "9761188167cbb3fb",
         "type": "tabs",
-        "dimension": 46.83288409703504,
+        "dimension": 49.59568733153639,
         "children": [
           {
             "id": "cf2ae1e3f2b9d1c1",
@@ -61,7 +61,7 @@
       {
         "id": "c917de32e37139e0",
         "type": "tabs",
-        "dimension": 53.16711590296496,
+        "dimension": 50.40431266846361,
         "children": [
           {
             "id": "55a8f8d9ace91bdd",
@@ -289,10 +289,10 @@
   "lastOpenFiles": [
     "2-Campaign/Quests/Warn the Midwife.md",
     "2-Campaign/Quests/Beat the Goblin.md",
+    "z_Templates/TemplateQuest.md",
     "2-Campaign/Quests/Quests.md",
     "1-DM Toolkit/DM Board.md",
     "2-Campaign/Quests/Quest Name.md",
-    "z_Templates/TemplateQuest.md",
     "2-Campaign/Quests/Beat the Town Cryer Senseless.md",
     "2-Campaign/Quests/Quest 1.md",
     "2-World/Logger's Camp.md",

@@ -1,6 +1,5 @@
 ---
 questObtained: 2024-04-03
-questName: Quest Name
 questStatus: In Progress
 questGiver: "[[3-Mechanics/NPCs/Wilma.md|Wilma]]"
 questLocationObtained: "[[2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md|Lampoteuo City]]"
@@ -17,7 +16,7 @@ tags:
 # `=this.file.name`
 
 > [!infobox]+
-> # `INPUT[text:questName]`
+> # `=this.file.name`
 > ###### Quest Details
 > Type |  Stat |
 > ---|---|
