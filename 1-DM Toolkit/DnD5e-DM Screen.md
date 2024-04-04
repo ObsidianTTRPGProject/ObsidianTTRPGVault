@@ -4,10 +4,9 @@ kanban-plugin: basic
 
 ---
 
-## ![[RandomGensTitleBar]]
+## **![[RandomGensTitleBar]]**
 
-- [ ] This DM Screen is designed to link to the notes created with the CLI process. Simply complete the process and drop them into your vault and this screen should come alive. <br><br>Don't click any links until you complete this as it will create empty notes with duplicate names. <br><br>[CLI Process](https://obsidianttrpgtutorials.com/Obsidian+TTRPG+Tutorials/Obsidian+TTRPG+Tutorials)<br><br>Delete this card one done.
-- [ ] "Add yours here using I-Frames or Custom Frames plugin"
+- [ ] This DM Screen is designed to link to the notes created with the CLI process. Simply complete the process and drop them into your vault and this screen should come alive. <br><br>Don't click any links until you complete this as it will create empty notes with duplicate names. <br><br>[CLI Process](https://obsidianttrpgtutorials.com/Obsidian+TTRPG+Tutorials/Obsidian+TTRPG+Tutorials)<br><br>**IMPORTANT**<br>I set lots of people reporting broken links with this step. When you run the CLI process you must include the PHB in the 'Books' section of your config file as the 'From' section does not create the notes that you need. See the [Configuration File Documentation](https://github.com/ebullient/ttrpg-convert-cli/blob/main/docs/configuration.md) for details.<br><br>Delete this card one done.
 
 
 ## ![[AbilitiesTitleBar.png]]
@@ -22,7 +21,7 @@ kanban-plugin: basic
 
 ## ![[CheckTitleBar.png]]
 
-- [ ] [[ability-checks|Ability Checks]]
+- [ ] [[ability-checks-typical-difficulty-classes|Ability Checks; Typical Difficulty Classes]]
 - [ ] [[09-adventuring#Vision and Light|Vision and Light]]
 - [ ] [[detect-magic|Detect Magic]]
 - [ ] [[08-using-ability-scores#Advantage and Disadvantage|Advantage and Disadvantage]]
@@ -38,10 +37,8 @@ kanban-plugin: basic
 - [ ] [[Conditions#Blinded|Blinded]]
 - [ ] [[Conditions#Charmed|Charmed]]
 - [ ] [[Conditions#Concentration|Concentration]]
-- [ ] [[Conditions#Dazed|Dazed]]
 - [ ] [[Conditions#Deafened|Deafened]]
 - [ ] [[Conditions#Exhaustion|Exhaustion]]
-- [ ] [[Conditions#Flanked|Flanked]]
 - [ ] [[Conditions#Frightened|Frightened]]
 - [ ] [[Conditions#Grappled|Grappled]]
 - [ ] [[Conditions#Incapacitated|Incapacitated]]
@@ -58,20 +55,16 @@ kanban-plugin: basic
 ## ![[CombatActionsTitleBar.png]]
 
 - [ ] [[actions#Actions#Activate an Item|Activate an Item]]
-- [ ] [[actions#Actions#Command Word|Command Word]]
 - [ ] [[actions#Actions#Attack|Attack]]
 - [ ] [[actions#Actions#Cast a Spell|Cast a Spell]]
 - [ ] [[actions#Actions#Dash|Dash]]
 - [ ] [[actions#Actions#Disengage|Disengage]]
-- [ ] [[actions#Actions#Disarm|Disarm]]
 - [ ] [[actions#Actions#Dodge|Dodge]]
 - [ ] [[actions#Actions#Help|Help]]
 - [ ] [[actions#Actions#Hide|Hide]]
 - [ ] [[actions#Actions#Ready|Ready]]
 - [ ] [[actions#Actions#Search|Search]]
 - [ ] [[actions#Actions#Use an Object|Use an Object]]
-- [ ] [[actions#Actions#Tumble|Tumble]]
-- [ ] [[actions#Actions#Mark|Mark]]
 - [ ] [[actions#Actions#Escape a Grapple|Escape a Grapple]]
 
 
@@ -132,7 +125,7 @@ kanban-plugin: basic
 
 ## ![[MagicTitleBar.png]]
 
-- [ ] [[wizard-school-of-abjuration|School of Abjuration]]
+- [ ] [[wizard-school-of-abjuration|Abjuration]]
 - [ ] [[wizard-school-of-conjuration|Conjuration]]
 - [ ] [[wizard-school-of-divination|Divination]]
 - [ ] [[wizard-school-of-enchantment|Enchantment]]

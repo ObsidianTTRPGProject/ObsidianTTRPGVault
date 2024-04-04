@@ -17,6 +17,13 @@ obsidianUIMode: preview
 
 <br>
 
+
+> [!warning]+ IMPORTANT
+> I set lots of people reporting broken links with this step. When you run the CLI process you must include the PHB in the 'Books' section of your config file as the 'From' section does not create the notes that you need. See the [Configuration File Documentation](https://github.com/ebullient/ttrpg-convert-cli/blob/main/docs/configuration.md) for details.
+> Example:
+> ![[DnD5e-SideScreen-20240405084646428.webp]]
+
+
 > [!info]- Abilities
 > [[08-using-ability-scores#Dexterity|Dexterity]]
 > [[08-using-ability-scores#Strength|Strength]]
@@ -26,7 +33,6 @@ obsidianUIMode: preview
 > [[08-using-ability-scores#Charisma|Charisma]]
 
 > [!info]- Checks
-> [[ability-checks|Ability Checks]]
 > [[09-adventuring#Vision and Light|Vision and Light]]
 > [[detect-magic|Detect Magic]]
 > [[08-using-ability-scores#Advantage and Disadvantage|Advantage and Disadvantage]]
@@ -40,10 +46,8 @@ obsidianUIMode: preview
 > [[Conditions#Blinded|Blinded]]
 > [[Conditions#Charmed|Charmed]]
 > [[Conditions#Concentration|Concentration]]
-> [[Conditions#Dazed|Dazed]]
 > [[Conditions#Deafened|Deafened]]
 > [[Conditions#Exhaustion|Exhaustion]]
-> [[Conditions#Flanked|Flanked]]
 > [[Conditions#Frightened|Frightened]]
 > [[Conditions#Grappled|Grappled]]
 > [[Conditions#Incapacitated|Incapacitated]]
@@ -58,20 +62,16 @@ obsidianUIMode: preview
 
 > [!info]- Combat Actions
 > [[actions#Actions#Activate an Item|Activate an Item]]
-> [[actions#Actions#Command Word|Command Word]]
 > [[actions#Actions#Attack|Attack]]
 > [[actions#Actions#Cast a Spell|Cast a Spell]]
 > [[actions#Actions#Dash|Dash]]
 > [[actions#Actions#Disengage|Disengage]]
-> [[actions#Actions#Disarm|Disarm]]
 > [[actions#Actions#Dodge|Dodge]]
 > [[actions#Actions#Help|Help]]
 > [[actions#Actions#Hide|Hide]]
 > [[actions#Actions#Ready|Ready]]
 > [[actions#Actions#Search|Search]]
 > [[actions#Actions#Use an Object|Use an Object]]
-> [[actions#Actions#Tumble|Tumble]]
-> [[actions#Actions#Mark|Mark]]
 > [[actions#Actions#Escape a Grapple|Escape a Grapple]]
 
 > [!info]- Misc. Combat
@@ -120,7 +120,6 @@ obsidianUIMode: preview
 > [[armor-and-shields-armor|Armor and Shields]]
 
 > [!info]- Magic Schools
-> [[Schools of Magic]]
 > [[wizard-school-of-abjuration|Abjuration]]
 > [[wizard-school-of-conjuration|Conjuration]]
 > [[wizard-school-of-divination|Divination]]

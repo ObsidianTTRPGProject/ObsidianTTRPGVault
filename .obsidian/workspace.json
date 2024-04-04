@@ -6,7 +6,6 @@
       {
         "id": "9761188167cbb3fb",
         "type": "tabs",
-        "dimension": 49.59568733153639,
         "children": [
           {
             "id": "cf2ae1e3f2b9d1c1",
@@ -55,27 +54,31 @@
                 "source": false
               }
             }
-          }
-        ]
-      },
-      {
-        "id": "c917de32e37139e0",
-        "type": "tabs",
-        "dimension": 50.40431266846361,
-        "children": [
+          },
           {
-            "id": "55a8f8d9ace91bdd",
+            "id": "3f934db774bdcd6a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2-Campaign/Quests/Quests.md",
-                "mode": "source",
-                "source": true
+                "file": "1-DM Toolkit/Home.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7462fe38a12dbbfb",
+            "type": "leaf",
+            "state": {
+              "type": "kanban",
+              "state": {
+                "file": "1-DM Toolkit/DnD5e-DM Screen.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -169,7 +172,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2-Campaign/Quests/Quests.md",
+                "file": "1-DM Toolkit/DnD5e-DM Screen.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -186,7 +189,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2-Campaign/Quests/Quests.md",
+                "file": "1-DM Toolkit/DnD5e-DM Screen.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -209,7 +212,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2-Campaign/Quests/Quests.md"
+                "file": "1-DM Toolkit/DnD5e-DM Screen.md"
               }
             }
           },
@@ -262,8 +265,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 541.5,
-    "collapsed": true
+    "width": 399.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -285,54 +287,54 @@
       "obsidian-custom-frames:Open Obsidian Forum": false
     }
   },
-  "active": "cf2ae1e3f2b9d1c1",
+  "active": "7462fe38a12dbbfb",
   "lastOpenFiles": [
-    "2-Campaign/Quests/Warn the Midwife.md",
-    "2-Campaign/Quests/Beat the Goblin.md",
-    "z_Templates/TemplateQuest.md",
-    "2-Campaign/Quests/Quests.md",
-    "1-DM Toolkit/DM Board.md",
-    "2-Campaign/Quests/Quest Name.md",
-    "2-Campaign/Quests/Beat the Town Cryer Senseless.md",
-    "2-Campaign/Quests/Quest 1.md",
-    "2-World/Logger's Camp.md",
-    "z_Templates/TemplatePlayer.md",
-    "z_Templates/TemplateSettlement.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "z_Templates/TemplateMagicItem.md",
-    "z_Templates/TemplateJournal.md",
-    "z_Templates/TemplateGroup.md",
-    "1-DM Toolkit/DnD5e-DM Screen.md",
     "1-DM Toolkit/DnD5e-SideScreen.md",
-    "1-DM Toolkit/Home.md",
-    "3-Mechanics/Items/Broken Stick.md",
-    "3-Mechanics/Items/DefaultName.md",
-    "1-Session Journals/2023-10-26.md",
-    "1-Session Journals/2000-01-01.md",
-    "2-World/Lampoteuo/Lampoteuo.md",
-    "3-Mechanics/NPCs/Wilma.md",
-    "1-DM Toolkit/Vault Report.md",
+    "z_Assets/DnD5e-SideScreen-20240405084646428.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img/monster_size_chart.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img/flanking_and_cover_hexes.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img/flanking_and_cover_squares.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img/creature_size_on_squares_and_hexes.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-9.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-8.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-6.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-7.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-5.webp",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/14-appendix-d-dungeon-master-inspiration.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/15-credits.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/img",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/12-appendix-b-monster-lists.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/13-appendix-c-maps.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/11-appendix-a-random-dungeons.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/09-running-the-game.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/10-dungeon-masters-workshop.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/07-between-adventures.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/08-treasure.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/06-adventure-environments.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/04-creating-adventures.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/05-creating-nonplayer-characters.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/03-creating-a-multiverse.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/02-a-world-of-your-own.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide/01-introduction.md",
+    "3-Mechanics/CLI/books/dungeon-masters-guide",
+    "3-Mechanics/CLI/dungeon-masters-guide/img",
+    "3-Mechanics/CLI/dungeon-masters-guide/15-credits.md",
+    "3-Mechanics/CLI/dungeon-masters-guide/14-appendix-d-dungeon-master-inspiration.md",
+    "3-Mechanics/CLI/dungeon-masters-guide/13-appendix-c-maps.md",
+    "3-Mechanics/CLI/dungeon-masters-guide/12-appendix-b-monster-lists.md",
+    "3-Mechanics/CLI/dungeon-masters-guide/11-appendix-a-random-dungeons.md",
+    "3-Mechanics/CLI/dungeon-masters-guide/10-dungeon-masters-workshop.md",
+    "3-Mechanics/CLI/dungeon-masters-guide/09-running-the-game.md",
+    "3-Mechanics/CLI/dungeon-masters-guide/08-treasure.md",
+    "3-Mechanics/CLI/dungeon-masters-guide/07-between-adventures.md",
+    "3-Mechanics/CLI/dungeon-masters-guide/06-adventure-environments.md",
+    "3-Mechanics/CLI/dungeon-masters-guide",
+    "3-Mechanics/CLI/books/players-handbook/img",
+    "3-Mechanics/CLI/books/players-handbook",
+    "3-Mechanics/CLI/books",
+    "3-Mechanics/CLI/items/img",
+    "3-Mechanics/CLI/items",
     "2-Campaign/Quests",
-    "2-Campaign",
-    "1-DM Toolkit/Travel Calculator.md",
-    "A New Folder",
-    "New Folder Note",
-    "z_Assets/TemplateSettlement-20240122215419380.webp",
-    "0-Scratch Notes/CPR - Character Sheet - Fillable.pdf",
-    "NewFolder",
-    "z_Example Notes",
-    "z_Assets/Placeholder Images/MiscCombatRulesTitleBar.png",
-    "z_Assets/Placeholder Images/MagicTitleBar.png",
-    "z_Assets/Placeholder Images/HealDeathDmgTitleBar.png",
-    "z_Assets/Placeholder Images/ConditionsTitleBar.png",
-    "z_Assets/Placeholder Images/CombatActionsTitleBar.png",
-    "z_Assets/Placeholder Images/CheckTitleBar.png",
-    "z_Assets/Placeholder Images/AbilitiesTitleBar.png",
-    "z_Assets/Placeholder Images/WeaponsArmorItemsTitleBar.png",
-    "z_Assets/Placeholder Images/SkillsTitleBar.png",
-    "2-World/Lampoteuo/The Wound",
-    "2-World/Lampoteuo/Lampoteuo City/Lucky Grain Inn",
-    "Untitled.canvas",
-    "3-Mechanics/CLI"
+    "Untitled.canvas"
   ]
 }
