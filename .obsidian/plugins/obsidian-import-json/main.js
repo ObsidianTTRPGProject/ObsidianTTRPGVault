@@ -12835,6 +12835,12 @@ var JsonImport = class extends import_obsidian.Plugin {
         importSettings: settings
       };
       console.debug(`hboptions`, hboptions);
+      let notefunc;
+      let notefunc2;
+      if (settings.jsonName.startsWith("@{") && settings.jsonName.endsWith("}"))
+        notefunc2 = new Function("dataRoot", settings.jsonName.slice(2, -1));
+      else if (settings.jsonName.contains("${"))
+        notefunc = new Function("row", `return \`${settings.jsonName.replaceAll("${", "${row.")}\``);
       for (const [index, row] of entries) {
         if (!(row instanceof Object)) {
           console.info(`Ignoring element ${index} which is not an object: ${JSON.stringify(row)}`);
@@ -12845,8 +12851,7 @@ var JsonImport = class extends import_obsidian.Plugin {
         row.dataRoot = objdata;
         if (sourcefilename)
           row.SourceFilename = sourcefilename;
-        let notefile = settings.jsonName;
-        notefile = notefile.contains("${") ? new Function("row", `return \`${notefile.replaceAll("${", "${row.")}\``)(row) : objfield(row, notefile);
+        let notefile = notefunc ? notefunc(row) : notefunc2 ? notefunc2.call(row, objdata) : objfield(row, settings.jsonName);
         if (typeof notefile === "number")
           notefile = notefile.toString();
         if (!notefile || notefile.length == 0)

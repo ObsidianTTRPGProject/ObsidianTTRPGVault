@@ -26,7 +26,8 @@
     "excalidraw-font-color": "text",
     "excalidraw-border-color": "text",
     "excalidraw-css": "text",
-    "excalidraw-autoexport": "checkbox",
-    "excalidraw-iframe-theme": "text"
+    "excalidraw-autoexport": "text",
+    "excalidraw-iframe-theme": "text",
+    "excalidraw-open-md": "checkbox"
   }
 }

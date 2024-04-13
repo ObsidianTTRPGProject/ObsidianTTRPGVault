@@ -148,7 +148,29 @@
   "builder": {
     "showParty": true,
     "showXP": true,
-    "sidebarIcon": true
+    "sidebarIcon": true,
+    "headers": [
+      {
+        "text": "CR",
+        "field": "cr",
+        "type": 1
+      },
+      {
+        "text": "Type",
+        "field": "type",
+        "type": 0
+      },
+      {
+        "text": "Size",
+        "field": "size",
+        "type": 0
+      },
+      {
+        "text": "Alignment",
+        "field": "alignment",
+        "type": 0
+      }
+    ]
   },
   "rollPlayerInitiatives": 0,
   "leafletIntegration": false,

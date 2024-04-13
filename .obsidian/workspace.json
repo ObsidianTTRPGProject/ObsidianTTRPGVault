@@ -8,77 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "cf2ae1e3f2b9d1c1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2-Campaign/Quests/Quests.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "182cbfb32ebd732e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "z_Templates/TemplateJournal.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "e4e1719a48dd9b39",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2-World/Lampoteuo/Lampoteuo.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6426364bcc93952c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "z_Templates/TemplateJournal.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "3f934db774bdcd6a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-DM Toolkit/Home.md",
+                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
                 "mode": "preview",
                 "source": false
               }
             }
-          },
-          {
-            "id": "7462fe38a12dbbfb",
-            "type": "leaf",
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "1-DM Toolkit/DnD5e-DM Screen.md"
-              }
-            }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -172,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-DM Toolkit/DnD5e-DM Screen.md",
+                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -189,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1-DM Toolkit/DnD5e-DM Screen.md",
+                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -212,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1-DM Toolkit/DnD5e-DM Screen.md"
+                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md"
               }
             }
           },
@@ -265,7 +206,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 399.5
+    "width": 399.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -277,19 +219,44 @@
       "templates:Insert template": false,
       "helpmate:HelpMate": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-import-json:JSON/CSV Importer": false,
       "templater-obsidian:Templater": false,
+      "initiative-tracker:Initiative Tracker Encounter Builder": false,
+      "obsidian-custom-frames:Open Obsidian Forum": false,
       "obsidian-leaflet-plugin:Open Leaflet Map": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-5e-statblocks:Open Creature pane": false,
-      "initiative-tracker:Initiative Tracker Encounter Builder": false,
       "obsidian42-brat:BRAT": false,
-      "obsidian-custom-frames:Open Obsidian Forum": false
+      "obsidian-import-json:JSON/CSV Importer": false
     }
   },
-  "active": "7462fe38a12dbbfb",
+  "active": "3f934db774bdcd6a",
   "lastOpenFiles": [
+    "1-Party/Example Party 1/Example Party 1.md",
+    "1-Party/Example Party 1/Untitled.md",
+    "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
+    "3-Mechanics/CLI/CLI.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "z_Example Notes/z_Example Notes.md",
+    "3-Mechanics/NPCs/Wilma.md",
+    "3-Mechanics/Where To Get Mechanics.md",
+    "3-Mechanics/NPCs/test.md",
+    "2-Campaign/Quests/Quests.md",
+    "1-DM Toolkit/DM Board.md",
+    "1-DM Toolkit/DnD5e-DM Screen.md",
     "1-DM Toolkit/DnD5e-SideScreen.md",
+    "z_Templates/TemplateNPC.md",
+    "z_Templates/TemplateQuest.md",
+    "z_Templates/TemplateJournal.md",
+    "z_Templates/TemplateMagicItem.md",
+    "1-Party/Fredy.md",
+    "z_Templates/TemplateGroup.md",
+    "z_Templates/TemplatePlayer.md",
+    "z_Templates/Pasted image 20220612052639.png.md",
+    "1-DM Toolkit/Journey Board.md",
+    "1-DM Toolkit/PF2e-DM Screen.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
+    "2-Campaign/Quests/Warn the Midwife.md",
+    "2-Campaign/Quests/Beat the Goblin.md",
     "z_Assets/DnD5e-SideScreen-20240405084646428.webp",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/monster_size_chart.webp",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/flanking_and_cover_hexes.webp",
@@ -300,34 +267,9 @@
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-6.webp",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-7.webp",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-5.webp",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/14-appendix-d-dungeon-master-inspiration.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/15-credits.md",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/12-appendix-b-monster-lists.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/13-appendix-c-maps.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/11-appendix-a-random-dungeons.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/09-running-the-game.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/10-dungeon-masters-workshop.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/07-between-adventures.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/08-treasure.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/06-adventure-environments.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/04-creating-adventures.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/05-creating-nonplayer-characters.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/03-creating-a-multiverse.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/02-a-world-of-your-own.md",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/01-introduction.md",
     "3-Mechanics/CLI/books/dungeon-masters-guide",
     "3-Mechanics/CLI/dungeon-masters-guide/img",
-    "3-Mechanics/CLI/dungeon-masters-guide/15-credits.md",
-    "3-Mechanics/CLI/dungeon-masters-guide/14-appendix-d-dungeon-master-inspiration.md",
-    "3-Mechanics/CLI/dungeon-masters-guide/13-appendix-c-maps.md",
-    "3-Mechanics/CLI/dungeon-masters-guide/12-appendix-b-monster-lists.md",
-    "3-Mechanics/CLI/dungeon-masters-guide/11-appendix-a-random-dungeons.md",
-    "3-Mechanics/CLI/dungeon-masters-guide/10-dungeon-masters-workshop.md",
-    "3-Mechanics/CLI/dungeon-masters-guide/09-running-the-game.md",
-    "3-Mechanics/CLI/dungeon-masters-guide/08-treasure.md",
-    "3-Mechanics/CLI/dungeon-masters-guide/07-between-adventures.md",
-    "3-Mechanics/CLI/dungeon-masters-guide/06-adventure-environments.md",
     "3-Mechanics/CLI/dungeon-masters-guide",
     "3-Mechanics/CLI/books/players-handbook/img",
     "3-Mechanics/CLI/books/players-handbook",

@@ -7,7 +7,7 @@ Age: "1"
 Class: 
 Alignment: 
 Character-Role: 
-Location: 
+Location: [[Lampoteuo]] 
 NoteIcon: npc
 Vitality: Deceased
 tags:

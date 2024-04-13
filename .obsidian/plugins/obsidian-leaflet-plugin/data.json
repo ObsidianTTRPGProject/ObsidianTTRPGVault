@@ -11615,11 +11615,11 @@
   "long": -82.98333,
   "notePreview": true,
   "layerMarkers": true,
-  "previousVersion": "6.0.4",
+  "previousVersion": "6.0.5",
   "version": {
     "major": 6,
     "minor": 0,
-    "patch": 4
+    "patch": 5
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,
