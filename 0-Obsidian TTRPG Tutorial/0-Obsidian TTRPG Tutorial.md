@@ -4,9 +4,7 @@ www.obsidianttrpgtutorials.com is the home for all my tutorials and templates.
 
 # Patreon Vault
 
-This vault is designed as a foundation for people wanting some help on their Obsidian journey. 
-
-**Design Philosophy:** This vault will provide the foundation for you to build on. 
+This vault is designed as a foundation for people wanting some help on their Obsidian journey. I don't believe in providing a fully fledged out of the box solution. I tried that historically and people struggled to use it. Obsidian is a very customisable solution and as such I believe it's better to teach you to do this yourself instead of provide you a solution that you won't know how to modify for your needs. 
 
 <div align="center">
   <a href="https://obsidian.md/"><img src="https://img.shields.io/badge/Obsidian-483699?style=for-the-badge&logo=Obsidian" alt="[System]"></a>
@@ -63,3 +61,14 @@ The default editing mode can be changed.
 	- Cons: Table/Properties do not work in this view. 
 
 You can change this to meet your own requirements by: Settings > Editor > Default Editing Mode > [Make Choice]
+
+## Common Questions
+
+> [!question] How To Open Folders?
+> This vault has Folder Notes installed. This allows a folder to be used as a note which is really useful for structuring your content. It does mean though that clicking on a folder that contains a folder note will open the note instead of expanding the folder. The trick is to click to the left of the folder instead. 
+> **Note:** *You can create a new folder note by Ctrl + Clicking a folder.* 
+
+> [!question] I ran the CLI process for 5e and I'm missing notes from the DM Screen
+> 99% of the time this means you can not included the PHB and DMG in the `books` section of your config file. You must use a config file and you must include the PHB and DMG in the Books section of the config file. 
+> Check the official documentation on config files [HERE](https://github.com/ebullient/ttrpg-convert-cli/blob/main/docs/configuration.md)
+
