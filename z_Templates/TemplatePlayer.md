@@ -42,7 +42,7 @@ _%>
 
 | Image                                              | Char Name         | Player Name    | Class         | Race         | Level         |
 | -------------------------------------------------- | ----------------- | -------------- | ------------- | ------------ | ------------- |
-| ![[ImagePlaceholder.png\|cover hsmall]] | `=this.file.name` | `=this.player` | `=this.class` | `=this.race` | `=this.level` |
+| ![[ImagePlaceholder.png\|cover hsmall]] | `=this.file.name` |  `VIEW[{Player}]` | `VIEW[{Class}]` | `VIEW[{Race}]` | `VIEW[{level}]` |
 
 ```custom-frames
 frame: ConfigureInCustomFramesPlugin

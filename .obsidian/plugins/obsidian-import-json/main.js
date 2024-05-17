@@ -1782,11 +1782,11 @@ var require_ast = __commonJS({
         helperExpression: function helperExpression(node) {
           return node.type === "SubExpression" || (node.type === "MustacheStatement" || node.type === "BlockStatement") && !!(node.params && node.params.length || node.hash);
         },
-        scopedId: function scopedId(path2) {
-          return /^\.|this\b/.test(path2.original);
+        scopedId: function scopedId(path) {
+          return /^\.|this\b/.test(path.original);
         },
-        simpleId: function simpleId(path2) {
-          return path2.parts.length === 1 && !AST.helpers.scopedId(path2) && !path2.depth;
+        simpleId: function simpleId(path) {
+          return path.parts.length === 1 && !AST.helpers.scopedId(path) && !path.depth;
         }
       }
     };
@@ -2863,12 +2863,12 @@ var require_helpers2 = __commonJS({
         loc
       };
     }
-    function prepareMustache(path2, params, hash, open, strip, locInfo) {
+    function prepareMustache(path, params, hash, open, strip, locInfo) {
       var escapeFlag = open.charAt(3) || open.charAt(2), escaped = escapeFlag !== "{" && escapeFlag !== "&";
       var decorator = /\*/.test(open);
       return {
         type: decorator ? "Decorator" : "MustacheStatement",
-        path: path2,
+        path,
         params,
         hash,
         escaped,
@@ -3139,9 +3139,9 @@ var require_compiler = __commonJS({
       },
       DecoratorBlock: function DecoratorBlock(decorator) {
         var program = decorator.program && this.compileProgram(decorator.program);
-        var params = this.setupFullMustacheParams(decorator, program, void 0), path2 = decorator.path;
+        var params = this.setupFullMustacheParams(decorator, program, void 0), path = decorator.path;
         this.useDecorators = true;
-        this.opcode("registerDecorator", params.length, path2.original);
+        this.opcode("registerDecorator", params.length, path.original);
       },
       PartialStatement: function PartialStatement(partial) {
         this.usePartial = true;
@@ -3205,46 +3205,46 @@ var require_compiler = __commonJS({
         }
       },
       ambiguousSexpr: function ambiguousSexpr(sexpr, program, inverse) {
-        var path2 = sexpr.path, name = path2.parts[0], isBlock = program != null || inverse != null;
-        this.opcode("getContext", path2.depth);
+        var path = sexpr.path, name = path.parts[0], isBlock = program != null || inverse != null;
+        this.opcode("getContext", path.depth);
         this.opcode("pushProgram", program);
         this.opcode("pushProgram", inverse);
-        path2.strict = true;
-        this.accept(path2);
+        path.strict = true;
+        this.accept(path);
         this.opcode("invokeAmbiguous", name, isBlock);
       },
       simpleSexpr: function simpleSexpr(sexpr) {
-        var path2 = sexpr.path;
-        path2.strict = true;
-        this.accept(path2);
+        var path = sexpr.path;
+        path.strict = true;
+        this.accept(path);
         this.opcode("resolvePossibleLambda");
       },
       helperSexpr: function helperSexpr(sexpr, program, inverse) {
-        var params = this.setupFullMustacheParams(sexpr, program, inverse), path2 = sexpr.path, name = path2.parts[0];
+        var params = this.setupFullMustacheParams(sexpr, program, inverse), path = sexpr.path, name = path.parts[0];
         if (this.options.knownHelpers[name]) {
           this.opcode("invokeKnownHelper", params.length, name);
         } else if (this.options.knownHelpersOnly) {
           throw new _exception2["default"]("You specified knownHelpersOnly, but used the unknown helper " + name, sexpr);
         } else {
-          path2.strict = true;
-          path2.falsy = true;
-          this.accept(path2);
-          this.opcode("invokeHelper", params.length, path2.original, _ast2["default"].helpers.simpleId(path2));
+          path.strict = true;
+          path.falsy = true;
+          this.accept(path);
+          this.opcode("invokeHelper", params.length, path.original, _ast2["default"].helpers.simpleId(path));
         }
       },
-      PathExpression: function PathExpression(path2) {
-        this.addDepth(path2.depth);
-        this.opcode("getContext", path2.depth);
-        var name = path2.parts[0], scoped = _ast2["default"].helpers.scopedId(path2), blockParamId = !path2.depth && !scoped && this.blockParamIndex(name);
+      PathExpression: function PathExpression(path) {
+        this.addDepth(path.depth);
+        this.opcode("getContext", path.depth);
+        var name = path.parts[0], scoped = _ast2["default"].helpers.scopedId(path), blockParamId = !path.depth && !scoped && this.blockParamIndex(name);
         if (blockParamId) {
-          this.opcode("lookupBlockParam", blockParamId, path2.parts);
+          this.opcode("lookupBlockParam", blockParamId, path.parts);
         } else if (!name) {
           this.opcode("pushContext");
-        } else if (path2.data) {
+        } else if (path.data) {
           this.options.data = true;
-          this.opcode("lookupData", path2.depth, path2.parts, path2.strict);
+          this.opcode("lookupData", path.depth, path.parts, path.strict);
         } else {
-          this.opcode("lookupOnContext", path2.parts, path2.falsy, path2.strict, scoped);
+          this.opcode("lookupOnContext", path.parts, path.falsy, path.strict, scoped);
         }
       },
       StringLiteral: function StringLiteral(string) {
@@ -3594,16 +3594,16 @@ var require_util = __commonJS({
     }
     exports.urlGenerate = urlGenerate;
     function normalize(aPath) {
-      var path2 = aPath;
+      var path = aPath;
       var url = urlParse(aPath);
       if (url) {
         if (!url.path) {
           return aPath;
         }
-        path2 = url.path;
+        path = url.path;
       }
-      var isAbsolute = exports.isAbsolute(path2);
-      var parts = path2.split(/\/+/);
+      var isAbsolute = exports.isAbsolute(path);
+      var parts = path.split(/\/+/);
       for (var part, up = 0, i = parts.length - 1; i >= 0; i--) {
         part = parts[i];
         if (part === ".") {
@@ -3620,15 +3620,15 @@ var require_util = __commonJS({
           }
         }
       }
-      path2 = parts.join("/");
-      if (path2 === "") {
-        path2 = isAbsolute ? "/" : ".";
+      path = parts.join("/");
+      if (path === "") {
+        path = isAbsolute ? "/" : ".";
       }
       if (url) {
-        url.path = path2;
+        url.path = path;
         return urlGenerate(url);
       }
-      return path2;
+      return path;
     }
     exports.normalize = normalize;
     function join(aRoot, aPath) {
@@ -6609,27 +6609,27 @@ var require_isobject = __commonJS({
 var require_get_value = __commonJS({
   "node_modules/get-value/index.js"(exports, module2) {
     var isObject = require_isobject();
-    module2.exports = function(target, path2, options) {
+    module2.exports = function(target, path, options) {
       if (!isObject(options)) {
         options = { default: options };
       }
       if (!isValidObject(target)) {
         return typeof options.default !== "undefined" ? options.default : target;
       }
-      if (typeof path2 === "number") {
-        path2 = String(path2);
+      if (typeof path === "number") {
+        path = String(path);
       }
-      const isArray = Array.isArray(path2);
-      const isString = typeof path2 === "string";
+      const isArray = Array.isArray(path);
+      const isString = typeof path === "string";
       const splitChar = options.separator || ".";
       const joinChar = options.joinChar || (typeof splitChar === "string" ? splitChar : ".");
       if (!isString && !isArray) {
         return target;
       }
-      if (isString && path2 in target) {
-        return isValid(path2, target, options) ? target[path2] : options.default;
+      if (isString && path in target) {
+        return isValid(path, target, options) ? target[path] : options.default;
       }
-      let segs = isArray ? path2 : split(path2, splitChar, options);
+      let segs = isArray ? path : split(path, splitChar, options);
       let len = segs.length;
       let idx = 0;
       do {
@@ -6675,11 +6675,11 @@ var require_get_value = __commonJS({
       }
       return segs[0] + joinChar + segs[1];
     }
-    function split(path2, splitChar, options) {
+    function split(path, splitChar, options) {
       if (typeof options.split === "function") {
-        return options.split(path2);
+        return options.split(path);
       }
-      return path2.split(splitChar);
+      return path.split(splitChar);
     }
     function isValid(key, target, options) {
       if (typeof options.isValid === "function") {
@@ -7230,12 +7230,12 @@ var require_code = __commonJS({
   "node_modules/@budibase/handlebars-helpers/lib/code.js"(exports, module2) {
     "use strict";
     var fs = require("fs");
-    var path2 = require("path");
+    var path = require("path");
     var codeBlock = require_to_gfm_code_block();
     var htmlTag = require_html_tag();
     var helpers = module2.exports;
     helpers.embed = function embed(filepath, ext) {
-      ext = typeof ext !== "string" ? path2.extname(filepath).slice(1) : ext;
+      ext = typeof ext !== "string" ? path.extname(filepath).slice(1) : ext;
       var code = fs.readFileSync(filepath, "utf8");
       if (ext === "markdown" || ext === "md") {
         ext = "markdown";
@@ -7608,9 +7608,9 @@ var require_has_value = __commonJS({
     "use strict";
     var get = require_get_value();
     var has = require_has_values();
-    module2.exports = function(obj, path2, options) {
-      if (isObject(obj) && (typeof path2 === "string" || Array.isArray(path2))) {
-        return has(get(obj, path2, options));
+    module2.exports = function(obj, path, options) {
+      if (isObject(obj) && (typeof path === "string" || Array.isArray(path))) {
+        return has(get(obj, path, options));
       }
       return false;
     };
@@ -8161,7 +8161,7 @@ var require_html = __commonJS({
 var require_html2 = __commonJS({
   "node_modules/@budibase/handlebars-helpers/lib/html.js"(exports, module2) {
     "use strict";
-    var path2 = require("path");
+    var path = require("path");
     var util = require_handlebars_utils();
     var html = require_html();
     var parseAttr = html.parseAttributes;
@@ -8185,10 +8185,10 @@ var require_html2 = __commonJS({
         styles = util.arrayify(options.hash.href);
       }
       return styles.map(function(item) {
-        var ext = path2.extname(item);
+        var ext = path.extname(item);
         var fp = item;
         if (!/(^\/\/)|(:\/\/)/.test(item)) {
-          fp = path2.posix.join(assets, item);
+          fp = path.posix.join(assets, item);
         }
         if (ext === ".less") {
           return `<link type="text/css" rel="stylesheet/less" href="${fp}">`;
@@ -8206,7 +8206,7 @@ var require_html2 = __commonJS({
       }
       context = util.arrayify(context);
       return context.map(function(fp) {
-        return path2.extname(fp) === ".coffee" ? htmlTag("script", { type: "text/coffeescript", src: fp }) : htmlTag("script", { src: fp });
+        return path.extname(fp) === ".coffee" ? htmlTag("script", { type: "text/coffeescript", src: fp }) : htmlTag("script", { src: fp });
       }).join("\n");
     };
     helpers.sanitize = function(str) {
@@ -9387,7 +9387,7 @@ var require_braces = __commonJS({
 var require_constants2 = __commonJS({
   "node_modules/picomatch/lib/constants.js"(exports, module2) {
     "use strict";
-    var path2 = require("path");
+    var path = require("path");
     var WIN_SLASH = "\\\\/";
     var WIN_NO_SLASH = `[^${WIN_SLASH}]`;
     var DOT_LITERAL = "\\.";
@@ -9508,7 +9508,7 @@ var require_constants2 = __commonJS({
       CHAR_UNDERSCORE: 95,
       CHAR_VERTICAL_LINE: 124,
       CHAR_ZERO_WIDTH_NOBREAK_SPACE: 65279,
-      SEP: path2.sep,
+      SEP: path.sep,
       extglobChars(chars) {
         return {
           "!": { type: "negate", open: "(?:(?!(?:", close: `))${chars.STAR})` },
@@ -9529,7 +9529,7 @@ var require_constants2 = __commonJS({
 var require_utils4 = __commonJS({
   "node_modules/picomatch/lib/utils.js"(exports) {
     "use strict";
-    var path2 = require("path");
+    var path = require("path");
     var win32 = process.platform === "win32";
     var {
       REGEX_BACKSLASH,
@@ -9558,7 +9558,7 @@ var require_utils4 = __commonJS({
       if (options && typeof options.windows === "boolean") {
         return options.windows;
       }
-      return win32 === true || path2.sep === "\\";
+      return win32 === true || path.sep === "\\";
     };
     exports.escapeLast = (input, char, lastIdx) => {
       const idx = input.lastIndexOf(char, lastIdx);
@@ -10691,7 +10691,7 @@ var require_parse2 = __commonJS({
 var require_picomatch = __commonJS({
   "node_modules/picomatch/lib/picomatch.js"(exports, module2) {
     "use strict";
-    var path2 = require("path");
+    var path = require("path");
     var scan = require_scan();
     var parse = require_parse2();
     var utils = require_utils4();
@@ -10777,7 +10777,7 @@ var require_picomatch = __commonJS({
     };
     picomatch.matchBase = (input, glob, options, posix = utils.isWindows(options)) => {
       const regex = glob instanceof RegExp ? glob : picomatch.makeRe(glob, options);
-      return regex.test(path2.basename(input));
+      return regex.test(path.basename(input));
     };
     picomatch.isMatch = (str, patterns, options) => picomatch(patterns, options)(str);
     picomatch.parse = (pattern, options) => {
@@ -11313,7 +11313,7 @@ var require_relative = __commonJS({
   "node_modules/relative/index.js"(exports, module2) {
     "use strict";
     var isObject = require_isobject2();
-    var path2 = require("path");
+    var path = require("path");
     var fs = require("fs");
     module2.exports = relative;
     function relative(a, b, stat) {
@@ -11347,9 +11347,9 @@ var require_relative = __commonJS({
         a = a + "/";
       }
       if (isFile(a, stat)) {
-        a = path2.dirname(a);
+        a = path.dirname(a);
       }
-      var res = path2.relative(a, b);
+      var res = path.relative(a, b);
       if (res === "") {
         return ".";
       }
@@ -11415,7 +11415,7 @@ var require_path = __commonJS({
   "node_modules/@budibase/handlebars-helpers/lib/path.js"(exports, module2) {
     "use strict";
     var util = require_handlebars_utils();
-    var path2 = require("path");
+    var path = require("path");
     var relative = require_relative();
     var helpers = module2.exports;
     helpers.absolute = function(filepath, options) {
@@ -11423,13 +11423,13 @@ var require_path = __commonJS({
       var context = util.options(this, options);
       var ctx = Object.assign({}, options.data.root, context);
       var cwd = ctx.cwd || process.cwd();
-      return path2.resolve(cwd, filepath);
+      return path.resolve(cwd, filepath);
     };
     helpers.dirname = function(filepath, options) {
       if (typeof filepath !== "string") {
         throw new TypeError(util.expectedType("filepath", "string", filepath));
       }
-      return path2.dirname(filepath);
+      return path.dirname(filepath);
     };
     helpers.relative = function(a, b) {
       if (typeof a !== "string") {
@@ -11444,26 +11444,26 @@ var require_path = __commonJS({
       if (typeof filepath !== "string") {
         throw new TypeError(util.expectedType("filepath", "string", filepath));
       }
-      return path2.basename(filepath);
+      return path.basename(filepath);
     };
     helpers.stem = function(filepath) {
       if (typeof filepath !== "string") {
         throw new TypeError(util.expectedType("filepath", "string", filepath));
       }
-      return path2.basename(filepath, path2.extname(filepath));
+      return path.basename(filepath, path.extname(filepath));
     };
     helpers.extname = function(filepath) {
       if (typeof filepath !== "string") {
         throw new TypeError(util.expectedType("filepath", "string", filepath));
       }
-      return path2.extname(filepath);
+      return path.extname(filepath);
     };
     helpers.resolve = function(filepath) {
       var args = [].slice.call(arguments);
       var opts = util.options(this, args.pop());
-      var cwd = path2.resolve(opts.cwd || process.cwd());
+      var cwd = path.resolve(opts.cwd || process.cwd());
       args.unshift(cwd);
-      return path2.resolve.apply(path2, args);
+      return path.resolve.apply(path, args);
     };
     helpers.segments = function(filepath, a, b) {
       if (typeof filepath !== "string") {
@@ -12605,7 +12605,6 @@ var Papa = require_papaparse_min();
 var handlebars = require_handlebars();
 var hb_helpers = require_handlebars_helpers()({ handlebars });
 var hb_utils = require_handlebars_utils();
-var path = require("path");
 var ExistingNotes;
 (function(ExistingNotes2) {
   ExistingNotes2[ExistingNotes2["KEEP_EXISTING"] = 0] = "KEEP_EXISTING";
@@ -12623,8 +12622,11 @@ var DEFAULT_SETTINGS = {
   handleExistingNote: 0,
   forceArray: true,
   multipleJSON: false,
-  uniqueNames: false
+  uniqueNames: false,
+  batchFile: null,
+  batchStep: null
 };
+var DIR_SEP = "/";
 function convertCsv(source) {
   var _a;
   let csv = Papa.parse(source, { header: true, skipEmptyLines: true });
@@ -12772,7 +12774,7 @@ var JsonImport = class extends import_obsidian.Plugin {
   }
   checkPath(filename) {
     return __async(this, null, function* () {
-      let pos = filename.lastIndexOf(path.sep);
+      let pos = filename.lastIndexOf(DIR_SEP);
       if (pos < 0)
         return true;
       let filepath = filename.slice(0, pos);
@@ -12788,6 +12790,7 @@ var JsonImport = class extends import_obsidian.Plugin {
   }
   generateNotes(objdata, sourcefile, templatefile, helperfile, settings) {
     return __async(this, null, function* () {
+      var _a;
       console.log(`generateNotes`, { templatefile, helperfile, settings });
       let sourcefilename = sourcefile.name;
       this.knownpaths = new Set();
@@ -12832,7 +12835,8 @@ var JsonImport = class extends import_obsidian.Plugin {
         importSourceFile: sourcefile,
         importDataRoot: objdata,
         importHelperFile: helperfile,
-        importSettings: settings
+        importSettings: settings,
+        importBatchStep: (_a = settings.batchStep) != null ? _a : ""
       };
       console.debug(`hboptions`, hboptions);
       let notefunc;
@@ -12846,7 +12850,7 @@ var JsonImport = class extends import_obsidian.Plugin {
           console.info(`Ignoring element ${index} which is not an object: ${JSON.stringify(row)}`);
           continue;
         }
-        hboptions.data.sourceIndex = index;
+        hboptions.data.importSourceIndex = index;
         row.SourceIndex = index;
         row.dataRoot = objdata;
         if (sourcefilename)
@@ -12870,7 +12874,7 @@ FOR ROW:
           console.log(`[object Object] appears in '${notefile}'`);
           new import_obsidian.Notice(`Incomplete conversion for '${notefile}'. Look for '[object Object]' (also reported in console)`);
         }
-        let filename = settings.folderName + path.sep + this.validFilename(notefile);
+        let filename = settings.folderName + DIR_SEP + this.validFilename(notefile);
         if (settings.uniqueNames) {
           let basename = filename;
           let counter = 0;
@@ -12880,18 +12884,18 @@ FOR ROW:
           this.nameMap.add(filename);
         }
         filename += ".md";
-        filename = filename.replaceAll(/(\/|\\)+/g, path.sep);
+        filename = filename.replaceAll(/(\/|\\)+/g, DIR_SEP);
         yield this.checkPath(filename);
         let file = this.app.vault.getAbstractFileByPath(filename);
-        if (!file)
-          yield this.app.vault.create(filename, body).catch((err) => console.log(`app.vault.create(${filename}): ${err}`));
+        if (file === null)
+          yield this.app.vault.create(filename, body).catch((err) => console.log(`app.vault.create("${filename}"): ${err}`));
         else
           switch (settings.handleExistingNote) {
             case 1:
-              yield this.app.vault.modify(file, body).catch((err) => console.log(`app.vault.modify(${file.path}): ${err}`));
+              yield this.app.vault.modify(file, body).catch((err) => console.log(`app.vault.modify("${file.path}"): ${err}`));
               break;
             case 2:
-              yield this.app.vault.append(file, body).catch((err) => console.log(`app.vault.append(${file.path}): ${err}`));
+              yield this.app.vault.append(file, body).catch((err) => console.log(`app.vault.append("${file.path}"): ${err}`));
               break;
             default:
               new import_obsidian.Notice(`Note already exists for '${filename}' - ignoring entry in data file`);
@@ -12956,7 +12960,14 @@ var FileSelectionModal = class extends import_obsidian.Modal {
         accept: ".js"
       }
     });
-    const setting3b = new import_obsidian.Setting(this.contentEl).setName("Field containing the data").setDesc("The field containing the array of data (leave blank to use entire file)");
+    const setting2b = new import_obsidian.Setting(this.contentEl).setName("Choose BATCH File").setDesc("Optionally select a file which controls multiple parses of the data");
+    const inputBatchFile = setting2b.controlEl.createEl("input", {
+      attr: {
+        type: "file",
+        accept: ".json"
+      }
+    });
+    const setting3b = new import_obsidian.Setting(this.contentEl).setName("Field containing the data").setDesc("The field containing the array of data (leave blank to use entire file) [in batch file 'fieldName']");
     const inputTopField = setting3b.controlEl.createEl("input", {
       attr: {
         type: "string"
@@ -12970,7 +12981,7 @@ var FileSelectionModal = class extends import_obsidian.Modal {
       }
     });
     inputForceArray.checked = !this.default_settings.forceArray;
-    const setting3 = new import_obsidian.Setting(this.contentEl).setName("Field to use as Note name").setDesc("Field in each row of the JSON/CSV data to be used for the note name");
+    const setting3 = new import_obsidian.Setting(this.contentEl).setName("Field to use as Note name").setDesc("Field in each row of the JSON/CSV data to be used for the note name [in batch file 'noteName']");
     const inputJsonName = setting3.controlEl.createEl("input", {
       attr: {
         type: "string",
@@ -12985,7 +12996,7 @@ var FileSelectionModal = class extends import_obsidian.Modal {
       }
     });
     inputUniqueNames.checked = this.default_settings.uniqueNames;
-    const settingPrefix = new import_obsidian.Setting(this.contentEl).setName("Note name prefix/suffix").setDesc("Optional prefix/suffix to be added either side of the value from the above Note name field");
+    const settingPrefix = new import_obsidian.Setting(this.contentEl).setName("Note name prefix/suffix").setDesc("Optional prefix/suffix to be added either side of the value from the above Note name field [in batch file 'namePrefix', 'nameSuffix']");
     const inputNotePrefix = settingPrefix.controlEl.createEl("input", {
       attr: {
         type: "string",
@@ -13015,7 +13026,7 @@ var FileSelectionModal = class extends import_obsidian.Modal {
     inputHandleExisting.add(new Option("REPLACE", 1 .toString()));
     inputHandleExisting.add(new Option("APPEND", 2 .toString()));
     inputHandleExisting.selectedIndex = this.default_settings.handleExistingNote;
-    const setting4 = new import_obsidian.Setting(this.contentEl).setName("Name of Destination Folder in Vault").setDesc("The name of the folder in your Obsidian Vault, which will be created if required");
+    const setting4 = new import_obsidian.Setting(this.contentEl).setName("Name of Destination Folder in Vault").setDesc("The name of the folder in your Obsidian Vault, which will be created if required [in batch file, 'folderName']");
     const inputFolderName = setting4.controlEl.createEl("input", {
       attr: {
         type: "string"
@@ -13026,7 +13037,7 @@ var FileSelectionModal = class extends import_obsidian.Modal {
     const input5 = setting5.controlEl.createEl("button");
     input5.textContent = "IMPORT";
     input5.onclick = () => __async(this, null, function* () {
-      var _a;
+      var _a, _b;
       const { files: templatefiles } = inputTemplateFile;
       if (!templatefiles.length) {
         new import_obsidian.Notice("No Template file selected");
@@ -13044,18 +13055,45 @@ var FileSelectionModal = class extends import_obsidian.Modal {
         handleExistingNote: parseInt(inputHandleExisting.value),
         forceArray: !inputForceArray.checked,
         multipleJSON: inputMultipleJSON.checked,
-        uniqueNames: inputUniqueNames.checked
+        uniqueNames: inputUniqueNames.checked,
+        batchFile: (_a = inputBatchFile.files) == null ? void 0 : _a[0]
       };
       function parsejson(text) {
         return settings.multipleJSON ? text.split(/(?<=})\s*(?={)/).map((obj) => JSON.parse(obj)) : [JSON.parse(text)];
+      }
+      function callHandler(objdata, sourcefile) {
+        return __async(this, null, function* () {
+          var _a2;
+          if (!settings.batchFile) {
+            yield this.handler.call(this.caller, objdata, sourcefile, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
+          } else {
+            let batch = JSON.parse(yield settings.batchFile.text());
+            console.log(batch);
+            for (let iter of batch) {
+              if (iter.fieldName)
+                settings.topField = iter.fieldName;
+              if (iter.noteName)
+                settings.jsonName = iter.noteName;
+              if (iter.folderName)
+                settings.folderName = iter.folderName;
+              if (iter.namePrefix)
+                settings.notePrefix = iter.notePrefix;
+              if (iter.nameSuffix)
+                settings.noteSuffix = iter.noteSuffix;
+              settings.batchStep = (_a2 = iter.batchStep) != null ? _a2 : "";
+              console.log(`BATCH processing '${settings.topField}', '${settings.jsonName}', '${settings.folderName}'`);
+              yield this.handler.call(this.caller, objdata, sourcefile, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
+            }
+          }
+        });
       }
       let srctext = inputJsonText.value;
       if (srctext.length > 0) {
         const is_json = srctext.startsWith("{") && srctext.endsWith("}");
         const objdataarray = is_json ? parsejson(srctext) : [convertCsv(srctext)];
         for (const objdata of objdataarray)
-          yield this.handler.call(this.caller, objdata, null, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
-      } else if (((_a = inputJsonUrl.value) == null ? void 0 : _a.length) > 0) {
+          yield callHandler(objdata, null);
+      } else if (((_b = inputJsonUrl.value) == null ? void 0 : _b.length) > 0) {
         const fromurl = yield fileFromUrl(inputJsonUrl.value).catch((e) => {
           new import_obsidian.Notice("Failed to GET data from URL");
           return null;
@@ -13064,7 +13102,7 @@ var FileSelectionModal = class extends import_obsidian.Modal {
           const objdataarray = parsejson(fromurl);
           console.debug(`JSON data from '${inputJsonUrl.value}' =`, objdataarray);
           for (const objdata of objdataarray)
-            yield this.handler.call(this.caller, objdata, null, templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
+            yield callHandler.call(this, objdata, null);
         }
       } else {
         const { files: datafiles } = inputDataFile;
@@ -13078,7 +13116,7 @@ var FileSelectionModal = class extends import_obsidian.Modal {
           let is_json = datafiles[i].name.endsWith(".json");
           let objdataarray = is_json ? parsejson(srctext) : [convertCsv(srctext)];
           for (const objdata of objdataarray)
-            yield this.handler.call(this.caller, objdata, datafiles[i], templatefiles[0], helperfile == null ? void 0 : helperfile[0], settings);
+            yield callHandler.call(this, objdata, datafiles[i]);
         }
       }
       new import_obsidian.Notice("Import Finished");

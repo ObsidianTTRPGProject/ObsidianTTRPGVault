@@ -10,8 +10,6 @@
   "signed": false,
   "displayLookupRoll": true,
   "formulas": {},
-  "persistResults": false,
-  "results": {},
   "defaultRoll": 1,
   "defaultFace": 100,
   "renderer": true,
@@ -22,6 +20,7 @@
   "scaler": 1,
   "diceColor": "#202020",
   "textColor": "#ffffff",
+  "textFont": "Arial",
   "showLeafOnStartup": true,
   "showDice": true,
   "displayAsEmbed": true,
@@ -70,5 +69,10 @@
       "formula": "d%",
       "text": "%"
     }
-  ]
+  ],
+  "showRenderNotice": true,
+  "diceModTemplateFolders": {},
+  "replaceDiceModInLivePreview": true,
+  "viewResults": [],
+  "version": "11.0.3"
 }

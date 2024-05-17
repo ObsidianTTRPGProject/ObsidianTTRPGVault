@@ -2163,14 +2163,11 @@ function addExcludePatternListItem(settings, containerEl, pattern) {
 
 // src/ExcludeFolders/functions/folderFunctions.ts
 function getExcludedFolder(plugin, path) {
-  console.log("get excluded folder", path);
   const folderName = getFolderNameFromPathString(path);
   const matchedPattern = getExcludedFolderByPattern(plugin, folderName);
   if (matchedPattern) {
     return matchedPattern;
   }
-  console.log("test 3", path);
-  console.log("test 4", folderName);
   const excludedFolder = getExcludedFolderByPath(plugin, path);
   if ((excludedFolder == null ? void 0 : excludedFolder.path) === "") {
     return;

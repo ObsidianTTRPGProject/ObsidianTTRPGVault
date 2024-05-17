@@ -8,18 +8,39 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3f934db774bdcd6a",
+            "id": "1efeb4a221bd7033",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "file": "2-World/Ruins of The Twilight Palace.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "894114e66a29fb6a",
+            "type": "leaf",
+            "state": {
+              "type": "intiative-tracker-encounter-builder",
+              "state": []
+            }
+          },
+          {
+            "id": "beacfc48e52af39f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-Party/Example Party 1/Example Party 1.md",
                 "mode": "preview",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -97,7 +118,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 396.5
+    "width": 258.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -113,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "file": "1-Party/Example Party 1/Example Party 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+                "file": "1-Party/Example Party 1/Example Party 1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -153,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md"
+                "file": "1-Party/Example Party 1/Example Party 1.md"
               }
             }
           },
@@ -186,23 +207,23 @@
             }
           },
           {
-            "id": "b5834df24cd765c1",
-            "type": "leaf",
-            "state": {
-              "type": "DICE_ROLLER_VIEW",
-              "state": {}
-            }
-          },
-          {
             "id": "bb21e6fb9beae31a",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
               "state": {}
             }
+          },
+          {
+            "id": "517a9c2cb888ba5c",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 7
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -219,44 +240,50 @@
       "templates:Insert template": false,
       "helpmate:HelpMate": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "templater-obsidian:Templater": false,
-      "initiative-tracker:Initiative Tracker Encounter Builder": false,
       "obsidian-custom-frames:Open Obsidian Forum": false,
       "obsidian-leaflet-plugin:Open Leaflet Map": false,
+      "obsidian42-brat:BRAT": false,
+      "obsidian-import-json:JSON/CSV Importer": false,
+      "templater-obsidian:Templater": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-5e-statblocks:Open Creature pane": false,
-      "obsidian42-brat:BRAT": false,
-      "obsidian-import-json:JSON/CSV Importer": false
+      "initiative-tracker:Initiative Tracker Encounter Builder": false
     }
   },
-  "active": "3f934db774bdcd6a",
+  "active": "2911de48d50d504c",
   "lastOpenFiles": [
-    "1-DM Toolkit/DnD5e-DM Screen.md",
-    "1-DM Toolkit/DnD5e-SideScreen.md",
-    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "1-Party/Example Party 1/Untitled.md",
+    "2-World/Ruins of The Twilight Palace.md",
+    "2-World/Lampoteuo/Lampoteuo City/Noble District/Lucky Grain Inn/Lucky Grain Inn.md",
+    "2-World/Logger's Camp.md",
+    "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
     "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
-    "3-Mechanics/CLI/CLI.md",
-    "z_Example Notes/z_Example Notes.md",
-    "3-Mechanics/NPCs/Wilma.md",
-    "3-Mechanics/Where To Get Mechanics.md",
-    "3-Mechanics/NPCs/test.md",
+    "2-World/Ruins of Twilight Horizon Palace.md",
+    "2-World/Ruins of Palace.md",
+    "2-World/Ruins of Horizon.md",
+    "2-World/Untitled.md",
+    "2-World/Lampoteuo/The Wound/The Wound.md",
     "2-Campaign/Quests/Quests.md",
-    "1-DM Toolkit/DM Board.md",
-    "z_Templates/TemplateNPC.md",
-    "z_Templates/TemplateQuest.md",
-    "z_Templates/TemplateJournal.md",
-    "z_Templates/TemplateMagicItem.md",
-    "1-Party/Fredy.md",
-    "z_Templates/TemplateGroup.md",
-    "z_Templates/TemplatePlayer.md",
-    "z_Templates/Pasted image 20220612052639.png.md",
-    "1-DM Toolkit/Journey Board.md",
-    "1-DM Toolkit/PF2e-DM Screen.md",
     "2-World/Lampoteuo/Lampoteuo.md",
-    "2-Campaign/Quests/Warn the Midwife.md",
-    "2-Campaign/Quests/Beat the Goblin.md",
+    "2-World/Lampoteuo/Lampoteuo City/Noble District",
+    "2-World/Lampoteuo/Lampoteuo City/The Rats Nest",
+    "2-World/Lampoteuo/Untitled",
+    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "1-DM Toolkit/Home.md",
+    "1-Party/ddsfsd.md",
+    "1-DM Toolkit/DM Board.md",
+    "1-Party/jhg.md",
+    "1-Party/Flip.md",
+    "z_Templates/TemplateNPC.md",
+    "z_Templates/TemplatePlayer.md",
+    "1-Party/Example Party 1/Bob.md",
+    "3-Mechanics/NPCs/Jasmine.md",
+    "1-Party/Example Party 2/Jane.md",
+    "1-DM Toolkit/Vault Report.md",
+    "1-Party/Example Party 2",
+    "z_Templates/ITS Theme/CSS Classses.md",
+    "z_Templates/ITS Theme/ITS Theme.md",
+    "z_Templates/ITS Theme",
+    "z_Example Notes/ITS Theme",
     "z_Assets/DnD5e-SideScreen-20240405084646428.webp",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/monster_size_chart.webp",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/flanking_and_cover_hexes.webp",
@@ -271,12 +298,6 @@
     "3-Mechanics/CLI/books/dungeon-masters-guide",
     "3-Mechanics/CLI/dungeon-masters-guide/img",
     "3-Mechanics/CLI/dungeon-masters-guide",
-    "3-Mechanics/CLI/books/players-handbook/img",
-    "3-Mechanics/CLI/books/players-handbook",
-    "3-Mechanics/CLI/books",
-    "3-Mechanics/CLI/items/img",
-    "3-Mechanics/CLI/items",
-    "2-Campaign/Quests",
     "Untitled.canvas"
   ]
 }
