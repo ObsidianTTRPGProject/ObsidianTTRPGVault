@@ -1,0 +1,126 @@
+{
+  "manifest": {
+    "version": "3.0.3"
+  },
+  "MergeParagraph_Newlines": true,
+  "MergeParagraph_Spaces": true,
+  "LowercaseFirst": true,
+  "RemoveBlanksWhenChinese": false,
+  "ZoteroNoteRegExp": "“(?<text>.*)” \\((?<item>.*?)\\) \\(\\[pdf\\]\\((?<pdf_url>.*?)\\)\\)",
+  "ZoteroNoteTemplate": "{text} [🔖]({pdf_url})",
+  "BulletPoints": "•–§",
+  "WrapperList": [
+    {
+      "name": "underline",
+      "prefix": "<u>",
+      "suffix": "</u>",
+      "id": "5a93d584-d0cb-4470-801e-90e50548fb56"
+    }
+  ],
+  "RequestList": [],
+  "customReplaceList": [
+    {
+      "name": "Remove trailing spaces",
+      "data": [
+        {
+          "search": "(\\s*)(?=\\n)|(\\s*)$",
+          "replace": ""
+        }
+      ],
+      "id": "6a5bf26a-de22-4da7-9fce-603b6e2d0086"
+    },
+    {
+      "name": "Remove blank line(s)",
+      "data": [
+        {
+          "search": "\\n\\s*\\n",
+          "replace": "\\n"
+        }
+      ],
+      "id": "3cafda63-3bb3-4db8-857e-f3928d90448b"
+    },
+    {
+      "name": "Add extra line break between paragraphs",
+      "data": [
+        {
+          "search": "\\n",
+          "replace": "\\n\\n"
+        }
+      ],
+      "id": "e66efc5e-d8a5-4e1c-99d3-4bd7e79430cb"
+    },
+    {
+      "name": "Split line(s) by blanks",
+      "data": [
+        {
+          "search": " ",
+          "replace": "\\n"
+        }
+      ],
+      "id": "90773950-2794-4934-86b1-9e1f8fbd4e91"
+    }
+  ],
+  "customReplaceBuiltInLog": {
+    "remove-trailing-spaces": {
+      "id": "remove-trailing-spaces",
+      "modified": false,
+      "data": [
+        {
+          "search": "(\\s*)(?=\\n)|(\\s*)$",
+          "replace": ""
+        }
+      ]
+    },
+    "remove-blank-line": {
+      "id": "remove-blank-line",
+      "modified": false,
+      "data": [
+        {
+          "search": "\\n\\s*\\n",
+          "replace": "\\n"
+        }
+      ]
+    },
+    "add-line-break": {
+      "id": "add-line-break",
+      "modified": false,
+      "data": [
+        {
+          "search": "\\n",
+          "replace": "\\n\\n"
+        }
+      ]
+    },
+    "split-lines-by-blank": {
+      "id": "split-lines-by-blank",
+      "modified": false,
+      "data": [
+        {
+          "search": " ",
+          "replace": "\\n"
+        }
+      ]
+    }
+  },
+  "ToggleSequence": "titleCase\nlowerCase\nupperCase",
+  "RemoveWikiURL2": false,
+  "WikiLinkFormat": {
+    "headingOnly": "{title} (> {heading})",
+    "aliasOnly": "{alias} ({title})",
+    "both": "{alias} ({title} > {heading})"
+  },
+  "UrlLinkFormat": "{text}",
+  "ProperNoun": "",
+  "OrderedListOtherSeparator": "",
+  "Wikilink2mdRelativePath": "relative-obsidian",
+  "calloutType": "NOTE",
+  "debugMode": false,
+  "headingLevelMin": 0,
+  "calloutTypeDecider": "previous-content",
+  "customReplaceBuiltIn": [
+    "remove-trailing-spaces",
+    "remove-blank-line",
+    "add-line-break",
+    "split-lines-by-blank"
+  ]
+}

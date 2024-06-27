@@ -1,6 +1,6 @@
 {
   "manifest": {
-    "version": "3.0.3"
+    "version": "3.1.0"
   },
   "MergeParagraph_Newlines": true,
   "MergeParagraph_Spaces": true,
@@ -117,6 +117,10 @@
   "debugMode": false,
   "headingLevelMin": 0,
   "calloutTypeDecider": "previous-content",
+  "formatOnSaveSettings": {
+    "enabled": false,
+    "commandsString": ""
+  },
   "customReplaceBuiltIn": [
     "remove-trailing-spaces",
     "remove-blank-line",

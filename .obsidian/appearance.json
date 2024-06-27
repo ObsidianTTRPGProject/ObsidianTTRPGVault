@@ -1,12 +1,11 @@
 {
   "accentColor": "",
   "cssTheme": "ITS Theme",
-  "theme": "moonstone",
+  "theme": "obsidian",
   "enabledCssSnippets": [
     "S - Encoded Fonts",
     "S - Encoded Icons",
     "supercharged-links-gen",
-    "HoverProperties_-_Columns",
     "dnd5e-only-statblock",
     "dnd5e-compendium",
     "dnd5e-float-images",

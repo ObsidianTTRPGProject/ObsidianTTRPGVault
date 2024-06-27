@@ -186,7 +186,7 @@ settings:
         step: 1
     -
         title: Inline Title Size
-        id: inline-title-font-size
+        id: inline-title-size
         type: variable-number-slider
         default: 34
         format: px
@@ -1779,7 +1779,12 @@ settings:
         title: Wide Table
         description: Tables widened to touch ends of the page
         id: tables-wide
-        type: class-toggle    
+        type: class-toggle
+    -
+        title: Unwrap Table
+        description: Unwrap tables in source mode
+        id: table-unwrap
+        type: class-toggle
     - 
         title: Disable Row Hover Highlight
         id: tables-no-hover
@@ -1963,6 +1968,10 @@ settings:
         id: canvas-cards
         type: class-toggle
     -
+        title: Milanote Styling
+        id: canvas-milanote
+        type: class-toggle
+    -
         title: Canvas Arrow Coloful Text
         id: canvas-arrow-text-color
         description: Make text on canvas arrows match the color of the arrows
@@ -2089,6 +2098,14 @@ settings:
         format: hex
         default-dark: '#bf5e5e'
         default-light: '#c14343'
+    -
+        title: "Math Text Color"
+        description: "Mathjax/Latex color change"
+        id: latex-color
+        type: variable-themed-color
+        format: hex
+        default-dark: '#e06c75'
+        default-light: '#a35158'
     -
         title: Workspace
         description: Recolor some UI colors
@@ -3107,7 +3124,6 @@ body.theme-light {
   --tag-padding-x: 7px;
   --tag-padding-y: 3px;
   --prompt-border-width: 3px;
-  --tab-outline-width: 2px;
   --shadow-s: 2px 2px 0 var(--outline);
   --shadow-m: 3px 3px 0 var(--outline);
   --shadow-ml: 4px 4px 0 var(--outline);
@@ -3539,7 +3555,8 @@ body {
   --tab-font-weight-active: 900;
   --tab-width: 200px;
   --tab-max-width: 320px;
-  --tab-outline-width: 0;
+  --tab-outline-width: 2px;
+  --tab-top-outline-width: 0;
   --tab-outline-color: var(--accent);
   --tab-divider-color: var(--hr);
   --tab-background: var(--outer-bar);
@@ -3584,6 +3601,10 @@ body.is-focused :is(.mod-left-split, .mod-right-split) .workspace-tab-header:not
 
 .mod-root .mod-stacked .workspace-tab-header:hover .workspace-tab-header-inner {
   color: var(--tab-text-color-hover);
+}
+
+.workspace-tab-header-container {
+  border-top: var(--tab-top-outline-width) solid var(--tab-outline-color);
 }
 
 .empty-state .empty-state-title {
@@ -4313,6 +4334,10 @@ h6 > .markdown-embed .markdown-rendered,
   font-family: var(--font-text);
 }
 
+.markdown-preview-view .heading-collapse-indicator {
+  z-index: 2;
+}
+
 body {
   --pane-background: var(--note);
   --font-ligatures: none;
@@ -4528,9 +4553,6 @@ ul > li.task-list-item.task-list-item .task-list-item-checkbox {
 }
 .is-live-preview.markdown-source-view.mod-cm6 .cm-formatting-list-ul::before {
   margin-right: -16px;
-}
-.is-live-preview.markdown-source-view.mod-cm6 .cm-hmd-list-indent .cm-indent::before {
-  transform: translateX(var(--indentation-guide-editing-indent));
 }
 .is-live-preview.markdown-source-view.mod-cm6 .task-list-label {
   margin-inline-start: 0;
@@ -5391,8 +5413,14 @@ body.theme-light {
   border-color: rgb(var(--canvas-color));
 }
 
+.canvas-path-label {
+  background-color: var(--canvas-background);
+}
+
 body {
   --metadata-property-radius: var(--radius-s);
+  --metadata-property-radius-hover: var(--radius-s);
+  --metadata-property-radius-focus: var(--radius-s);
   --metadata-title-align: center;
   --metadata-title-size: var(--font-text-size);
   --metadata-title-color: var(--text-muted);
@@ -6036,15 +6064,18 @@ button[class^=BC] {
   padding-left: 10px;
 }
 
-.markdown-rendered.BC-matrix-view .BC-matrix-view-dir {
-  padding: var(--size-4-1) var(--size-4-3);
+.markdown-rendered.BC-matrix-view .BC-matrix-view-field {
+  padding: var(--size-4-1) var(--size-4-1) var(--size-4-3) var(--size-4-1);
   border: 2px solid var(--outline);
   border-radius: var(--radius-s);
   box-shadow: var(--shadow-m);
 }
-.markdown-rendered.BC-matrix-view .BC-matrix-view-dir .text-lg {
+.markdown-rendered.BC-matrix-view .BC-matrix-view-field .text-lg {
   font-family: var(--h1-font);
   color: var(--h1-color);
+}
+.markdown-rendered.BC-matrix-view .font-mono {
+  font-family: var(--font-monospace);
 }
 
 /* .BC-Matrix .BC-Matrix-square li::before {
@@ -7080,13 +7111,13 @@ img:is([alt*=ctr], [alt*=center]) {
 }
 
 /*Left & Right*/
-.markdown-rendered img:is([alt*=left], [alt*=locl]), .markdown-rendered img[src*="#locl"] img, .markdown-rendered .image-embed:is([alt*=left], [alt*=locl]), .markdown-rendered .image-embed[src*="#locl"] img {
+.markdown-rendered img:is([alt*=left], [alt*=locl]), .markdown-rendered img:is([src*="#left"], [src*="#locl"]), .markdown-rendered .image-embed:is([alt*=left], [alt*=locl]), .markdown-rendered .image-embed:is([src*="#left"], [src*="#locl"]) {
   float: left;
   margin-right: 2%;
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.markdown-rendered img:is([alt*=right], [alt*=locr]), .markdown-rendered img[src*="#locr"] img, .markdown-rendered .image-embed:is([alt*=right], [alt*=locr]), .markdown-rendered .image-embed[src*="#locr"] img {
+.markdown-rendered img:is([alt*=right], [alt*=locr]), .markdown-rendered img:is([src*="#right"], [src*="#locr"]), .markdown-rendered .image-embed:is([alt*=right], [alt*=locr]), .markdown-rendered .image-embed:is([src*="#right"], [src*="#locr"]) {
   float: right;
   margin-left: 2%;
   margin-bottom: 0px;
@@ -7355,6 +7386,68 @@ img[alt~=border],
   color: var(--inactive, var(--faint-text));
   display: block;
   text-align: center;
+}
+
+.image-embed[src*="#cap"] {
+  display: inline-block;
+}
+.image-embed[src*="#cap"] img {
+  float: unset !important;
+  object-fit: cover;
+}
+.image-embed[src*="#cap"][src*="#hmicro"] img {
+  height: var(--micro);
+}
+.image-embed[src*="#cap"][src*="#htiny"] img {
+  height: var(--tiny);
+}
+.image-embed[src*="#cap"][src*="#hsmall"] img {
+  height: var(--small);
+}
+.image-embed[src*="#cap"][src*="#hs-med"] img {
+  height: var(--small-med);
+}
+.image-embed[src*="#cap"][src*="#hm-sm"] img {
+  height: var(--med-small);
+}
+.image-embed[src*="#cap"][src*="#hmed"] img {
+  height: var(--medium);
+}
+.image-embed[src*="#cap"][src*="#hm-tl"] img {
+  height: var(--med-tall);
+}
+.image-embed[src*="#cap"][src*="#htall"] img {
+  height: var(--tall);
+}
+.image-embed[src*="#cap"][src*="#hfull"] img {
+  height: 100%;
+}
+.image-embed[src*="#cap"][src*="#wmicro"], .image-embed[src*="#cap"][src*="#wmicro"] img {
+  width: var(--micro);
+}
+.image-embed[src*="#cap"][src*="#wtiny"], .image-embed[src*="#cap"][src*="#wtiny"] img {
+  width: var(--tiny);
+}
+.image-embed[src*="#cap"][src*="#wsmall"], .image-embed[src*="#cap"][src*="#wsmall"] img {
+  width: var(--small);
+}
+.image-embed[src*="#cap"][src*="#ws-med"], .image-embed[src*="#cap"][src*="#ws-med"] img {
+  width: var(--small-med);
+}
+.image-embed[src*="#cap"][src*="#wm-sm"], .image-embed[src*="#cap"][src*="#wm-sm"] img {
+  width: var(--med-small);
+}
+.image-embed[src*="#cap"][src*="#wmed"], .image-embed[src*="#cap"][src*="#wmed"] img {
+  width: var(--medium);
+}
+.image-embed[src*="#cap"][src*="#wm-tl"], .image-embed[src*="#cap"][src*="#wm-tl"] img {
+  width: var(--med-tall);
+}
+.image-embed[src*="#cap"][src*="#wtall"], .image-embed[src*="#cap"][src*="#wtall"] img {
+  width: var(--tall);
+}
+.image-embed[src*="#cap"][src*="#wfull"], .image-embed[src*="#cap"][src*="#wfull"] img {
+  width: 100%;
 }
 
 .mobile-image-viewer img[alt][alt][alt] {
@@ -8725,6 +8818,17 @@ body:not(.check-color, .check-text) ul > li.task-list-item[data-task][data-task=
   clear: both;
 }
 
+.callout.callout.callout[data-callout-metadata~=block] {
+  display: block;
+  float: unset;
+}
+.callout.callout.callout[data-callout-metadata~=block][data-callout-metadata~=right] {
+  margin-left: auto;
+}
+.callout.callout.callout[data-callout-metadata~=block][data-callout-metadata~=left] {
+  margin-right: auto;
+}
+
 .callout #vid {
   text-align: left;
 }
@@ -9916,6 +10020,9 @@ body:not(.callout-no-metadata) .callout.callout[data-callout~=Metadata i]:is([da
 .callout.callout[data-callout~=kanban] .task-list-item-checkbox {
   cursor: default;
 }
+.callout.callout[data-callout~=kanban] :is(ul, ol) > li p:first-of-type {
+  margin-block-start: 0;
+}
 
 /* Timeline */
 .callout.callout[data-callout~=timeline] {
@@ -10063,6 +10170,7 @@ body:not(.callout-no-metadata) .callout.callout[data-callout~=Metadata i]:is([da
   --callout-icon: "check-square";
   --callout-padding: 0px;
   --root-list-spacing: 0;
+  --list-indent: 0;
 }
 .callout[data-callout=checks] ul.contains-task-list {
   display: flex;
@@ -10196,7 +10304,6 @@ body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callou
   box-shadow: var(--shadow-l);
 }
 body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote] > .callout-content {
-  padding: 0;
   overflow: hidden;
 }
 body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote] > .callout-content p:first-child {
@@ -10219,8 +10326,7 @@ body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callou
 body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote] > .callout-title-inner::before {
   content: "~ ";
 }
-
-.callout.callout[data-callout=quote][data-callout-metadata~=author] {
+body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote][data-callout-metadata~=author] {
   --callout-icon: "";
   --callout-color: var(--color-accent);
   --callout-padding: 20px 30px;
@@ -10230,34 +10336,33 @@ body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callou
   flex-direction: column-reverse;
   box-shadow: var(--shadow-l);
 }
-.callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-content {
-  padding: 0;
+body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-content {
   overflow: hidden;
 }
-.callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-content p:first-child {
+body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-content p:first-child {
   margin-block-start: 0;
 }
-.callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-content p:last-child {
+body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-content p:last-child {
   margin-block-end: 0;
 }
-.callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-icon {
+body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-icon {
   height: 0;
   width: 0;
 }
-.callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-title {
+body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-title {
   background: transparent;
   text-align: right;
   padding-top: 5px;
   padding-right: 0;
   display: block;
 }
-.callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-title-inner::before {
+body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote][data-callout-metadata~=author] .callout-title-inner::before {
   content: "~ ";
 }
-.callout.callout[data-callout=quote][data-callout-metadata~=mark] {
-  --callout-padding: 20px 40px 20px 30px;
+body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote][data-callout-metadata~=mark] {
+  --callout-content-padding: 0 30px 0 0;
 }
-.callout.callout[data-callout=quote][data-callout-metadata~=mark] .callout-content::before {
+body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callout=quote][data-callout-metadata~=mark] .callout-content::before {
   display: block;
   float: right;
   content: "”";
@@ -10265,7 +10370,7 @@ body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callou
   color: var(--headers);
   transform: scale(4);
   position: absolute;
-  right: 50px;
+  right: 40px;
   margin-top: 20px;
 }
 
@@ -10381,6 +10486,29 @@ body:not(.default-callout-quote, .callout-no-quote) .callout.callout[data-callou
 }
 .canvas-cards .canvas-node.is-themed .canvas-node-container:hover .canvas-node-content {
   background-color: rgba(var(--canvas-color), 0.2);
+}
+
+body.canvas-milanote.canvas-milanote {
+  --canvas-background: var(--outer-bar);
+  --canvas-dot-pattern: var(--inactive);
+  --canvas-color-opacity: 0;
+  --canvas-card-shadow-size: 2px 3px 0;
+  --canvas-card-shadow-color: var(--outline);
+}
+
+.canvas-milanote .canvas-node.canvas-node-group .canvas-node-content {
+  --canvas-color-opacity: 15%;
+}
+.canvas-milanote .canvas-node .canvas-node-content.markdown-embed:not(.is-loaded) .markdown-preview-view {
+  padding: 0 var(--size-4-4);
+}
+.canvas-milanote .canvas-node.canvas-node:not(.canvas-node-group, .is-focused) > .canvas-node-container {
+  border-color: transparent;
+  box-shadow: var(--canvas-card-shadow-size) var(--canvas-card-shadow-color);
+}
+.canvas-milanote .canvas-node.is-themed:not(.canvas-node-group) > .canvas-node-container {
+  border-color: transparent;
+  box-shadow: 0 -4px 0 -0.4px rgb(var(--canvas-color)), var(--canvas-card-shadow-size) var(--canvas-card-shadow-color);
 }
 
 .canvas-arrow-text-color .canvas-path-label {
@@ -10898,10 +11026,10 @@ iframe {
 .paper, .paper .modal.mod-settings .vertical-tab-content-container, .paper .workspace-split:not(.mod-left-split, .mod-right-split) .workspace-leaf-content[data-type=markdown], .paper .workspace-leaf-content[data-type=graph] > canvas, .paper .workspace-drawer-inner, .paper .modal, .paper .community-plugin-search, .paper .prompt, .paper .kanban-plugin__lane.kanban-plugin__lane {
   box-shadow: var(--paper-edges-note);
 }
-.paper .workspace-tabs, .paper .modal.mod-settings .vertical-tab-header {
+.paper .workspace-tabs, .paper .modal.mod-settings .vertical-tab-header, .paper .workspace-tabs .workspace-leaf {
   box-shadow: var(--paper-edges-ui);
 }
-.paper .CodeMirror-gutter.CodeMirror-linenumbers, .paper .CodeMirror-gutter.CodeMirror-foldgutter, .paper .markdown-source-view.mod-cm6 .cm-gutters, .paper .workspace-leaf:not(.mod-active) .workspace-tab-header-container, .paper .workspace-tabs .workspace-leaf, .paper .workspace-tab-header-container, .paper .horizontal-tab-content, .paper .vertical-tab-content, .paper .horizontal-tab-nav-item:not(.is-active), .paper .vertical-tab-nav-item:not(.is-active) {
+.paper .CodeMirror-gutter.CodeMirror-linenumbers, .paper .CodeMirror-gutter.CodeMirror-foldgutter, .paper .markdown-source-view.mod-cm6 .cm-gutters, .paper .workspace-leaf:not(.mod-active) .workspace-tab-header-container, .paper .horizontal-tab-content, .paper .vertical-tab-content, .paper .horizontal-tab-nav-item:not(.is-active), .paper .vertical-tab-nav-item:not(.is-active) {
   background: transparent;
 }
 
@@ -12725,8 +12853,8 @@ body:not(.wotc-beyond) .wotc-beyond:is(.markdown-source-view,
 
 .theme-light .pathfinder-remaster, .theme-light.pathfinder-remaster {
   --tab-outline-color: #cdac5a;
-  --hvr-active: #002a1790;
-  --hvr: #ddc4868a;
+  --hvr-active: #002a1750;
+  --hvr: #ddc486;
   --highlight: #002a1730;
   --headers: #002a17;
   --h2-color: #4e1b0e;
@@ -13182,9 +13310,9 @@ body:not(.wotc-beyond) .wotc-beyond:is(.markdown-source-view,
   --inline-title-font: var(--vault-font);
   --inline-title-color: var(--accent2);
   --inline-title-weight: 500;
-  --hr-icon-symbol: "", "✏";
+  --hr-icon-symbol: "";
   --hr-icon-font: var(--mdi);
-  --bullet: "", "✏";
+  --bullet: "";
   --bullet-font: var(--mdi);
   background: var(--note);
 }
@@ -13952,6 +14080,7 @@ body:not(.wotc-beyond) .wotc-beyond:is(.markdown-source-view,
   --tag-border-color: var(--tag);
   --tag-border-color-hover: var(--accent);
   --embed-border-left: 2px solid var(--headers);
+  --embed-border-start: 2px solid var(--interactive-accent);
   --hr-color: var(--hr);
   --hr-icon-color: var(--headers);
   --hr-icon-background: var(--note);

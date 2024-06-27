@@ -4,3 +4,5 @@ This is where I create notes that I don't have time to sort properly, or that I 
 - Notes where I can write the name of things I want to link to. 
 
 I clean these up periodically. 
+
+[[New Character]]

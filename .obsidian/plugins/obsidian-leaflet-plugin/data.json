@@ -11270,7 +11270,7 @@
     {
       "id": "Regional_Lampoteuo",
       "locked": true,
-      "lastAccessed": 1715817577166,
+      "lastAccessed": 1716868187962,
       "markers": [
         {
           "id": "ID_6b7a8be94beb",
@@ -11332,7 +11332,7 @@
     },
     {
       "id": "map_CreepersCave",
-      "lastAccessed": 1715830827949,
+      "lastAccessed": 1717726987238,
       "markers": [
         {
           "id": "ID_2b796aa9a84a",
@@ -11463,7 +11463,7 @@
     },
     {
       "id": "map_LampoteuoCity",
-      "lastAccessed": 1715830828986,
+      "lastAccessed": 1717726987820,
       "markers": [
         {
           "id": "ID_2b0a1bc8f938",
@@ -11479,6 +11479,22 @@
           "percent": null,
           "description": null,
           "minZoom": 0,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_8b3a28285b99",
+          "type": "Region",
+          "loc": [
+            -0.003981359897733094,
+            0.005740060183533816
+          ],
+          "layer": "%5B%5BCity-20231026224949477.webp%7CCity%20Map%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
           "maxZoom": null,
           "tooltip": "hover"
         }

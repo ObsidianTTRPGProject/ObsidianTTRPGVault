@@ -55,7 +55,6 @@ zoomDelta: 0.5
 ### This is a string so can be any text. Change it to match your maps measurement scale. 
 unit: feet
 scale: 1
-darkMode: false
 ```
 
 <br>

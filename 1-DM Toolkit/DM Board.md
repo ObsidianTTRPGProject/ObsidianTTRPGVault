@@ -75,7 +75,7 @@ actions:
     fileName: NewPlayer
 ```
 
-`BUTTON[button_quest]`
+`BUTTON[button_quest]` 
 
 ## Known Languages
 

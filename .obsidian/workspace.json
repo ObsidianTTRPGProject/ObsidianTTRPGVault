@@ -4,43 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "9761188167cbb3fb",
+        "id": "17e1436279334b5c",
         "type": "tabs",
         "children": [
           {
-            "id": "1efeb4a221bd7033",
+            "id": "6c82f2a4130ca91f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2-World/Ruins of The Twilight Palace.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "894114e66a29fb6a",
-            "type": "leaf",
-            "state": {
-              "type": "intiative-tracker-encounter-builder",
-              "state": []
-            }
-          },
-          {
-            "id": "beacfc48e52af39f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-Party/Example Party 1/Example Party 1.md",
-                "mode": "preview",
-                "source": false
+                "file": "1-DM Toolkit/Map Calculator.md",
+                "mode": "source",
+                "source": true
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -118,7 +97,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 258.5
+    "width": 347.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -134,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-Party/Example Party 1/Example Party 1.md",
+                "file": "1-DM Toolkit/Map Calculator.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1-Party/Example Party 1/Example Party 1.md",
+                "file": "1-DM Toolkit/Map Calculator.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -174,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1-Party/Example Party 1/Example Party 1.md"
+                "file": "1-DM Toolkit/Map Calculator.md"
               }
             }
           },
@@ -215,7 +194,7 @@
             }
           },
           {
-            "id": "517a9c2cb888ba5c",
+            "id": "b17e9d619991a46b",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
@@ -223,12 +202,11 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 8
       }
     ],
     "direction": "horizontal",
-    "width": 399.5,
-    "collapsed": true
+    "width": 399.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -247,41 +225,47 @@
       "templater-obsidian:Templater": false,
       "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-5e-statblocks:Open Creature pane": false,
-      "initiative-tracker:Initiative Tracker Encounter Builder": false
+      "initiative-tracker:Initiative Tracker Encounter Builder": false,
+      "obsidian-kanban:Create new board": false
     }
   },
-  "active": "2911de48d50d504c",
+  "active": "6c82f2a4130ca91f",
   "lastOpenFiles": [
-    "2-World/Ruins of The Twilight Palace.md",
+    "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
+    "1-DM Toolkit/Map Calculator.md",
+    "z_Assets/Pasted image 20240627201658.png",
+    "2-World/Lampoteuo/Lampoteuo.md",
+    "z_Templates/TemplateJournal.md",
+    "1-DM Toolkit/DM Board.md",
+    "1-DM Toolkit/Home.md",
+    "z_Templates/7_World Building Templates/New Character.md",
+    "z_Example Notes/z_Example Notes.md",
+    "1-Session Journals/ThisIsNote.md",
+    "1-Session Journals/asdasdsad.md",
+    "z_Templates/TemplateNPC.md",
+    "z_Templates/TemplateJournal1.md",
+    "1-DM Toolkit/DnD5e-DM Screen.md",
+    "1-DM Toolkit/Journey Board.md",
+    "1-DM Toolkit/PF2e-DM Screen.md",
+    "1-DM Toolkit/Travel Calculator.md",
+    "1-DM Toolkit/Vault Report.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "0-Scratch Notes/Add Random Notes Here.md",
+    "z_Assets/Pasted image 20240607151510.png",
     "2-World/Lampoteuo/Lampoteuo City/Noble District/Lucky Grain Inn/Lucky Grain Inn.md",
-    "2-World/Logger's Camp.md",
+    "z_Templates/7_World Building Templates",
     "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
     "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
-    "2-World/Ruins of Twilight Horizon Palace.md",
-    "2-World/Ruins of Palace.md",
-    "2-World/Ruins of Horizon.md",
-    "2-World/Untitled.md",
-    "2-World/Lampoteuo/The Wound/The Wound.md",
-    "2-Campaign/Quests/Quests.md",
-    "2-World/Lampoteuo/Lampoteuo.md",
+    "2-World/Ruins of The Twilight Palace.md",
+    "z_Assets/RoTTP.webp",
+    "2-World/Logger's Camp.md",
+    "New Note.md",
+    "z_Assets/cover.webp",
     "2-World/Lampoteuo/Lampoteuo City/Noble District",
     "2-World/Lampoteuo/Lampoteuo City/The Rats Nest",
     "2-World/Lampoteuo/Untitled",
-    "1-DM Toolkit/DnD5e-SideScreen.md",
-    "1-DM Toolkit/Home.md",
-    "1-Party/ddsfsd.md",
-    "1-DM Toolkit/DM Board.md",
-    "1-Party/jhg.md",
-    "1-Party/Flip.md",
-    "z_Templates/TemplateNPC.md",
-    "z_Templates/TemplatePlayer.md",
-    "1-Party/Example Party 1/Bob.md",
-    "3-Mechanics/NPCs/Jasmine.md",
-    "1-Party/Example Party 2/Jane.md",
-    "1-DM Toolkit/Vault Report.md",
     "1-Party/Example Party 2",
-    "z_Templates/ITS Theme/CSS Classses.md",
-    "z_Templates/ITS Theme/ITS Theme.md",
     "z_Templates/ITS Theme",
     "z_Example Notes/ITS Theme",
     "z_Assets/DnD5e-SideScreen-20240405084646428.webp",
@@ -290,14 +274,9 @@
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/flanking_and_cover_squares.webp",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/creature_size_on_squares_and_hexes.webp",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-9.webp",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-8.webp",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-6.webp",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-7.webp",
-    "3-Mechanics/CLI/books/dungeon-masters-guide/img/app-c-5.webp",
     "3-Mechanics/CLI/books/dungeon-masters-guide/img",
     "3-Mechanics/CLI/books/dungeon-masters-guide",
     "3-Mechanics/CLI/dungeon-masters-guide/img",
-    "3-Mechanics/CLI/dungeon-masters-guide",
     "Untitled.canvas"
   ]
 }
