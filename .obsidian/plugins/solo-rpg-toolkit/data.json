@@ -1,0 +1,21 @@
+{
+  "defaultView": "deck",
+  "customTableRoot": "z_Assets/Tables",
+  "customDeckRoot": "z_Assets/Decks",
+  "disableDefaultWords": false,
+  "deckJokers": false,
+  "deckFlip": true,
+  "deckTarot": true,
+  "deckClipboard": false,
+  "deckClipboardMode": "path",
+  "diceClipboardMode": "code",
+  "wordClipboardMode": "plain",
+  "inlineCounters": false,
+  "inlineProgressMode": "clock",
+  "inlineDynamicEdit": true,
+  "oracleLanguage": "en",
+  "wordTab": "",
+  "oracleTab": "default",
+  "deckTab": "Business Card Dungeon",
+  "mythicFactor": 5
+}

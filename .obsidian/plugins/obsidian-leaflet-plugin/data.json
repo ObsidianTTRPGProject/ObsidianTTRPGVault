@@ -11504,6 +11504,73 @@
       "files": [
         "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md"
       ]
+    },
+    {
+      "id": "MapCalcExample",
+      "lastAccessed": 1719753278578,
+      "markers": [
+        {
+          "id": "ID_9bea7a3a6899",
+          "type": "Point of Interest",
+          "loc": [
+            483.66103833159855,
+            642.0763672965437
+          ],
+          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.6420763672965437,
+            -0.7800984489219331
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_2a79f8fbcbc9",
+          "type": "Point of Interest",
+          "loc": [
+            415.77878733769,
+            558.6122669606619
+          ],
+          "link": "Room 1",
+          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5586122669606619,
+            -0.6706109473188548
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_cb7b199b9a88",
+          "type": "City",
+          "loc": [
+            453.96255352176354,
+            742.491382719823
+          ],
+          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7424913827198231,
+            -0.7321976669705863
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": []
     }
   ],
   "defaultMarker": {
