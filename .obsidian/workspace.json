@@ -11,8 +11,12 @@
             "id": "8ccc013d5d2c6589",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "1-DM Toolkit/Travel Calculator.md",
+                "mode": "preview",
+                "source": true
+              }
             }
           }
         ]
@@ -109,6 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "1-DM Toolkit/Travel Calculator.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,6 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "1-DM Toolkit/Travel Calculator.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -146,7 +152,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "1-DM Toolkit/Travel Calculator.md"
+              }
             }
           },
           {
@@ -230,48 +238,49 @@
       "solo-rpg-toolkit:Solo RPG Toolkit": false
     }
   },
-  "active": "8ccc013d5d2c6589",
+  "active": "2911de48d50d504c",
   "lastOpenFiles": [
-    "0-Scratch Notes/Drawing 2024-06-30 11.19.35.excalidraw.md",
-    "0-Scratch Notes/Dyson Logos Overhead Map Key.md",
-    "0-Scratch Notes/Leaflet Map.md",
-    "0-Scratch Notes/New Dungeon Map.md",
-    "0-Scratch Notes/Room 1.md",
+    "1-DM Toolkit/PF2e-DM Screen.md",
+    "1-DM Toolkit/DM Board.md",
+    "z_Templates/TemplateSettlement.md",
+    "z_Templates/TemplateQuest.md",
+    "z_Templates/TemplatePlayer.md",
+    "z_Templates/TemplateNPC.md",
+    "z_Templates/TemplateMagicItem.md",
+    "z_Templates/TemplateJournal.md",
+    "z_Templates/TemplateGroup.md",
+    "3-Mechanics/Where To Get Mechanics.md",
+    "3-Mechanics/NPCs/Wilma.md",
+    "3-Mechanics/NPCs/Jasmine.md",
+    "3-Mechanics/Items/DefaultName.md",
+    "3-Mechanics/Items/Broken Stick.md",
+    "3-Mechanics/Guilds and Groups/Magicians.md",
+    "3-Mechanics/Guilds and Groups/Harpers.md",
+    "3-Mechanics/CLI/CLI.md",
+    "2-World/Ruins of The Twilight Palace.md",
+    "2-World/Logger's Camp.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
+    "2-Campaign/Quests/Quests.md",
+    "1-Party/Example Party 1/Example Party 1.md",
+    "1-DM Toolkit/Vault Report.md",
+    "1-DM Toolkit/Travel Calculator.md",
+    "1-DM Toolkit/Map Calculator.md",
+    "1-DM Toolkit/Journey Board.md",
+    "z_Assets/Pasted Image 20240630230819_217.png",
+    "z_Assets/Pasted Image 20240630225934_265.png",
+    "z_Assets/Pasted Image 20240630225910_214.png",
     "0-Scratch Notes/Untitled.canvas",
-    "0-Scratch Notes/Untitled.md",
-    "0-Scratch Notes/Untitled 1.md",
     "z_Assets/Pasted image 20240630214232.png",
     "z_Assets/Pasted Image 20240630214110_213.png",
     "z_Assets/Pasted Image 20240630214055_211.png",
     "z_Assets/Pasted Image 20240630213938_233.png",
     "z_Assets/Pasted Image 20240630213157_204.png",
     "z_Assets/Pasted Image 20240630211249_215.png",
-    "z_Assets/Decks/Business Card Dungeon/config.md",
-    "z_Assets/Decks/Business Card Dungeon/Business Card Dungeons License.md",
     "z_Assets/Decks/Business Card Dungeon/Dungeon18.png",
-    "z_Assets/Decks/Business Card Dungeon/Dungeon14.png",
-    "z_Assets/Decks/Business Card Dungeon/Dungeon10.png",
-    "z_Assets/Decks/Business Card Dungeon/Dungeon7.png",
-    "0-Scratch Notes/Add Random Notes Here.md",
-    "0-Scratch Notes/Untitled Kanban.md",
-    "1-DM Toolkit/Home.md",
-    "z_Assets/Decks/Flip Test/config.md",
-    "z_Assets/Decks/Flip Test/Business Card Dungeons License.md",
     "z_Assets/Decks/Flip Test",
-    "z_Assets/Decks/Business Card Dungeon - Copy/config.md",
-    "z_Assets/Decks/Business Card Dungeon - Copy/Business Card Dungeons License.md",
     "z_Assets/Decks/Business Card Dungeon - Copy",
-    "1-DM Toolkit/Journey Board.md",
-    "2-World/Ruins of The Twilight Palace.md",
     "z_Assets/Decks/Business Card Dungeon",
     "z_Assets/Untitled",
-    "1-DM Toolkit/Map Calculator.md",
-    "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
-    "2-World/Lampoteuo/Lampoteuo.md",
-    "z_Templates/TemplateJournal.md",
-    "1-DM Toolkit/DM Board.md",
-    "z_Templates/7_World Building Templates/New Character.md",
-    "z_Example Notes/z_Example Notes.md",
     "z_Templates/7_World Building Templates",
     "2-World/Lampoteuo/Lampoteuo City/Noble District",
     "2-World/Lampoteuo/Lampoteuo City/The Rats Nest",
