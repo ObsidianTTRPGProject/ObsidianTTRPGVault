@@ -1,6 +1,6 @@
 ---
 NoteIcon: player
-aliases:
+alia2222ses 23:
   - Bob
 tags:
   - player

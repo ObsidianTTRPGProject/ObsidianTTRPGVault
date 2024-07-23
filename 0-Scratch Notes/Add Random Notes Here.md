@@ -6,3 +6,4 @@ This is where I create notes that I don't have time to sort properly, or that I 
 I clean these up periodically. 
 
 [[New Character]]
+

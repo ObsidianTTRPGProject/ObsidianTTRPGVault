@@ -1,20 +1,20 @@
 ---
 NoteIcon: player
 aliases:
-  - Freddy
+  - Bob
 tags:
-  - Fred
-Player: Fred
+  - player
+Player: Bob
 Role: Player
 Class:
-  - Ranger
+  - Barbarian
 Race:
-  - Half-elf
+  - Human
 level: 8
-hp: 54
-ac: 18
-modifier: 3
-pasperc: 12
+hp: 71
+ac: 22
+modifier: 4
+pasperc: 13
 Status: Active
 PlayerKnownLanguages:
   - Celestial
@@ -22,12 +22,17 @@ PlayerKnownLanguages:
   - Dwarvish
 ---
 
+
+
+[[Pasted image 20220612052639.png]]
+
 # `=this.file.name`
 
 | Image                                              | Char Name         | Player Name    | Class         | Race         | Level         |
 | -------------------------------------------------- | ----------------- | -------------- | ------------- | ------------ | ------------- |
-| ![[![[ImagePlaceholder.png\|cover hsmall]] | `=this.file.name` |  `VIEW[{Player}]` | `VIEW[{Class}]` | `VIEW[{Race}]` | `VIEW[{level}]` |
+| ![[ImagePlaceholder.png\|cover hsmall]] | `=this.file.name` |  `VIEW[{Player}]` | `VIEW[{Class}]` | `VIEW[{Race}]` | `VIEW[{level}]` |
 
 ```custom-frames
 frame: ConfigureInCustomFramesPlugin
 ```
+

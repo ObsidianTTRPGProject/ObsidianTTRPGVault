@@ -1,5 +1,6 @@
 ---
 obsidianUIMode: preview
+assa:
 ---
 
 ```dataview

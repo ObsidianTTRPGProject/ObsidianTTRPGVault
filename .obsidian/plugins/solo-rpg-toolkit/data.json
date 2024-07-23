@@ -10,6 +10,7 @@
   "deckClipboardMode": "path",
   "diceClipboardMode": "code",
   "wordClipboardMode": "plain",
+  "diceDeleteOnCopy": false,
   "inlineCounters": false,
   "inlineProgressMode": "clock",
   "inlineDynamicEdit": true,

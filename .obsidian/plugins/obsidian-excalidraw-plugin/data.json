@@ -92,7 +92,7 @@
   "library2": {
     "type": "excalidrawlib",
     "version": 2,
-    "source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.2.7",
+    "source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.2.9",
     "libraryItems": []
   },
   "imageElementNotice": true,
@@ -104,7 +104,7 @@
   "mdCSS": "",
   "scriptEngineSettings": {},
   "defaultTrayMode": true,
-  "previousRelease": "2.2.7",
+  "previousRelease": "2.2.9",
   "showReleaseNotes": true,
   "showNewVersionNotification": true,
   "latexBoilerplate": "\\color{blue}",
@@ -748,6 +748,6 @@
   "longPressDesktop": 500,
   "longPressMobile": 500,
   "isDebugMode": false,
-  "autosaveInterval": 15000,
+  "autosaveInterval": 10000,
   "mathjaxSourceURL": "https://cdn.jsdelivr.net/npm/mathjax@3.2.1/es5/tex-svg.js"
 }

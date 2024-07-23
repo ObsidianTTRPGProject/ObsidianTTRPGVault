@@ -117,14 +117,14 @@
   "debugMode": false,
   "headingLevelMin": 0,
   "calloutTypeDecider": "previous-content",
-  "formatOnSaveSettings": {
-    "enabled": false,
-    "commandsString": ""
-  },
   "customReplaceBuiltIn": [
     "remove-trailing-spaces",
     "remove-blank-line",
     "add-line-break",
     "split-lines-by-blank"
-  ]
+  ],
+  "formatOnSaveSettings": {
+    "enabled": false,
+    "commandsString": ""
+  }
 }

@@ -15,8 +15,7 @@ hp: 71
 ac: 22
 modifier: 4
 pasperc: 13
-Status:
-  - Active
+Status: Active
 PlayerKnownLanguages:
   - Celestial
   - Common
