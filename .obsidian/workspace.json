@@ -8,27 +8,61 @@
         "type": "tabs",
         "children": [
           {
-            "id": "8ccc013d5d2c6589",
+            "id": "0ffea60e37bf3ca9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Example Notes/z_Example Notes.md",
+                "file": "2-World/Test.md",
                 "mode": "preview",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Test"
             }
           },
           {
-            "id": "99a51f41ca5578ed",
+            "id": "a55ae53924d73587",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-Party/Example Party 1/Example Party 1.md",
+                "file": "z_Templates/TemplateNPC.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "TemplateNPC"
+            }
+          },
+          {
+            "id": "f6ef017cc52d2e49",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-DM Toolkit/DM Board.md",
                 "mode": "preview",
-                "source": false
-              }
+                "source": true
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "DM Board"
+            }
+          },
+          {
+            "id": "c1b381aab68212e3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "z_Templates/TemplatePlayer.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "TemplatePlayer"
             }
           }
         ],
@@ -52,7 +86,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -67,7 +103,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -75,7 +113,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           },
           {
@@ -89,28 +129,16 @@
                 "mode": "preview",
                 "source": false
               },
-              "pinned": true
-            }
-          },
-          {
-            "id": "f6ef017cc52d2e49",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-DM Toolkit/DM Board.md",
-                "mode": "preview",
-                "source": true
-              },
-              "pinned": true
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "DnD5e-SideScreen"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 347.5
+    "width": 463.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -126,15 +154,17 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-Party/Example Party 1/Example Party 1.md",
+                "file": "1-DM Toolkit/Home.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Home"
             }
           },
           {
@@ -143,10 +173,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "1-Party/Example Party 1/Example Party 1.md",
+                "file": "z_Templates/TemplateNPC.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from TemplateNPC"
             }
           },
           {
@@ -157,7 +189,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -166,8 +200,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1-Party/Example Party 1/Example Party 1.md"
-              }
+                "file": "1-DM Toolkit/Home.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Home"
             }
           },
           {
@@ -175,7 +211,9 @@
             "type": "leaf",
             "state": {
               "type": "advanced-tables-toolbar",
-              "state": {}
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
             }
           },
           {
@@ -183,7 +221,9 @@
             "type": "leaf",
             "state": {
               "type": "help-mate",
-              "state": {}
+              "state": {},
+              "icon": "life-buoy",
+              "title": "HelpMate"
             }
           },
           {
@@ -195,7 +235,9 @@
                 "sortOrder": "frequency",
                 "showSearch": false,
                 "searchQuery": ""
-              }
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           },
           {
@@ -203,15 +245,9 @@
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
-              "state": {}
-            }
-          },
-          {
-            "id": "b17e9d619991a46b",
-            "type": "leaf",
-            "state": {
-              "type": "DICE_ROLLER_VIEW",
-              "state": {}
+              "state": {},
+              "icon": "initiative-tracker",
+              "title": "Initiative Tracker"
             }
           },
           {
@@ -219,15 +255,27 @@
             "type": "leaf",
             "state": {
               "type": "MAIN_VIEW",
-              "state": {}
+              "state": {},
+              "icon": "srt-ribbon",
+              "title": "Solo RPG Toolkit"
+            }
+          },
+          {
+            "id": "89c8c595171fb0eb",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {},
+              "icon": "dices",
+              "title": "Dice Tray"
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 461.5
+    "width": 333.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -241,46 +289,44 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-custom-frames:Open Obsidian Forum": false,
       "obsidian-leaflet-plugin:Open Leaflet Map": false,
-      "obsidian42-brat:BRAT": false,
       "obsidian-import-json:JSON/CSV Importer": false,
       "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-5e-statblocks:Open Creature pane": false,
       "initiative-tracker:Initiative Tracker Encounter Builder": false,
       "obsidian-kanban:Create new board": false,
       "solo-rpg-toolkit:Solo RPG Toolkit": false
     }
   },
-  "active": "99a51f41ca5578ed",
+  "active": "a55ae53924d73587",
   "lastOpenFiles": [
-    "1-Party/Example Party 2/Example Party 2.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "1-Party/Example Party 1/Bob.md",
-    "1-Party/Example Party 1/Flap.md",
     "1-DM Toolkit/DM Board.md",
-    "z_Templates/TemplatePlayer.md",
-    "1-Party/Example Party 1/Flip.md",
-    "1-Party/Example Party 1/Fred.md",
-    "0-Scratch Notes/Random Dungeon.md",
+    "1-DM Toolkit/DnD5e-DM Screen.md",
     "1-DM Toolkit/DnD5e-SideScreen.md",
-    "z_Example Notes/z_Example Notes.md",
-    "0-Scratch Notes/Add Random Notes Here.md",
-    "0-Scratch Notes/Solo RPG Toolkit.md",
+    "z_Templates/TemplateNPC.md",
+    "z_Templates/TemplatePlayer.md",
+    "z_Templates/TemplateMagicItem.md",
+    "z_Templates/TemplateSettlement.md",
+    "0-Scratch Notes/Untitled 1.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
+    "1-DM Toolkit/Home.md",
+    "1-DM Toolkit/Journey Board.md",
+    "1-DM Toolkit/Map Calculator.md",
+    "1-DM Toolkit/PF2e-DM Screen.md",
+    "1-DM Toolkit/Map-Faerun.md",
     "0-Scratch Notes/Untitled.md",
-    "0-Scratch Notes/Drawing 2024-07-06 11.03.21.excalidraw.md",
-    "New Note.md",
-    "0-Scratch Notes/Drawing 2024-07-02 20.28.59.excalidraw.md",
-    "1-DM Toolkit/Travel Calculator.md",
-    "0-Scratch Notes/New Note.md",
+    "0-Scratch Notes/Random Dungeon.md",
+    "0-Scratch Notes/Add Random Notes Here.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "z_Templates/MyFancyTemplate.md",
+    "z_Templates/Pasted image 20220612052639.png.md",
+    "z_Templates/Insert Publish Tree.md",
+    "z_Templates/How To Create New Templates.md",
+    "2-World/Test.md",
+    "1-Session Journals/2023-10-26.md",
+    "1-Session Journals/2000-01-01.md",
+    "2-Campaign/Quests/Beat the Goblin.md",
     "z_Assets/Pasted image 20240702203106.png",
     "z_Assets/Pasted image 20240702203102.png",
-    "1-DM Toolkit/PF2e-DM Screen.md",
-    "z_Templates/TemplateSettlement.md",
-    "z_Templates/TemplateQuest.md",
-    "z_Templates/TemplateNPC.md",
-    "z_Templates/TemplateMagicItem.md",
-    "z_Templates/TemplateJournal.md",
-    "z_Templates/TemplateGroup.md",
     "z_Assets/Pasted Image 20240630230819_217.png",
     "z_Assets/Pasted Image 20240630225934_265.png",
     "z_Assets/Pasted Image 20240630225910_214.png",

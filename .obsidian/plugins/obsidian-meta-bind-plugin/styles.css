@@ -97,6 +97,24 @@ div.mb-view-wrapper {
 
 .mb-button-inner {
 	vertical-align: bottom;
+	/* Add a gap between text and icons. */
+	gap: var(--size-4-1);
+
+	&.mod-plain {
+		background: none;
+		box-shadow: none;
+		border: none;
+
+		color: var(--text-muted);
+	}
+
+	&.mod-plain:hover {
+		color: var(--text-normal);
+	}
+
+	&.disabled {
+		opacity: 0.6;
+	}
 }
 
 /* Toggle Input */
@@ -345,6 +363,35 @@ div.mb-view-wrapper {
 	resize: vertical;
 }
 
+/* editor */
+
+.mb-editor-input {
+	background: var(--background-secondary);
+	width: 100%;
+	height: 500px;
+	padding: 0;
+	position: relative;
+	margin-left: 0;
+	overflow: scroll;
+}
+
+.mb-editor-input > textarea {
+	background: var(--background-secondary);
+	border: none;
+	padding: var(--size-4-4) var(--size-4-8);
+	margin: 0;
+	position: absolute;
+	inset: 0;
+	resize: none;
+	border-radius: 0;
+}
+
+.mb-editor-input > div {
+	padding: var(--size-4-4) var(--size-4-8);
+	position: absolute;
+	inset: 0;
+}
+
 /* Card */
 .mb-card {
 	padding: var(--size-4-2);
@@ -465,7 +512,7 @@ div.mb-view-wrapper {
 
 /* Date Picker Input */
 
-.date-picker-input {
+.mb-date-picker-input {
 	background: var(--background-modifier-form-field);
 	border: var(--mb-border-width) solid var(--background-modifier-border);
 	color: var(--text-normal);
@@ -491,10 +538,118 @@ div.mb-view-wrapper {
 	&:focus-visible {
 		box-shadow: 0 0 0 2px var(--background-modifier-border-focus);
 	}
+
+	& > .mb-date-picker-text {
+		display: inline-block;
+	}
 }
 
-.date-picker-text {
-	display: inline-block;
+.mb-date-picker {
+	display: block;
+	padding: var(--size-4-4);
+}
+
+.mb-date-picker-header {
+	display: flex;
+	gap: var(--size-4-2);
+	align-items: center;
+	justify-content: space-around;
+}
+
+.mb-date-picker-header-text {
+	flex: 1;
+	text-align: center;
+	display: flex;
+	gap: var(--size-4-2);
+	align-items: center;
+	justify-content: center;
+	width: min-content;
+}
+
+.mb-date-picker-header-text-year {
+	width: 60px;
+	padding: var(--size-4-2);
+}
+
+.mb-date-picker-header-text-month {
+	height: min-content;
+}
+
+.mb-date-picker-month-switch-button {
+	margin: 0;
+}
+
+.mb-date-picker-util-button {
+	margin: 0;
+}
+
+.mb-date-picker-footer {
+	display: flex;
+	gap: var(--size-4-2);
+	align-items: center;
+	justify-content: center;
+}
+
+.mb-calendar {
+	margin-top: 10px;
+}
+
+.mb-calendar-header {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: var(--size-4-1);
+	background: var(--background-secondary);
+	border-radius: var(--mb-border-radius);
+	margin-bottom: var(--size-4-1);
+}
+
+.mb-calendar-content {
+	display: grid;
+	flex-wrap: wrap;
+	grid-template-columns: repeat(7, 1fr);
+	gap: var(--size-4-1);
+}
+
+.mb-calendar-cell {
+	min-width: 40px;
+	padding: var(--size-4-2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: var(--mb-border-radius);
+}
+
+.mb-calendar-content-cell {
+	cursor: pointer;
+}
+
+.mb-calendar-cell-text {
+	margin: auto;
+	text-align: center;
+}
+
+.mb-calendar-cell.mb-calendar-selected {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.mb-calendar-cell.mb-calendar-highlight:hover {
+	background: var(--interactive-hover);
+}
+
+.mb-calendar-cell.mb-calendar-selected.mb-calendar-highlight:hover {
+	background: var(--interactive-accent-hover);
+}
+
+/* Embed */
+
+.mb-embed > .mb-embed-message {
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: var(--text-muted);
+	font-size: var(--font-smaller);
 }
 
 /* Error */
@@ -585,6 +740,24 @@ code.mb-warning {
 
 /* --- Misc --- */
 
+.mb-whitespace-pre {
+	white-space: pre;
+}
+
+.mb-excluded-folders-table-input-cell {
+	width: 100%;
+}
+
+.mb-excluded-folders-table-input-cell > input {
+	width: 100%;
+}
+
+.mb-textarea {
+	width: 100%;
+	height: 100px;
+	resize: vertical;
+}
+
 .mb-icon-wrapper {
 	display: block;
 	position: relative;
@@ -666,6 +839,19 @@ th.mb-html-table-button-cell {
 	width: 100%;
 	height: 200px;
 	resize: vertical;
+}
+
+div.setting-item.mb-vertical {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--size-4-1);
+}
+
+div.setting-item > div.setting-item-control.mb-vertical-control {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--size-4-1);
+	width: 100%;
 }
 
 /* --- HIGHLIGHTING CLASSES --- */

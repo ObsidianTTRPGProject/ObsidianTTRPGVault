@@ -1,4 +1,5 @@
 {
+  "position": "RIGHT",
   "showFudgeIcon": false,
   "rollLinksForTags": false,
   "copyContentButton": true,
@@ -22,7 +23,8 @@
   "textColor": "#ffffff",
   "textFont": "Arial",
   "showLeafOnStartup": true,
-  "showDice": true,
+  "narrativeSymbolSet": "Genesys",
+  "displayAsSymbols": false,
   "displayAsEmbed": true,
   "round": "None",
   "initialDisplay": "Roll",
@@ -73,6 +75,7 @@
   "showRenderNotice": true,
   "diceModTemplateFolders": {},
   "replaceDiceModInLivePreview": true,
+  "version": "11.4.0",
   "viewResults": [],
-  "version": "11.0.4"
+  "showDice": true
 }

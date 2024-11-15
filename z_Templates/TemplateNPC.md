@@ -9,6 +9,7 @@ Character-Role:
 Location: 
 NoteIcon: npc
 Vitality: Deceased
+exampleProperty: z_Assets/Decks/Business Card Dungeon/Dungeon16.png
 ---
 
 <% await tp.file.move("/3-Mechanics/NPCs/" + tp.file.title) %>

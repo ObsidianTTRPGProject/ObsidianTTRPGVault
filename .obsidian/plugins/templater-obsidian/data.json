@@ -13,17 +13,9 @@
   "shell_path": "",
   "user_scripts_folder": "",
   "enable_folder_templates": true,
-  "folder_templates": [
-    {
-      "folder": "Tutorials/YouTube Series/Buttons/NPCs",
-      "template": "z_Templates/TemplateNPC.md"
-    },
-    {
-      "folder": "Tutorials/YouTube Series/Buttons/Locations",
-      "template": "z_Templates/TemplateSettlement.md"
-    }
-  ],
+  "folder_templates": [],
   "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
   "enabled_templates_hotkeys": [
     ""
   ],

@@ -78,3 +78,5 @@ Copy the code below into another note and change the `88` to match the distance 
 
 
 
+`VIEW[{Motive}]`
+

@@ -26,6 +26,6 @@
   "workspaces": false,
   "file-recovery": true,
   "publish": false,
-  "sync": true,
+  "sync": false,
   "starred": true
 }
