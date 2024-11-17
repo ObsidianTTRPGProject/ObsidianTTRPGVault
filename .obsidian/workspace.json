@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Templates/TemplateNPC.md",
-                "mode": "source",
+                "file": "z_Templates/TemplateNPC_WB.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "TemplateNPC"
+              "title": "TemplateNPC_WB"
             }
           },
           {
@@ -173,12 +173,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "z_Templates/TemplateNPC.md",
+                "file": "z_Templates/TemplateNPC_WB.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from TemplateNPC"
+              "title": "Outgoing links from TemplateNPC_WB"
             }
           },
           {
@@ -294,15 +294,18 @@
       "obsidian-5e-statblocks:Open Creature pane": false,
       "initiative-tracker:Initiative Tracker Encounter Builder": false,
       "obsidian-kanban:Create new board": false,
-      "solo-rpg-toolkit:Solo RPG Toolkit": false
+      "solo-rpg-toolkit:Solo RPG Toolkit": false,
+      "obsidian42-brat:BRAT": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
   "active": "a55ae53924d73587",
   "lastOpenFiles": [
+    "z_Templates/TemplateNPC.md",
+    "z_Templates/TemplateNPC_WB.md",
     "1-DM Toolkit/DM Board.md",
     "1-DM Toolkit/DnD5e-DM Screen.md",
     "1-DM Toolkit/DnD5e-SideScreen.md",
-    "z_Templates/TemplateNPC.md",
     "z_Templates/TemplatePlayer.md",
     "z_Templates/TemplateMagicItem.md",
     "z_Templates/TemplateSettlement.md",
@@ -324,7 +327,6 @@
     "2-World/Test.md",
     "1-Session Journals/2023-10-26.md",
     "1-Session Journals/2000-01-01.md",
-    "2-Campaign/Quests/Beat the Goblin.md",
     "z_Assets/Pasted image 20240702203106.png",
     "z_Assets/Pasted image 20240702203102.png",
     "z_Assets/Pasted Image 20240630230819_217.png",
