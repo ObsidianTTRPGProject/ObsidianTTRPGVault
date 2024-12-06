@@ -2,6 +2,9 @@
 ---
 # Fonts
 
+This uses the FantasyFonts.css file which is enabled in Settings > Appearance >  CSS Snippets. 
+All *.css snippets are stored in your vault under: Root/.Obsidian/Snippets
+
 ### aetherian
 
 abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ

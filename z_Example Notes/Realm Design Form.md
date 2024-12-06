@@ -1,5 +1,3 @@
-# Realm Design Form
-
 > [!column] #### Name: `=this.Name`
 >> [!info] Basic Info
 >> **Total Area:** `=this.TotalArea`

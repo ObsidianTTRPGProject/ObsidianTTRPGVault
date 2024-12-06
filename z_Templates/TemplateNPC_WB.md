@@ -8,7 +8,7 @@ aliases:
 char_image: z_Assets/Pasted image 20240607151510.png
 char_gender: Male
 char_date_birth: 2024-11-16T00:00:00+10:30
-char_items:
+char_items: 
 parents:
   - Josh
 children:
@@ -17,6 +17,7 @@ enemies:
   - Zander
 allies:
   - Emyerson
+  - Bob
 siblings:
   - Flip
 partner:
