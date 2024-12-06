@@ -805,8 +805,7 @@
     width: 100%;
 }
 
-/* Progress */
-/* //////////////////////////////// */
+/* Progress Bar Base */
 .image-converter-progress {
     position: fixed;
     bottom: 40px;
@@ -824,12 +823,14 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Progress Text */
 .image-converter-progress .progress-text {
     font-size: 14px;
     font-weight: 500;
     color: var(--text-normal);
 }
 
+/* File Name */
 .image-converter-progress .file-name {
     font-size: 12px;
     color: var(--text-muted);
@@ -838,21 +839,91 @@
     text-overflow: ellipsis;
 }
 
+/* Progress Bar Container */
 .image-converter-progress .progress-bar {
     width: 100%;
-    height: 4px;
+    height: 6px; /* Increased height for better visibility */
     background-color: var(--background-modifier-border);
-    border-radius: 2px;
+    border-radius: 3px;
     overflow: hidden;
+    position: relative;
 }
 
+/* Progress Fill with Animation */
 .image-converter-progress .progress-fill {
     height: 100%;
-    background-color: var(--interactive-accent);
-    transition: width 0.3s ease;
+    background: var(--interactive-accent);
+    border-radius: 3px;
+    transition: width 0.3s ease-in-out;
+    position: relative;
 }
 
-/* Mobile adjustments */
+/* Active Processing Animation */
+.image-converter-progress .progress-fill.processing {
+    background: linear-gradient(
+        45deg,
+        var(--interactive-accent) 25%,
+        var(--interactive-accent-hover) 25%,
+        var(--interactive-accent-hover) 50%,
+        var(--interactive-accent) 50%,
+        var(--interactive-accent) 75%,
+        var(--interactive-accent-hover) 75%,
+        var(--interactive-accent-hover)
+    );
+    background-size: 20px 20px;
+    animation: progress-bar-stripes 1s linear infinite;
+}
+
+/* Processing Indicator */
+.image-converter-progress .processing-indicator {
+    position: absolute;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    background: var(--text-on-accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.image-converter-progress .processing-indicator.pulse {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* Time Remaining */
+.image-converter-progress .time-remaining {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-align: right;
+}
+
+/* Animations */
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 20px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .image-converter-progress {
         bottom: 10px;
@@ -861,80 +932,6 @@
         max-width: none;
     }
 }
-
-/*  */
-
-/* Progress bar container */
-.progress-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 10px;
-    background-color: var(--background-primary);
-    border: 1px solid var(--background-modifier-border);
-    border-radius: 4px;
-    margin: 10px 0;
-}
-
-.progress-container.hidden {
-    display: none;
-}
-
-/* Progress text */
-.progress-text {
-    font-size: var(--font-ui-small);
-    color: var(--text-muted);
-    margin-bottom: 4px;
-}
-
-/* File name */
-.file-name {
-    font-size: var(--font-ui-smaller);
-    color: var(--text-normal);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px;
-}
-
-/* Progress bar */
-.progress-bar {
-    width: 100%;
-    height: 4px;
-    background-color: var(--background-modifier-border);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Progress fill */
-.progress-fill {
-    height: 100%;
-    background-color: var(--interactive-accent);
-    border-radius: 2px;
-    transition: width 0.3s ease;
-    width: 0;
-}
-
-/* Use CSS custom properties for progress */
-.progress-fill[data-progress] {
-    width: calc(var(--progress-percentage, 0) * 1%);
-}
-
-/* Update the progress using attribute */
-.progress-fill[data-progress="0"] { --progress-percentage: 0; }
-.progress-fill[data-progress="10"] { --progress-percentage: 10; }
-.progress-fill[data-progress="20"] { --progress-percentage: 20; }
-.progress-fill[data-progress="30"] { --progress-percentage: 30; }
-.progress-fill[data-progress="40"] { --progress-percentage: 40; }
-.progress-fill[data-progress="50"] { --progress-percentage: 50; }
-.progress-fill[data-progress="60"] { --progress-percentage: 60; }
-.progress-fill[data-progress="70"] { --progress-percentage: 70; }
-.progress-fill[data-progress="80"] { --progress-percentage: 80; }
-.progress-fill[data-progress="90"] { --progress-percentage: 90; }
-.progress-fill[data-progress="100"] { --progress-percentage: 100; }
-
-
 
 
 
@@ -1140,3 +1137,864 @@
     -webkit-user-select: none;
     user-select: none;
 }
+
+
+
+/* //////// */
+
+/* Modal styling */
+.image-annotation-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+    margin: auto;
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-l);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.image-annotation-modal .modal-container {
+    background-color: var(--background-primary);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.image-annotation-modal .canvas-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-secondary);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    position: relative;
+}
+
+.image-annotation-modal .canvas-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Toolbar styling */
+.image-annotation-modal .annotation-toolbar {
+    position: relative; /* Changed from absolute */
+    top: auto;
+    left: auto;
+    transform: none;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    background-color: var(--background-secondary);
+    border-radius: var(--radius-m);
+}
+
+.image-annotation-modal .annotation-toolbar button {
+    background-color: var(--interactive-normal);
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: background-color 0.2s ease;
+    color: var(--text-normal);
+    font-size: var(--font-ui-small);
+}
+
+.image-annotation-modal .preset-buttons {
+    margin-left: auto;
+    margin-right: auto;
+    gap: 8px;
+    padding: 8px;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.image-annotation-modal .preset-button {
+    display: flex;
+    padding: 4px 8px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    cursor: pointer;
+    background: var(--background-primary);
+}
+
+.image-annotation-modal .preset-color {
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 2px;
+}
+
+.image-annotation-modal .preset-button:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+.image-annotation-modal .preset-number {
+    font-size: 0.8em;
+    opacity: 0.8;
+    margin-left: 4.5px;
+}
+
+
+
+
+
+.image-annotation-modal .control-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.image-annotation-modal .size-buttons-container {
+    display: flex;
+    gap: 27px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+
+
+.image-annotation-modal .opacity-buttons-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+.image-annotation-modal .button-group {
+    display: flex;
+}
+
+.image-annotation-modal .button-group button {
+    padding: 4px 8px;
+    min-width: 36px;
+    height: 24px;
+    font-size: 12px;
+}
+
+.image-annotation-modal .button-group button.is-active {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+
+
+.image-annotation-modal .blend-modes-container {
+    display: flex;
+    gap: 18px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+.image-annotation-modal .blend-modes-container .dropdown-container {
+    min-width: 100px;
+}
+
+.image-annotation-modal .blend-modes-container .dropdown {
+    width: 80%;
+    height: 100%;
+}
+
+
+
+.image-annotation-modal .layer-controls {
+    display: flex;
+    gap: 20px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+
+
+.image-annotation-modal .size-buttons-container .control-label,
+.image-annotation-modal .opacity-buttons-container .control-label,
+.image-annotation-modal .blend-modes-container .control-label,
+.image-annotation-modal .layer-controls .control-label {
+    margin-top:auto;
+    margin-bottom: auto;
+}
+
+
+
+
+
+
+.image-annotation-modal .color-swatches {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+}
+
+.image-annotation-modal .color-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.image-annotation-modal .row-label {
+    font-size: 12px;
+    min-width: 70px;
+}
+
+.image-annotation-modal .swatches-container {
+    display: flex;
+    gap: 8px;
+}
+
+.image-annotation-modal .color-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.image-annotation-modal .section-label {
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.image-annotation-modal .dominant-container {
+    display: flex;
+    gap: 8px;
+}
+
+.image-annotation-modal .color-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.image-annotation-modal .color-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+
+.image-annotation-modal .color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.image-annotation-modal .color-separator {
+    height: 1px;
+    margin: 4px 0;
+}
+
+
+
+.image-annotation-modal .background-dropdown {
+    position: fixed;
+    z-index: 1000;
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 4px;
+    width: 54px;
+
+    .background-option {
+        display: flex;
+        align-items: center;
+        padding: 6px 8px;
+        cursor: pointer;
+        border-radius: 3px;
+        margin-left: 2px;
+        
+        &:hover {
+            background-color: var(--background-modifier-hover);
+        }
+
+        &.is-active {
+            background-color: var(--background-modifier-active);
+        }
+
+        .option-icon, .color-preview {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 3px;
+            border: 1px solid var(--background-modifier-border);
+            
+            svg {
+                width: 100%;
+                height: 100%;
+                
+                path, circle {
+                    stroke: var(--text-muted);
+                    fill: none;
+                }
+                
+                circle {
+                    fill: var(--text-muted);
+                }
+            }
+        }
+
+        .color-preview {
+            border: 1px solid var(--background-modifier-border);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.image-annotation-modal .dominant-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.resizable-modal {
+    position: relative;
+    resize: both;
+    overflow: hidden;
+}
+
+.image-annotation-modal .modal-resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    cursor: se-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    user-select: none;
+    z-index: 100;
+}
+
+.image-annotation-modal .is-resizing {
+    user-select: none;
+}
+
+.image-annotation-modal .canvas-container {
+    transition: width 0.1s ease, height 0.1s ease;
+    background: var(--background-secondary);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--background-modifier-border);
+}
+
+/* Add checkerboard pattern for transparent areas */
+.image-annotation-modal .canvas-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(45deg, var(--background-modifier-border) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--background-modifier-border) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--background-modifier-border) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--background-modifier-border) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity: 0;
+    pointer-events: all;
+    z-index: 0;
+}
+
+/* Hover states */
+.image-annotation-modal .annotation-toolbar button:hover {
+    background-color: var(--interactive-hover);
+}
+
+/* Active state for buttons */
+.image-annotation-modal .annotation-toolbar button.is-active {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.image-annotation-modal .annotation-toolbar button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.image-annotation-modal .annotation-toolbar-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 4px;
+    min-width: auto; /* Remove fixed width */
+}
+
+.image-annotation-modal .annotation-toolbar input[type="color"] {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.image-annotation-modal .annotation-toolbar-group:last-child {
+    border-right: none;
+}
+
+
+.image-annotation-modal .left-section {
+    display: flex;
+    /* align-items: center; */
+    gap: 8px;
+}
+
+.image-annotation-modal .drawing-tools-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.image-annotation-modal .toolbar-separator {
+    width: 1px;
+    height: 100%;
+    background-color: var(--background-modifier-border);
+    margin: 0 8px;
+}
+
+
+.image-annotation-modal .drawing-group {
+    display: flex;
+    align-items: center;
+}
+
+.image-annotation-modal .color-picker-wrapper {
+    display: flex;
+    /* align-items: center; */
+    padding: 2px;
+}
+
+.image-annotation-modal .color-picker {
+    width: 24px;
+    height: 24px;
+    margin-top: 30px;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-s);
+    cursor: pointer;
+}
+
+.image-annotation-modal .color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.image-annotation-modal .color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: var(--radius-s);
+}
+
+.image-annotation-modal .color-picker::-moz-color-swatch {
+    border: 2px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+}
+
+.image-annotation-modal .color-picker:hover {
+    opacity: 0.8;
+}
+
+.image-annotation-modal .annotation-toolbar-group {
+    display: flex;
+    gap: 4px;
+    padding: 0 8px;
+    border-right: 1px solid var(--background-modifier-border);
+}
+
+.image-annotation-modal .annotation-toolbar-group:last-child {
+    border-right: none;
+}
+
+.image-annotation-modal button.is-active {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.image-annotation-modal button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.image-annotation-modal .canvas-container {
+    position: relative;
+}
+
+.image-annotation-modal .canvas-container textarea {
+    position: absolute;
+    pointer-events: auto;
+}
+
+
+/* Optional: Add hover effect for delete icon */
+.image-annotation-modal .canvas-container:hover .delete-icon {
+    opacity: 1;
+}
+
+/* Save button styling */
+.image-annotation-modal .annotation-toolbar button.mod-cta {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.image-annotation-modal .annotation-toolbar button.mod-cta:hover {
+    background-color: var(--interactive-accent-hover);
+}
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .image-annotation-modal .annotation-toolbar {
+        padding: 4px;
+        gap: 4px;
+    }
+
+    .image-annotation-modal .annotation-toolbar button {
+        padding: 6px;
+    }
+
+    .image-annotation-modal .annotation-toolbar button svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .image-annotation-modal .slider-container {
+        min-width: 100px;
+    }
+
+    .image-annotation-modal .brush-controls {
+        flex-direction: column;
+        padding-left: 4px;
+        margin-left: 4px;
+    }
+}
+
+
+/* CROP */
+.crop-tool-modal .modal {
+    position: fixed;
+    border-radius: var(--radius-m);
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--background-primary);
+    box-shadow: var(--shadow-l);
+    animation: modalOpen 200ms ease-out;
+    /* margin-top: auto; */
+}
+
+.crop-tool-modal .crop-modal-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--background-primary);
+    border-radius: var(--radius-m);
+}
+
+.crop-tool-modal .crop-modal-header {
+    padding: var(--size-4-4);
+    /* background-color: var(--background-secondary);
+    border-bottom: 1px solid var(--background-modifier-border); */
+}
+
+.crop-tool-modal .crop-modal-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.crop-tool-modal .crop-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; Contain the overlay */
+}
+
+.crop-tool-modal .crop-original-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+/* Remove the separate overlay div since we're using box-shadow */
+.crop-tool-modal .crop-overlay {
+    display: none;
+}
+
+.crop-tool-modal .selection-area {
+    position: absolute;
+    border: 2px solid var(--interactive-accent);
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+    cursor: move;
+    z-index: 2;
+}
+
+.crop-tool-modal .resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border: 1px solid #00a8ff;
+    border-radius: 50%;
+}
+
+/* Position handles */
+.crop-tool-modal .nw-resize { top: -5px; left: -5px; cursor: nw-resize; }
+.crop-tool-modal .n-resize { top: -5px; left: 50%; transform: translateX(-50%); cursor: n-resize; }
+.crop-tool-modal .ne-resize { top: -5px; right: -5px; cursor: ne-resize; }
+.crop-tool-modal .w-resize { top: 50%; left: -5px; transform: translateY(-50%); cursor: w-resize; }
+.crop-tool-modal .e-resize { top: 50%; right: -5px; transform: translateY(-50%); cursor: e-resize; }
+.crop-tool-modal .sw-resize { bottom: -5px; left: -5px; cursor: sw-resize; }
+.crop-tool-modal .s-resize { bottom: -5px; left: 50%; transform: translateX(-50%); cursor: s-resize; }
+.crop-tool-modal .se-resize { bottom: -5px; right: -5px; cursor: se-resize; }
+
+.crop-tool-modal .crop-modal-buttons {
+    padding: var(--size-4-2);
+    border-top: 1px solid var(--background-modifier-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--size-2-3);
+    background-color: var(--background-secondary);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+
+.crop-tool-modal .crop-modal-buttons button {
+    padding: var(--size-4-1) var(--size-4-3);
+    border-radius: var(--radius-s);
+    font-size: var(--font-ui-small);
+    font-weight: var(--font-medium);
+    border: 1px solid var(--background-modifier-border);
+    background-color: var(--interactive-normal);
+    color: var(--text-normal);
+    cursor: pointer;
+    min-width: 70px;
+}
+
+.crop-tool-modal .crop-modal-buttons button:hover {
+    background-color: var(--interactive-hover);
+}
+
+/* Make the Save button more prominent */
+.crop-tool-modal .crop-modal-buttons button:first-child {
+    background-color: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-color: var(--interactive-accent);
+}
+
+.crop-tool-modal .crop-modal-buttons button:first-child:hover {
+    background-color: var(--interactive-accent-hover);
+}
+
+.crop-tool-modal .crop-modal-content {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    padding: 16px;
+}
+
+/* Aspect ratio */
+
+.crop-tool-modal .aspect-ratio-controls {
+    padding: 8px 0px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.crop-tool-modal .ratio-buttons-container {
+    display: flex;
+    gap: 8px;
+}
+
+.crop-tool-modal .custom-ratio-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.crop-tool-modal .aspect-ratio-button {
+    padding: 4px 8px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    background: var(--background-secondary);
+    cursor: pointer;
+}
+
+.crop-tool-modal .aspect-ratio-button:hover {
+    background: var(--background-modifier-hover);
+}
+
+.crop-tool-modal .aspect-ratio-button.active {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.crop-tool-modal .custom-ratio-input {
+    width: 40px;
+    height: 24px;
+    padding: 2px 4px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    background: var(--background-primary);
+    text-align: center;
+}
+
+.crop-tool-modal .custom-ratio-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+}
+
+/* Remove spinner buttons from number inputs */
+.crop-tool-modal .custom-ratio-input::-webkit-outer-spin-button,
+.crop-tool-modal .custom-ratio-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.crop-tool-modal .custom-ratio-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Rotate / Flip */
+.crop-tool-modal .transform-controls {
+    display: flex;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.crop-tool-modal .rotate-container,
+.crop-tool-modal .flip-container {
+    display: flex;
+    gap: 1px;
+}
+
+.crop-tool-modal .transform-button {
+    padding: 4px 8px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    background: var(--background-secondary);
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+}
+
+.crop-tool-modal .transform-button:hover {
+    background: var(--background-modifier-hover);
+}
+
+/* Rotate / Zoom slider */
+.crop-tool-modal .image-controls {
+    display: flex;
+    gap: 20px;
+    padding: 6px 0px;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.crop-tool-modal .control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.crop-tool-modal .control-label {
+    min-width: 10px;
+    font-weight: var(--font-medium);
+}
+
+.crop-tool-modal .slider {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    background: var(--background-modifier-border);
+    border-radius: 3px;
+    outline: none;
+}
+
+.crop-tool-modal .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--interactive-accent);
+    cursor: pointer;
+    border: none;
+}
+
+.crop-tool-modal .slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--interactive-accent);
+    cursor: pointer;
+    border: none;
+}
+
+.crop-tool-modal .rotation-value,
+.crop-tool-modal .zoom-value {
+    min-width: 5px;
+    text-align: right;
+}
+
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+    .crop-tool-modal .modal {
+        width: calc(100% - var(--size-4-4));
+        height: calc(100% - var(--size-4-4));
+        max-height: 90vh;
+        margin: var(--size-4-2);
+    }
+
+    .crop-tool-modal .crop-modal-header {
+        padding: var(--size-4-2);
+    }
+
+    .crop-tool-modal .crop-modal-buttons {
+        padding: var(--size-4-2);
+    }
+}
+
+/* Animation for modal opening */
+
+/* @keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+} */
