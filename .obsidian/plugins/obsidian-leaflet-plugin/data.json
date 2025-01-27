@@ -11443,61 +11443,22 @@
       ]
     },
     {
-      "id": "MapCalcExample",
-      "lastAccessed": 1719913690083,
+      "id": "ExampleMap3",
+      "lastAccessed": 1736757845529,
       "markers": [
         {
-          "id": "ID_9bea7a3a6899",
-          "type": "Point of Interest",
+          "id": "ID_082b783aaaeb",
+          "type": "default",
           "loc": [
-            483.66103833159855,
-            642.0763672965437
+            1062.0743853421945,
+            755.1968720886249
           ],
-          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "layer": "%5B%5BPasted%20image%2020250112134706.png%5D%5D",
           "mutable": true,
           "command": false,
           "percent": [
-            0.6420763672965437,
-            -0.7800984489219331
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_2a79f8fbcbc9",
-          "type": "Point of Interest",
-          "loc": [
-            415.77878733769,
-            558.6122669606619
-          ],
-          "link": "Room 1",
-          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.5586122669606619,
-            -0.6706109473188548
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_cb7b199b9a88",
-          "type": "City",
-          "loc": [
-            453.96255352176354,
-            742.491382719823
-          ],
-          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.7424913827198231,
-            -0.7321976669705863
+            0.3687484726995239,
+            -0.6914546779571579
           ],
           "description": null,
           "minZoom": null,
@@ -11512,7 +11473,7 @@
     {
       "id": "Regional_Lampoteuo",
       "locked": true,
-      "lastAccessed": 1731013373337,
+      "lastAccessed": 1737340239042,
       "markers": [
         {
           "id": "ID_6b7a8be94beb",
@@ -11567,48 +11528,127 @@
         }
       ],
       "overlays": [],
-      "shapes": [
-        {
-          "type": "rectangle",
-          "color": "#3388FF",
-          "vertices": [
-            {
-              "lat": 99.69376973971119,
-              "lng": 99.79175967314193,
-              "id": "ID_7a0abb6b48ab",
-              "targets": {
-                "vertexIds": []
-              }
-            },
-            {
-              "lat": 99.69376973971119,
-              "lng": 137.98987010584324,
-              "id": "ID_5bcacb690908",
-              "targets": {
-                "vertexIds": []
-              }
-            },
-            {
-              "lat": 42.41812046360083,
-              "lng": 137.98987010584324,
-              "id": "ID_79688a984a28",
-              "targets": {
-                "vertexIds": []
-              }
-            },
-            {
-              "lat": 42.41812046360083,
-              "lng": 99.79175967314193,
-              "id": "ID_cb1a9879c919",
-              "targets": {
-                "vertexIds": []
-              }
-            }
-          ]
-        }
-      ],
+      "shapes": [],
       "files": [
         "2-World/Lampoteuo/Lampoteuo.md"
+      ]
+    },
+    {
+      "id": "RandomDungeon21012025",
+      "lastAccessed": 1737458430952,
+      "markers": [
+        {
+          "id": "ID_6bb949390acb",
+          "type": "Point of Interest",
+          "loc": [
+            457,
+            580.9995171414776
+          ],
+          "layer": "%5B%5BPasted%20image%2020250121213204.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5220121447812017,
+            -0.6966463414634146
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_783a0bd94b58",
+          "type": "Region",
+          "loc": [
+            460,
+            688.0019314340898
+          ],
+          "layer": "%5B%5BPasted%20image%2020250121213204.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.618150881791635,
+            -0.7012195121951219
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "0-Scratch Notes/Untitled.md"
+      ]
+    },
+    {
+      "id": "MapCalcExample",
+      "lastAccessed": 1737459338759,
+      "markers": [
+        {
+          "id": "ID_9bea7a3a6899",
+          "type": "Point of Interest",
+          "loc": [
+            823.0722933011414,
+            328.2136527542241
+          ],
+          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.16026057263389848,
+            -0.5012620543855916
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_2a79f8fbcbc9",
+          "type": "Point of Interest",
+          "loc": [
+            613.7686860699233,
+            305.55696526457405
+          ],
+          "link": "Room 1",
+          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.1491977369455928,
+            -0.37379335327035523
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_cb7b199b9a88",
+          "type": "City",
+          "loc": [
+            837.2144289248723,
+            873.9391001259963
+          ],
+          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.42672807623339665,
+            -0.5098748044609454
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "z_Templates/4_Markdown/Insert Map (Simplified Template).md"
       ]
     }
   ],

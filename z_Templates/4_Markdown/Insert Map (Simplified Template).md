@@ -2,8 +2,8 @@
 map_height_y: 2048
 map_width_x: 1642
 scale_pixels: 268
-scale_pixels_range: 25
-mapCalc1: 10.72
+scale_pixels_range: 250
+mapCalc1: 0.9328358208955223
 ---
 
 ```leaflet
@@ -31,4 +31,5 @@ lat: `VIEW[{map_height_y} / 2][math]`
 long: `VIEW[{map_width_x} / 2][math]` 
 How Many Pixels In Scale: `INPUT[number:scale_pixels]`
 How Many Units in Scale: `INPUT[number:scale_pixels_range]`
-scale: `VIEW[1/{mapCalc1}][math]`
+Scale: `VIEW[1/({scale_pixels}/{scale_pixels_range})][math:mapCalc1]`
+

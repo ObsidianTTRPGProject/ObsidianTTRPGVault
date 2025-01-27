@@ -4,49 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "17e1436279334b5c",
+        "id": "861e4c6bd9bc5ae6",
         "type": "tabs",
         "children": [
           {
-            "id": "0ffea60e37bf3ca9",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "0-Scratch Notes/Random Dungeon.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "Random Dungeon"
-            }
-          },
-          {
-            "id": "f6ef017cc52d2e49",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-DM Toolkit/DM Board.md",
-                "mode": "preview",
-                "source": true
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "DM Board"
-            }
-          },
-          {
-            "id": "c1b381aab68212e3",
+            "id": "a34ea76f179b8ab0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Templates/TemplatePlayer.md",
-                "mode": "preview",
+                "file": "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "TemplatePlayer"
+              "title": "Insert Map (Simplified Template)"
             }
           }
         ]
@@ -80,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "[\"kanban-plugin\"]",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -116,12 +88,28 @@
               "icon": "lucide-file",
               "title": "DnD5e-SideScreen"
             }
+          },
+          {
+            "id": "f6ef017cc52d2e49",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-DM Toolkit/DM Board.md",
+                "mode": "preview",
+                "source": true
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "DM Board"
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 463.5
+    "width": 278.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -156,12 +144,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "0-Scratch Notes/Random Dungeon.md",
+                "file": "0-Scratch Notes/New World.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Random Dungeon"
+              "title": "Outgoing links from New World"
             }
           },
           {
@@ -254,11 +242,11 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 9
       }
     ],
     "direction": "horizontal",
-    "width": 333.5
+    "width": 435.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -282,34 +270,37 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "505cdf32bf6b016b",
+  "active": "a34ea76f179b8ab0",
   "lastOpenFiles": [
-    "0-Scratch Notes/Add Random Notes Here.md",
-    "0-Scratch Notes/Random Dungeon.md",
-    "1-DM Toolkit/Travel Calculator.md",
-    "0-Scratch Notes/Untitled 1.md",
+    "0-Scratch Notes/New World.md",
+    "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
     "0-Scratch Notes/Untitled.md",
-    "1-DM Toolkit/DnD5e-DM Screen.md",
-    "1-DM Toolkit/DM Board.md",
-    "1-Party/Example Party 1/Flap.md",
-    "1-Party/Example Party 1/Bob.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "1-Session Journals/2023-10-26.md",
-    "1-Session Journals/2000-01-01.md",
-    "2-Campaign/Quests/Beat the Goblin.md",
+    "0-Scratch Notes/Random Dungeon.md",
+    "0-Scratch Notes/New Location.md",
+    "z_Assets/Pasted image 20250121213204.png",
+    "1-DM Toolkit/Home.md",
+    "1-DM Toolkit/Map Calculator.md",
+    "0-Scratch Notes/Add Random Notes Here.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
+    "z_Example Notes/z_Example Notes.md",
+    "z_Assets/The Island of Screams.jpg",
+    "z_Assets/Pasted image 20250112163228.png",
     "2-World/Ruins of The Twilight Palace.md",
-    "3-Mechanics/Guilds and Groups/Magicians.md",
-    "3-Mechanics/NPCs/Untitled 2.md",
-    "3-Mechanics/Guilds and Groups/Harpers.md",
-    "3-Mechanics/CLI/CLI.md",
-    "z_Example Notes/Realm Design Form.md",
-    "z_Templates/3_Dataview Templates/Dataview - Query TTRPG Statblocks.md",
-    "z_Templates/3_Dataview Templates/Query Outgoing Links.md",
-    "z_Templates/4_Markdown/April's Timeline/Timeline - Render Timeline.md",
-    "z_Templates/4_Markdown/April's Timeline/Timeline - Insert Event into Frontmatter.md",
-    "z_Templates/4_Markdown/April's Timeline/Timeline - Add Event.md",
-    "z_Templates/4_Markdown/Call Out Boxes/Call Out - Treasure.md",
-    "z_Templates/4_Markdown/Call Out Boxes/Call Out - Trap.md",
+    "2-World/Test.md",
+    "2-World/Logger's Camp.md",
+    "0-Scratch Notes/This is my new place.md",
+    "1-Party/Example Party 1/Example Party 1.md",
+    "0-Scratch Notes/Callout Test.md",
+    "z_Assets/Pasted image 20250112134706.png",
+    "z_Templates/TemplateQuest.md",
+    "z_Templates/TemplateSettlement.md",
+    "z_Templates/TemplateMagicItem.md",
+    "z_Templates/TemplateNPC.md",
+    "1-Session Journals/2000-01-01.md",
+    "1-Session Journals/2023-10-26.md",
+    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "1-DM Toolkit/Journey Board.md",
     "z_Assets/Pasted image 20240702203106.png",
     "z_Assets/Pasted image 20240702203102.png",
     "z_Assets/Pasted Image 20240630230819_217.png",
@@ -317,10 +308,6 @@
     "z_Assets/Pasted Image 20240630225910_214.png",
     "0-Scratch Notes/Untitled.canvas",
     "z_Assets/Pasted image 20240630214232.png",
-    "z_Assets/Pasted Image 20240630214110_213.png",
-    "z_Assets/Pasted Image 20240630214055_211.png",
-    "z_Assets/Pasted Image 20240630213938_233.png",
-    "z_Assets/Pasted Image 20240630213157_204.png",
     "z_Assets/Decks/Flip Test",
     "z_Assets/Decks/Business Card Dungeon - Copy",
     "z_Assets/Decks/Business Card Dungeon",

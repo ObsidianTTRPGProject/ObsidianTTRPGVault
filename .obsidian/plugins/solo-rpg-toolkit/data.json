@@ -14,9 +14,13 @@
   "inlineCounters": false,
   "inlineProgressMode": "clock",
   "inlineDynamicEdit": true,
+  "standardOracleBias": false,
+  "standardOracleEvents": false,
   "oracleLanguage": "en",
   "wordTab": "",
   "oracleTab": "default",
   "deckTab": "Business Card Dungeon",
-  "mythicFactor": 5
+  "mythicFactor": 5,
+  "wordQuickValue": "",
+  "wordQuickHeight": 100
 }

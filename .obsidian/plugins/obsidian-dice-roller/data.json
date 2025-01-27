@@ -76,6 +76,14 @@
   "diceModTemplateFolders": {},
   "replaceDiceModInLivePreview": true,
   "version": "11.4.1",
-  "viewResults": [],
+  "viewResults": [
+    {
+      "result": "2",
+      "original": "1d20",
+      "resultText": "1d20\n[2]",
+      "timestamp": 1737455202463,
+      "id": "jyAfAHb7UjQK"
+    }
+  ],
   "showDice": true
 }
