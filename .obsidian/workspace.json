@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "861e4c6bd9bc5ae6",
+        "id": "43603b4f4e92f907",
         "type": "tabs",
         "children": [
           {
-            "id": "a34ea76f179b8ab0",
+            "id": "96e3f28e2be2a2cf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
-                "mode": "source",
+                "file": "1-DM Toolkit/DM Board.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Insert Map (Simplified Template)"
+              "title": "DM Board"
             }
           }
         ]
@@ -80,13 +80,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-DM Toolkit/DnD5e-SideScreen.md",
+                "file": "1-DM Toolkit/DnD5e-SideScreen-2014.md",
                 "mode": "preview",
                 "source": false
               },
               "pinned": true,
               "icon": "lucide-file",
-              "title": "DnD5e-SideScreen"
+              "title": "DnD5e-SideScreen-2014"
             }
           },
           {
@@ -109,7 +109,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 278.5
+    "width": 340.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -270,54 +270,55 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "a34ea76f179b8ab0",
+  "active": "96e3f28e2be2a2cf",
   "lastOpenFiles": [
-    "0-Scratch Notes/New World.md",
-    "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
-    "0-Scratch Notes/Untitled.md",
-    "0-Scratch Notes/Random Dungeon.md",
-    "0-Scratch Notes/New Location.md",
-    "z_Assets/Pasted image 20250121213204.png",
     "1-DM Toolkit/Home.md",
+    "1-DM Toolkit/Vault Report.md",
+    "1-DM Toolkit/Travel Calculator.md",
+    "1-DM Toolkit/PF2e-DM Screen.md",
     "1-DM Toolkit/Map Calculator.md",
-    "0-Scratch Notes/Add Random Notes Here.md",
-    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
-    "2-World/Lampoteuo/Lampoteuo.md",
-    "z_Example Notes/z_Example Notes.md",
-    "z_Assets/The Island of Screams.jpg",
-    "z_Assets/Pasted image 20250112163228.png",
-    "2-World/Ruins of The Twilight Palace.md",
-    "2-World/Test.md",
-    "2-World/Logger's Camp.md",
-    "0-Scratch Notes/This is my new place.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "0-Scratch Notes/Callout Test.md",
-    "z_Assets/Pasted image 20250112134706.png",
-    "z_Templates/TemplateQuest.md",
-    "z_Templates/TemplateSettlement.md",
-    "z_Templates/TemplateMagicItem.md",
-    "z_Templates/TemplateNPC.md",
-    "1-Session Journals/2000-01-01.md",
-    "1-Session Journals/2023-10-26.md",
-    "1-DM Toolkit/DnD5e-SideScreen.md",
+    "1-DM Toolkit/Map-Faerun.md",
     "1-DM Toolkit/Journey Board.md",
-    "z_Assets/Pasted image 20240702203106.png",
-    "z_Assets/Pasted image 20240702203102.png",
-    "z_Assets/Pasted Image 20240630230819_217.png",
-    "z_Assets/Pasted Image 20240630225934_265.png",
-    "z_Assets/Pasted Image 20240630225910_214.png",
+    "1-DM Toolkit/DnD5e-SideScreen-2014.md",
+    "1-DM Toolkit/DnD5e-DM Screen-2014.md",
+    "1-DM Toolkit/DM Board.md",
+    "3-Mechanics/CLI/CLI.md",
+    "z_Example Notes/z_Example Notes.md",
+    "z_Example Notes/Realm Design Form.md",
+    "2-World/Ruins of The Twilight Palace.md",
+    "0-Scratch Notes/Add Random Notes Here.md",
+    "0-Scratch Notes/Map - Loggers Cove.md",
+    "0-Scratch Notes/Random Dungeon.md",
+    "0-Scratch Notes/Test Nate F..md",
+    "0-Scratch Notes/Skull Island.md",
+    "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
+    "0-Scratch Notes/New Location.md",
+    "z_Templates/Map - Insert Leaflet Template.md",
+    "z_Templates/Untitled 1.md",
+    "z_Templates/Untitled.md",
+    "2-World/New Home Town.md",
+    "2-World/Logger's Camp.md",
+    "2-World/Lampoteuo/The Screaming Tree",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/credits3.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/credits2.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/credits.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/246-12-001-dungeon-border.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/231-10-001-the-multiverse.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/183-08-003-areas-of-effect.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/182-08-002-aasimar-wizard.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/181-08-001-jallarzi-mordenkainen-bigby.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/180-07-006-wizard-familiar-shopping.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img/179-07-005-adventurer-with-tools.webp",
+    "3-Mechanics/CLI/books/players-handbook-2024/img",
+    "3-Mechanics/CLI/books/dungeon-masters-guide-2024/img",
+    "3-Mechanics/CLI/books/players-handbook-2024",
+    "3-Mechanics/CLI/books/dungeon-masters-guide-2024",
+    "3-Mechanics/CLI/books",
+    "3-Mechanics/CLI/bestiary/undead/token",
+    "3-Mechanics/CLI/bestiary/undead/img",
+    "3-Mechanics/CLI/bestiary/plant/token",
+    "3-Mechanics/CLI/bestiary/plant/img",
     "0-Scratch Notes/Untitled.canvas",
-    "z_Assets/Pasted image 20240630214232.png",
-    "z_Assets/Decks/Flip Test",
-    "z_Assets/Decks/Business Card Dungeon - Copy",
-    "z_Assets/Decks/Business Card Dungeon",
-    "z_Assets/Untitled",
-    "z_Templates/7_World Building Templates",
-    "2-World/Lampoteuo/Lampoteuo City/Noble District",
-    "2-World/Lampoteuo/Lampoteuo City/The Rats Nest",
-    "2-World/Lampoteuo/Untitled",
-    "1-Party/Example Party 2",
-    "z_Templates/ITS Theme",
     "Untitled.canvas"
   ]
 }

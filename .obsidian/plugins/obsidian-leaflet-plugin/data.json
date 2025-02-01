@@ -11057,8 +11057,260 @@
       ]
     },
     {
+      "id": "map_CreepersCave",
+      "lastAccessed": 1717726987238,
+      "markers": [
+        {
+          "id": "ID_2b796aa9a84a",
+          "type": "default",
+          "loc": [
+            -0.008221670032717121,
+            0.0057184748935840335
+          ],
+          "link": "Creepers Cave#1 - Cave Entrance",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5860296647786133,
+            0.8418990113502332
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_bb09aa983a48",
+          "type": "default",
+          "loc": [
+            -0.0049092649145489374,
+            0.005103453811551963
+          ],
+          "link": "Creepers Cave#2 - Main Passage",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5230022658230953,
+            0.5027087272498112
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_d8baabbb3b1b",
+          "type": "default",
+          "loc": [
+            -0.004251099728202816,
+            0.007423249646900814
+          ],
+          "link": "Creepers Cave#3 - Cavern A",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7607350881302452,
+            0.43531261216796835
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_c94a6ab9cafa",
+          "type": "default",
+          "loc": [
+            -0.0014673846777552868,
+            0.007110341931181868
+          ],
+          "link": "Creepers Cave#4 - Dead End",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7286682858513446,
+            0.15026019100214136
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_6a6989c96819",
+          "type": "default",
+          "loc": [
+            -0.001111328101535254,
+            0.0025571002995437193
+          ],
+          "link": "Creepers Cave#5 - Cavern B",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.2620517986409651,
+            0.11379999759721
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_7869f86969da",
+          "type": "default",
+          "loc": [
+            -0.003905832745201572,
+            0.0019312991366669298
+          ],
+          "link": "Creepers Cave#6 - Cavern C",
+          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.19791965632619846,
+            0.399957273108641
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md"
+      ]
+    },
+    {
+      "id": "map_LampoteuoCity",
+      "lastAccessed": 1717726987820,
+      "markers": [
+        {
+          "id": "ID_2b0a1bc8f938",
+          "type": "Town",
+          "loc": [
+            -0.003536224365234375,
+            0.005638126169856545
+          ],
+          "link": "Lucky Grain Inn",
+          "layer": "%5B%5BCity-20231026224949477.webp%7CCity%20Map%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": 0,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_8b3a28285b99",
+          "type": "Region",
+          "loc": [
+            -0.003981359897733094,
+            0.005740060183533816
+          ],
+          "layer": "%5B%5BCity-20231026224949477.webp%7CCity%20Map%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md"
+      ]
+    },
+    {
+      "id": "ExampleMap3",
+      "lastAccessed": 1736757845529,
+      "markers": [
+        {
+          "id": "ID_082b783aaaeb",
+          "type": "default",
+          "loc": [
+            1062.0743853421945,
+            755.1968720886249
+          ],
+          "layer": "%5B%5BPasted%20image%2020250112134706.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.3687484726995239,
+            -0.6914546779571579
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": []
+    },
+    {
+      "id": "RandomDungeon21012025",
+      "lastAccessed": 1738368466464,
+      "markers": [
+        {
+          "id": "ID_6bb949390acb",
+          "type": "Point of Interest",
+          "loc": [
+            457,
+            580.9995171414776
+          ],
+          "layer": "%5B%5BPasted%20image%2020250121213204.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5220121447812017,
+            -0.6966463414634146
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_783a0bd94b58",
+          "type": "Region",
+          "loc": [
+            460,
+            688.0019314340898
+          ],
+          "layer": "%5B%5BPasted%20image%2020250121213204.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.618150881791635,
+            -0.7012195121951219
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "0-Scratch Notes/Untitled.md"
+      ]
+    },
+    {
       "id": "map_TheWound",
-      "lastAccessed": 1715686645908,
+      "lastAccessed": 1738368525259,
       "markers": [
         {
           "id": "ID_084b9a4a48eb",
@@ -11268,212 +11520,9 @@
       ]
     },
     {
-      "id": "map_CreepersCave",
-      "lastAccessed": 1717726987238,
-      "markers": [
-        {
-          "id": "ID_2b796aa9a84a",
-          "type": "default",
-          "loc": [
-            -0.008221670032717121,
-            0.0057184748935840335
-          ],
-          "link": "Creepers Cave#1 - Cave Entrance",
-          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.5860296647786133,
-            0.8418990113502332
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_bb09aa983a48",
-          "type": "default",
-          "loc": [
-            -0.0049092649145489374,
-            0.005103453811551963
-          ],
-          "link": "Creepers Cave#2 - Main Passage",
-          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.5230022658230953,
-            0.5027087272498112
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_d8baabbb3b1b",
-          "type": "default",
-          "loc": [
-            -0.004251099728202816,
-            0.007423249646900814
-          ],
-          "link": "Creepers Cave#3 - Cavern A",
-          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.7607350881302452,
-            0.43531261216796835
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_c94a6ab9cafa",
-          "type": "default",
-          "loc": [
-            -0.0014673846777552868,
-            0.007110341931181868
-          ],
-          "link": "Creepers Cave#4 - Dead End",
-          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.7286682858513446,
-            0.15026019100214136
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_6a6989c96819",
-          "type": "default",
-          "loc": [
-            -0.001111328101535254,
-            0.0025571002995437193
-          ],
-          "link": "Creepers Cave#5 - Cavern B",
-          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.2620517986409651,
-            0.11379999759721
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_7869f86969da",
-          "type": "default",
-          "loc": [
-            -0.003905832745201572,
-            0.0019312991366669298
-          ],
-          "link": "Creepers Cave#6 - Cavern C",
-          "layer": "%5B%5BDungeon-20231026224920033.webp%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.19791965632619846,
-            0.399957273108641
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [],
-      "files": [
-        "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md"
-      ]
-    },
-    {
-      "id": "map_LampoteuoCity",
-      "lastAccessed": 1717726987820,
-      "markers": [
-        {
-          "id": "ID_2b0a1bc8f938",
-          "type": "Town",
-          "loc": [
-            -0.003536224365234375,
-            0.005638126169856545
-          ],
-          "link": "Lucky Grain Inn",
-          "layer": "%5B%5BCity-20231026224949477.webp%7CCity%20Map%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": 0,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_8b3a28285b99",
-          "type": "Region",
-          "loc": [
-            -0.003981359897733094,
-            0.005740060183533816
-          ],
-          "layer": "%5B%5BCity-20231026224949477.webp%7CCity%20Map%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [],
-      "files": [
-        "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md"
-      ]
-    },
-    {
-      "id": "ExampleMap3",
-      "lastAccessed": 1736757845529,
-      "markers": [
-        {
-          "id": "ID_082b783aaaeb",
-          "type": "default",
-          "loc": [
-            1062.0743853421945,
-            755.1968720886249
-          ],
-          "layer": "%5B%5BPasted%20image%2020250112134706.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.3687484726995239,
-            -0.6914546779571579
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [],
-      "files": []
-    },
-    {
       "id": "Regional_Lampoteuo",
       "locked": true,
-      "lastAccessed": 1737340239042,
+      "lastAccessed": 1738371747091,
       "markers": [
         {
           "id": "ID_6b7a8be94beb",
@@ -11534,57 +11583,8 @@
       ]
     },
     {
-      "id": "RandomDungeon21012025",
-      "lastAccessed": 1737458430952,
-      "markers": [
-        {
-          "id": "ID_6bb949390acb",
-          "type": "Point of Interest",
-          "loc": [
-            457,
-            580.9995171414776
-          ],
-          "layer": "%5B%5BPasted%20image%2020250121213204.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.5220121447812017,
-            -0.6966463414634146
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_783a0bd94b58",
-          "type": "Region",
-          "loc": [
-            460,
-            688.0019314340898
-          ],
-          "layer": "%5B%5BPasted%20image%2020250121213204.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.618150881791635,
-            -0.7012195121951219
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [],
-      "files": [
-        "0-Scratch Notes/Untitled.md"
-      ]
-    },
-    {
       "id": "MapCalcExample",
-      "lastAccessed": 1737459338759,
+      "lastAccessed": 1738382800768,
       "markers": [
         {
           "id": "ID_9bea7a3a6899",
@@ -11648,13 +11648,191 @@
       "overlays": [],
       "shapes": [],
       "files": [
-        "z_Templates/4_Markdown/Insert Map (Simplified Template).md"
+        "z_Templates/Map - Insert Leaflet Template.md"
+      ]
+    },
+    {
+      "id": "IslandOfScreams",
+      "locked": true,
+      "lastAccessed": 1738382800768,
+      "markers": [
+        {
+          "id": "ID_6b294a98bbc9",
+          "type": "Car",
+          "loc": [
+            3576.40625,
+            3572
+          ],
+          "layer": "%5B%5BThe%20Island%20of%20Screams.jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": 3,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_0968cab9587a",
+          "type": "Forest",
+          "loc": [
+            4070.40625,
+            3440
+          ],
+          "layer": "%5B%5BThe%20Island%20of%20Screams.jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": 13,
+          "maxZoom": 0,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_da5869c959c9",
+          "type": "Town",
+          "loc": [
+            3932.40625,
+            3416
+          ],
+          "layer": "%5B%5BThe%20Island%20of%20Screams.jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": 0,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_9b684a5b1969",
+          "type": "Region",
+          "loc": [
+            4328,
+            4376
+          ],
+          "layer": "%5B%5BThe%20Island%20of%20Screams.jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.37198231893913636,
+            -0.36752717391304346
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_ab3ac83aca78",
+          "type": "Test",
+          "loc": [
+            4036,
+            3280
+          ],
+          "layer": "%5B%5BThe%20Island%20of%20Screams.jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.2788167290037402,
+            -0.34273097826086957
+          ],
+          "description": null,
+          "minZoom": -1,
+          "maxZoom": 0,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_49a968f91aa9",
+          "type": "Town",
+          "loc": [
+            3737,
+            3756
+          ],
+          "layer": "%5B%5BThe%20Island%20of%20Screams.jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.319279156749405,
+            -0.31734035326086957
+          ],
+          "description": null,
+          "minZoom": 0,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_89d9fabab9ab",
+          "type": "Town",
+          "loc": [
+            3281.625,
+            2600
+          ],
+          "layer": "%5B%5BMap%20-%20Regional%20map%20of%20Lampoteuo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": 0,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_bbf84b6b0929",
+          "type": "default",
+          "loc": [
+            3228.203125,
+            2589
+          ],
+          "layer": "%5B%5BMap%20-%20Regional%20map%20of%20Lampoteuo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": []
+    },
+    {
+      "id": "Twilight_Palace2",
+      "lastAccessed": 1738382800768,
+      "markers": [
+        {
+          "id": "ID_f8c988c8e89b",
+          "type": "default",
+          "loc": [
+            -0.032470703125,
+            0.07092826473723934
+          ],
+          "link": "Map - Loggers Cove#Heading 1",
+          "layer": "%5B%5BRoTTP.webp%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.5971678774177438,
+            0.48628884826325414
+          ],
+          "description": "Test",
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "2-World/Ruins of The Twilight Palace.md"
       ]
     }
   ],
   "defaultMarker": {
     "type": "default",
-    "iconName": "map-marker-alt",
+    "iconName": "map-pin",
     "color": "#ae00ff",
     "transform": {
       "size": 6,
@@ -11798,6 +11976,22 @@
       "tags": [],
       "minZoom": 3,
       "maxZoom": null
+    },
+    {
+      "type": "Test",
+      "iconName": "skull",
+      "color": "#000000",
+      "alpha": 1,
+      "layer": false,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [],
+      "minZoom": -1,
+      "maxZoom": 0
     }
   ],
   "color": "#dddddd",

@@ -15,7 +15,7 @@
   "paths": [
     "/"
   ],
-  "autoParse": false,
+  "autoParse": true,
   "disableSRD": false,
   "tryToRenderLinks": true,
   "debug": false,
