@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-DM Toolkit/DM Board.md",
-                "mode": "preview",
+                "file": "1-DM Toolkit/DnD5e-SideScreen-2024.md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "DM Board"
+              "title": "DnD5e-SideScreen-2024"
             }
           }
         ]
@@ -272,6 +272,9 @@
   },
   "active": "96e3f28e2be2a2cf",
   "lastOpenFiles": [
+    "z_Templates/TemplateGroup.md",
+    "1-DM Toolkit/DnD5e-SideScreen-2024.md",
+    "1-DM Toolkit/DM Board.md",
     "1-DM Toolkit/Home.md",
     "1-DM Toolkit/Vault Report.md",
     "1-DM Toolkit/Travel Calculator.md",
@@ -281,7 +284,6 @@
     "1-DM Toolkit/Journey Board.md",
     "1-DM Toolkit/DnD5e-SideScreen-2014.md",
     "1-DM Toolkit/DnD5e-DM Screen-2014.md",
-    "1-DM Toolkit/DM Board.md",
     "3-Mechanics/CLI/CLI.md",
     "z_Example Notes/z_Example Notes.md",
     "z_Example Notes/Realm Design Form.md",
@@ -296,8 +298,6 @@
     "z_Templates/Map - Insert Leaflet Template.md",
     "z_Templates/Untitled 1.md",
     "z_Templates/Untitled.md",
-    "2-World/New Home Town.md",
-    "2-World/Logger's Camp.md",
     "2-World/Lampoteuo/The Screaming Tree",
     "3-Mechanics/CLI/books/players-handbook-2024/img/credits3.webp",
     "3-Mechanics/CLI/books/players-handbook-2024/img/credits2.webp",
