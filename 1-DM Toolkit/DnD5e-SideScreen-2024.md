@@ -51,14 +51,15 @@ obsidianUIMode: preview
 > [[02-chapter-1-playing-the-game#Movement and Position]]
 > [[02-chapter-1-playing-the-game#Difficult Terrain]]
 > [[02-chapter-1-playing-the-game#Travel Pace]]
-> [[Mounts and Vehicles]]
+> [[mounts-and-vehicles-mounts-and-other-animals-xphb|Mounts and Other Animals]]
+> [[mounts-and-vehicles-tack-harness-and-drawn-vehicles-xphb|Mounts and Vehicles; Tack, Harness, and Drawn Vehicles]]
 > [[flying-xphb|Flying]]
 > [[swimming-xphb|Swimming]]
 > [[crawling-xphb|Crawling]]
 > [[jumping-xphb|Jumping]]
 
 > [!info]- Resting
-> [[Food Drink and Lodging]]
+> [[food-drink-and-lodging-xphb|Food, Drink and Lodging]]
 > [[short-rest-xphb|Short Rest]]
 > [[long-rest-xphb|Long Rest]]
 
