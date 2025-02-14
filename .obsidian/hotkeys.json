@@ -6,5 +6,13 @@
       ],
       "key": "T"
     }
+  ],
+  "granite:show": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "Numpad9"
+    }
   ]
 }

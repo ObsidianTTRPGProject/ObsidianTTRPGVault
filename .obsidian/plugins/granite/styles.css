@@ -6,6 +6,9 @@
 	position: fixed;
 	bottom: 60px;
 	right: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
 }
 
 .granite-container img {
@@ -14,10 +17,13 @@
 	border-radius: var(--granite-size);
 }
 
-.granite-tooltip {
-	--background-modifier-message: var(--background-primary);
-	color: var(--text-normal) !important;
-	font-size: var(--font-ui-medium);
-	border-radius: 20px;
-	padding: var(--size-4-3) var(--size-4-6);
+.granite-container[aria-label]::before {
+        --background-modifier-message: #FFFFCB;
+        content: attr(aria-label);
+        color: #202020;
+        font-size: var(--font-ui-medium);
+        border-radius: 20px;
+        padding: var(--size-4-3) var(--size-4-6);
+        width: 150px;
+        background: var(--background-modifier-message);
 }

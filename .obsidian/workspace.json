@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-DM Toolkit/DnD5e-SideScreen-2024.md",
-                "mode": "source",
+                "file": "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "DnD5e-SideScreen-2024"
+              "title": "Insert Map (Simplified Template)"
             }
           }
         ]
@@ -40,7 +40,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -266,14 +267,13 @@
       "initiative-tracker:Initiative Tracker Encounter Builder": false,
       "obsidian-kanban:Create new board": false,
       "solo-rpg-toolkit:Solo RPG Toolkit": false,
-      "obsidian42-brat:BRAT": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "obsidian42-brat:BRAT": false
     }
   },
-  "active": "96e3f28e2be2a2cf",
+  "active": "d2b8e91a0b4aa27a",
   "lastOpenFiles": [
-    "3-Mechanics/Where To Get Mechanics.md",
     "1-DM Toolkit/DnD5e-SideScreen-2024.md",
+    "3-Mechanics/Where To Get Mechanics.md",
     "z_Templates/TemplateGroup.md",
     "1-DM Toolkit/DM Board.md",
     "1-DM Toolkit/Home.md",

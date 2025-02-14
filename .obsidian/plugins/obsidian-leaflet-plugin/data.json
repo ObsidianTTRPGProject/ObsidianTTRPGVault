@@ -11583,75 +11583,6 @@
       ]
     },
     {
-      "id": "MapCalcExample",
-      "lastAccessed": 1738382800768,
-      "markers": [
-        {
-          "id": "ID_9bea7a3a6899",
-          "type": "Point of Interest",
-          "loc": [
-            823.0722933011414,
-            328.2136527542241
-          ],
-          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.16026057263389848,
-            -0.5012620543855916
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_2a79f8fbcbc9",
-          "type": "Point of Interest",
-          "loc": [
-            613.7686860699233,
-            305.55696526457405
-          ],
-          "link": "Room 1",
-          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.1491977369455928,
-            -0.37379335327035523
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_cb7b199b9a88",
-          "type": "City",
-          "loc": [
-            837.2144289248723,
-            873.9391001259963
-          ],
-          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.42672807623339665,
-            -0.5098748044609454
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [],
-      "files": [
-        "z_Templates/Map - Insert Leaflet Template.md"
-      ]
-    },
-    {
       "id": "IslandOfScreams",
       "locked": true,
       "lastAccessed": 1738382800768,
@@ -11828,6 +11759,73 @@
       "files": [
         "2-World/Ruins of The Twilight Palace.md"
       ]
+    },
+    {
+      "id": "MapCalcExample",
+      "lastAccessed": 1739528714595,
+      "markers": [
+        {
+          "id": "ID_9bea7a3a6899",
+          "type": "Point of Interest",
+          "loc": [
+            823.0722933011414,
+            328.2136527542241
+          ],
+          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.16026057263389848,
+            -0.5012620543855916
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_2a79f8fbcbc9",
+          "type": "Point of Interest",
+          "loc": [
+            613.7686860699233,
+            305.55696526457405
+          ],
+          "link": "Room 1",
+          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.1491977369455928,
+            -0.37379335327035523
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_cb7b199b9a88",
+          "type": "City",
+          "loc": [
+            837.2144289248723,
+            873.9391001259963
+          ],
+          "layer": "%5B%5BPasted%20image%2020240630204305.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.42672807623339665,
+            -0.5098748044609454
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": []
     }
   ],
   "defaultMarker": {
