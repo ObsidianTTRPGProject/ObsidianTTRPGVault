@@ -11,10 +11,14 @@
             "id": "96e3f28e2be2a2cf",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "0-Scratch Notes/Untitled.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Untitled"
             }
           }
         ]
@@ -239,7 +243,7 @@
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 8
       }
     ],
     "direction": "horizontal",
@@ -267,7 +271,7 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "96e3f28e2be2a2cf",
+  "active": "082d00d22d181097",
   "lastOpenFiles": [
     "0-Scratch Notes/Untitled.md",
     "z_Assets/main.js",
