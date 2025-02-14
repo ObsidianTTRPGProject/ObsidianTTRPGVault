@@ -6,9 +6,8 @@
 	position: fixed;
 	bottom: 60px;
 	right: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+	/* ensure container is a positioning context */
+	position: fixed;
 }
 
 .granite-container img {
@@ -17,13 +16,17 @@
 	border-radius: var(--granite-size);
 }
 
-.granite-container[aria-label]::before {
-        --background-modifier-message: #FFFFCB;
-        content: attr(aria-label);
-        color: #202020;
-        font-size: var(--font-ui-medium);
-        border-radius: 20px;
-        padding: var(--size-4-3) var(--size-4-6);
-        width: 150px;
-        background: var(--background-modifier-message);
+.granite-message {
+	display: none;
+	position: absolute;
+	bottom: calc(100% + 10px);
+	right: 0;
+	background: #FFFFCB;
+	color: #202020;
+	font-size: var(--font-ui-medium);
+	border-radius: 20px;
+	padding: var(--size-4-3) var(--size-4-6);
+	max-width: 200px;
+	pointer-events: auto;
+	z-index: 100;
 }

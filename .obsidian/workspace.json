@@ -11,14 +11,10 @@
             "id": "96e3f28e2be2a2cf",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
-                "mode": "preview",
-                "source": true
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Insert Map (Simplified Template)"
+              "title": "New tab"
             }
           }
         ]
@@ -110,7 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 340.5
+    "width": 338.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -267,11 +263,15 @@
       "initiative-tracker:Initiative Tracker Encounter Builder": false,
       "obsidian-kanban:Create new board": false,
       "solo-rpg-toolkit:Solo RPG Toolkit": false,
-      "obsidian42-brat:BRAT": false
+      "obsidian42-brat:BRAT": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "d2b8e91a0b4aa27a",
+  "active": "96e3f28e2be2a2cf",
   "lastOpenFiles": [
+    "0-Scratch Notes/Untitled.md",
+    "z_Assets/main.js",
+    "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
     "1-DM Toolkit/DnD5e-SideScreen-2024.md",
     "3-Mechanics/Where To Get Mechanics.md",
     "z_Templates/TemplateGroup.md",
@@ -294,10 +294,7 @@
     "0-Scratch Notes/Random Dungeon.md",
     "0-Scratch Notes/Test Nate F..md",
     "0-Scratch Notes/Skull Island.md",
-    "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
     "0-Scratch Notes/New Location.md",
-    "z_Templates/Map - Insert Leaflet Template.md",
-    "z_Templates/Untitled 1.md",
     "2-World/Lampoteuo/The Screaming Tree",
     "3-Mechanics/CLI/books/players-handbook-2024/img/credits3.webp",
     "3-Mechanics/CLI/books/players-handbook-2024/img/credits2.webp",
@@ -317,7 +314,6 @@
     "3-Mechanics/CLI/bestiary/undead/token",
     "3-Mechanics/CLI/bestiary/undead/img",
     "3-Mechanics/CLI/bestiary/plant/token",
-    "3-Mechanics/CLI/bestiary/plant/img",
     "0-Scratch Notes/Untitled.canvas",
     "Untitled.canvas"
   ]
