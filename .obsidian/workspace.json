@@ -11,14 +11,10 @@
             "id": "96e3f28e2be2a2cf",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "0-Scratch Notes/Untitled.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "New tab"
             }
           }
         ]
@@ -271,8 +267,9 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "082d00d22d181097",
+  "active": "2911de48d50d504c",
   "lastOpenFiles": [
+    "z_Assets/download.gif",
     "0-Scratch Notes/Untitled.md",
     "z_Assets/main.js",
     "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
