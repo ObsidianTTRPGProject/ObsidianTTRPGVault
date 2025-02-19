@@ -84,9 +84,9 @@ var require_prettify_pinyin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+32f7e49_l5rk3q5fzlp2cmpgb6cso4usmq/node_modules/chinese-tokenizer/src/trie.js
+// node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+3_3982f36683f7491dc77ca9b1040b1318/node_modules/chinese-tokenizer/src/trie.js
 var require_trie = __commonJS({
-  "node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+32f7e49_l5rk3q5fzlp2cmpgb6cso4usmq/node_modules/chinese-tokenizer/src/trie.js"(exports, module2) {
+  "node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+3_3982f36683f7491dc77ca9b1040b1318/node_modules/chinese-tokenizer/src/trie.js"(exports, module2) {
     var Trie = class {
       constructor() {
         this.content = {};
@@ -131,9 +131,9 @@ var require_trie = __commonJS({
   }
 });
 
-// node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+32f7e49_l5rk3q5fzlp2cmpgb6cso4usmq/node_modules/chinese-tokenizer/src/cedict.js
+// node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+3_3982f36683f7491dc77ca9b1040b1318/node_modules/chinese-tokenizer/src/cedict.js
 var require_cedict = __commonJS({
-  "node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+32f7e49_l5rk3q5fzlp2cmpgb6cso4usmq/node_modules/chinese-tokenizer/src/cedict.js"(exports, module2) {
+  "node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+3_3982f36683f7491dc77ca9b1040b1318/node_modules/chinese-tokenizer/src/cedict.js"(exports, module2) {
     var { prettify } = require_prettify_pinyin();
     var Trie = require_trie();
     function parseLine(line) {
@@ -168,9 +168,9 @@ var require_cedict = __commonJS({
   }
 });
 
-// node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+32f7e49_l5rk3q5fzlp2cmpgb6cso4usmq/node_modules/chinese-tokenizer/src/main.js
+// node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+3_3982f36683f7491dc77ca9b1040b1318/node_modules/chinese-tokenizer/src/main.js
 var require_main = __commonJS({
-  "node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+32f7e49_l5rk3q5fzlp2cmpgb6cso4usmq/node_modules/chinese-tokenizer/src/main.js"(exports) {
+  "node_modules/.pnpm/chinese-tokenizer@https+++codeload.github.com+tadashi-aikawa+chinese-tokenizer+tar.gz+3_3982f36683f7491dc77ca9b1040b1318/node_modules/chinese-tokenizer/src/main.js"(exports) {
     var Cedict = require_cedict();
     var chinesePunctuation = [
       "\xB7",
@@ -293,6 +293,310 @@ var import_obsidian9 = require("obsidian");
 
 // src/ui/AutoCompleteSuggest.ts
 var import_obsidian5 = require("obsidian");
+
+// src/app-helper.ts
+var import_obsidian = require("obsidian");
+var AppHelper = class {
+  constructor(app2) {
+    this.unsafeApp = app2;
+  }
+  async exists(path) {
+    return await this.unsafeApp.vault.adapter.exists(path);
+  }
+  async loadFile(path) {
+    if (!await this.exists(path)) {
+      throw Error(`The file is not found: ${path}`);
+    }
+    return this.unsafeApp.vault.adapter.read(path);
+  }
+  async loadJson(path) {
+    return JSON.parse(await this.loadFile(path));
+  }
+  async saveJson(path, data) {
+    await this.unsafeApp.vault.adapter.write(path, JSON.stringify(data));
+  }
+  equalsAsEditorPosition(one, other) {
+    return one.line === other.line && one.ch === other.ch;
+  }
+  getAliases(file) {
+    var _a, _b;
+    return (_b = (0, import_obsidian.parseFrontMatterAliases)(
+      (_a = this.unsafeApp.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter
+    )) != null ? _b : [];
+  }
+  getFrontMatter(file) {
+    var _a, _b, _c, _d;
+    const frontMatter = (_a = this.unsafeApp.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter;
+    if (!frontMatter) {
+      return void 0;
+    }
+    const tags = (_c = (_b = (0, import_obsidian.parseFrontMatterTags)(frontMatter)) == null ? void 0 : _b.map((x) => x.slice(1))) != null ? _c : [];
+    const aliases = (_d = (0, import_obsidian.parseFrontMatterAliases)(frontMatter)) != null ? _d : [];
+    const { position, ...rest } = frontMatter;
+    return {
+      ...Object.fromEntries(
+        Object.entries(rest).map(([k, _v]) => [
+          k,
+          (0, import_obsidian.parseFrontMatterStringArray)(frontMatter, k)
+        ])
+      ),
+      tags,
+      tag: tags,
+      aliases,
+      alias: aliases
+    };
+  }
+  getBoolFrontMatter(file, key) {
+    var _a, _b;
+    return Boolean(
+      (_b = (_a = this.unsafeApp.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter) == null ? void 0 : _b[key]
+    );
+  }
+  getMarkdownViewInActiveLeaf() {
+    if (!this.unsafeApp.workspace.getActiveViewOfType(import_obsidian.MarkdownView)) {
+      return null;
+    }
+    return this.unsafeApp.workspace.activeLeaf.view;
+  }
+  getActiveFile() {
+    return this.unsafeApp.workspace.getActiveFile();
+  }
+  isActiveFile(file) {
+    var _a;
+    return ((_a = this.getActiveFile()) == null ? void 0 : _a.path) === file.path;
+  }
+  getPreviousFile() {
+    var _a;
+    const fName = (_a = this.unsafeApp.workspace.getLastOpenFiles()) == null ? void 0 : _a[1];
+    if (!fName) {
+      return null;
+    }
+    return this.getMarkdownFileByPath(fName);
+  }
+  getCurrentDirname() {
+    var _a, _b;
+    return (_b = (_a = this.getActiveFile()) == null ? void 0 : _a.parent.path) != null ? _b : null;
+  }
+  getCurrentEditor() {
+    var _a, _b;
+    return (_b = (_a = this.getMarkdownViewInActiveLeaf()) == null ? void 0 : _a.editor) != null ? _b : null;
+  }
+  getSelection() {
+    var _a;
+    return (_a = this.getCurrentEditor()) == null ? void 0 : _a.getSelection();
+  }
+  getCurrentOffset(editor) {
+    return editor.posToOffset(editor.getCursor());
+  }
+  getContentUntilCursor(editor) {
+    return editor.getValue().slice(0, this.getCurrentOffset(editor));
+  }
+  getCurrentLine(editor) {
+    return editor.getLine(editor.getCursor().line);
+  }
+  getCurrentLineUntilCursor(editor) {
+    return this.getCurrentLine(editor).slice(0, editor.getCursor().ch);
+  }
+  optimizeMarkdownLinkText(linkText) {
+    var _a;
+    const activeFile = this.getActiveFile();
+    if (!activeFile) {
+      return null;
+    }
+    const path = this.linkText2Path(linkText);
+    if (!path) {
+      return { displayed: linkText, link: linkText };
+    }
+    const file = this.getMarkdownFileByPath(path);
+    if (!file) {
+      return null;
+    }
+    const markdownLink = this.unsafeApp.fileManager.generateMarkdownLink(
+      file,
+      activeFile.path
+    );
+    if (markdownLink.startsWith("[[")) {
+      const text2 = (_a = markdownLink.matchAll(/^\[\[(?<text>.+)]]$/g).next().value.groups) == null ? void 0 : _a.text;
+      return { displayed: text2, link: text2 };
+    } else {
+      const { displayed, link } = markdownLink.matchAll(/^\[(?<displayed>.+)]\((?<link>.+)\.md\)$/g).next().value.groups;
+      return { displayed, link };
+    }
+  }
+  linkText2Path(linkText) {
+    var _a, _b;
+    const activeFile = this.getActiveFile();
+    if (!activeFile) {
+      return null;
+    }
+    return (_b = (_a = this.unsafeApp.metadataCache.getFirstLinkpathDest(
+      linkText,
+      activeFile.path
+    )) == null ? void 0 : _a.path) != null ? _b : null;
+  }
+  inMathBlock(editor) {
+    var _a, _b;
+    const numberOfDollarPair = (_b = (_a = this.getContentUntilCursor(editor).match(/\$\$\n/g)) == null ? void 0 : _a.length) != null ? _b : 0;
+    return numberOfDollarPair % 2 !== 0;
+  }
+  searchPhantomLinks() {
+    return Object.entries(this.unsafeApp.metadataCache.unresolvedLinks).flatMap(
+      ([path, obj]) => Object.keys(obj).map((link) => ({ path, link }))
+    );
+  }
+  getUnresolvedLinks(file) {
+    var _a;
+    const countsByLink = (_a = this.unsafeApp.metadataCache.unresolvedLinks[file.path]) != null ? _a : {};
+    return new Set(Object.keys(countsByLink));
+  }
+  getMarkdownFileByPath(path) {
+    if (!path.endsWith(".md")) {
+      return null;
+    }
+    const abstractFile = this.unsafeApp.vault.getAbstractFileByPath(path);
+    if (!abstractFile) {
+      return null;
+    }
+    return abstractFile;
+  }
+  openMarkdownFile(file, newLeaf, offset = 0) {
+    var _a;
+    const leaf = this.unsafeApp.workspace.getLeaf(newLeaf);
+    leaf.openFile(file, (_a = this.unsafeApp.workspace.activeLeaf) == null ? void 0 : _a.getViewState()).then(() => {
+      this.unsafeApp.workspace.setActiveLeaf(leaf, true, true);
+      const viewOfType = this.unsafeApp.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
+      if (viewOfType) {
+        const editor = viewOfType.editor;
+        const pos = editor.offsetToPos(offset);
+        editor.setCursor(pos);
+        editor.scrollIntoView({ from: pos, to: pos }, true);
+      }
+    });
+  }
+  getCurrentFrontMatter() {
+    var _a, _b;
+    const editor = this.getCurrentEditor();
+    if (!editor) {
+      return null;
+    }
+    if (!this.getActiveFile()) {
+      return null;
+    }
+    if (editor.getLine(0) !== "---") {
+      return null;
+    }
+    const endPosition = editor.getValue().indexOf("---", 3);
+    const currentOffset = this.getCurrentOffset(editor);
+    if (endPosition !== -1 && currentOffset >= endPosition) {
+      return null;
+    }
+    const keyLocations = Array.from(
+      editor.getValue().matchAll(/\s*['"]?(?<key>.+?)['"]?:/g)
+    );
+    if (keyLocations.length === 0) {
+      return null;
+    }
+    const currentKeyLocation = keyLocations.filter((x) => x.index < currentOffset).last();
+    if (!currentKeyLocation) {
+      return null;
+    }
+    return (_b = (_a = currentKeyLocation.groups) == null ? void 0 : _a.key) != null ? _b : null;
+  }
+  /**
+   * Unsafe method
+   */
+  isIMEOn() {
+    var _a, _b, _c;
+    if (!this.unsafeApp.workspace.getActiveViewOfType(import_obsidian.MarkdownView)) {
+      return false;
+    }
+    const markdownView = this.unsafeApp.workspace.activeLeaf.view;
+    const cm5or6 = markdownView.editor.cm;
+    if (((_a = cm5or6 == null ? void 0 : cm5or6.inputState) == null ? void 0 : _a.composing) > 0) {
+      return true;
+    }
+    return !!((_c = (_b = cm5or6 == null ? void 0 : cm5or6.display) == null ? void 0 : _b.input) == null ? void 0 : _c.composing);
+  }
+  isMobile() {
+    return this.unsafeApp.isMobile;
+  }
+  async writeLog(log) {
+    await this.unsafeApp.vault.adapter.append((0, import_obsidian.normalizePath)("log.md"), log);
+  }
+  get useWikiLinks() {
+    return !this.unsafeApp.vault.config.useMarkdownLinks;
+  }
+  get newLinkFormat() {
+    var _a;
+    return (_a = this.unsafeApp.vault.config.newLinkFormat) != null ? _a : "shortest";
+  }
+};
+
+// src/option/ColumnDelimiter.ts
+var _ColumnDelimiter = class _ColumnDelimiter {
+  constructor(name, value) {
+    this.name = name;
+    this.value = value;
+    _ColumnDelimiter._values.push(this);
+  }
+  static fromName(name) {
+    return _ColumnDelimiter._values.find((x) => x.name === name);
+  }
+  static values() {
+    return _ColumnDelimiter._values;
+  }
+};
+_ColumnDelimiter._values = [];
+_ColumnDelimiter.TAB = new _ColumnDelimiter("Tab", "	");
+_ColumnDelimiter.COMMA = new _ColumnDelimiter("Comma", ",");
+_ColumnDelimiter.PIPE = new _ColumnDelimiter("Pipe", "|");
+var ColumnDelimiter = _ColumnDelimiter;
+
+// src/util/path.ts
+function basename(path, ext) {
+  var _a, _b;
+  const name = (_b = (_a = path.match(/.+[\\/]([^\\/]+)[\\/]?$/)) == null ? void 0 : _a[1]) != null ? _b : path;
+  return ext && name.endsWith(ext) ? name.replace(ext, "") : name;
+}
+function dirname(path) {
+  var _a, _b;
+  return (_b = (_a = path.match(/(.+)[\\/].+$/)) == null ? void 0 : _a[1]) != null ? _b : ".";
+}
+function isURL(path) {
+  return Boolean(path.match(new RegExp("^https?://")));
+}
+var DEFAULT_HISTORIES_PATH = ".obsidian/plugins/various-complements/histories.json";
+
+// src/option/DescriptionOnSuggestion.ts
+var _DescriptionOnSuggestion = class _DescriptionOnSuggestion {
+  constructor(name, toDisplay) {
+    this.name = name;
+    this.toDisplay = toDisplay;
+    _DescriptionOnSuggestion._values.push(this);
+  }
+  static fromName(name) {
+    return _DescriptionOnSuggestion._values.find((x) => x.name === name);
+  }
+  static values() {
+    return _DescriptionOnSuggestion._values;
+  }
+};
+_DescriptionOnSuggestion._values = [];
+_DescriptionOnSuggestion.NONE = new _DescriptionOnSuggestion("None", () => null);
+_DescriptionOnSuggestion.SHORT = new _DescriptionOnSuggestion("Short", (word) => {
+  if (!word.description) {
+    return null;
+  }
+  return word.type === "customDictionary" ? word.description : basename(word.description);
+});
+_DescriptionOnSuggestion.FULL = new _DescriptionOnSuggestion(
+  "Full",
+  (word) => {
+    var _a;
+    return (_a = word.description) != null ? _a : null;
+  }
+);
+var DescriptionOnSuggestion = _DescriptionOnSuggestion;
 
 // src/util/collection-helper.ts
 var groupBy = (values, toKey) => values.reduce(
@@ -705,6 +1009,967 @@ function joinNumberWithSymbol(tokens) {
   ret.push(stock);
   return ret;
 }
+
+// src/model/Word.ts
+var _WordTypeMeta = class _WordTypeMeta {
+  constructor(type, priority, group) {
+    this.type = type;
+    this.priority = priority;
+    this.group = group;
+    _WordTypeMeta._values.push(this);
+    _WordTypeMeta._dict[type] = this;
+  }
+  static of(type) {
+    return _WordTypeMeta._dict[type];
+  }
+  static values() {
+    return _WordTypeMeta._values;
+  }
+};
+_WordTypeMeta._values = [];
+_WordTypeMeta._dict = {};
+_WordTypeMeta.FRONT_MATTER = new _WordTypeMeta(
+  "frontMatter",
+  100,
+  "frontMatter"
+);
+_WordTypeMeta.INTERNAL_LINK = new _WordTypeMeta(
+  "internalLink",
+  90,
+  "internalLink"
+);
+_WordTypeMeta.CUSTOM_DICTIONARY = new _WordTypeMeta(
+  "customDictionary",
+  80,
+  "suggestion"
+);
+_WordTypeMeta.CURRENT_FILE = new _WordTypeMeta(
+  "currentFile",
+  70,
+  "suggestion"
+);
+_WordTypeMeta.CURRENT_VAULT = new _WordTypeMeta(
+  "currentVault",
+  60,
+  "suggestion"
+);
+var WordTypeMeta = _WordTypeMeta;
+
+// src/provider/suggester.ts
+function suggestionUniqPredicate(a, b) {
+  if (a.value !== b.value) {
+    return false;
+  }
+  if (WordTypeMeta.of(a.type).group !== WordTypeMeta.of(b.type).group) {
+    return false;
+  }
+  if (a.type === "internalLink" && !a.phantom && a.createdPath !== b.createdPath) {
+    return false;
+  }
+  return true;
+}
+function pushWord(wordsByFirstLetter, key, word) {
+  if (wordsByFirstLetter[key] === void 0) {
+    wordsByFirstLetter[key] = [word];
+    return;
+  }
+  wordsByFirstLetter[key].push(word);
+}
+function judge(word, query, queryStartWithUpper, options) {
+  var _a, _b, _c;
+  if (query === "") {
+    return {
+      word: {
+        ...word,
+        hit: word.value
+      },
+      value: word.value,
+      alias: false
+    };
+  }
+  const matcher = (options == null ? void 0 : options.fuzzy) ? lowerFuzzy : wrapFuzzy(lowerStartsWith);
+  const matched = matcher(word.value, query);
+  if (matched.type === "concrete_match" || matched.type === "fuzzy_match" && matched.score > ((_a = options == null ? void 0 : options.fuzzy) == null ? void 0 : _a.minMatchScore)) {
+    if (queryStartWithUpper && word.type !== "internalLink" && word.type !== "frontMatter") {
+      const c = capitalizeFirstLetter(word.value);
+      return {
+        word: {
+          ...word,
+          value: c,
+          hit: c,
+          fuzzy: matched.type === "fuzzy_match"
+        },
+        value: c,
+        alias: false
+      };
+    } else {
+      return {
+        word: {
+          ...word,
+          hit: word.value,
+          fuzzy: matched.type === "fuzzy_match"
+        },
+        value: word.value,
+        alias: false
+      };
+    }
+  }
+  const matchedAlias = (_b = word.aliases) == null ? void 0 : _b.map((a) => ({ aliases: a, matched: matcher(a, query) })).sort(
+    (a, b) => a.matched.type === "concrete_match" && b.matched.type !== "concrete_match" ? -1 : 0
+  ).find((x) => x.matched.type !== "none");
+  if (matchedAlias && (matchedAlias.matched.type === "concrete_match" || matchedAlias.matched.type === "fuzzy_match" && matchedAlias.matched.score > ((_c = options == null ? void 0 : options.fuzzy) == null ? void 0 : _c.minMatchScore))) {
+    return {
+      word: {
+        ...word,
+        hit: matchedAlias.aliases,
+        fuzzy: matchedAlias.matched.type === "fuzzy_match"
+      },
+      value: matchedAlias.aliases,
+      alias: true
+    };
+  }
+  return {
+    word,
+    alias: false
+  };
+}
+function suggestWords(indexedWords, query, maxNum, option = {}) {
+  var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+  const { frontMatter, selectionHistoryStorage } = option;
+  const queryStartWithUpper = capitalizeFirstLetter(query) === query;
+  const flattenFrontMatterWords = () => {
+    var _a2, _b2;
+    if (frontMatter === "alias" || frontMatter === "aliases") {
+      return [];
+    }
+    if (frontMatter && ((_a2 = indexedWords.frontMatter) == null ? void 0 : _a2[frontMatter])) {
+      return Object.values((_b2 = indexedWords.frontMatter) == null ? void 0 : _b2[frontMatter]).flat();
+    }
+    return [];
+  };
+  const words = queryStartWithUpper ? frontMatter ? flattenFrontMatterWords() : [
+    ...(_a = indexedWords.currentFile[query.charAt(0)]) != null ? _a : [],
+    ...(_b = indexedWords.currentFile[query.charAt(0).toLowerCase()]) != null ? _b : [],
+    ...(_c = indexedWords.currentVault[query.charAt(0)]) != null ? _c : [],
+    ...(_d = indexedWords.currentVault[query.charAt(0).toLowerCase()]) != null ? _d : [],
+    ...(_e = indexedWords.customDictionary[query.charAt(0)]) != null ? _e : [],
+    ...(_f = indexedWords.customDictionary[query.charAt(0).toLowerCase()]) != null ? _f : [],
+    ...(_g = indexedWords.internalLink[query.charAt(0)]) != null ? _g : [],
+    ...(_h = indexedWords.internalLink[query.charAt(0).toLowerCase()]) != null ? _h : []
+  ] : frontMatter ? flattenFrontMatterWords() : [
+    ...(_i = indexedWords.currentFile[query.charAt(0)]) != null ? _i : [],
+    ...(_j = indexedWords.currentFile[query.charAt(0).toUpperCase()]) != null ? _j : [],
+    ...(_k = indexedWords.currentVault[query.charAt(0)]) != null ? _k : [],
+    ...(_l = indexedWords.currentVault[query.charAt(0).toUpperCase()]) != null ? _l : [],
+    ...(_m = indexedWords.customDictionary[query.charAt(0)]) != null ? _m : [],
+    ...(_n = indexedWords.customDictionary[query.charAt(0).toUpperCase()]) != null ? _n : [],
+    ...(_o = indexedWords.internalLink[query.charAt(0)]) != null ? _o : [],
+    ...(_p = indexedWords.internalLink[query.charAt(0).toUpperCase()]) != null ? _p : []
+  ];
+  const filteredJudgement = Array.from(words).map((x) => judge(x, query, queryStartWithUpper, option)).filter((x) => x.value !== void 0);
+  const latestUpdated = max(
+    filteredJudgement.map(
+      (x) => {
+        var _a2, _b2;
+        return (_b2 = (_a2 = selectionHistoryStorage == null ? void 0 : selectionHistoryStorage.getSelectionHistory(x.word)) == null ? void 0 : _a2.lastUpdated) != null ? _b2 : 0;
+      }
+    ),
+    0
+  );
+  const candidate = filteredJudgement.sort((a, b) => {
+    const aWord = a.word;
+    const bWord = b.word;
+    if (a.word.fuzzy !== b.word.fuzzy) {
+      return a.word.fuzzy ? 1 : -1;
+    }
+    const notSameWordType = aWord.type !== bWord.type;
+    if (frontMatter && notSameWordType) {
+      return bWord.type === "frontMatter" ? 1 : -1;
+    }
+    if (selectionHistoryStorage) {
+      const ret = selectionHistoryStorage.compare(
+        aWord,
+        bWord,
+        latestUpdated
+      );
+      if (ret !== 0) {
+        return ret;
+      }
+    }
+    if (a.value.length !== b.value.length) {
+      return a.value.length > b.value.length ? 1 : -1;
+    }
+    if (notSameWordType) {
+      return WordTypeMeta.of(bWord.type).priority > WordTypeMeta.of(aWord.type).priority ? 1 : -1;
+    }
+    if (a.alias !== b.alias) {
+      return a.alias ? 1 : -1;
+    }
+    return 0;
+  }).map((x) => x.word).slice(0, maxNum);
+  return uniqWith(candidate, suggestionUniqPredicate);
+}
+function judgeByPartialMatch(word, query, queryStartWithUpper, options) {
+  var _a, _b, _c, _d, _e, _f;
+  if (query === "") {
+    return {
+      word: { ...word, hit: word.value },
+      value: word.value,
+      alias: false
+    };
+  }
+  const startsWithMatcher = (options == null ? void 0 : options.fuzzy) ? lowerFuzzyStarsWith : wrapFuzzy(lowerStartsWith);
+  const includesMatcher = (options == null ? void 0 : options.fuzzy) ? lowerFuzzy : wrapFuzzy(lowerIncludes);
+  const startsWithMatched = startsWithMatcher(word.value, query);
+  if (startsWithMatched.type === "concrete_match" || startsWithMatched.type === "fuzzy_match" && startsWithMatched.score > ((_a = options == null ? void 0 : options.fuzzy) == null ? void 0 : _a.minMatchScore)) {
+    if (queryStartWithUpper && word.type !== "internalLink" && word.type !== "frontMatter") {
+      const c = capitalizeFirstLetter(word.value);
+      return {
+        word: {
+          ...word,
+          value: c,
+          hit: c,
+          fuzzy: startsWithMatched.type === "fuzzy_match"
+        },
+        value: c,
+        alias: false
+      };
+    } else {
+      return {
+        word: {
+          ...word,
+          hit: word.value,
+          fuzzy: startsWithMatched.type === "fuzzy_match"
+        },
+        value: word.value,
+        alias: false
+      };
+    }
+  }
+  const startsWithAliasMatched = (_b = word.aliases) == null ? void 0 : _b.map((a) => ({ aliases: a, matched: startsWithMatcher(a, query) })).sort(
+    (a, b) => a.matched.type === "concrete_match" && b.matched.type !== "concrete_match" ? -1 : 0
+  ).find((x) => x.matched.type !== "none");
+  if (startsWithAliasMatched && (startsWithAliasMatched.matched.type === "concrete_match" || startsWithAliasMatched.matched.type === "fuzzy_match" && startsWithAliasMatched.matched.score > ((_c = options == null ? void 0 : options.fuzzy) == null ? void 0 : _c.minMatchScore))) {
+    return {
+      word: {
+        ...word,
+        hit: startsWithAliasMatched.aliases,
+        fuzzy: startsWithAliasMatched.matched.type === "fuzzy_match"
+      },
+      value: startsWithAliasMatched.aliases,
+      alias: true
+    };
+  }
+  const includesMatched = includesMatcher(word.value, query);
+  if (includesMatched && (includesMatched.type === "concrete_match" || includesMatched.type === "fuzzy_match" && includesMatched.score > ((_d = options == null ? void 0 : options.fuzzy) == null ? void 0 : _d.minMatchScore))) {
+    return {
+      word: {
+        ...word,
+        hit: word.value,
+        fuzzy: includesMatched.type === "fuzzy_match"
+      },
+      value: word.value,
+      alias: false
+    };
+  }
+  const matchedAliasIncluded = (_e = word.aliases) == null ? void 0 : _e.map((a) => ({ aliases: a, matched: includesMatcher(a, query) })).sort(
+    (a, b) => a.matched.type === "concrete_match" && b.matched.type !== "concrete_match" ? -1 : 0
+  ).find((x) => x.matched.type !== "none");
+  if (matchedAliasIncluded && (matchedAliasIncluded.matched.type === "concrete_match" || matchedAliasIncluded.matched.type === "fuzzy_match" && matchedAliasIncluded.matched.score > ((_f = options == null ? void 0 : options.fuzzy) == null ? void 0 : _f.minMatchScore))) {
+    return {
+      word: {
+        ...word,
+        hit: matchedAliasIncluded.aliases,
+        fuzzy: matchedAliasIncluded.matched.type === "fuzzy_match"
+      },
+      value: matchedAliasIncluded.aliases,
+      alias: true
+    };
+  }
+  return { word, alias: false };
+}
+function suggestWordsByPartialMatch(indexedWords, query, maxNum, option = {}) {
+  const { frontMatter, selectionHistoryStorage } = option;
+  const queryStartWithUpper = capitalizeFirstLetter(query) === query;
+  const flatObjectValues = (object) => Object.values(object).flat();
+  const flattenFrontMatterWords = () => {
+    var _a, _b;
+    if (frontMatter === "alias" || frontMatter === "aliases") {
+      return [];
+    }
+    if (frontMatter && ((_a = indexedWords.frontMatter) == null ? void 0 : _a[frontMatter])) {
+      return Object.values((_b = indexedWords.frontMatter) == null ? void 0 : _b[frontMatter]).flat();
+    }
+    return [];
+  };
+  const words = frontMatter ? flattenFrontMatterWords() : [
+    ...flatObjectValues(indexedWords.currentFile),
+    ...flatObjectValues(indexedWords.currentVault),
+    ...flatObjectValues(indexedWords.customDictionary),
+    ...flatObjectValues(indexedWords.internalLink)
+  ];
+  const filteredJudgement = Array.from(words).map((x) => judgeByPartialMatch(x, query, queryStartWithUpper, option)).filter((x) => x.value !== void 0);
+  const latestUpdated = max(
+    filteredJudgement.map(
+      (x) => {
+        var _a, _b;
+        return (_b = (_a = selectionHistoryStorage == null ? void 0 : selectionHistoryStorage.getSelectionHistory(x.word)) == null ? void 0 : _a.lastUpdated) != null ? _b : 0;
+      }
+    ),
+    0
+  );
+  const candidate = filteredJudgement.sort((a, b) => {
+    const aWord = a.word;
+    const bWord = b.word;
+    if (a.word.fuzzy !== b.word.fuzzy) {
+      return a.word.fuzzy ? 1 : -1;
+    }
+    const notSameWordType = aWord.type !== bWord.type;
+    if (frontMatter && notSameWordType) {
+      return bWord.type === "frontMatter" ? 1 : -1;
+    }
+    if (selectionHistoryStorage) {
+      const ret = selectionHistoryStorage.compare(
+        aWord,
+        bWord,
+        latestUpdated
+      );
+      if (ret !== 0) {
+        return ret;
+      }
+    }
+    const as = lowerStartsWith(a.value, query);
+    const bs = lowerStartsWith(b.value, query);
+    if (as !== bs) {
+      return bs ? 1 : -1;
+    }
+    if (a.value.length !== b.value.length) {
+      return a.value.length > b.value.length ? 1 : -1;
+    }
+    if (notSameWordType) {
+      return WordTypeMeta.of(bWord.type).priority > WordTypeMeta.of(aWord.type).priority ? 1 : -1;
+    }
+    if (a.alias !== b.alias) {
+      return a.alias ? 1 : -1;
+    }
+    return 0;
+  }).map((x) => x.word).slice(0, maxNum);
+  return uniqWith(candidate, suggestionUniqPredicate);
+}
+
+// src/provider/CurrentFileWordProvider.ts
+var CurrentFileWordProvider = class {
+  constructor(app2, appHelper) {
+    this.app = app2;
+    this.appHelper = appHelper;
+    this.wordsByFirstLetter = {};
+    this.words = [];
+  }
+  async refreshWords(option) {
+    var _a;
+    this.clearWords();
+    const editor = this.appHelper.getCurrentEditor();
+    if (!editor) {
+      return;
+    }
+    const file = this.app.workspace.getActiveFile();
+    if (!file) {
+      return;
+    }
+    const currentToken = this.tokenizer.tokenize(
+      editor.getLine(editor.getCursor().line).slice(0, editor.getCursor().ch)
+    ).last();
+    const excludePatterns = option.excludeWordPatterns.map(
+      (x) => new RegExp(`^${x}$`)
+    );
+    const content = await this.app.vault.cachedRead(file);
+    const tokens = this.tokenizer.tokenize(content).filter((x) => {
+      if (x.length < option.minNumberOfCharacters) {
+        return false;
+      }
+      if (this.tokenizer.shouldIgnoreOnCurrent(x)) {
+        return false;
+      }
+      return option.onlyEnglish ? allAlphabets(x) : true;
+    }).map((x) => startsSmallLetterOnlyFirst(x) ? x.toLowerCase() : x).filter((x) => !excludePatterns.some((rp) => x.match(rp)));
+    this.words = uniq(tokens).filter((x) => x !== currentToken).map((x) => ({
+      value: x,
+      type: "currentFile",
+      createdPath: file.path,
+      aliases: synonymAliases(x, {
+        emoji: option.makeSynonymAboutEmoji,
+        accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+      })
+    }));
+    for (const word of this.words) {
+      pushWord(this.wordsByFirstLetter, word.value.charAt(0), word);
+      (_a = word.aliases) == null ? void 0 : _a.forEach(
+        (a) => pushWord(this.wordsByFirstLetter, a.charAt(0), word)
+      );
+    }
+  }
+  clearWords() {
+    this.words = [];
+    this.wordsByFirstLetter = {};
+  }
+  get wordCount() {
+    return this.words.length;
+  }
+  setSettings(tokenizer) {
+    this.tokenizer = tokenizer;
+  }
+};
+
+// src/provider/CurrentVaultWordProvider.ts
+var CurrentVaultWordProvider = class {
+  constructor(app2, appHelper) {
+    this.app = app2;
+    this.appHelper = appHelper;
+    this.wordsByFirstLetter = {};
+    this.words = [];
+  }
+  async refreshWords(option) {
+    var _a;
+    this.clearWords();
+    const currentDirname = this.appHelper.getCurrentDirname();
+    const markdownFilePaths = this.app.vault.getMarkdownFiles().map((x) => x.path).filter((p) => this.includePrefixPatterns.every((x) => p.startsWith(x))).filter((p) => this.excludePrefixPatterns.every((x) => !p.startsWith(x))).filter(
+      (p) => !this.onlyUnderCurrentDirectory || dirname(p) === currentDirname
+    );
+    const excludePatterns = option.excludeWordPatterns.map(
+      (x) => new RegExp(`^${x}$`)
+    );
+    let wordByValue = {};
+    for (const path of markdownFilePaths) {
+      const content = await this.app.vault.adapter.read(path);
+      const tokens = this.tokenizer.tokenize(content).filter(
+        (x) => x.length >= option.minNumberOfCharacters && !this.tokenizer.shouldIgnoreOnCurrent(x)
+      ).map((x) => startsSmallLetterOnlyFirst(x) ? x.toLowerCase() : x).filter((x) => !excludePatterns.some((rp) => x.match(rp)));
+      for (const token of tokens) {
+        wordByValue[token] = {
+          value: token,
+          type: "currentVault",
+          createdPath: path,
+          description: path,
+          aliases: synonymAliases(token, {
+            emoji: option.makeSynonymAboutEmoji,
+            accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+          })
+        };
+      }
+    }
+    this.words = Object.values(wordByValue);
+    for (const word of this.words) {
+      pushWord(this.wordsByFirstLetter, word.value.charAt(0), word);
+      (_a = word.aliases) == null ? void 0 : _a.forEach(
+        (a) => pushWord(this.wordsByFirstLetter, a.charAt(0), word)
+      );
+    }
+  }
+  clearWords() {
+    this.words = [];
+    this.wordsByFirstLetter = {};
+  }
+  get wordCount() {
+    return this.words.length;
+  }
+  setSettings(tokenizer, includePrefixPatterns, excludePrefixPatterns, onlyUnderCurrentDirectory) {
+    this.tokenizer = tokenizer;
+    this.includePrefixPatterns = includePrefixPatterns;
+    this.excludePrefixPatterns = excludePrefixPatterns;
+    this.onlyUnderCurrentDirectory = onlyUnderCurrentDirectory;
+  }
+};
+
+// src/provider/CustomDictionaryWordProvider.ts
+var import_obsidian2 = require("obsidian");
+function escape(value) {
+  return value.replace(/\\/g, "__VariousComplementsEscape__").replace(/\n/g, "\\n").replace(/\t/g, "\\t").replace(/__VariousComplementsEscape__/g, "\\\\");
+}
+function unescape(value) {
+  return value.replace(/\\\\/g, "__VariousComplementsEscape__").replace(/\\n/g, "\n").replace(/\\t/g, "	").replace(/__VariousComplementsEscape__/g, "\\");
+}
+function jsonToWords(json, path, systemCaretSymbol) {
+  return json.words.map((x) => {
+    var _a;
+    return {
+      value: x.displayed || x.value,
+      description: x.description,
+      aliases: x.aliases,
+      type: "customDictionary",
+      createdPath: path,
+      insertedText: x.displayed ? x.value : void 0,
+      caretSymbol: (_a = json.caretSymbol) != null ? _a : systemCaretSymbol,
+      ignoreSpaceAfterCompletion: json.ignoreSpaceAfterCompletion
+    };
+  });
+}
+function lineToWord(line, delimiter, path, delimiterForDisplay, delimiterForHide, systemCaretSymbol) {
+  const [v, description, ...aliases] = line.split(delimiter.value);
+  let value = unescape(v);
+  let insertedText;
+  let displayedText = value;
+  if (delimiterForDisplay && value.includes(delimiterForDisplay)) {
+    [displayedText, insertedText] = value.split(delimiterForDisplay);
+  }
+  if (delimiterForHide && value.includes(delimiterForHide)) {
+    insertedText = value.replace(delimiterForHide, "");
+    displayedText = `${value.split(delimiterForHide)[0]} ...`;
+  }
+  return {
+    value: displayedText,
+    description,
+    aliases,
+    type: "customDictionary",
+    createdPath: path,
+    insertedText,
+    caretSymbol: systemCaretSymbol
+  };
+}
+function wordToLine(word, delimiter, dividerForDisplay) {
+  const value = word.insertedText && dividerForDisplay ? `${word.value}${dividerForDisplay}${word.insertedText}` : word.value;
+  const escapedValue = escape(value);
+  if (!word.description && !word.aliases) {
+    return escapedValue;
+  }
+  if (!word.aliases) {
+    return [escapedValue, word.description].join(delimiter.value);
+  }
+  return [escapedValue, word.description, ...word.aliases].join(
+    delimiter.value
+  );
+}
+var CustomDictionaryWordProvider = class {
+  constructor(app2, appHelper) {
+    this.words = [];
+    this.wordByValue = {};
+    this.wordsByFirstLetter = {};
+    this.appHelper = appHelper;
+    this.fileSystemAdapter = app2.vault.adapter;
+  }
+  get editablePaths() {
+    return this.paths.filter((x) => !isURL(x) && !x.endsWith(".json"));
+  }
+  async loadWords(path, option) {
+    const contents = isURL(path) ? await (0, import_obsidian2.request)({ url: path }) : await this.fileSystemAdapter.read(path);
+    const words = path.endsWith(".json") ? jsonToWords(JSON.parse(contents), path, option.caretSymbol) : contents.split(/\r\n|\n/).map((x) => x.replace(/%%.*%%/g, "")).filter((x) => x).map(
+      (x) => lineToWord(
+        x,
+        this.delimiter,
+        path,
+        option.delimiterForDisplay,
+        option.delimiterForHide,
+        option.caretSymbol
+      )
+    );
+    return words.filter(
+      (x) => !option.regexp || x.value.match(new RegExp(option.regexp))
+    );
+  }
+  async refreshCustomWords(option) {
+    this.clearWords();
+    for (const path of this.paths) {
+      try {
+        const words = await this.loadWords(path, option);
+        words.forEach(
+          (x) => this.addWord(x, {
+            emoji: option.makeSynonymAboutEmoji,
+            accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+          })
+        );
+      } catch (e) {
+        new import_obsidian2.Notice(
+          `\u26A0 Fail to load ${path} -- Various Complements Plugin -- 
+ ${e}`,
+          0
+        );
+      }
+    }
+  }
+  async addWordWithDictionary(word, dictionaryPath, synonymOption) {
+    this.addWord(word, synonymOption);
+    await this.fileSystemAdapter.append(
+      dictionaryPath,
+      "\n" + wordToLine(word, this.delimiter, this.dividerForDisplay)
+    );
+  }
+  addWord(word, synonymOption) {
+    var _a, _b;
+    this.words.push(word);
+    const wordWithSynonym = {
+      ...word,
+      aliases: [
+        ...(_a = word.aliases) != null ? _a : [],
+        ...synonymAliases(word.value, synonymOption)
+      ]
+    };
+    this.wordByValue[wordWithSynonym.value] = wordWithSynonym;
+    pushWord(
+      this.wordsByFirstLetter,
+      wordWithSynonym.value.charAt(0),
+      wordWithSynonym
+    );
+    (_b = wordWithSynonym.aliases) == null ? void 0 : _b.forEach(
+      (a) => pushWord(this.wordsByFirstLetter, a.charAt(0), wordWithSynonym)
+    );
+  }
+  clearWords() {
+    this.words = [];
+    this.wordByValue = {};
+    this.wordsByFirstLetter = {};
+  }
+  get wordCount() {
+    return this.words.length;
+  }
+  setSettings(paths, delimiter, dividerForDisplay) {
+    this.paths = paths;
+    this.delimiter = delimiter;
+    this.dividerForDisplay = dividerForDisplay;
+  }
+};
+
+// src/provider/FrontMatterWordProvider.ts
+function synonymAliases2(name) {
+  const lessEmojiValue = excludeEmoji(name);
+  return name === lessEmojiValue ? [] : [lessEmojiValue];
+}
+function frontMatterToWords(file, key, values) {
+  return values.map((x) => ({
+    key,
+    value: x,
+    type: "frontMatter",
+    createdPath: file.path,
+    aliases: synonymAliases2(x)
+  }));
+}
+function pickWords(file, fm) {
+  return Object.entries(fm).filter(
+    ([_key, value]) => value != null && (typeof value === "string" || typeof value[0] === "string")
+  ).flatMap(([key, value]) => frontMatterToWords(file, key, value));
+}
+function extractAndUniqWords(wordsByCreatedPath) {
+  return uniqBy(
+    Object.values(wordsByCreatedPath).flat(),
+    (w) => w.key + w.value.toLowerCase()
+  );
+}
+function indexingWords(words) {
+  const wordsByKey = groupBy(words, (x) => x.key);
+  return Object.fromEntries(
+    Object.entries(wordsByKey).map(
+      ([key, words2]) => [
+        key,
+        groupBy(words2, (w) => w.value.charAt(0))
+      ]
+    )
+  );
+}
+var FrontMatterWordProvider = class {
+  constructor(app2, appHelper) {
+    this.app = app2;
+    this.appHelper = appHelper;
+    this.wordsByCreatedPath = {};
+  }
+  refreshWords() {
+    this.clearWords();
+    this.app.vault.getMarkdownFiles().forEach((f) => {
+      const fm = this.appHelper.getFrontMatter(f);
+      if (!fm) {
+        return;
+      }
+      this.wordsByCreatedPath[f.path] = pickWords(f, fm);
+    });
+    this.words = extractAndUniqWords(this.wordsByCreatedPath);
+    this.wordsByFirstLetterByKey = indexingWords(this.words);
+  }
+  updateWordIndex(file) {
+    const fm = this.appHelper.getFrontMatter(file);
+    if (!fm) {
+      return;
+    }
+    this.wordsByCreatedPath[file.path] = pickWords(file, fm);
+  }
+  updateWords() {
+    this.words = extractAndUniqWords(this.wordsByCreatedPath);
+    this.wordsByFirstLetterByKey = indexingWords(this.words);
+  }
+  clearWords() {
+    this.wordsByCreatedPath = {};
+    this.words = [];
+    this.wordsByFirstLetterByKey = {};
+  }
+  get wordCount() {
+    return this.words.length;
+  }
+};
+
+// src/provider/InternalLinkWordProvider.ts
+var InternalLinkWordProvider = class {
+  constructor(app2, appHelper) {
+    this.app = app2;
+    this.appHelper = appHelper;
+    this.words = [];
+    this.wordsByFirstLetter = {};
+  }
+  refreshWords(option) {
+    var _a;
+    this.clearWords();
+    const resolvedInternalLinkWords = this.app.vault.getMarkdownFiles().filter((f) => {
+      if (option.excludePathPrefixPatterns.some((x) => f.path.startsWith(x))) {
+        return false;
+      }
+      if (!option.frontMatterKeyForExclusion) {
+        return true;
+      }
+      return !this.appHelper.getBoolFrontMatter(
+        f,
+        option.frontMatterKeyForExclusion
+      );
+    }).flatMap((x) => {
+      const aliases = this.appHelper.getAliases(x);
+      if (option.wordAsInternalLinkAlias) {
+        return [
+          {
+            value: x.basename,
+            type: "internalLink",
+            createdPath: x.path,
+            aliases: synonymAliases(x.basename, {
+              emoji: option.makeSynonymAboutEmoji,
+              accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+            }),
+            description: x.path
+          },
+          ...aliases.map((a) => ({
+            value: a,
+            type: "internalLink",
+            createdPath: x.path,
+            aliases: synonymAliases(a, {
+              emoji: option.makeSynonymAboutEmoji,
+              accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+            }),
+            description: x.path,
+            aliasMeta: {
+              origin: x.path
+            }
+          }))
+        ];
+      } else {
+        return [
+          {
+            value: x.basename,
+            type: "internalLink",
+            createdPath: x.path,
+            aliases: [
+              ...synonymAliases(x.basename, {
+                emoji: option.makeSynonymAboutEmoji,
+                accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+              }),
+              ...aliases,
+              ...aliases.flatMap(
+                (al) => synonymAliases(al, {
+                  emoji: option.makeSynonymAboutEmoji,
+                  accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+                })
+              )
+            ],
+            description: x.path
+          }
+        ];
+      }
+    });
+    const unresolvedInternalLinkWords = this.appHelper.searchPhantomLinks().map(({ path, link }) => {
+      return {
+        value: link,
+        type: "internalLink",
+        createdPath: path,
+        aliases: synonymAliases(link, {
+          emoji: option.makeSynonymAboutEmoji,
+          accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
+        }),
+        description: `Appeared in -> ${path}`,
+        phantom: true
+      };
+    });
+    this.words = [...resolvedInternalLinkWords, ...unresolvedInternalLinkWords];
+    for (const word of this.words) {
+      pushWord(this.wordsByFirstLetter, word.value.charAt(0), word);
+      (_a = word.aliases) == null ? void 0 : _a.forEach(
+        (a) => pushWord(this.wordsByFirstLetter, a.charAt(0), word)
+      );
+    }
+  }
+  clearWords() {
+    this.words = [];
+    this.wordsByFirstLetter = {};
+  }
+  get wordCount() {
+    return this.words.length;
+  }
+};
+
+// src/provider/MatchStrategy.ts
+var _MatchStrategy = class _MatchStrategy {
+  constructor(name, handler) {
+    this.name = name;
+    this.handler = handler;
+    _MatchStrategy._values.push(this);
+  }
+  static fromName(name) {
+    return _MatchStrategy._values.find((x) => x.name === name);
+  }
+  static values() {
+    return _MatchStrategy._values;
+  }
+};
+_MatchStrategy._values = [];
+_MatchStrategy.PREFIX = new _MatchStrategy("prefix", suggestWords);
+_MatchStrategy.PARTIAL = new _MatchStrategy(
+  "partial",
+  suggestWordsByPartialMatch
+);
+var MatchStrategy = _MatchStrategy;
+
+// src/provider/SpecificMatchStrategy.ts
+var neverUsedHandler = (..._args) => [];
+var _SpecificMatchStrategy = class _SpecificMatchStrategy {
+  constructor(name, handler) {
+    this.name = name;
+    this.handler = handler;
+    _SpecificMatchStrategy._values.push(this);
+  }
+  static fromName(name) {
+    return _SpecificMatchStrategy._values.find((x) => x.name === name);
+  }
+  static values() {
+    return _SpecificMatchStrategy._values;
+  }
+};
+_SpecificMatchStrategy._values = [];
+_SpecificMatchStrategy.INHERIT = new _SpecificMatchStrategy(
+  "inherit",
+  neverUsedHandler
+);
+_SpecificMatchStrategy.PREFIX = new _SpecificMatchStrategy("prefix", suggestWords);
+_SpecificMatchStrategy.PARTIAL = new _SpecificMatchStrategy(
+  "partial",
+  suggestWordsByPartialMatch
+);
+var SpecificMatchStrategy = _SpecificMatchStrategy;
+
+// src/storage/SelectionHistoryStorage.ts
+var SEC = 1e3;
+var MIN = SEC * 60;
+var HOUR = MIN * 60;
+var DAY = HOUR * 24;
+var WEEK = DAY * 7;
+function calcScore(history, latestUpdated) {
+  if (!history) {
+    return 0;
+  }
+  if (history.lastUpdated === latestUpdated) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+  const behind = Date.now() - history.lastUpdated;
+  if (behind < MIN) {
+    return 8 * history.count;
+  } else if (behind < HOUR) {
+    return 4 * history.count;
+  } else if (behind < DAY) {
+    return 2 * history.count;
+  } else if (behind < WEEK) {
+    return 0.5 * history.count;
+  } else {
+    return 0.25 * history.count;
+  }
+}
+var SelectionHistoryStorage = class {
+  constructor(data = {}, maxDaysToKeepHistory, maxNumberOfHistoryToKeep) {
+    this.data = data;
+    const now2 = Date.now();
+    this.version = now2;
+    this.persistedVersion = now2;
+    this.maxDaysToKeepHistory = maxDaysToKeepHistory;
+    this.maxNumberOfHistoryToKeep = maxNumberOfHistoryToKeep;
+  }
+  // noinspection FunctionWithMultipleLoopsJS
+  purge() {
+    var _a;
+    const now2 = Date.now();
+    const times = [];
+    for (const hit of Object.keys(this.data)) {
+      for (const value of Object.keys(this.data[hit])) {
+        for (const kind of Object.keys(this.data[hit][value])) {
+          if (this.maxDaysToKeepHistory && now2 - this.data[hit][value][kind].lastUpdated > this.maxDaysToKeepHistory * DAY) {
+            delete this.data[hit][value][kind];
+          } else {
+            times.push(this.data[hit][value][kind].lastUpdated);
+          }
+        }
+        if (Object.isEmpty(this.data[hit][value])) {
+          delete this.data[hit][value];
+        }
+      }
+      if (Object.isEmpty(this.data[hit])) {
+        delete this.data[hit];
+      }
+    }
+    if (this.maxNumberOfHistoryToKeep) {
+      const threshold = (_a = times.sort((a, b) => a > b ? -1 : 1).slice(0, this.maxNumberOfHistoryToKeep).at(-1)) != null ? _a : 0;
+      for (const hit of Object.keys(this.data)) {
+        for (const value of Object.keys(this.data[hit])) {
+          for (const kind of Object.keys(this.data[hit][value])) {
+            if (this.data[hit][value][kind].lastUpdated < threshold) {
+              delete this.data[hit][value][kind];
+            }
+          }
+          if (Object.isEmpty(this.data[hit][value])) {
+            delete this.data[hit][value];
+          }
+        }
+        if (Object.isEmpty(this.data[hit])) {
+          delete this.data[hit];
+        }
+      }
+    }
+  }
+  getSelectionHistory(word) {
+    var _a, _b;
+    return (_b = (_a = this.data[word.hit]) == null ? void 0 : _a[word.value]) == null ? void 0 : _b[word.type];
+  }
+  increment(word) {
+    if (!this.data[word.hit]) {
+      this.data[word.hit] = {};
+    }
+    if (!this.data[word.hit][word.value]) {
+      this.data[word.hit][word.value] = {};
+    }
+    if (this.data[word.hit][word.value][word.type]) {
+      this.data[word.hit][word.value][word.type] = {
+        count: this.data[word.hit][word.value][word.type].count + 1,
+        lastUpdated: Date.now()
+      };
+    } else {
+      this.data[word.hit][word.value][word.type] = {
+        count: 1,
+        lastUpdated: Date.now()
+      };
+    }
+    this.version = Date.now();
+  }
+  compare(w1, w2, latestUpdated) {
+    const score1 = calcScore(this.getSelectionHistory(w1), latestUpdated);
+    const score2 = calcScore(this.getSelectionHistory(w2), latestUpdated);
+    if (score1 === score2) {
+      return 0;
+    }
+    return score1 > score2 ? -1 : 1;
+  }
+  get shouldPersist() {
+    return this.version > this.persistedVersion;
+  }
+  syncPersistVersion() {
+    this.persistedVersion = this.version;
+  }
+};
 
 // src/errors.ts
 var ExhaustiveError = class extends Error {
@@ -2433,1273 +3698,6 @@ _TokenizeStrategy.ARABIC = new _TokenizeStrategy("arabic", 3, 3, false);
 _TokenizeStrategy.CHINESE = new _TokenizeStrategy("chinese", 1, 2, false);
 var TokenizeStrategy = _TokenizeStrategy;
 
-// src/app-helper.ts
-var import_obsidian = require("obsidian");
-var AppHelper = class {
-  constructor(app2) {
-    this.unsafeApp = app2;
-  }
-  async exists(path) {
-    return await this.unsafeApp.vault.adapter.exists(path);
-  }
-  async loadFile(path) {
-    if (!await this.exists(path)) {
-      throw Error(`The file is not found: ${path}`);
-    }
-    return this.unsafeApp.vault.adapter.read(path);
-  }
-  async loadJson(path) {
-    return JSON.parse(await this.loadFile(path));
-  }
-  async saveJson(path, data) {
-    await this.unsafeApp.vault.adapter.write(path, JSON.stringify(data));
-  }
-  equalsAsEditorPosition(one, other) {
-    return one.line === other.line && one.ch === other.ch;
-  }
-  getAliases(file) {
-    var _a, _b;
-    return (_b = (0, import_obsidian.parseFrontMatterAliases)(
-      (_a = this.unsafeApp.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter
-    )) != null ? _b : [];
-  }
-  getFrontMatter(file) {
-    var _a, _b, _c, _d;
-    const frontMatter = (_a = this.unsafeApp.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter;
-    if (!frontMatter) {
-      return void 0;
-    }
-    const tags = (_c = (_b = (0, import_obsidian.parseFrontMatterTags)(frontMatter)) == null ? void 0 : _b.map((x) => x.slice(1))) != null ? _c : [];
-    const aliases = (_d = (0, import_obsidian.parseFrontMatterAliases)(frontMatter)) != null ? _d : [];
-    const { position, ...rest } = frontMatter;
-    return {
-      ...Object.fromEntries(
-        Object.entries(rest).map(([k, _v]) => [
-          k,
-          (0, import_obsidian.parseFrontMatterStringArray)(frontMatter, k)
-        ])
-      ),
-      tags,
-      tag: tags,
-      aliases,
-      alias: aliases
-    };
-  }
-  getBoolFrontMatter(file, key) {
-    var _a, _b;
-    return Boolean(
-      (_b = (_a = this.unsafeApp.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter) == null ? void 0 : _b[key]
-    );
-  }
-  getMarkdownViewInActiveLeaf() {
-    if (!this.unsafeApp.workspace.getActiveViewOfType(import_obsidian.MarkdownView)) {
-      return null;
-    }
-    return this.unsafeApp.workspace.activeLeaf.view;
-  }
-  getActiveFile() {
-    return this.unsafeApp.workspace.getActiveFile();
-  }
-  isActiveFile(file) {
-    var _a;
-    return ((_a = this.getActiveFile()) == null ? void 0 : _a.path) === file.path;
-  }
-  getPreviousFile() {
-    var _a;
-    const fName = (_a = this.unsafeApp.workspace.getLastOpenFiles()) == null ? void 0 : _a[1];
-    if (!fName) {
-      return null;
-    }
-    return this.getMarkdownFileByPath(fName);
-  }
-  getCurrentDirname() {
-    var _a, _b;
-    return (_b = (_a = this.getActiveFile()) == null ? void 0 : _a.parent.path) != null ? _b : null;
-  }
-  getCurrentEditor() {
-    var _a, _b;
-    return (_b = (_a = this.getMarkdownViewInActiveLeaf()) == null ? void 0 : _a.editor) != null ? _b : null;
-  }
-  getSelection() {
-    var _a;
-    return (_a = this.getCurrentEditor()) == null ? void 0 : _a.getSelection();
-  }
-  getCurrentOffset(editor) {
-    return editor.posToOffset(editor.getCursor());
-  }
-  getContentUntilCursor(editor) {
-    return editor.getValue().slice(0, this.getCurrentOffset(editor));
-  }
-  getCurrentLine(editor) {
-    return editor.getLine(editor.getCursor().line);
-  }
-  getCurrentLineUntilCursor(editor) {
-    return this.getCurrentLine(editor).slice(0, editor.getCursor().ch);
-  }
-  optimizeMarkdownLinkText(linkText) {
-    var _a;
-    const activeFile = this.getActiveFile();
-    if (!activeFile) {
-      return null;
-    }
-    const path = this.linkText2Path(linkText);
-    if (!path) {
-      return { displayed: linkText, link: linkText };
-    }
-    const file = this.getMarkdownFileByPath(path);
-    if (!file) {
-      return null;
-    }
-    const markdownLink = this.unsafeApp.fileManager.generateMarkdownLink(
-      file,
-      activeFile.path
-    );
-    if (markdownLink.startsWith("[[")) {
-      const text2 = (_a = markdownLink.matchAll(/^\[\[(?<text>.+)]]$/g).next().value.groups) == null ? void 0 : _a.text;
-      return { displayed: text2, link: text2 };
-    } else {
-      const { displayed, link } = markdownLink.matchAll(/^\[(?<displayed>.+)]\((?<link>.+)\.md\)$/g).next().value.groups;
-      return { displayed, link };
-    }
-  }
-  linkText2Path(linkText) {
-    var _a, _b;
-    const activeFile = this.getActiveFile();
-    if (!activeFile) {
-      return null;
-    }
-    return (_b = (_a = this.unsafeApp.metadataCache.getFirstLinkpathDest(
-      linkText,
-      activeFile.path
-    )) == null ? void 0 : _a.path) != null ? _b : null;
-  }
-  inMathBlock(editor) {
-    var _a, _b;
-    const numberOfDollarPair = (_b = (_a = this.getContentUntilCursor(editor).match(/\$\$\n/g)) == null ? void 0 : _a.length) != null ? _b : 0;
-    return numberOfDollarPair % 2 !== 0;
-  }
-  searchPhantomLinks() {
-    return Object.entries(this.unsafeApp.metadataCache.unresolvedLinks).flatMap(
-      ([path, obj]) => Object.keys(obj).map((link) => ({ path, link }))
-    );
-  }
-  getUnresolvedLinks(file) {
-    var _a;
-    const countsByLink = (_a = this.unsafeApp.metadataCache.unresolvedLinks[file.path]) != null ? _a : {};
-    return new Set(Object.keys(countsByLink));
-  }
-  getMarkdownFileByPath(path) {
-    if (!path.endsWith(".md")) {
-      return null;
-    }
-    const abstractFile = this.unsafeApp.vault.getAbstractFileByPath(path);
-    if (!abstractFile) {
-      return null;
-    }
-    return abstractFile;
-  }
-  openMarkdownFile(file, newLeaf, offset = 0) {
-    var _a;
-    const leaf = this.unsafeApp.workspace.getLeaf(newLeaf);
-    leaf.openFile(file, (_a = this.unsafeApp.workspace.activeLeaf) == null ? void 0 : _a.getViewState()).then(() => {
-      this.unsafeApp.workspace.setActiveLeaf(leaf, true, true);
-      const viewOfType = this.unsafeApp.workspace.getActiveViewOfType(import_obsidian.MarkdownView);
-      if (viewOfType) {
-        const editor = viewOfType.editor;
-        const pos = editor.offsetToPos(offset);
-        editor.setCursor(pos);
-        editor.scrollIntoView({ from: pos, to: pos }, true);
-      }
-    });
-  }
-  getCurrentFrontMatter() {
-    var _a, _b;
-    const editor = this.getCurrentEditor();
-    if (!editor) {
-      return null;
-    }
-    if (!this.getActiveFile()) {
-      return null;
-    }
-    if (editor.getLine(0) !== "---") {
-      return null;
-    }
-    const endPosition = editor.getValue().indexOf("---", 3);
-    const currentOffset = this.getCurrentOffset(editor);
-    if (endPosition !== -1 && currentOffset >= endPosition) {
-      return null;
-    }
-    const keyLocations = Array.from(
-      editor.getValue().matchAll(/\s*['"]?(?<key>.+?)['"]?:/g)
-    );
-    if (keyLocations.length === 0) {
-      return null;
-    }
-    const currentKeyLocation = keyLocations.filter((x) => x.index < currentOffset).last();
-    if (!currentKeyLocation) {
-      return null;
-    }
-    return (_b = (_a = currentKeyLocation.groups) == null ? void 0 : _a.key) != null ? _b : null;
-  }
-  /**
-   * Unsafe method
-   */
-  isIMEOn() {
-    var _a, _b, _c;
-    if (!this.unsafeApp.workspace.getActiveViewOfType(import_obsidian.MarkdownView)) {
-      return false;
-    }
-    const markdownView = this.unsafeApp.workspace.activeLeaf.view;
-    const cm5or6 = markdownView.editor.cm;
-    if (((_a = cm5or6 == null ? void 0 : cm5or6.inputState) == null ? void 0 : _a.composing) > 0) {
-      return true;
-    }
-    return !!((_c = (_b = cm5or6 == null ? void 0 : cm5or6.display) == null ? void 0 : _b.input) == null ? void 0 : _c.composing);
-  }
-  isMobile() {
-    return this.unsafeApp.isMobile;
-  }
-  async writeLog(log) {
-    await this.unsafeApp.vault.adapter.append((0, import_obsidian.normalizePath)("log.md"), log);
-  }
-  get useWikiLinks() {
-    return !this.unsafeApp.vault.config.useMarkdownLinks;
-  }
-  get newLinkFormat() {
-    var _a;
-    return (_a = this.unsafeApp.vault.config.newLinkFormat) != null ? _a : "shortest";
-  }
-};
-
-// src/model/Word.ts
-var _WordTypeMeta = class _WordTypeMeta {
-  constructor(type, priority, group) {
-    this.type = type;
-    this.priority = priority;
-    this.group = group;
-    _WordTypeMeta._values.push(this);
-    _WordTypeMeta._dict[type] = this;
-  }
-  static of(type) {
-    return _WordTypeMeta._dict[type];
-  }
-  static values() {
-    return _WordTypeMeta._values;
-  }
-};
-_WordTypeMeta._values = [];
-_WordTypeMeta._dict = {};
-_WordTypeMeta.FRONT_MATTER = new _WordTypeMeta(
-  "frontMatter",
-  100,
-  "frontMatter"
-);
-_WordTypeMeta.INTERNAL_LINK = new _WordTypeMeta(
-  "internalLink",
-  90,
-  "internalLink"
-);
-_WordTypeMeta.CUSTOM_DICTIONARY = new _WordTypeMeta(
-  "customDictionary",
-  80,
-  "suggestion"
-);
-_WordTypeMeta.CURRENT_FILE = new _WordTypeMeta(
-  "currentFile",
-  70,
-  "suggestion"
-);
-_WordTypeMeta.CURRENT_VAULT = new _WordTypeMeta(
-  "currentVault",
-  60,
-  "suggestion"
-);
-var WordTypeMeta = _WordTypeMeta;
-
-// src/provider/suggester.ts
-function suggestionUniqPredicate(a, b) {
-  if (a.value !== b.value) {
-    return false;
-  }
-  if (WordTypeMeta.of(a.type).group !== WordTypeMeta.of(b.type).group) {
-    return false;
-  }
-  if (a.type === "internalLink" && !a.phantom && a.createdPath !== b.createdPath) {
-    return false;
-  }
-  return true;
-}
-function pushWord(wordsByFirstLetter, key, word) {
-  if (wordsByFirstLetter[key] === void 0) {
-    wordsByFirstLetter[key] = [word];
-    return;
-  }
-  wordsByFirstLetter[key].push(word);
-}
-function judge(word, query, queryStartWithUpper, options) {
-  var _a, _b, _c;
-  if (query === "") {
-    return {
-      word: {
-        ...word,
-        hit: word.value
-      },
-      value: word.value,
-      alias: false
-    };
-  }
-  const matcher = (options == null ? void 0 : options.fuzzy) ? lowerFuzzy : wrapFuzzy(lowerStartsWith);
-  const matched = matcher(word.value, query);
-  if (matched.type === "concrete_match" || matched.type === "fuzzy_match" && matched.score > ((_a = options == null ? void 0 : options.fuzzy) == null ? void 0 : _a.minMatchScore)) {
-    if (queryStartWithUpper && word.type !== "internalLink" && word.type !== "frontMatter") {
-      const c = capitalizeFirstLetter(word.value);
-      return {
-        word: {
-          ...word,
-          value: c,
-          hit: c,
-          fuzzy: matched.type === "fuzzy_match"
-        },
-        value: c,
-        alias: false
-      };
-    } else {
-      return {
-        word: {
-          ...word,
-          hit: word.value,
-          fuzzy: matched.type === "fuzzy_match"
-        },
-        value: word.value,
-        alias: false
-      };
-    }
-  }
-  const matchedAlias = (_b = word.aliases) == null ? void 0 : _b.map((a) => ({ aliases: a, matched: matcher(a, query) })).sort(
-    (a, b) => a.matched.type === "concrete_match" && b.matched.type !== "concrete_match" ? -1 : 0
-  ).find((x) => x.matched.type !== "none");
-  if (matchedAlias && (matchedAlias.matched.type === "concrete_match" || matchedAlias.matched.type === "fuzzy_match" && matchedAlias.matched.score > ((_c = options == null ? void 0 : options.fuzzy) == null ? void 0 : _c.minMatchScore))) {
-    return {
-      word: {
-        ...word,
-        hit: matchedAlias.aliases,
-        fuzzy: matchedAlias.matched.type === "fuzzy_match"
-      },
-      value: matchedAlias.aliases,
-      alias: true
-    };
-  }
-  return {
-    word,
-    alias: false
-  };
-}
-function suggestWords(indexedWords, query, maxNum, option = {}) {
-  var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
-  const { frontMatter, selectionHistoryStorage } = option;
-  const queryStartWithUpper = capitalizeFirstLetter(query) === query;
-  const flattenFrontMatterWords = () => {
-    var _a2, _b2;
-    if (frontMatter === "alias" || frontMatter === "aliases") {
-      return [];
-    }
-    if (frontMatter && ((_a2 = indexedWords.frontMatter) == null ? void 0 : _a2[frontMatter])) {
-      return Object.values((_b2 = indexedWords.frontMatter) == null ? void 0 : _b2[frontMatter]).flat();
-    }
-    return [];
-  };
-  const words = queryStartWithUpper ? frontMatter ? flattenFrontMatterWords() : [
-    ...(_a = indexedWords.currentFile[query.charAt(0)]) != null ? _a : [],
-    ...(_b = indexedWords.currentFile[query.charAt(0).toLowerCase()]) != null ? _b : [],
-    ...(_c = indexedWords.currentVault[query.charAt(0)]) != null ? _c : [],
-    ...(_d = indexedWords.currentVault[query.charAt(0).toLowerCase()]) != null ? _d : [],
-    ...(_e = indexedWords.customDictionary[query.charAt(0)]) != null ? _e : [],
-    ...(_f = indexedWords.customDictionary[query.charAt(0).toLowerCase()]) != null ? _f : [],
-    ...(_g = indexedWords.internalLink[query.charAt(0)]) != null ? _g : [],
-    ...(_h = indexedWords.internalLink[query.charAt(0).toLowerCase()]) != null ? _h : []
-  ] : frontMatter ? flattenFrontMatterWords() : [
-    ...(_i = indexedWords.currentFile[query.charAt(0)]) != null ? _i : [],
-    ...(_j = indexedWords.currentFile[query.charAt(0).toUpperCase()]) != null ? _j : [],
-    ...(_k = indexedWords.currentVault[query.charAt(0)]) != null ? _k : [],
-    ...(_l = indexedWords.currentVault[query.charAt(0).toUpperCase()]) != null ? _l : [],
-    ...(_m = indexedWords.customDictionary[query.charAt(0)]) != null ? _m : [],
-    ...(_n = indexedWords.customDictionary[query.charAt(0).toUpperCase()]) != null ? _n : [],
-    ...(_o = indexedWords.internalLink[query.charAt(0)]) != null ? _o : [],
-    ...(_p = indexedWords.internalLink[query.charAt(0).toUpperCase()]) != null ? _p : []
-  ];
-  const filteredJudgement = Array.from(words).map((x) => judge(x, query, queryStartWithUpper, option)).filter((x) => x.value !== void 0);
-  const latestUpdated = max(
-    filteredJudgement.map(
-      (x) => {
-        var _a2, _b2;
-        return (_b2 = (_a2 = selectionHistoryStorage == null ? void 0 : selectionHistoryStorage.getSelectionHistory(x.word)) == null ? void 0 : _a2.lastUpdated) != null ? _b2 : 0;
-      }
-    ),
-    0
-  );
-  const candidate = filteredJudgement.sort((a, b) => {
-    const aWord = a.word;
-    const bWord = b.word;
-    if (a.word.fuzzy !== b.word.fuzzy) {
-      return a.word.fuzzy ? 1 : -1;
-    }
-    const notSameWordType = aWord.type !== bWord.type;
-    if (frontMatter && notSameWordType) {
-      return bWord.type === "frontMatter" ? 1 : -1;
-    }
-    if (selectionHistoryStorage) {
-      const ret = selectionHistoryStorage.compare(
-        aWord,
-        bWord,
-        latestUpdated
-      );
-      if (ret !== 0) {
-        return ret;
-      }
-    }
-    if (a.value.length !== b.value.length) {
-      return a.value.length > b.value.length ? 1 : -1;
-    }
-    if (notSameWordType) {
-      return WordTypeMeta.of(bWord.type).priority > WordTypeMeta.of(aWord.type).priority ? 1 : -1;
-    }
-    if (a.alias !== b.alias) {
-      return a.alias ? 1 : -1;
-    }
-    return 0;
-  }).map((x) => x.word).slice(0, maxNum);
-  return uniqWith(candidate, suggestionUniqPredicate);
-}
-function judgeByPartialMatch(word, query, queryStartWithUpper, options) {
-  var _a, _b, _c, _d, _e, _f;
-  if (query === "") {
-    return {
-      word: { ...word, hit: word.value },
-      value: word.value,
-      alias: false
-    };
-  }
-  const startsWithMatcher = (options == null ? void 0 : options.fuzzy) ? lowerFuzzyStarsWith : wrapFuzzy(lowerStartsWith);
-  const includesMatcher = (options == null ? void 0 : options.fuzzy) ? lowerFuzzy : wrapFuzzy(lowerIncludes);
-  const startsWithMatched = startsWithMatcher(word.value, query);
-  if (startsWithMatched.type === "concrete_match" || startsWithMatched.type === "fuzzy_match" && startsWithMatched.score > ((_a = options == null ? void 0 : options.fuzzy) == null ? void 0 : _a.minMatchScore)) {
-    if (queryStartWithUpper && word.type !== "internalLink" && word.type !== "frontMatter") {
-      const c = capitalizeFirstLetter(word.value);
-      return {
-        word: {
-          ...word,
-          value: c,
-          hit: c,
-          fuzzy: startsWithMatched.type === "fuzzy_match"
-        },
-        value: c,
-        alias: false
-      };
-    } else {
-      return {
-        word: {
-          ...word,
-          hit: word.value,
-          fuzzy: startsWithMatched.type === "fuzzy_match"
-        },
-        value: word.value,
-        alias: false
-      };
-    }
-  }
-  const startsWithAliasMatched = (_b = word.aliases) == null ? void 0 : _b.map((a) => ({ aliases: a, matched: startsWithMatcher(a, query) })).sort(
-    (a, b) => a.matched.type === "concrete_match" && b.matched.type !== "concrete_match" ? -1 : 0
-  ).find((x) => x.matched.type !== "none");
-  if (startsWithAliasMatched && (startsWithAliasMatched.matched.type === "concrete_match" || startsWithAliasMatched.matched.type === "fuzzy_match" && startsWithAliasMatched.matched.score > ((_c = options == null ? void 0 : options.fuzzy) == null ? void 0 : _c.minMatchScore))) {
-    return {
-      word: {
-        ...word,
-        hit: startsWithAliasMatched.aliases,
-        fuzzy: startsWithAliasMatched.matched.type === "fuzzy_match"
-      },
-      value: startsWithAliasMatched.aliases,
-      alias: true
-    };
-  }
-  const includesMatched = includesMatcher(word.value, query);
-  if (includesMatched && (includesMatched.type === "concrete_match" || includesMatched.type === "fuzzy_match" && includesMatched.score > ((_d = options == null ? void 0 : options.fuzzy) == null ? void 0 : _d.minMatchScore))) {
-    return {
-      word: {
-        ...word,
-        hit: word.value,
-        fuzzy: includesMatched.type === "fuzzy_match"
-      },
-      value: word.value,
-      alias: false
-    };
-  }
-  const matchedAliasIncluded = (_e = word.aliases) == null ? void 0 : _e.map((a) => ({ aliases: a, matched: includesMatcher(a, query) })).sort(
-    (a, b) => a.matched.type === "concrete_match" && b.matched.type !== "concrete_match" ? -1 : 0
-  ).find((x) => x.matched.type !== "none");
-  if (matchedAliasIncluded && (matchedAliasIncluded.matched.type === "concrete_match" || matchedAliasIncluded.matched.type === "fuzzy_match" && matchedAliasIncluded.matched.score > ((_f = options == null ? void 0 : options.fuzzy) == null ? void 0 : _f.minMatchScore))) {
-    return {
-      word: {
-        ...word,
-        hit: matchedAliasIncluded.aliases,
-        fuzzy: matchedAliasIncluded.matched.type === "fuzzy_match"
-      },
-      value: matchedAliasIncluded.aliases,
-      alias: true
-    };
-  }
-  return { word, alias: false };
-}
-function suggestWordsByPartialMatch(indexedWords, query, maxNum, option = {}) {
-  const { frontMatter, selectionHistoryStorage } = option;
-  const queryStartWithUpper = capitalizeFirstLetter(query) === query;
-  const flatObjectValues = (object) => Object.values(object).flat();
-  const flattenFrontMatterWords = () => {
-    var _a, _b;
-    if (frontMatter === "alias" || frontMatter === "aliases") {
-      return [];
-    }
-    if (frontMatter && ((_a = indexedWords.frontMatter) == null ? void 0 : _a[frontMatter])) {
-      return Object.values((_b = indexedWords.frontMatter) == null ? void 0 : _b[frontMatter]).flat();
-    }
-    return [];
-  };
-  const words = frontMatter ? flattenFrontMatterWords() : [
-    ...flatObjectValues(indexedWords.currentFile),
-    ...flatObjectValues(indexedWords.currentVault),
-    ...flatObjectValues(indexedWords.customDictionary),
-    ...flatObjectValues(indexedWords.internalLink)
-  ];
-  const filteredJudgement = Array.from(words).map((x) => judgeByPartialMatch(x, query, queryStartWithUpper, option)).filter((x) => x.value !== void 0);
-  const latestUpdated = max(
-    filteredJudgement.map(
-      (x) => {
-        var _a, _b;
-        return (_b = (_a = selectionHistoryStorage == null ? void 0 : selectionHistoryStorage.getSelectionHistory(x.word)) == null ? void 0 : _a.lastUpdated) != null ? _b : 0;
-      }
-    ),
-    0
-  );
-  const candidate = filteredJudgement.sort((a, b) => {
-    const aWord = a.word;
-    const bWord = b.word;
-    if (a.word.fuzzy !== b.word.fuzzy) {
-      return a.word.fuzzy ? 1 : -1;
-    }
-    const notSameWordType = aWord.type !== bWord.type;
-    if (frontMatter && notSameWordType) {
-      return bWord.type === "frontMatter" ? 1 : -1;
-    }
-    if (selectionHistoryStorage) {
-      const ret = selectionHistoryStorage.compare(
-        aWord,
-        bWord,
-        latestUpdated
-      );
-      if (ret !== 0) {
-        return ret;
-      }
-    }
-    const as = lowerStartsWith(a.value, query);
-    const bs = lowerStartsWith(b.value, query);
-    if (as !== bs) {
-      return bs ? 1 : -1;
-    }
-    if (a.value.length !== b.value.length) {
-      return a.value.length > b.value.length ? 1 : -1;
-    }
-    if (notSameWordType) {
-      return WordTypeMeta.of(bWord.type).priority > WordTypeMeta.of(aWord.type).priority ? 1 : -1;
-    }
-    if (a.alias !== b.alias) {
-      return a.alias ? 1 : -1;
-    }
-    return 0;
-  }).map((x) => x.word).slice(0, maxNum);
-  return uniqWith(candidate, suggestionUniqPredicate);
-}
-
-// src/provider/CustomDictionaryWordProvider.ts
-var import_obsidian2 = require("obsidian");
-
-// src/util/path.ts
-function basename(path, ext) {
-  var _a, _b;
-  const name = (_b = (_a = path.match(/.+[\\/]([^\\/]+)[\\/]?$/)) == null ? void 0 : _a[1]) != null ? _b : path;
-  return ext && name.endsWith(ext) ? name.replace(ext, "") : name;
-}
-function dirname(path) {
-  var _a, _b;
-  return (_b = (_a = path.match(/(.+)[\\/].+$/)) == null ? void 0 : _a[1]) != null ? _b : ".";
-}
-function isURL(path) {
-  return Boolean(path.match(new RegExp("^https?://")));
-}
-var DEFAULT_HISTORIES_PATH = ".obsidian/plugins/various-complements/histories.json";
-
-// src/provider/CustomDictionaryWordProvider.ts
-function escape(value) {
-  return value.replace(/\\/g, "__VariousComplementsEscape__").replace(/\n/g, "\\n").replace(/\t/g, "\\t").replace(/__VariousComplementsEscape__/g, "\\\\");
-}
-function unescape(value) {
-  return value.replace(/\\\\/g, "__VariousComplementsEscape__").replace(/\\n/g, "\n").replace(/\\t/g, "	").replace(/__VariousComplementsEscape__/g, "\\");
-}
-function jsonToWords(json, path, systemCaretSymbol) {
-  return json.words.map((x) => {
-    var _a;
-    return {
-      value: x.displayed || x.value,
-      description: x.description,
-      aliases: x.aliases,
-      type: "customDictionary",
-      createdPath: path,
-      insertedText: x.displayed ? x.value : void 0,
-      caretSymbol: (_a = json.caretSymbol) != null ? _a : systemCaretSymbol,
-      ignoreSpaceAfterCompletion: json.ignoreSpaceAfterCompletion
-    };
-  });
-}
-function lineToWord(line, delimiter, path, delimiterForDisplay, delimiterForHide, systemCaretSymbol) {
-  const [v, description, ...aliases] = line.split(delimiter.value);
-  let value = unescape(v);
-  let insertedText;
-  let displayedText = value;
-  if (delimiterForDisplay && value.includes(delimiterForDisplay)) {
-    [displayedText, insertedText] = value.split(delimiterForDisplay);
-  }
-  if (delimiterForHide && value.includes(delimiterForHide)) {
-    insertedText = value.replace(delimiterForHide, "");
-    displayedText = `${value.split(delimiterForHide)[0]} ...`;
-  }
-  return {
-    value: displayedText,
-    description,
-    aliases,
-    type: "customDictionary",
-    createdPath: path,
-    insertedText,
-    caretSymbol: systemCaretSymbol
-  };
-}
-function wordToLine(word, delimiter, dividerForDisplay) {
-  const value = word.insertedText && dividerForDisplay ? `${word.value}${dividerForDisplay}${word.insertedText}` : word.value;
-  const escapedValue = escape(value);
-  if (!word.description && !word.aliases) {
-    return escapedValue;
-  }
-  if (!word.aliases) {
-    return [escapedValue, word.description].join(delimiter.value);
-  }
-  return [escapedValue, word.description, ...word.aliases].join(
-    delimiter.value
-  );
-}
-var CustomDictionaryWordProvider = class {
-  constructor(app2, appHelper) {
-    this.words = [];
-    this.wordByValue = {};
-    this.wordsByFirstLetter = {};
-    this.appHelper = appHelper;
-    this.fileSystemAdapter = app2.vault.adapter;
-  }
-  get editablePaths() {
-    return this.paths.filter((x) => !isURL(x) && !x.endsWith(".json"));
-  }
-  async loadWords(path, option) {
-    const contents = isURL(path) ? await (0, import_obsidian2.request)({ url: path }) : await this.fileSystemAdapter.read(path);
-    const words = path.endsWith(".json") ? jsonToWords(JSON.parse(contents), path, option.caretSymbol) : contents.split(/\r\n|\n/).map((x) => x.replace(/%%.*%%/g, "")).filter((x) => x).map(
-      (x) => lineToWord(
-        x,
-        this.delimiter,
-        path,
-        option.delimiterForDisplay,
-        option.delimiterForHide,
-        option.caretSymbol
-      )
-    );
-    return words.filter(
-      (x) => !option.regexp || x.value.match(new RegExp(option.regexp))
-    );
-  }
-  async refreshCustomWords(option) {
-    this.clearWords();
-    for (const path of this.paths) {
-      try {
-        const words = await this.loadWords(path, option);
-        words.forEach(
-          (x) => this.addWord(x, {
-            emoji: option.makeSynonymAboutEmoji,
-            accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
-          })
-        );
-      } catch (e) {
-        new import_obsidian2.Notice(
-          `\u26A0 Fail to load ${path} -- Various Complements Plugin -- 
- ${e}`,
-          0
-        );
-      }
-    }
-  }
-  async addWordWithDictionary(word, dictionaryPath, synonymOption) {
-    this.addWord(word, synonymOption);
-    await this.fileSystemAdapter.append(
-      dictionaryPath,
-      "\n" + wordToLine(word, this.delimiter, this.dividerForDisplay)
-    );
-  }
-  addWord(word, synonymOption) {
-    var _a, _b;
-    this.words.push(word);
-    const wordWithSynonym = {
-      ...word,
-      aliases: [
-        ...(_a = word.aliases) != null ? _a : [],
-        ...synonymAliases(word.value, synonymOption)
-      ]
-    };
-    this.wordByValue[wordWithSynonym.value] = wordWithSynonym;
-    pushWord(
-      this.wordsByFirstLetter,
-      wordWithSynonym.value.charAt(0),
-      wordWithSynonym
-    );
-    (_b = wordWithSynonym.aliases) == null ? void 0 : _b.forEach(
-      (a) => pushWord(this.wordsByFirstLetter, a.charAt(0), wordWithSynonym)
-    );
-  }
-  clearWords() {
-    this.words = [];
-    this.wordByValue = {};
-    this.wordsByFirstLetter = {};
-  }
-  get wordCount() {
-    return this.words.length;
-  }
-  setSettings(paths, delimiter, dividerForDisplay) {
-    this.paths = paths;
-    this.delimiter = delimiter;
-    this.dividerForDisplay = dividerForDisplay;
-  }
-};
-
-// src/provider/CurrentFileWordProvider.ts
-var CurrentFileWordProvider = class {
-  constructor(app2, appHelper) {
-    this.app = app2;
-    this.appHelper = appHelper;
-    this.wordsByFirstLetter = {};
-    this.words = [];
-  }
-  async refreshWords(option) {
-    var _a;
-    this.clearWords();
-    const editor = this.appHelper.getCurrentEditor();
-    if (!editor) {
-      return;
-    }
-    const file = this.app.workspace.getActiveFile();
-    if (!file) {
-      return;
-    }
-    const currentToken = this.tokenizer.tokenize(
-      editor.getLine(editor.getCursor().line).slice(0, editor.getCursor().ch)
-    ).last();
-    const excludePatterns = option.excludeWordPatterns.map(
-      (x) => new RegExp(`^${x}$`)
-    );
-    const content = await this.app.vault.cachedRead(file);
-    const tokens = this.tokenizer.tokenize(content).filter((x) => {
-      if (x.length < option.minNumberOfCharacters) {
-        return false;
-      }
-      if (this.tokenizer.shouldIgnoreOnCurrent(x)) {
-        return false;
-      }
-      return option.onlyEnglish ? allAlphabets(x) : true;
-    }).map((x) => startsSmallLetterOnlyFirst(x) ? x.toLowerCase() : x).filter((x) => !excludePatterns.some((rp) => x.match(rp)));
-    this.words = uniq(tokens).filter((x) => x !== currentToken).map((x) => ({
-      value: x,
-      type: "currentFile",
-      createdPath: file.path,
-      aliases: synonymAliases(x, {
-        emoji: option.makeSynonymAboutEmoji,
-        accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
-      })
-    }));
-    for (const word of this.words) {
-      pushWord(this.wordsByFirstLetter, word.value.charAt(0), word);
-      (_a = word.aliases) == null ? void 0 : _a.forEach(
-        (a) => pushWord(this.wordsByFirstLetter, a.charAt(0), word)
-      );
-    }
-  }
-  clearWords() {
-    this.words = [];
-    this.wordsByFirstLetter = {};
-  }
-  get wordCount() {
-    return this.words.length;
-  }
-  setSettings(tokenizer) {
-    this.tokenizer = tokenizer;
-  }
-};
-
-// src/provider/InternalLinkWordProvider.ts
-var InternalLinkWordProvider = class {
-  constructor(app2, appHelper) {
-    this.app = app2;
-    this.appHelper = appHelper;
-    this.words = [];
-    this.wordsByFirstLetter = {};
-  }
-  refreshWords(option) {
-    var _a;
-    this.clearWords();
-    const resolvedInternalLinkWords = this.app.vault.getMarkdownFiles().filter((f) => {
-      if (option.excludePathPrefixPatterns.some((x) => f.path.startsWith(x))) {
-        return false;
-      }
-      if (!option.frontMatterKeyForExclusion) {
-        return true;
-      }
-      return !this.appHelper.getBoolFrontMatter(
-        f,
-        option.frontMatterKeyForExclusion
-      );
-    }).flatMap((x) => {
-      const aliases = this.appHelper.getAliases(x);
-      if (option.wordAsInternalLinkAlias) {
-        return [
-          {
-            value: x.basename,
-            type: "internalLink",
-            createdPath: x.path,
-            aliases: synonymAliases(x.basename, {
-              emoji: option.makeSynonymAboutEmoji,
-              accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
-            }),
-            description: x.path
-          },
-          ...aliases.map((a) => ({
-            value: a,
-            type: "internalLink",
-            createdPath: x.path,
-            aliases: synonymAliases(a, {
-              emoji: option.makeSynonymAboutEmoji,
-              accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
-            }),
-            description: x.path,
-            aliasMeta: {
-              origin: x.path
-            }
-          }))
-        ];
-      } else {
-        return [
-          {
-            value: x.basename,
-            type: "internalLink",
-            createdPath: x.path,
-            aliases: [
-              ...synonymAliases(x.basename, {
-                emoji: option.makeSynonymAboutEmoji,
-                accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
-              }),
-              ...aliases,
-              ...aliases.flatMap(
-                (al) => synonymAliases(al, {
-                  emoji: option.makeSynonymAboutEmoji,
-                  accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
-                })
-              )
-            ],
-            description: x.path
-          }
-        ];
-      }
-    });
-    const unresolvedInternalLinkWords = this.appHelper.searchPhantomLinks().map(({ path, link }) => {
-      return {
-        value: link,
-        type: "internalLink",
-        createdPath: path,
-        aliases: synonymAliases(link, {
-          emoji: option.makeSynonymAboutEmoji,
-          accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
-        }),
-        description: `Appeared in -> ${path}`,
-        phantom: true
-      };
-    });
-    this.words = [...resolvedInternalLinkWords, ...unresolvedInternalLinkWords];
-    for (const word of this.words) {
-      pushWord(this.wordsByFirstLetter, word.value.charAt(0), word);
-      (_a = word.aliases) == null ? void 0 : _a.forEach(
-        (a) => pushWord(this.wordsByFirstLetter, a.charAt(0), word)
-      );
-    }
-  }
-  clearWords() {
-    this.words = [];
-    this.wordsByFirstLetter = {};
-  }
-  get wordCount() {
-    return this.words.length;
-  }
-};
-
-// src/provider/MatchStrategy.ts
-var _MatchStrategy = class _MatchStrategy {
-  constructor(name, handler) {
-    this.name = name;
-    this.handler = handler;
-    _MatchStrategy._values.push(this);
-  }
-  static fromName(name) {
-    return _MatchStrategy._values.find((x) => x.name === name);
-  }
-  static values() {
-    return _MatchStrategy._values;
-  }
-};
-_MatchStrategy._values = [];
-_MatchStrategy.PREFIX = new _MatchStrategy("prefix", suggestWords);
-_MatchStrategy.PARTIAL = new _MatchStrategy(
-  "partial",
-  suggestWordsByPartialMatch
-);
-var MatchStrategy = _MatchStrategy;
-
-// src/option/ColumnDelimiter.ts
-var _ColumnDelimiter = class _ColumnDelimiter {
-  constructor(name, value) {
-    this.name = name;
-    this.value = value;
-    _ColumnDelimiter._values.push(this);
-  }
-  static fromName(name) {
-    return _ColumnDelimiter._values.find((x) => x.name === name);
-  }
-  static values() {
-    return _ColumnDelimiter._values;
-  }
-};
-_ColumnDelimiter._values = [];
-_ColumnDelimiter.TAB = new _ColumnDelimiter("Tab", "	");
-_ColumnDelimiter.COMMA = new _ColumnDelimiter("Comma", ",");
-_ColumnDelimiter.PIPE = new _ColumnDelimiter("Pipe", "|");
-var ColumnDelimiter = _ColumnDelimiter;
-
-// src/provider/CurrentVaultWordProvider.ts
-var CurrentVaultWordProvider = class {
-  constructor(app2, appHelper) {
-    this.app = app2;
-    this.appHelper = appHelper;
-    this.wordsByFirstLetter = {};
-    this.words = [];
-  }
-  async refreshWords(option) {
-    var _a;
-    this.clearWords();
-    const currentDirname = this.appHelper.getCurrentDirname();
-    const markdownFilePaths = this.app.vault.getMarkdownFiles().map((x) => x.path).filter((p) => this.includePrefixPatterns.every((x) => p.startsWith(x))).filter((p) => this.excludePrefixPatterns.every((x) => !p.startsWith(x))).filter(
-      (p) => !this.onlyUnderCurrentDirectory || dirname(p) === currentDirname
-    );
-    const excludePatterns = option.excludeWordPatterns.map(
-      (x) => new RegExp(`^${x}$`)
-    );
-    let wordByValue = {};
-    for (const path of markdownFilePaths) {
-      const content = await this.app.vault.adapter.read(path);
-      const tokens = this.tokenizer.tokenize(content).filter(
-        (x) => x.length >= option.minNumberOfCharacters && !this.tokenizer.shouldIgnoreOnCurrent(x)
-      ).map((x) => startsSmallLetterOnlyFirst(x) ? x.toLowerCase() : x).filter((x) => !excludePatterns.some((rp) => x.match(rp)));
-      for (const token of tokens) {
-        wordByValue[token] = {
-          value: token,
-          type: "currentVault",
-          createdPath: path,
-          description: path,
-          aliases: synonymAliases(token, {
-            emoji: option.makeSynonymAboutEmoji,
-            accentsDiacritics: option.makeSynonymAboutAccentsDiacritics
-          })
-        };
-      }
-    }
-    this.words = Object.values(wordByValue);
-    for (const word of this.words) {
-      pushWord(this.wordsByFirstLetter, word.value.charAt(0), word);
-      (_a = word.aliases) == null ? void 0 : _a.forEach(
-        (a) => pushWord(this.wordsByFirstLetter, a.charAt(0), word)
-      );
-    }
-  }
-  clearWords() {
-    this.words = [];
-    this.wordsByFirstLetter = {};
-  }
-  get wordCount() {
-    return this.words.length;
-  }
-  setSettings(tokenizer, includePrefixPatterns, excludePrefixPatterns, onlyUnderCurrentDirectory) {
-    this.tokenizer = tokenizer;
-    this.includePrefixPatterns = includePrefixPatterns;
-    this.excludePrefixPatterns = excludePrefixPatterns;
-    this.onlyUnderCurrentDirectory = onlyUnderCurrentDirectory;
-  }
-};
-
-// src/option/DescriptionOnSuggestion.ts
-var _DescriptionOnSuggestion = class _DescriptionOnSuggestion {
-  constructor(name, toDisplay) {
-    this.name = name;
-    this.toDisplay = toDisplay;
-    _DescriptionOnSuggestion._values.push(this);
-  }
-  static fromName(name) {
-    return _DescriptionOnSuggestion._values.find((x) => x.name === name);
-  }
-  static values() {
-    return _DescriptionOnSuggestion._values;
-  }
-};
-_DescriptionOnSuggestion._values = [];
-_DescriptionOnSuggestion.NONE = new _DescriptionOnSuggestion("None", () => null);
-_DescriptionOnSuggestion.SHORT = new _DescriptionOnSuggestion("Short", (word) => {
-  if (!word.description) {
-    return null;
-  }
-  return word.type === "customDictionary" ? word.description : basename(word.description);
-});
-_DescriptionOnSuggestion.FULL = new _DescriptionOnSuggestion(
-  "Full",
-  (word) => {
-    var _a;
-    return (_a = word.description) != null ? _a : null;
-  }
-);
-var DescriptionOnSuggestion = _DescriptionOnSuggestion;
-
-// src/provider/FrontMatterWordProvider.ts
-function synonymAliases2(name) {
-  const lessEmojiValue = excludeEmoji(name);
-  return name === lessEmojiValue ? [] : [lessEmojiValue];
-}
-function frontMatterToWords(file, key, values) {
-  return values.map((x) => ({
-    key,
-    value: x,
-    type: "frontMatter",
-    createdPath: file.path,
-    aliases: synonymAliases2(x)
-  }));
-}
-function pickWords(file, fm) {
-  return Object.entries(fm).filter(
-    ([_key, value]) => value != null && (typeof value === "string" || typeof value[0] === "string")
-  ).flatMap(([key, value]) => frontMatterToWords(file, key, value));
-}
-function extractAndUniqWords(wordsByCreatedPath) {
-  return uniqBy(
-    Object.values(wordsByCreatedPath).flat(),
-    (w) => w.key + w.value.toLowerCase()
-  );
-}
-function indexingWords(words) {
-  const wordsByKey = groupBy(words, (x) => x.key);
-  return Object.fromEntries(
-    Object.entries(wordsByKey).map(
-      ([key, words2]) => [
-        key,
-        groupBy(words2, (w) => w.value.charAt(0))
-      ]
-    )
-  );
-}
-var FrontMatterWordProvider = class {
-  constructor(app2, appHelper) {
-    this.app = app2;
-    this.appHelper = appHelper;
-    this.wordsByCreatedPath = {};
-  }
-  refreshWords() {
-    this.clearWords();
-    this.app.vault.getMarkdownFiles().forEach((f) => {
-      const fm = this.appHelper.getFrontMatter(f);
-      if (!fm) {
-        return;
-      }
-      this.wordsByCreatedPath[f.path] = pickWords(f, fm);
-    });
-    this.words = extractAndUniqWords(this.wordsByCreatedPath);
-    this.wordsByFirstLetterByKey = indexingWords(this.words);
-  }
-  updateWordIndex(file) {
-    const fm = this.appHelper.getFrontMatter(file);
-    if (!fm) {
-      return;
-    }
-    this.wordsByCreatedPath[file.path] = pickWords(file, fm);
-  }
-  updateWords() {
-    this.words = extractAndUniqWords(this.wordsByCreatedPath);
-    this.wordsByFirstLetterByKey = indexingWords(this.words);
-  }
-  clearWords() {
-    this.wordsByCreatedPath = {};
-    this.words = [];
-    this.wordsByFirstLetterByKey = {};
-  }
-  get wordCount() {
-    return this.words.length;
-  }
-};
-
-// src/provider/SpecificMatchStrategy.ts
-var neverUsedHandler = (..._args) => [];
-var _SpecificMatchStrategy = class _SpecificMatchStrategy {
-  constructor(name, handler) {
-    this.name = name;
-    this.handler = handler;
-    _SpecificMatchStrategy._values.push(this);
-  }
-  static fromName(name) {
-    return _SpecificMatchStrategy._values.find((x) => x.name === name);
-  }
-  static values() {
-    return _SpecificMatchStrategy._values;
-  }
-};
-_SpecificMatchStrategy._values = [];
-_SpecificMatchStrategy.INHERIT = new _SpecificMatchStrategy(
-  "inherit",
-  neverUsedHandler
-);
-_SpecificMatchStrategy.PREFIX = new _SpecificMatchStrategy("prefix", suggestWords);
-_SpecificMatchStrategy.PARTIAL = new _SpecificMatchStrategy(
-  "partial",
-  suggestWordsByPartialMatch
-);
-var SpecificMatchStrategy = _SpecificMatchStrategy;
-
-// src/storage/SelectionHistoryStorage.ts
-var SEC = 1e3;
-var MIN = SEC * 60;
-var HOUR = MIN * 60;
-var DAY = HOUR * 24;
-var WEEK = DAY * 7;
-function calcScore(history, latestUpdated) {
-  if (!history) {
-    return 0;
-  }
-  if (history.lastUpdated === latestUpdated) {
-    return Number.MAX_SAFE_INTEGER;
-  }
-  const behind = Date.now() - history.lastUpdated;
-  if (behind < MIN) {
-    return 8 * history.count;
-  } else if (behind < HOUR) {
-    return 4 * history.count;
-  } else if (behind < DAY) {
-    return 2 * history.count;
-  } else if (behind < WEEK) {
-    return 0.5 * history.count;
-  } else {
-    return 0.25 * history.count;
-  }
-}
-var SelectionHistoryStorage = class {
-  constructor(data = {}, maxDaysToKeepHistory, maxNumberOfHistoryToKeep) {
-    this.data = data;
-    const now2 = Date.now();
-    this.version = now2;
-    this.persistedVersion = now2;
-    this.maxDaysToKeepHistory = maxDaysToKeepHistory;
-    this.maxNumberOfHistoryToKeep = maxNumberOfHistoryToKeep;
-  }
-  // noinspection FunctionWithMultipleLoopsJS
-  purge() {
-    var _a;
-    const now2 = Date.now();
-    const times = [];
-    for (const hit of Object.keys(this.data)) {
-      for (const value of Object.keys(this.data[hit])) {
-        for (const kind of Object.keys(this.data[hit][value])) {
-          if (this.maxDaysToKeepHistory && now2 - this.data[hit][value][kind].lastUpdated > this.maxDaysToKeepHistory * DAY) {
-            delete this.data[hit][value][kind];
-          } else {
-            times.push(this.data[hit][value][kind].lastUpdated);
-          }
-        }
-        if (Object.isEmpty(this.data[hit][value])) {
-          delete this.data[hit][value];
-        }
-      }
-      if (Object.isEmpty(this.data[hit])) {
-        delete this.data[hit];
-      }
-    }
-    if (this.maxNumberOfHistoryToKeep) {
-      const threshold = (_a = times.sort((a, b) => a > b ? -1 : 1).slice(0, this.maxNumberOfHistoryToKeep).at(-1)) != null ? _a : 0;
-      for (const hit of Object.keys(this.data)) {
-        for (const value of Object.keys(this.data[hit])) {
-          for (const kind of Object.keys(this.data[hit][value])) {
-            if (this.data[hit][value][kind].lastUpdated < threshold) {
-              delete this.data[hit][value][kind];
-            }
-          }
-          if (Object.isEmpty(this.data[hit][value])) {
-            delete this.data[hit][value];
-          }
-        }
-        if (Object.isEmpty(this.data[hit])) {
-          delete this.data[hit];
-        }
-      }
-    }
-  }
-  getSelectionHistory(word) {
-    var _a, _b;
-    return (_b = (_a = this.data[word.hit]) == null ? void 0 : _a[word.value]) == null ? void 0 : _b[word.type];
-  }
-  increment(word) {
-    if (!this.data[word.hit]) {
-      this.data[word.hit] = {};
-    }
-    if (!this.data[word.hit][word.value]) {
-      this.data[word.hit][word.value] = {};
-    }
-    if (this.data[word.hit][word.value][word.type]) {
-      this.data[word.hit][word.value][word.type] = {
-        count: this.data[word.hit][word.value][word.type].count + 1,
-        lastUpdated: Date.now()
-      };
-    } else {
-      this.data[word.hit][word.value][word.type] = {
-        count: 1,
-        lastUpdated: Date.now()
-      };
-    }
-    this.version = Date.now();
-  }
-  compare(w1, w2, latestUpdated) {
-    const score1 = calcScore(this.getSelectionHistory(w1), latestUpdated);
-    const score2 = calcScore(this.getSelectionHistory(w2), latestUpdated);
-    if (score1 === score2) {
-      return 0;
-    }
-    return score1 > score2 ? -1 : 1;
-  }
-  get shouldPersist() {
-    return this.version > this.persistedVersion;
-  }
-  syncPersistVersion() {
-    this.persistedVersion = this.version;
-  }
-};
-
 // src/ui/popup-commands.ts
 var import_obsidian4 = require("obsidian");
 
@@ -4158,7 +4156,10 @@ var AutoCompleteSuggest = class _AutoCompleteSuggest extends import_obsidian5.Ed
   }
   registerKeyAsIgnored(modifiers, key) {
     this.keymapEventHandler.push(
-      this.scope.register(modifiers, key, () => {
+      this.scope.register(modifiers, key, (evt) => {
+        if (evt.isComposing) {
+          return;
+        }
         this.close();
         return true;
       })

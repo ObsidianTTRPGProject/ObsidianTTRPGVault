@@ -268,7 +268,8 @@
       "obsidian-kanban:Create new board": false,
       "solo-rpg-toolkit:Solo RPG Toolkit": false,
       "obsidian42-brat:BRAT": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
   "active": "743fb8fb740901ff",

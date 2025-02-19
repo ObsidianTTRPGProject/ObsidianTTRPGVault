@@ -5731,9 +5731,12 @@ var FolderNotesPlugin = class extends import_obsidian33.Plugin {
     this.registerEvent(this.app.vault.on("delete", (file) => {
       handleDelete(file, this);
     }));
-    this.registerMarkdownCodeBlockProcessor("folder-overview", (source, el, ctx) => {
-      this.handleOverviewBlock(source, el, ctx);
-    });
+    const folderOverviewEnabled = this.app.plugins.getPlugin("folder-overview");
+    if (!folderOverviewEnabled) {
+      this.registerMarkdownCodeBlockProcessor("folder-overview", (source, el, ctx) => {
+        this.handleOverviewBlock(source, el, ctx);
+      });
+    }
     if (this.app.workspace.layoutReady) {
       loadFileClasses(void 0, this);
       this.registerEvent(this.app.workspace.on("layout-change", () => {
@@ -5904,5 +5907,6 @@ var FolderNotesPlugin = class extends import_obsidian33.Plugin {
     }
   }
 };
+
 
 /* nosourcemap */
