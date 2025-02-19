@@ -9,6 +9,15 @@ PrimaryHome:
   - Adelaide
   - Melbourne
 NoteIcon: group
+faction: "Harpers"
+benefits:
+  - standing: 1
+    reward: "Basic Membership?"
+  - standing: 2
+    reward: "Trusted with ?"
+  - standing: 3
+    reward: "Tasked with ?"
+primary_contact: "[[Jasmine]]"
 ---
 
 NewGroup  

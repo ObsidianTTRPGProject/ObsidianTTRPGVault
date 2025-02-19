@@ -18,8 +18,6 @@ tags:
   - journal
 ---
 
-<% await tp.file.move("/1-Session Journals/" + tp.file.title) %>
-
 <%*
 const hasTitle = !tp.file.title.startsWith("NewJournal");
 let title;

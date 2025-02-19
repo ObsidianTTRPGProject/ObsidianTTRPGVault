@@ -8,13 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "96e3f28e2be2a2cf",
+            "id": "743fb8fb740901ff",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "2-World/Ruins of The Twilight Palace.md",
+                "mode": "preview",
+                "source": true
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Ruins of The Twilight Palace"
             }
           }
         ]
@@ -106,7 +110,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 338.5
+    "width": 395.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -267,35 +271,37 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "2911de48d50d504c",
+  "active": "743fb8fb740901ff",
   "lastOpenFiles": [
-    "z_Assets/download.gif",
-    "0-Scratch Notes/Untitled.md",
-    "z_Assets/main.js",
-    "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
-    "1-DM Toolkit/DnD5e-SideScreen-2024.md",
-    "3-Mechanics/Where To Get Mechanics.md",
-    "z_Templates/TemplateGroup.md",
-    "1-DM Toolkit/DM Board.md",
-    "1-DM Toolkit/Home.md",
-    "1-DM Toolkit/Vault Report.md",
-    "1-DM Toolkit/Travel Calculator.md",
-    "1-DM Toolkit/PF2e-DM Screen.md",
-    "1-DM Toolkit/Map Calculator.md",
-    "1-DM Toolkit/Map-Faerun.md",
-    "1-DM Toolkit/Journey Board.md",
-    "1-DM Toolkit/DnD5e-SideScreen-2014.md",
-    "1-DM Toolkit/DnD5e-DM Screen-2014.md",
-    "3-Mechanics/CLI/CLI.md",
-    "z_Example Notes/z_Example Notes.md",
-    "z_Example Notes/Realm Design Form.md",
+    "2-World/Lampoteuo/The Wound/The Wound.md",
+    "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
+    "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
+    "2-World/Lampoteuo/Lampoteuo.md",
+    "2-World/Logger's Camp.md",
     "2-World/Ruins of The Twilight Palace.md",
-    "0-Scratch Notes/Add Random Notes Here.md",
-    "0-Scratch Notes/Map - Loggers Cove.md",
-    "0-Scratch Notes/Random Dungeon.md",
-    "0-Scratch Notes/Test Nate F..md",
-    "0-Scratch Notes/Skull Island.md",
-    "0-Scratch Notes/New Location.md",
+    "2-World/New Home Town.md",
+    "2-World/Test.md",
+    "z_Templates/TemplateSettlement.md",
+    "1-Party/Example Party 1/Bob.md",
+    "2-Campaign/Quests/Warn the Midwife.md",
+    "2-Campaign/Quests/Beat the Goblin.md",
+    "z_Templates/How To Create New Templates.md",
+    "z_Templates/Text Generator Templates/Session Summary.md",
+    "z_Templates/Text Generator Templates/Generate Weaponry.md",
+    "z_Templates/Text Generator Templates/Generate Spell Book.md",
+    "z_Templates/Text Generator Templates/Generate Sly Flourish Adventure.md",
+    "z_Templates/Text Generator Templates/Generate Random Table.md",
+    "z_Templates/Text Generator Templates/Generate General Store.md",
+    "z_Templates/Text Generator Templates/Generate Inn.md",
+    "z_Templates/Text Generator Templates/Generate Job Board.md",
+    "z_Templates/Text Generator Templates/Generate Magic Store.md",
+    "z_Templates/Text Generator Templates/Generate Dungeon Room.md",
+    "z_Templates/Text Generator Templates/Generate Character Meeting.md",
+    "z_Templates/Text Generator Templates/Generate Armory.md",
+    "z_Templates/Text Generator Templates/Generate Apothecary.md",
+    "z_Templates/Text Generator Templates",
+    "z_Assets/download.gif",
+    "z_Assets/main.js",
     "2-World/Lampoteuo/The Screaming Tree",
     "3-Mechanics/CLI/books/players-handbook-2024/img/credits3.webp",
     "3-Mechanics/CLI/books/players-handbook-2024/img/credits2.webp",
@@ -306,7 +312,6 @@
     "3-Mechanics/CLI/books/players-handbook-2024/img/182-08-002-aasimar-wizard.webp",
     "3-Mechanics/CLI/books/players-handbook-2024/img/181-08-001-jallarzi-mordenkainen-bigby.webp",
     "3-Mechanics/CLI/books/players-handbook-2024/img/180-07-006-wizard-familiar-shopping.webp",
-    "3-Mechanics/CLI/books/players-handbook-2024/img/179-07-005-adventurer-with-tools.webp",
     "3-Mechanics/CLI/books/players-handbook-2024/img",
     "3-Mechanics/CLI/books/dungeon-masters-guide-2024/img",
     "3-Mechanics/CLI/books/players-handbook-2024",
@@ -314,7 +319,6 @@
     "3-Mechanics/CLI/books",
     "3-Mechanics/CLI/bestiary/undead/token",
     "3-Mechanics/CLI/bestiary/undead/img",
-    "3-Mechanics/CLI/bestiary/plant/token",
     "0-Scratch Notes/Untitled.canvas",
     "Untitled.canvas"
   ]

@@ -28,8 +28,6 @@ imports:
  - Something Else
 ---
 
-<% await tp.file.move("/2-World/" + tp.file.title) %>
-
 <%*
 const hasTitle = !tp.file.title.startsWith("NewLocation");
 let title;
@@ -41,38 +39,37 @@ if (!hasTitle) {
 }
 _%>
 
-
 > [!infobox]
-> # `=this.file.name`
+> # `=this.file.name` 
 > ![[MapPlaceholder.png|cover hsmall]]
 > ###### Geography
 > Type |  Stat |
 > ---|---|
-> Type | `=this.type` |
-> Size | `=this.size` |
-> Region | `=this.region` |
-> ###### Travel (`=[[Travel Calculator]].HoursPerDay` hrs per day)
-> ###### [[Travel Calculator]]  / [[Exhaustion]]:  `=[[Travel Calculator]].ExhaustionLevel`
+> Type | `VIEW[{type}][text]` |
+> Size | `VIEW[{size}][text]` |
+> Region | `VIEW[{region}][text]` |
+> ###### Travel (`VIEW[{Travel Calculator#HoursPerDay}][math]` hrs per day)
+> ###### [[Travel Calculator]]  / [[Exhaustion]]: `VIEW[{Travel Calculator#ExhaustionLevel}][math]`
 > Destination |  Travel Days  |
 > ---|---|
 > [[Voonlar]] | 🕓: `VIEW[round((88* {Travel Calculator#TravelCalc}) / 60 / {Travel Calculator#HoursPerDay}, 1)]`      |
 > ###### Politics
 > Type |  Stat |
 > ---|---|
-> Govt Type | `=this.politics` |
-> Ruler | `=this.leader` |
-> Defense | `=this.defences` |
+> Govt Type | `VIEW[{politics}][text]` |
+> Ruler | `VIEW[{leader}][text]`|
+> Defense | `VIEW[{defences}][text]`|
 > ###### Society
 > Type |  Stat |
 > ---|---|
-> Population | `=this.population` |
-> Races | `=this.commonraces` |
-> Temples | `=this.religion`  |
+> Population | `VIEW[{population}][text]` |
+> Races | `VIEW[{commonraces}][text]`|
+> Temples | `VIEW[{religion}][text]` |
 > ###### Commerce
 > Type |  Stat |
 > ---|---|
-> Exports | `=this.exports` |
-> Imports | `=this.imports` |
+> Exports | `VIEW[{exports}][text]` |
+> Imports | `VIEW[{imports}][text]` |
 > ###### Organizations
 > Type |  Stat |
 > ---|---|

@@ -6,14 +6,11 @@ Age: "1"
 Class: 
 Alignment: 
 Character-Role: 
-Location: 
+Location: home
 NoteIcon: npc
 Vitality: Deceased
 exampleProperty: z_Assets/Decks/Business Card Dungeon/Dungeon16.png
 ---
-
-<% await tp.file.move("/3-Mechanics/NPCs/" + tp.file.title) %>
-
 <%*
 const hasTitle = !tp.file.title.startsWith("NewNPC");
 let title;
@@ -32,18 +29,18 @@ _%>
 > ###### Basic Information
 > Type |  Stat |
 > ---|---|
-> Home | `=this.Location` |
-> Group | `=this.AssociatedGroup` |
-> Sex | `=this.gender` |
-> Race | `=this.race` |
-> Age | `=this.age` |
-> Condition | Healthy |
+> Home | `VIEW[{Location}][text]`  |
+> Group | `VIEW[{AssociatedGroup}][text]` |
+> Sex | `VIEW[{Gender}][text]` |
+> Race | `VIEW[{Race}][text]` |
+> Age | `VIEW[{Age}][text]`|
+> Condition | `VIEW[{Vitality}][text]` |
 > ###### Rules Info
 > Type |  Stat |
 > ---|---|
-> Alignment | `=this.alignment` |
-> Class | `=this.class` |
-> Character Role | `=this.character-role` |
+> Alignment | `VIEW[{Alignment}][text]` |
+> Class | `VIEW[{Class}][text]`  |
+> Character Role | `VIEW[{Character-Role}][text]` |
 
 # `=this.file.name`
 ## Profile

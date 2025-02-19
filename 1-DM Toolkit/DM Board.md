@@ -10,73 +10,14 @@ where contains(Role, "Player")
 where contains(Status, "Active")
 ```
 
-```meta-bind-button
-label: New Journal Entry
-hidden: false
-id: ""
-style: primary
-actions:
-  - type: templaterCreateNote
-    templateFile: "z_Templates/TemplateJournal.md"
-    fileName: NewJournal
-```
+`BUTTON[newJournal]` `BUTTON[newPlayer]`
+%% These are Inline Buttons. Inline allows the buttons to be placed on the same line next to each other %%
+`BUTTON[newNPC]` `BUTTON[newNPCwb]` 
+%% Button's are defined within the Meta Bind Plugin. See Button Templates. %%
+`BUTTON[newLocation]` `BUTTON[newGroup]`
 
-```meta-bind-button
-label: New NPC
-hidden: false
-id: ""
-style: primary
-actions:
-  - type: templaterCreateNote
-    templateFile: "z_Templates/TemplateNPC.md"
-    fileName: NewNPC
-```
+`BUTTON[button_quest]`  `BUTTON[newMagicItem]` 
 
-```meta-bind-button
-label: New Location
-hidden: false
-id: ""
-style: primary
-actions:
-  - type: templaterCreateNote
-    templateFile: "z_Templates/TemplateSettlement.md"
-    fileName: NewLocation
-```
-
-```meta-bind-button
-label: New Guild or Group
-hidden: false
-id: ""
-style: primary
-actions:
-  - type: templaterCreateNote
-    templateFile: "z_Templates/TemplateGroup.md"
-    fileName: NewGroup
-```
-
-```meta-bind-button
-label: New Magic Item
-hidden: false
-id: ""
-style: primary
-actions:
-  - type: templaterCreateNote
-    templateFile: "z_Templates/TemplateMagicItem.md"
-    fileName: NewMagicItem
-```
-
-```meta-bind-button
-label: New Player
-hidden: false
-id: ""
-style: primary
-actions:
-  - type: templaterCreateNote
-    templateFile: "z_Templates/TemplatePlayer.md"
-    fileName: NewPlayer
-```
-
-`BUTTON[button_quest]` 
 
 ## Known Languages
 

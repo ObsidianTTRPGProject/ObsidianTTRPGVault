@@ -38,6 +38,17 @@ partner:
 > | Ancestry | Testing |
 > | Occupation/Class | Testing |
 
+<%*
+const hasTitle = !tp.file.title.startsWith("NewNPCwb");
+let title;
+if (!hasTitle) {
+    title = await tp.system.prompt("Enter NPC Name");
+    await tp.file.rename(title);
+} else {
+    title = tp.file.title;
+}
+_%>
+
 ## Details
 
 Ancestry: 

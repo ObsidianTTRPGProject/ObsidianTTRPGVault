@@ -6,9 +6,17 @@ Government: Autocracy
 Leader:
 PrimaryHome:
 NoteIcon: group
+faction: "Faction Name 1"
+primary_contact: "John Doe"
+benefits:
+  - standing: 1
+    reward: "What do they get at level 1?"
+  - standing: 2
+    reward: "What do they get at level 2?"
+  - standing: 3
+    reward: "What do they get at level 3?"
 ---
 
-<% await tp.file.move("/3-Mechanics/Guilds and Groups/" + tp.file.title) %>
 
 <%*  
 const hasTitle = !tp.file.title.startsWith("NewGroup");  

@@ -32,25 +32,118 @@
           "openNote": true
         }
       ],
-      "icon": "shield"
+      "icon": "message-circle-question"
     },
     {
-      "label": "NewJournal1",
-      "icon": "shield-ellipsis",
+      "label": "New NPC",
       "hidden": false,
-      "class": "",
-      "tooltip": "This is tooltip",
-      "id": "NewJournal1",
-      "style": "default",
+      "id": "newNPC",
+      "style": "primary",
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplateJournal1.md",
-          "folderPath": "1-Session Journals",
-          "fileName": "NewJournal1",
-          "openNote": true
+          "templateFile": "z_Templates/TemplateNPC.md",
+          "fileName": "NewNPC",
+          "folderPath": "3-Mechanics/NPCs"
         }
-      ]
+      ],
+      "icon": "user-pen",
+      "tooltip": "Click here to create a new NPC"
+    },
+    {
+      "label": "New Location",
+      "hidden": false,
+      "id": "newLocation",
+      "style": "primary",
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/TemplateSettlement.md",
+          "fileName": "NewLocation",
+          "folderPath": "2-World"
+        }
+      ],
+      "icon": "map-pin-house"
+    },
+    {
+      "label": "New NPC (World Builder)",
+      "hidden": false,
+      "id": "newNPCwb",
+      "style": "primary",
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/TemplateNPC_WB.md",
+          "fileName": "NewNPCwb",
+          "folderPath": "3-Mechanics/NPCs"
+        }
+      ],
+      "icon": "user-pen",
+      "tooltip": "Click here to create a new NPC (world-builder template)"
+    },
+    {
+      "label": "New Journal Entry",
+      "hidden": false,
+      "id": "newJournal",
+      "style": "primary",
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/TemplateJournal.md",
+          "fileName": "NewJournal",
+          "folderPath": "1-Session Journals"
+        }
+      ],
+      "tooltip": "Create a new Session Journal.",
+      "icon": "album"
+    },
+    {
+      "label": "New Guild or Group",
+      "hidden": false,
+      "id": "newGroup",
+      "style": "primary",
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/TemplateGroup.md",
+          "fileName": "NewGroup",
+          "folderPath": "3-Mechanics/Guilds and Groups"
+        }
+      ],
+      "icon": "users",
+      "tooltip": "Create new Guild or Group"
+    },
+    {
+      "label": "New Magic Item",
+      "hidden": false,
+      "id": "newMagicItem",
+      "style": "primary",
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/TemplateMagicItem.md",
+          "fileName": "NewMagicItem",
+          "folderPath": "3-Mechanics/Items"
+        }
+      ],
+      "icon": "wand-sparkles",
+      "tooltip": "Click here to create a new Magic Item"
+    },
+    {
+      "label": "New Player",
+      "hidden": false,
+      "id": "newPlayer",
+      "style": "primary",
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/TemplatePlayer.md",
+          "fileName": "NewPlayer",
+          "folderPath": "1-Party"
+        }
+      ],
+      "icon": "person-standing",
+      "tooltip": "Click here to create a new player."
     }
   ],
   "excludedFolders": [

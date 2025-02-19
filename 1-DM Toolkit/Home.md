@@ -4,18 +4,19 @@ obsidianUIMode: preview
 
 
 > [!cards|4]
-> **[[Map-Faerun]]**
+> **Map**
 > [![[Northern Faerun Map.jpg\|sban htiny ctr]]](Lampoteuo)
 > 
-> **[[Link]]**
+> **Journey Board**
 > [![[JourneyBoard.png\|sban htiny ctr]]](Journey%20Board)
 >
-> **[[Link]]**
+> **Link**
 > [![[AdventureIcon.png\|sban htiny ctr]]](Lampoteuo)
 > 
-> **[[Link]]**
+> **Party**
 > [![[PartyLogo.jpg\|sban htiny ctr p+t]]|](Party%201%2FExample%20Party%201)
 
+`BUTTON[newJournal]` `BUTTON[newPlayer]`
 
 > [!infobox]
 > # Session Journals
@@ -32,7 +33,7 @@ where (Role = "Player")
 where (Status = "Active")  
 ```
 
-# Recently Modified NPCs
+# Recently Modified NPCs 
 
 ```dataview  
 TABLE WITHOUT ID link(file.name) AS "NPC Name", Gender, Race, Age, Location, AssociatedGroup  
@@ -42,6 +43,7 @@ SORT file.mtime DESC
 LIMIT 10
 ```
 
+`BUTTON[newNPC]` `BUTTON[newNPCwb]` 
 # Recently Modified Locations
 
 ```dataview  
@@ -51,7 +53,7 @@ WHERE (NoteIcon = "Settlement")
 SORT file.mtime DESC
 LIMIT 10
 ```
-
+`BUTTON[newLocation]`  `BUTTON[newGroup]` `BUTTON[button_quest]`  `BUTTON[newMagicItem]` 
 
 # Recently Modified Notes
 ```dataview

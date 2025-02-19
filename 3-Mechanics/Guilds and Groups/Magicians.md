@@ -8,6 +8,15 @@ Leader:
 PrimaryHome:
   - Melbourne
 NoteIcon: group
+faction: "Magicians"
+benefits:
+  - standing: 2
+    reward: "Allowed to clean dishes!"
+  - standing: 2
+    reward: "Allowed to clean toilets!"
+  - standing: 3
+    reward: "Allowed to dine with the Guild!"
+primary_contact: "[[Wilma]]"
 ---
 
 NewGroup  

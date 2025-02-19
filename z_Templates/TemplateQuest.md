@@ -12,7 +12,7 @@ obsidianUIMode: preview
 tags:
   - quest
 ---
-<% await tp.file.move("/2-Campaign/Quests/" + tp.file.title) %>
+
 <%*
 const hasTitle = !tp.file.title.startsWith("NewQuest");
 let title;
