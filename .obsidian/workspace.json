@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2-World/Ruins of The Twilight Palace.md",
-                "mode": "preview",
+                "file": "z_Templates/4_Markdown/Insert Map (Simplified Template).md",
+                "mode": "source",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Ruins of The Twilight Palace"
+              "title": "Insert Map (Simplified Template)"
             }
           }
         ]
@@ -54,7 +54,7 @@
               "type": "search",
               "state": {
                 "query": "",
-                "matchingCase": false,
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -243,7 +243,7 @@
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -268,18 +268,22 @@
       "obsidian-kanban:Create new board": false,
       "solo-rpg-toolkit:Solo RPG Toolkit": false,
       "obsidian42-brat:BRAT": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
   "active": "743fb8fb740901ff",
   "lastOpenFiles": [
+    "0-Scratch Notes/Add Random Notes Here.md",
+    "0-Scratch Notes/Random Dungeon.md",
+    "z_Templates/TemplateNPC.md",
+    "z_Assets/download 1.gif",
+    "1-DM Toolkit/Travel Calculator.md",
+    "2-World/Ruins of The Twilight Palace.md",
     "2-World/Lampoteuo/The Wound/The Wound.md",
     "2-World/Lampoteuo/Lampoteuo City/Lampoteuo City.md",
     "2-World/Lampoteuo/Creepers Cave/Creepers Cave.md",
     "2-World/Lampoteuo/Lampoteuo.md",
     "2-World/Logger's Camp.md",
-    "2-World/Ruins of The Twilight Palace.md",
     "2-World/New Home Town.md",
     "2-World/Test.md",
     "z_Templates/TemplateSettlement.md",
@@ -296,10 +300,6 @@
     "z_Templates/Text Generator Templates/Generate Inn.md",
     "z_Templates/Text Generator Templates/Generate Job Board.md",
     "z_Templates/Text Generator Templates/Generate Magic Store.md",
-    "z_Templates/Text Generator Templates/Generate Dungeon Room.md",
-    "z_Templates/Text Generator Templates/Generate Character Meeting.md",
-    "z_Templates/Text Generator Templates/Generate Armory.md",
-    "z_Templates/Text Generator Templates/Generate Apothecary.md",
     "z_Templates/Text Generator Templates",
     "z_Assets/download.gif",
     "z_Assets/main.js",
@@ -312,7 +312,6 @@
     "3-Mechanics/CLI/books/players-handbook-2024/img/183-08-003-areas-of-effect.webp",
     "3-Mechanics/CLI/books/players-handbook-2024/img/182-08-002-aasimar-wizard.webp",
     "3-Mechanics/CLI/books/players-handbook-2024/img/181-08-001-jallarzi-mordenkainen-bigby.webp",
-    "3-Mechanics/CLI/books/players-handbook-2024/img/180-07-006-wizard-familiar-shopping.webp",
     "3-Mechanics/CLI/books/players-handbook-2024/img",
     "3-Mechanics/CLI/books/dungeon-masters-guide-2024/img",
     "3-Mechanics/CLI/books/players-handbook-2024",

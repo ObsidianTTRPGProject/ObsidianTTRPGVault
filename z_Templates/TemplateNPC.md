@@ -42,7 +42,7 @@ _%>
 > Class | `VIEW[{Class}][text]`  |
 > Character Role | `VIEW[{Character-Role}][text]` |
 
-# `=this.file.name`
+# `=this.file.name`![[download 1.gif]]
 ## Profile
 
 **<Add description here, extend it with AI Text Generator using Ctrl J>**
