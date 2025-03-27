@@ -76,7 +76,5 @@ Copy the code below into another note and change the `88` to match the distance 
 > This calculation is referenced in the travel calculation by external notes. 
 > **Travel Calc:** `VIEW[({Travel Calculator#varMins}/(({Travel Calculator#BaseSpeed} / ({Travel Calculator#ExhaustionLevel} > 1 ? 2 : 1) + ({Travel Calculator#Encumbered} ? -10 : 0) + ({Travel Calculator#HorseshoesofSpeed} ? 30 : 0) + {Travel Calculator#AdditionalBonus}) / 10) * {Travel Calculator#SpeedMultiplier})][math:TravelCalc]`
 
-
-
 `VIEW[{Motive}]`
 

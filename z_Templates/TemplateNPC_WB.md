@@ -22,6 +22,7 @@ siblings:
   - Flip
 partner:
   - Jane
+char_class: Female
 ---
 > [!infobox]+
 > # `=this.file.name`
@@ -52,7 +53,7 @@ _%>
 ## Details
 
 Ancestry: 
-Occupation/Class: `INPUT[inlineSelect(option(Male), option(Female), option(Other)):char_class]`
+Occupation/Class: `INPUT[suggester(optionQuery(#Category/Class)):char_class]`
 
 Place of Residence: `INPUT[suggester(optionQuery(#Category/Settlement)):char_residence]`
 Place of Origin: `INPUT[suggester(optionQuery(#Category/Settlement)):char_origin]`

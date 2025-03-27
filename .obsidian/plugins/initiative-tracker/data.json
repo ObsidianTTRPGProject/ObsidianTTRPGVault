@@ -94,7 +94,7 @@
   "preferStatblockLink": false,
   "initiative": "1d20 + %mod%",
   "modifier": null,
-  "sync": false,
+  "sync": true,
   "playerMarker": "default",
   "monsterMarker": "default",
   "state": {

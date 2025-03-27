@@ -11,7 +11,7 @@
   "diceClipboardMode": "code",
   "wordClipboardMode": "plain",
   "diceDeleteOnCopy": false,
-  "inlineCounters": false,
+  "inlineCounters": true,
   "inlineProgressMode": "clock",
   "inlineDynamicEdit": true,
   "standardOracleBias": false,
