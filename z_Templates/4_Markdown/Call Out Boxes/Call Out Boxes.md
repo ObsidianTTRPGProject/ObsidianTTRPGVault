@@ -1,5 +1,10 @@
 ---
 ---
+
+You can right click in a note to enter the default callout types. 
+
+Live Preview Mode: Right Click > Insert > Callout
+
 # Call Out Boxes
 
 > [!note]- Custom Name

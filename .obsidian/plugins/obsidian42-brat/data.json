@@ -1,15 +1,23 @@
 {
   "pluginList": [
+    "hay-kot/obsidian-dnd-ui-toolkit",
     "ObsidianTTRPGProject/gemmy_ttrpg"
   ],
-  "pluginSubListFrozenVersion": [],
+  "pluginSubListFrozenVersion": [
+    {
+      "repo": "hay-kot/obsidian-dnd-ui-toolkit",
+      "version": "latest"
+    }
+  ],
   "themesList": [],
   "updateAtStartup": false,
   "updateThemesAtStartup": false,
-  "ribbonIconEnabled": true,
+  "enableAfterInstall": true,
   "loggingEnabled": false,
   "loggingPath": "BRAT-log",
   "loggingVerboseEnabled": false,
   "debuggingMode": true,
-  "notificationsEnabled": true
+  "notificationsEnabled": true,
+  "personalAccessToken": "",
+  "ribbonIconEnabled": true
 }

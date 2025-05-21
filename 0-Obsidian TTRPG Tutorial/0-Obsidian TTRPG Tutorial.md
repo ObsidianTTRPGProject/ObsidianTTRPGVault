@@ -15,7 +15,7 @@ This vault is designed as a foundation for people wanting some help on their Obs
 
 # Content
 
-This vault does not contain content. It does however contain instructions to obtain the content. Follow the bouncing ball and you will soon be on your way. The notes contained often contain hidden comments. If you open the note in Source mode you will find the comments between the `%\%` and `%%`.
+This vault does not contain content. It does however contain instructions to obtain the content. Follow the bouncing ball and you will soon be on your way. The notes contained often contain hidden comments. If you open the note in Source mode you will find the comments between the `%%` and `%%`.
 
 ## Tutorials
 www.obsidianttrpgtutorials.com is the home for all my tutorials and templates.

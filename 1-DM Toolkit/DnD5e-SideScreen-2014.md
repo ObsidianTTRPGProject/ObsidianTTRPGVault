@@ -17,12 +17,10 @@ obsidianUIMode: preview
 
 <br>
 
-
 > [!warning]+ IMPORTANT
-> I set lots of people reporting broken links with this step. When you run the CLI process you must include the PHB in the 'Books' section of your config file as the 'From' section does not create the notes that you need. See the [Configuration File Documentation](https://github.com/ebullient/ttrpg-convert-cli/blob/main/docs/configuration.md) for details.
-> Example:
-> ![[DnD5e-SideScreen-20240405084646428.webp]]
-
+> I set lots of people reporting broken links with this step. When you run the CLI process you must include the PHB in the 'Books' section of your config file as the 'Reference' section does not create the notes that this note uses. See the [Configuration File Documentation](https://github.com/ebullient/ttrpg-convert-cli/blob/main/docs/configuration.md) for details.
+> 
+> CLI Sources: PHB, DMG
 
 > [!info]- Abilities
 > [[08-using-ability-scores#Dexterity|Dexterity]]

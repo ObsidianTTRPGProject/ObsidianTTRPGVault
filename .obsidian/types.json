@@ -30,6 +30,10 @@
     "excalidraw-iframe-theme": "text",
     "excalidraw-open-md": "checkbox",
     "excalidraw-export-embed-scene": "checkbox",
-    "excalidraw-embeddable-theme": "text"
+    "excalidraw-embeddable-theme": "text",
+    "Connected_Quests": "multitext",
+    "Connected_Groups": "multitext",
+    "leader": "text",
+    "MyContainer": "multitext"
   }
 }

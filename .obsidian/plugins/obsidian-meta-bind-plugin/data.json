@@ -8,16 +8,23 @@
     "shortName": "Mo"
   },
   "syncInterval": 200,
-  "minSyncInterval": 50,
-  "maxSyncInterval": 1000,
-  "enableJs": false,
+  "enableJs": true,
   "viewFieldDisplayNullAsEmpty": false,
   "enableSyntaxHighlighting": true,
   "enableEditorRightClickMenu": true,
-  "inputFieldTemplates": [],
+  "inputFieldTemplates": [
+    {
+      "name": "template-PoIType",
+      "declaration": "INPUT[inlineSelect(option(Encounter), option(Ruins), option(Dungeon), option(Landmark))]"
+    },
+    {
+      "name": "template-Race",
+      "declaration": "INPUT[inlineSelect(\n  option(Human),\n  option(Elf),\n  option(Dwarf),\n  option(Halfling),\n  option(Gnome),\n  option(Half-Elf),\n  option(Half-Orc),\n  option(Tiefling)\n)]"
+    }
+  ],
   "buttonTemplates": [
     {
-      "label": "New Quest",
+      "label": "Quest",
       "hidden": false,
       "class": "",
       "tooltip": "Click this to create a quest. ",
@@ -26,107 +33,97 @@
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplateQuest.md",
+          "templateFile": "z_Templates/World Builder Templates/Template-Quest.md",
           "folderPath": "2-Campaign/Quests",
           "fileName": "NewQuest",
           "openNote": true
         }
       ],
-      "icon": "message-circle-question"
+      "icon": "plus"
     },
     {
-      "label": "New NPC",
+      "label": "Person",
       "hidden": false,
-      "id": "newNPC",
-      "style": "primary",
+      "id": "button_person",
+      "style": "destructive",
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplateNPC.md",
+          "templateFile": "z_Templates/World Builder Templates/Template-Person.md",
           "fileName": "NewNPC",
-          "folderPath": "3-Mechanics/NPCs"
+          "folderPath": "2-World/People",
+          "openNote": true
         }
       ],
-      "icon": "user-pen",
-      "tooltip": "Click here to create a new NPC"
+      "icon": "plus",
+      "tooltip": "Click here to create a new Person."
     },
     {
-      "label": "New Location",
+      "label": "Hub",
       "hidden": false,
-      "id": "newLocation",
+      "id": "button_hub",
       "style": "primary",
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplateSettlement.md",
-          "fileName": "NewLocation",
-          "folderPath": "2-World"
+          "templateFile": "z_Templates/World Builder Templates/Template-Hub.md",
+          "fileName": "NewHub",
+          "folderPath": "2-World/Hubs",
+          "openNote": true
         }
       ],
-      "icon": "map-pin-house"
+      "icon": "plus",
+      "tooltip": "Click this to create a new social hub."
     },
     {
-      "label": "New NPC (World Builder)",
-      "hidden": false,
-      "id": "newNPCwb",
-      "style": "primary",
-      "actions": [
-        {
-          "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplateNPC_WB.md",
-          "fileName": "NewNPCwb",
-          "folderPath": "3-Mechanics/NPCs"
-        }
-      ],
-      "icon": "user-pen",
-      "tooltip": "Click here to create a new NPC (world-builder template)"
-    },
-    {
-      "label": "New Journal Entry",
+      "label": "Journal Entry",
       "hidden": false,
       "id": "newJournal",
       "style": "primary",
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplateJournal.md",
+          "templateFile": "z_Templates/World Builder Templates/Template-Journal.md",
           "fileName": "NewJournal",
-          "folderPath": "1-Session Journals"
+          "folderPath": "1-Session Journals",
+          "openNote": true
         }
       ],
       "tooltip": "Create a new Session Journal.",
-      "icon": "album"
+      "icon": "plus"
     },
     {
-      "label": "New Guild or Group",
+      "label": "Group",
       "hidden": false,
-      "id": "newGroup",
+      "id": "button_group",
       "style": "primary",
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplateGroup.md",
+          "templateFile": "z_Templates/World Builder Templates/Template-Group.md",
           "fileName": "NewGroup",
-          "folderPath": "3-Mechanics/Guilds and Groups"
+          "folderPath": "2-World/Groups",
+          "openNote": true
         }
       ],
-      "icon": "users",
-      "tooltip": "Create new Guild or Group"
+      "icon": "plus",
+      "tooltip": "Create new Group"
     },
     {
-      "label": "New Magic Item",
+      "label": "Item",
       "hidden": false,
-      "id": "newMagicItem",
+      "id": "button_item",
       "style": "primary",
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplateMagicItem.md",
-          "fileName": "NewMagicItem",
-          "folderPath": "3-Mechanics/Items"
+          "templateFile": "z_Templates/World Builder Templates/Template-Item.md",
+          "fileName": "NewItem",
+          "folderPath": "3-Mechanics/Items",
+          "openNote": true
         }
       ],
-      "icon": "wand-sparkles",
+      "icon": "plus",
       "tooltip": "Click here to create a new Magic Item"
     },
     {
@@ -137,16 +134,81 @@
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/TemplatePlayer.md",
+          "templateFile": "z_Templates/Template-Player.md",
           "fileName": "NewPlayer",
           "folderPath": "1-Party"
         }
       ],
       "icon": "person-standing",
       "tooltip": "Click here to create a new player."
+    },
+    {
+      "label": "Place",
+      "icon": "plus",
+      "style": "primary",
+      "class": "",
+      "cssStyle": "",
+      "backgroundImage": "",
+      "tooltip": "Click here to create a new Place. ",
+      "id": "button_place",
+      "hidden": false,
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/World Builder Templates/Template-Place.md",
+          "folderPath": "2-World/Places",
+          "fileName": "NewPlace",
+          "openNote": true,
+          "openIfAlreadyExists": false
+        }
+      ]
+    },
+    {
+      "label": "Point of Interest",
+      "icon": "plus",
+      "style": "primary",
+      "class": "",
+      "cssStyle": "",
+      "backgroundImage": "",
+      "tooltip": "Click here to create a new Point of Interest.",
+      "id": "button_pointofinterest",
+      "hidden": false,
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/World Builder Templates/Template-PointofInterest.md",
+          "folderPath": "2-World/Points of Interest",
+          "fileName": "NewPointofInterest",
+          "openNote": true,
+          "openIfAlreadyExists": false
+        }
+      ]
+    },
+    {
+      "label": "Region",
+      "icon": "plus",
+      "style": "primary",
+      "class": "",
+      "cssStyle": "",
+      "backgroundImage": "",
+      "tooltip": "Click here to create a new Region.",
+      "id": "button_region",
+      "hidden": false,
+      "actions": [
+        {
+          "type": "templaterCreateNote",
+          "templateFile": "z_Templates/World Builder Templates/Template-Region.md",
+          "folderPath": "2-World/Regions",
+          "fileName": "NewRegion",
+          "openNote": true,
+          "openIfAlreadyExists": false
+        }
+      ]
     }
   ],
   "excludedFolders": [
     "templates"
-  ]
+  ],
+  "minSyncInterval": 50,
+  "maxSyncInterval": 1000
 }

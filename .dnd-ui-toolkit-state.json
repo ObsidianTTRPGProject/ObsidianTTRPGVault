@@ -1,0 +1,36 @@
+{
+  "state": {
+    "din_items__ring_of_investigation": {
+      "value": 0
+    },
+    "din_health": {
+      "current": 50,
+      "temporary": 0,
+      "hitdiceUsed": 3
+    },
+    "din_spells_1": {
+      "value": 1
+    },
+    "din_spell_2": {
+      "value": 0
+    },
+    "din_fey_touched_misty_step": {
+      "value": 1
+    },
+    "din_fey_touched_silvery_barbs": {
+      "value": 1
+    },
+    "din_luck_points": {
+      "value": 0
+    },
+    "din_arcane_recovery": {
+      "value": 0
+    },
+    "din_spell_3": {
+      "value": 2
+    },
+    "din_spell_4": {
+      "value": 5
+    }
+  }
+}

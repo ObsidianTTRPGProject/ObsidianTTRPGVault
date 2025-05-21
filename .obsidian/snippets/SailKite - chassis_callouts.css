@@ -1,0 +1,70 @@
+/* 
+  Chassis Callouts to use as platforms for other styling
+  author: sailKite
+  url: https://github.com/sailKiteV/Obsidian-Snippets-and-Demos/tree/main/ChassisCallouts
+  version: 1.2.2
+  date: 2025-04-10
+  recommended_installer: 1.5.8+
+*/
+/* basic div-like callout as a platform for other styling: [!div] */
+.callout:is(
+    [data-callout="div"], [data-callout="div-m"],
+    [data-callout-metadata~="div"], [data-callout-metadata~="div-m"]
+) {
+    margin: unset;
+    border: unset;
+    border-radius: unset;
+    padding: unset;
+    background: unset;
+    mix-blend-mode: normal;
+
+    & > .callout-title { display: none; }
+}
+
+/* [!div-m] and [!example|div-m] has extra margin control */
+.callout:is([data-callout="div-m"], [data-callout-metadata~="div-m"]) {
+    margin-block: 1em;
+
+    & > .callout-content {
+        & > :first-child { margin-top: 0 !important; }
+        & > :last-child { margin-bottom: 0 !important; }
+    }
+}
+
+/* grid-ify any callout, add new ratios as needed: [!example|grid] */
+.callout:is([data-callout-metadata*="grid"], [data-callout-metadata*="grid-m"]) {
+    --col-gap: 8px;
+
+    & > .callout-content {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        gap: var(--col-gap);
+
+        /* add ratios like this */
+        & > [data-callout-metadata*="span-2"] { grid-column-end: span 2; }
+        & > [data-callout-metadata*="span-3"] { grid-column-end: span 3; }
+        & > [data-callout-metadata*="span-4"] { grid-column-end: span 4; }
+        & > [data-callout-metadata*="span-5"] { grid-column-end: span 5; }
+        & > [data-callout-metadata*="span-6"] { grid-column-end: span 6; }
+        & > [data-callout-metadata*="span-7"] { grid-column-end: span 7; }
+        & > [data-callout-metadata*="span-8"] { grid-column-end: span 8; }
+        & > [data-callout-metadata*="span-9"] { grid-column-end: span 9; }
+
+        & > .callout.is-collapsed { height: fit-content; }
+    }
+
+    &[data-callout-metadata*="grid-m"] {
+        margin-block: var(--col-gap);
+    }
+
+    &[data-callout-metadata*="grid-m"] > .callout-content > * {
+        margin-block: 0 !important;
+    }
+}
+
+@media print {
+    .print .markdown-preview-view .callout:is([data-callout-metadata*="grid"], [data-callout-metadata*="grid-m"]) > .callout-content {
+        display: grid !important;
+    }
+}

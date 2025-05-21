@@ -1,7 +1,9 @@
 {
   "saveWindowLocations": true,
+  "useCustomWindowName": false,
+  "customWindowName": "Second Window",
   "windows": {
-    "DEFAULT": {
+    "Second Window": {
       "hosts": {
         "DESKTOP-AOCPFEU": {
           "x": -8,
@@ -10,6 +12,14 @@
           "height": 1048,
           "fullscreen": false,
           "maximized": true
+        },
+        "DESKTOP-5GEJH59": {
+          "x": 1337,
+          "y": 0,
+          "width": 583,
+          "height": 1032,
+          "fullscreen": false,
+          "maximized": false
         }
       }
     }

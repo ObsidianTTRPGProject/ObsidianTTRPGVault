@@ -75,7 +75,7 @@
   "showRenderNotice": true,
   "diceModTemplateFolders": {},
   "replaceDiceModInLivePreview": true,
-  "version": "11.4.1",
+  "version": "11.4.2",
   "viewResults": [
     {
       "result": "2",

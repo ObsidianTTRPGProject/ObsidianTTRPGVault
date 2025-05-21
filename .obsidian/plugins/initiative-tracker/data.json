@@ -1,7 +1,25 @@
 {
-  "players": [],
-  "parties": [],
-  "defaultParty": null,
+  "players": [
+    {
+      "note": "Template-Player",
+      "path": "z_Templates/Template-Player.md",
+      "name": "Template-Player",
+      "ac": 66,
+      "hp": 60,
+      "level": 11,
+      "modifier": 2,
+      "player": true
+    }
+  ],
+  "parties": [
+    {
+      "name": "Test",
+      "players": [
+        "Template-Player"
+      ]
+    }
+  ],
+  "defaultParty": "Test",
   "statuses": [
     {
       "name": "Blinded",
@@ -88,7 +106,7 @@
   "version": [
     13,
     0,
-    16
+    17
   ],
   "canUseDiceRoll": false,
   "preferStatblockLink": false,
@@ -100,24 +118,95 @@
   "state": {
     "creatures": [
       {
-        "name": "Pixie",
-        "initiative": 11,
+        "name": "Goblin",
+        "initiative": 16,
         "static": false,
-        "modifier": 0,
-        "hp": 0,
-        "currentMaxHP": 0,
-        "id": "ID_8bbb19d89b49",
-        "currentHP": 0,
+        "modifier": 2,
+        "hp": 5,
+        "currentMaxHP": 5,
+        "cr": "1/4",
+        "ac": 15,
+        "currentAC": 15,
+        "id": "ID_1ad879e9bb4b",
+        "currentHP": 5,
         "tempHP": 0,
         "status": [],
         "enabled": true,
+        "xp": 25,
         "active": false,
+        "hidden": false,
+        "friendly": false,
+        "hit_dice": "2d6",
+        "rollHP": false
+      },
+      {
+        "name": "Goblin",
+        "initiative": 13,
+        "static": false,
+        "modifier": 2,
+        "hp": 5,
+        "currentMaxHP": 5,
+        "cr": "1/4",
+        "ac": 15,
+        "currentAC": 15,
+        "id": "ID_9a683bf958a8",
+        "currentHP": 5,
+        "tempHP": 0,
+        "status": [],
+        "enabled": true,
+        "xp": 25,
+        "active": false,
+        "hidden": false,
+        "friendly": false,
+        "hit_dice": "2d6",
+        "rollHP": false
+      },
+      {
+        "name": "Goblin",
+        "initiative": 8,
+        "static": false,
+        "modifier": 2,
+        "hp": 5,
+        "currentMaxHP": 5,
+        "cr": "1/4",
+        "ac": 15,
+        "currentAC": 15,
+        "id": "ID_78884a387afa",
+        "currentHP": 5,
+        "tempHP": 0,
+        "status": [],
+        "enabled": true,
+        "xp": 25,
+        "active": false,
+        "hidden": false,
+        "friendly": false,
+        "hit_dice": "2d6",
+        "rollHP": false
+      },
+      {
+        "name": "Template-Player",
+        "initiative": 0,
+        "static": false,
+        "modifier": 2,
+        "hp": 60,
+        "currentMaxHP": 60,
+        "ac": 66,
+        "currentAC": 66,
+        "note": "Template-Player",
+        "path": "z_Templates/Template-Player.md",
+        "id": "ID_cabacbb8ca7a",
+        "currentHP": 60,
+        "tempHP": 0,
+        "status": [],
+        "enabled": true,
+        "level": 11,
+        "player": true,
         "hidden": false,
         "friendly": false
       }
     ],
     "state": false,
-    "name": "Pixie",
+    "name": "Example",
     "round": 1,
     "logFile": "",
     "rollHP": false
@@ -141,6 +230,7 @@
   "rpgSystem": "dnd5e",
   "logging": false,
   "logFolder": "/",
+  "resolveTies": "playerFirst",
   "useLegacy": false,
   "diplayPlayerHPValues": true,
   "rollHP": false,

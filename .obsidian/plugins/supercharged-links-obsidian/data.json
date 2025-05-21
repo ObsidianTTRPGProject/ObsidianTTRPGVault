@@ -37,9 +37,21 @@
       "selectBackground": true
     },
     {
-      "type": "attribute",
+      "type": "tag",
       "name": "NoteIcon",
-      "value": "Settlement",
+      "value": "Category/PointofInterest",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "a38e-6d90",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "tag",
+      "name": "NoteIcon",
+      "value": "Category/Hub",
       "matchCaseSensitive": false,
       "match": "exact",
       "uid": "04aa-e3dd",
@@ -49,9 +61,9 @@
       "selectBackground": true
     },
     {
-      "type": "attribute",
+      "type": "tag",
       "name": "NoteIcon",
-      "value": "group",
+      "value": "Category/Group",
       "matchCaseSensitive": false,
       "match": "exact",
       "uid": "1d74-3416",
@@ -61,7 +73,67 @@
       "selectBackground": true
     },
     {
-      "type": "attribute",
+      "type": "tag",
+      "name": "NoteIcon",
+      "value": "Category/People",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "7c37-4ee7",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "tag",
+      "name": "NoteIcon",
+      "value": "Category/Quest",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "c52e-3164",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "tag",
+      "name": "NoteIcon",
+      "value": "Category/Place",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "2916-a721",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "tag",
+      "name": "NoteIcon",
+      "value": "Category/Region",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "2536-bfc1",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "tag",
+      "name": "NoteIcon",
+      "value": "Category/Item",
+      "matchCaseSensitive": false,
+      "match": "exact",
+      "uid": "39b9-b976",
+      "selectText": true,
+      "selectAppend": true,
+      "selectPrepend": true,
+      "selectBackground": true
+    },
+    {
+      "type": "tag",
       "name": "NoteIcon",
       "value": "magicitem",
       "matchCaseSensitive": false,
@@ -73,24 +145,12 @@
       "selectBackground": true
     },
     {
-      "type": "attribute",
+      "type": "tag",
       "name": "NoteIcon",
-      "value": "npc",
+      "value": "Category/Player",
       "matchCaseSensitive": false,
       "match": "exact",
-      "uid": "7c37-4ee7",
-      "selectText": true,
-      "selectAppend": true,
-      "selectPrepend": true,
-      "selectBackground": true
-    },
-    {
-      "type": "attribute",
-      "name": "NoteIcon",
-      "value": "quest",
-      "matchCaseSensitive": false,
-      "match": "exact",
-      "uid": "c52e-3164",
+      "uid": "71fe-7d8c",
       "selectText": true,
       "selectAppend": true,
       "selectPrepend": true,

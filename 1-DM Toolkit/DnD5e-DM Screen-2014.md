@@ -1,12 +1,21 @@
 ---
 
-kanban-plugin: basic
+kanban-plugin: board
 
 ---
 
 ## **![[RandomGensTitleBar]]**
 
-- [ ] This DM Screen is designed to link to the notes created with the CLI process. Simply complete the process and drop them into your vault and this screen should come alive. <br><br>Don't click any links until you complete this as it will create empty notes with duplicate names. <br><br>[CLI Process](https://obsidianttrpgtutorials.com/Obsidian+TTRPG+Tutorials/Obsidian+TTRPG+Tutorials)<br><br>**IMPORTANT**<br>I see lots of people reporting broken links with this step. When you run the CLI process you must include the PHB in the 'Books' section of your config file as the 'From' section does not create the notes that you need. See the [Configuration File Documentation](https://github.com/ebullient/ttrpg-convert-cli/blob/main/docs/configuration.md) for details.<br><br>Delete this card one done.
+- [ ] This DM Screen is designed to link to the notes created with the CLI process. It's deigned for D&D 5e 2014 edition only. Simply complete the process and drop them into your vault and this screen should come alive. 
+	
+	Don't click any links until you complete this as it will create empty notes with duplicate names. 
+	
+	[CLI Process](https://obsidianttrpgtutorials.com/Obsidian+TTRPG+Tutorials/Obsidian+TTRPG+Tutorials)
+	
+	**IMPORTANT**
+	I see lots of people reporting broken links with this step. When you run the CLI process you must include the PHB in the 'Books' section of your config file as the 'Reference' section does not create the notes that you need. See the [Configuration File Documentation](https://github.com/ebullient/ttrpg-convert-cli/blob/main/docs/configuration.md) for details.
+	
+	Delete this card one done.
 
 
 ## ![[AbilitiesTitleBar.png]]
@@ -161,6 +170,6 @@ kanban-plugin: basic
 
 %% kanban:settings
 ```
-{"kanban-plugin":"basic"}
+{"kanban-plugin":"board"}
 ```
 %%

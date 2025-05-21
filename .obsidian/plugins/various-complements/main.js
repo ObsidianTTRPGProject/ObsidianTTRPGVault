@@ -4136,6 +4136,14 @@ var AutoCompleteSuggest = class _AutoCompleteSuggest extends import_obsidian5.Ed
             return;
           }
         }
+        if (this.settings.excludeSelfInternalLink) {
+          words = words.filter(
+            (x) => {
+              var _a;
+              return x.type !== "internalLink" || x.createdPath !== ((_a = this.appHelper.getActiveFile()) == null ? void 0 : _a.path);
+            }
+          );
+        }
         cb(
           uniqWith(words, suggestionUniqPredicate).slice(
             0,
@@ -4705,6 +4713,42 @@ var AutoCompleteSuggest = class _AutoCompleteSuggest extends import_obsidian5.Ed
 // src/setting/settings.ts
 var import_obsidian7 = require("obsidian");
 
+// src/keys.ts
+var import_obsidian6 = require("obsidian");
+var MOD = import_obsidian6.Platform.isMacOS ? "Cmd" : "Ctrl";
+var ALT = import_obsidian6.Platform.isMacOS ? "Option" : "Alt";
+function hotkey2String(hk) {
+  if (!hk) {
+    return "";
+  }
+  const hotkey = hk.key === " " ? "Space" : hk.key;
+  const mods = hk.modifiers.join(" ");
+  return mods ? `${mods} ${hotkey}` : hotkey;
+}
+function string2Hotkey(hotKey, hideHotkeyGuide) {
+  const keys = hotKey.split(" ");
+  if (keys.length === 0 || keys[0] === "") {
+    return null;
+  }
+  if (keys.length === 1) {
+    return {
+      modifiers: [],
+      key: keys[0].replace("Space", " "),
+      hideHotkeyGuide
+    };
+  }
+  return {
+    modifiers: keys.slice(0, -1),
+    key: keys.at(-1).replace("Space", " "),
+    hideHotkeyGuide
+  };
+}
+
+// src/types.ts
+function isPresent(arg) {
+  return arg != null;
+}
+
 // src/setting/settings-helper.ts
 var TextComponentEvent;
 ((TextComponentEvent2) => {
@@ -4722,34 +4766,6 @@ var TextComponentEvent;
   }
   TextComponentEvent2.onChange = onChange;
 })(TextComponentEvent || (TextComponentEvent = {}));
-
-// src/keys.ts
-var import_obsidian6 = require("obsidian");
-var MOD = import_obsidian6.Platform.isMacOS ? "Cmd" : "Ctrl";
-var ALT = import_obsidian6.Platform.isMacOS ? "Option" : "Alt";
-function hotkey2String(hotkey) {
-  if (!hotkey) {
-    return "";
-  }
-  const mods = hotkey.modifiers.join(" ");
-  return mods ? `${mods} ${hotkey.key}` : hotkey.key;
-}
-function string2Hotkey(hotKey, hideHotkeyGuide) {
-  const keys = hotKey.split(" ");
-  if (keys.length === 1) {
-    return keys[0] === "" ? null : { modifiers: [], key: keys[0], hideHotkeyGuide };
-  }
-  return {
-    modifiers: keys.slice(0, -1),
-    key: keys.at(-1),
-    hideHotkeyGuide
-  };
-}
-
-// src/types.ts
-function isPresent(arg) {
-  return arg != null;
-}
 
 // src/setting/settings.ts
 var DEFAULT_SETTINGS = {
@@ -4825,6 +4841,7 @@ var DEFAULT_SETTINGS = {
   enableInternalLinkComplement: true,
   suggestInternalLinkWithAlias: false,
   excludeInternalLinkPathPrefixPatterns: "",
+  excludeSelfInternalLink: false,
   updateInternalLinksOnSave: true,
   insertAliasTransformedFromDisplayedInternalLink: {
     enabled: false,
@@ -5139,12 +5156,24 @@ var VariousComplementsSettingTab = class extends import_obsidian7.PluginSettingT
     containerEl.append(div);
     const li = createEl("li");
     li.append(
-      "You can know the keycode at ",
+      "You can find the keycode at ",
       createEl("a", {
         text: "keycode.info",
         href: "https://keycode.info/"
       }),
-      ". (Press any key and show 'event.key')"
+      ". Press any key to see the '",
+      createEl("code", {
+        text: "event.key"
+      }),
+      "' value, ",
+      createEl("b", {
+        text: "except for the space key"
+      }),
+      ". Set the space key as '",
+      createEl("code", {
+        text: "Space"
+      }),
+      "'."
     );
     const ul = createEl("ul");
     ul.createEl("li", {
@@ -5398,6 +5427,13 @@ var VariousComplementsSettingTab = class extends import_obsidian7.PluginSettingT
           async (value) => {
             this.plugin.settings.updateInternalLinksOnSave = value;
             await this.plugin.saveSettings({ internalLink: true });
+          }
+        );
+      });
+      new import_obsidian7.Setting(containerEl).setName("Exclude self internal link").addToggle((tc) => {
+        tc.setValue(this.plugin.settings.excludeSelfInternalLink).onChange(
+          async (value) => {
+            this.plugin.settings.excludeSelfInternalLink = value;
           }
         );
       });

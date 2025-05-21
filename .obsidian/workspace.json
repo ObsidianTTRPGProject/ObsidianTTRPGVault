@@ -4,24 +4,67 @@
     "type": "split",
     "children": [
       {
-        "id": "e56513b7946f4529",
+        "id": "b8b6233350b4b5bb",
         "type": "tabs",
         "children": [
           {
-            "id": "c1c665f639704e2a",
+            "id": "fb507a7125c7de01",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3-Mechanics/CLI/CLI.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CLI"
+            }
+          },
+          {
+            "id": "6c671c746d63ee48",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "z_Templates/World Builder Templates/Template-Group.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Template-Group"
+            }
+          },
+          {
+            "id": "2cb63351fe6abebf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2-World/People/Shop Guy.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Shop Guy"
+            }
+          },
+          {
+            "id": "fc5e03f893c50942",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "1-DM Toolkit/Home.md",
                 "mode": "preview",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "Home"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -53,7 +96,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:Ca",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -110,7 +153,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 395.5
+    "width": 356.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -184,8 +227,8 @@
             "state": {
               "type": "advanced-tables-toolbar",
               "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -194,8 +237,8 @@
             "state": {
               "type": "help-mate",
               "state": {},
-              "icon": "life-buoy",
-              "title": "HelpMate"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -218,8 +261,8 @@
             "state": {
               "type": "initiative-tracker-view",
               "state": {},
-              "icon": "initiative-tracker",
-              "title": "Initiative Tracker"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -233,7 +276,17 @@
             }
           },
           {
-            "id": "d2b8e91a0b4aa27a",
+            "id": "9f06b744419e5dab",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-view",
+              "state": {},
+              "icon": "initiative-tracker",
+              "title": "Initiative Tracker"
+            }
+          },
+          {
+            "id": "78f62065b0218d76",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
@@ -243,7 +296,23 @@
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 9
+      },
+      {
+        "id": "3327e6e45ad0f342",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "206aac58d0e8536e",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-creature-view",
+              "state": {},
+              "icon": "initiative-tracker-creature-view",
+              "title": "Combatant"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
@@ -251,74 +320,76 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-leaflet-plugin:Open Leaflet Map": false,
       "command-palette:Open command palette": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "helpmate:HelpMate": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-custom-frames:Open Obsidian Forum": false,
-      "obsidian-leaflet-plugin:Open Leaflet Map": false,
-      "obsidian-import-json:JSON/CSV Importer": false,
       "templater-obsidian:Templater": false,
+      "obsidian-custom-frames:Open Obsidian Forum": false,
       "obsidian-5e-statblocks:Open Creature pane": false,
       "initiative-tracker:Initiative Tracker Encounter Builder": false,
-      "obsidian-kanban:Create new board": false,
-      "solo-rpg-toolkit:Solo RPG Toolkit": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-import-json:JSON/CSV Importer": false,
       "obsidian42-brat:BRAT": false,
-      "obsidian-excalidraw-plugin:New drawing": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-kanban:Create new board": false,
+      "helpmate:HelpMate": false,
+      "solo-rpg-toolkit:Solo RPG Toolkit": false,
+      "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "c1c665f639704e2a",
+  "active": "fc5e03f893c50942",
   "lastOpenFiles": [
-    "0-Scratch Notes/Add Random Notes Here.md",
-    "z_Templates/3_Dataview Templates/Dataview - Query TTRPG Statblocks.md",
-    "0-Scratch Notes/Random Dungeon.md",
+    "1-DM Toolkit/Home Embeds.md",
     "1-DM Toolkit/Home.md",
-    "3-Mechanics/CLI/backgrounds/urchin.md",
-    "3-Mechanics/CLI/backgrounds/soldier.md",
-    "3-Mechanics/CLI/backgrounds/sage.md",
-    "3-Mechanics/CLI/backgrounds/noble-knight-variant.md",
-    "3-Mechanics/CLI/backgrounds/guild-artisan-guild-merchant-variant.md",
-    "3-Mechanics/CLI/backgrounds/criminal-spy-variant.md",
-    "3-Mechanics/CLI/bestiary/construct/animated-armor.md",
-    "3-Mechanics/Bestiary/animated-armor 1.md",
-    "3-Mechanics/Bestiary",
-    "3-Mechanics/CLI/bestiary/celestial/fidele-angel-tob.md",
-    "3-Mechanics/CLI/bestiary/celestial/planetar.md",
-    "3-Mechanics/CLI/bestiary/celestial/unicorn.md",
-    "3-Mechanics/CLI/bestiary/celestial/chained-angel-tob.md",
-    "3-Mechanics/CLI/items/img/winged-boots.webp",
-    "3-Mechanics/CLI/items/img/wand-of-wonder.webp",
-    "3-Mechanics/CLI/items/img/wand-of-magic-detection.webp",
-    "3-Mechanics/CLI/items/img/wand-of-paralysis.webp",
-    "3-Mechanics/CLI/items/img/universal-solvent.webp",
-    "3-Mechanics/CLI/items/img/staff-of-the-magi.webp",
-    "3-Mechanics/CLI/items/img/staff-of-fire.webp",
-    "3-Mechanics/CLI/items/img/ring-of-regeneration.webp",
-    "3-Mechanics/CLI/items/img/spellguard-shield.webp",
-    "3-Mechanics/CLI/items/img/rope-of-entanglement.webp",
-    "3-Mechanics/CLI/items/zircon.md",
-    "3-Mechanics/CLI/items/yew-wand.md",
-    "3-Mechanics/CLI/items/yester-hill-axe-cos.md",
-    "3-Mechanics/CLI/items/yellow-sapphire.md",
-    "3-Mechanics/CLI/items/wyvern-poison.md",
-    "3-Mechanics/CLI/items/wyrmblood-venom-tob.md",
-    "3-Mechanics/CLI/items/wooden-staff.md",
-    "3-Mechanics/CLI/items/woodcarvers-tools.md",
-    "3-Mechanics/CLI/items/wings-of-flying.md",
-    "3-Mechanics/CLI/items/winged-boots.md",
-    "3-Mechanics/CLI/items/img",
-    "3-Mechanics/CLI/items",
-    "3-Mechanics/CLI/feats",
-    "3-Mechanics/CLI/deities",
-    "3-Mechanics/CLI/decks/img",
-    "3-Mechanics/CLI/decks",
-    "3-Mechanics/CLI/classes/img",
-    "3-Mechanics/CLI/classes",
-    "3-Mechanics/CLI/books/players-handbook-2014/img",
+    "2-World/People/Shop Guy.md",
+    "2-World/Places/Shop of Sales.md",
+    "z_Templates/World Builder Templates/Template-Group.md",
+    "1-Session Journals/2025-01-01.md",
+    "2-World/Hubs/City of Trade.md",
+    "2-World/Regions/Island of Screams.md",
+    "z_Templates/World Builder Templates/Template-Person.md",
+    "z_Templates/World Builder Templates/Template-Player.md",
+    "1-DM Toolkit/Vault Report.md",
+    "z_Templates/World Builder Templates/Template-Region.md",
+    "z_Templates/World Builder Templates/Template-Place.md",
+    "z_Templates/World Builder Templates/Template-Hub.md",
+    "3-Mechanics/CLI/CLI.md",
+    "0-Scratch Notes/Template Design.md",
+    "0-Scratch Notes/Troll.md",
+    "0-Scratch Notes/Random Dungeon.md",
+    "z_Templates/Text Generator Templates/Convert Monster.md",
+    "z_Templates/Text Generator Templates/Convert Spell.md",
+    "z_Templates/Text Generator Templates/Text Generator Templates.md",
+    "1-Session Journals/2000-01-01.md",
+    "1-Session Journals/2023-10-26.md",
+    "1-Session Journals/2025-02-02.md",
+    "1-Party/Example Party 2/Jane.md",
+    "1-Party/Example Party 1/Wizard.md",
+    "z_Assets/Pasted image 20250427093259.png",
+    "z_Assets/Pasted image 20250425220102.png",
+    "z_Assets/Pasted image 20250427102611.png",
+    "z_Assets/Pasted image 20250514201228.png",
+    "z_Assets/Pasted image 20250514200940.png",
+    "z_Assets/Pasted image 20240630203442.png",
+    "z_Assets/Pasted Image 20240630114135_050.png",
+    "z_Assets/Pasted image 20240627201658.png",
+    "z_Assets/Pasted image 20240607151510.png",
+    "z_Assets/Pasted image 20240630203445.png",
+    "2-World/Quests",
+    "0-Scratch Notes/MoC - Canvas Home Page.canvas",
+    "3-Mechanics/races",
+    "pixel-banner-images",
+    "z_Assets/banners",
+    "z_Assets/New folder",
+    "2-World/Places",
+    "z_Templates/World Builder Templates",
+    "2-World/Regions",
+    "2-World/Points of Interest",
+    "2-World/People",
     "0-Scratch Notes/Untitled.canvas",
     "Untitled.canvas"
   ]

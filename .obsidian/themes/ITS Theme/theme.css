@@ -1919,6 +1919,10 @@ settings:
         max: 100
         step: 10
     -
+        title: Horizontal Line Width Auto
+        id: hr-width
+        type: class-toggle
+    -
         title: No Horizontal Line Symbol
         description: Hide the horizontal Line Symbol entirely
         id: hr-no-icon
@@ -2770,6 +2774,10 @@ settings:
         id: breadcrumbs-block
         type: class-toggle
     -
+        title: Meta Bind Auto Size Fields
+        id: metabind-auto
+        type: class-toggle
+    -
         title: Dataview
         id: ITS-Plugins-Dataview
         type: heading
@@ -3598,7 +3606,7 @@ body {
   --tab-font-weight-active: 900;
   --tab-width: 200px;
   --tab-max-width: 320px;
-  --tab-min-width: 10ch;
+  --tab-min-width: min-content;
   --tab-outline-width: 2px;
   --tab-top-outline-width: 0;
   --tab-outline-color: var(--accent);
@@ -3625,8 +3633,8 @@ body {
   display: none;
 }
 
-.workspace-tab-header.workspace-tab-header:hover {
-  color: var(--tab-text-color-hover);
+.workspace-tab-header-container {
+  --background-modifier-hover: var(--sidebar-tab-background-color);
 }
 
 .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-close-button,
@@ -4471,7 +4479,6 @@ body,
   --link-external-color-hover: var(--text-accent-hover);
   --link-font: inherit;
   --link-external-font: var(--link-font);
-  --link-weight: inherit;
   --link-border: none;
   --link-transform: none;
   --link-background: transparent;
@@ -4524,6 +4531,11 @@ a[href^=https]:hover,
   opacity: 0.5;
   font-weight: 100 !important;
   font-style: normal !important;
+}
+
+.cm-s-obsidian .cm-hmd-internal-link.cm-strong,
+strong a:is(.internal-link, .external-link) {
+  font-weight: calc(var(--link-weight) + var(--bold-modifier));
 }
 
 .theme-dark,
@@ -6714,6 +6726,27 @@ ul.auto-class-settings__match-group-list {
   margin-bottom: -4px;
 }
 
+code.mb-input {
+  padding: 0;
+  --code-size: var(--font-text-size);
+}
+
+.mb-select-input-element {
+  min-width: 5ch;
+}
+
+.metabind-auto .mb-input select, .metabind-auto .mb-input input:is([type=text], [type=number], [type=date]) {
+  min-width: 5ch;
+  width: 100%;
+  max-width: 100%;
+}
+.metabind-auto input.mb-slider-input {
+  padding: 0;
+  min-width: 4ch;
+  max-width: 100%;
+  margin: 0;
+}
+
 .qe-popup-menu .menu-item {
   --interactive-accent-hover: var(--dark-accent);
 }
@@ -7182,7 +7215,7 @@ div:not(.image-embed) > img[alt][alt*=relative] {
 /*Image Locations*/
 /*Center Image*/
 .img-adj-center.img-adj-center img,
-img:is([alt*=ctr], [alt*=center]) {
+img:is([alt~=ctr], [alt~=center]) {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -7194,13 +7227,13 @@ img:is([alt*=ctr], [alt*=center]) {
 }
 
 /*Left & Right*/
-.markdown-rendered img:is([alt*=left], [alt*=locl]), .markdown-rendered img:is([src*="#left"], [src*="#locl"]), .markdown-rendered .image-embed:is([alt*=left], [alt*=locl]), .markdown-rendered .image-embed:is([src*="#left"], [src*="#locl"]) {
+.markdown-rendered img:is([alt~=left], [alt~=locl]), .markdown-rendered img:is([src*="#left"], [src*="#locl"]), .markdown-rendered .image-embed:is([alt~=left], [alt~=locl]), .markdown-rendered .image-embed:is([src*="#left"], [src*="#locl"]) {
   float: left;
   margin-right: 2%;
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.markdown-rendered img:is([alt*=right], [alt*=locr]), .markdown-rendered img:is([src*="#right"], [src*="#locr"]), .markdown-rendered .image-embed:is([alt*=right], [alt*=locr]), .markdown-rendered .image-embed:is([src*="#right"], [src*="#locr"]) {
+.markdown-rendered img:is([alt~=right], [alt~=locr]), .markdown-rendered img:is([src*="#right"], [src*="#locr"]), .markdown-rendered .image-embed:is([alt~=right], [alt~=locr]), .markdown-rendered .image-embed:is([src*="#right"], [src*="#locr"]) {
   float: right;
   margin-left: 2%;
   margin-bottom: 0px;
@@ -7598,21 +7631,21 @@ img[alt~=border],
   width: 95%;
 }
 
-.internal-embed[alt*=right] {
+.internal-embed[alt~=right] {
   float: right;
   margin-left: 0.5em;
 }
 
-.internal-embed[alt*=left] {
+.internal-embed[alt~=left] {
   float: left;
   margin-right: 0.5em;
 }
 
-.internal-embed[alt*=center] {
+.internal-embed[alt~=center] {
   margin: auto;
 }
 
-:not(.lp-embed-float) .is-live-preview .internal-embed:is([alt*=right], [alt*=left]) {
+:not(.lp-embed-float) .is-live-preview .internal-embed:is([alt~=right], [alt~=left]) {
   float: unset;
 }
 
@@ -8771,7 +8804,7 @@ body:not(.check-color, .check-text) ul > li.task-list-item[data-task][data-task=
   color: rgb(var(--chbx-h));
 }
 .check-color.check-color .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=W] [class^=cm-list]:not(.cm-formatting-task), .check-color.check-color.check-color ul > li[data-task=W].task-list-item.is-checked {
-  color: rgb(var(--chbx-R));
+  color: rgb(var(--chbx-P));
 }
 .check-color.check-color .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="~"] [class^=cm-list]:not(.cm-formatting-task), .check-color.check-color.check-color ul > li[data-task="~"].task-list-item.is-checked {
   color: rgb(var(--chbx-C));
@@ -11492,22 +11525,14 @@ iframe {
   color: var(--text-on-accent);
 }
 
-.tab-auto {
-  --tab-width: fit-content;
-  --tab-max-width: 100%;
-  --tab-min-width: 10ch;
+.tab-auto .workspace .mod-root .workspace-tab-header, .tab-auto .mod-root .workspace-tab-header-inner {
+  container-type: normal;
+  width: min-content;
 }
-.tab-auto .mod-root .workspace-tab-header-container {
-  flex: 0 1 auto;
+.tab-auto .workspace .mod-root .workspace-tab-header-new-tab {
+  margin-inline-start: 2px;
+  margin-inline-end: 0px;
 }
-.tab-auto .mod-root .workspace-tab-header-container-inner {
-  flex: 1 1 min-content;
-  flex-wrap: nowrap;
-}
-.tab-auto .workspace .mod-root .workspace-tab-header-inner-title {
-  flex: 1 1 fit-content;
-}
-
 .tab-wide {
   --tab-width: auto;
   --tab-max-width: 100%;

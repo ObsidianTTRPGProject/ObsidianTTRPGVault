@@ -11798,7 +11798,7 @@
     },
     {
       "id": "Twilight_Palace2",
-      "lastAccessed": 1739968209514,
+      "lastAccessed": 1746100024664,
       "markers": [
         {
           "id": "ID_f8c988c8e89b",
@@ -11823,9 +11823,101 @@
       ],
       "overlays": [],
       "shapes": [],
+      "files": []
+    },
+    {
+      "id": "ExampleSkullIsland",
+      "lastAccessed": 1746874983957,
+      "markers": [
+        {
+          "id": "ID_c9689a1b2aea",
+          "type": "Encounter",
+          "loc": [
+            2325,
+            2729.9877958968964
+          ],
+          "link": "Skull Cave",
+          "layer": "%5B%5BThe%20Island%20of%20Screams.jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.4641257728488433,
+            -0.39487092391304346
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_da2bb988abe9",
+          "type": "City",
+          "loc": [
+            3713.724814791748,
+            3742.0119625738976
+          ],
+          "link": "City of Screams",
+          "layer": "%5B%5BThe%20Island%20of%20Screams.jpg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.6361802044498296,
+            -0.6307277199034899
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
       "files": [
-        "2-World/Ruins of The Twilight Palace.md"
+        "2-World/Regions/Scream Island.md"
       ]
+    },
+    {
+      "id": "ZalkorsFerry",
+      "lastAccessed": 1747831731164,
+      "markers": [
+        {
+          "id": "ID_49b8dbe8fa18",
+          "type": "default",
+          "loc": [
+            1776,
+            3967.5264761352096
+          ],
+          "link": "Template-PointofInterest",
+          "layer": "%5B%5BA%20Cave.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_797bd888f8e8",
+          "type": "default",
+          "loc": [
+            4208,
+            3055.7005657913824
+          ],
+          "link": "Template-Region",
+          "layer": "%5B%5BA%20Cave.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": []
     }
   ],
   "defaultMarker": {

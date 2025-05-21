@@ -32,6 +32,18 @@
       "zoomLevel": 1,
       "forceIframe": false,
       "customCss": ""
+    },
+    {
+      "url": "https://app.demiplane.com/characters",
+      "displayName": "Demiplane",
+      "icon": "",
+      "hideOnMobile": true,
+      "addRibbonIcon": false,
+      "openInCenter": false,
+      "zoomLevel": 1,
+      "forceIframe": false,
+      "customCss": "",
+      "customJs": ""
     }
   ],
   "padding": 5
