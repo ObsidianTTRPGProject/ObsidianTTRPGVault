@@ -40,12 +40,15 @@ where (Status = "Active")
 
 # Recently Modified
 
-#### Recently Modified NPCs 
+#### Recently Modified People and Groups 
 
 ```dataview  
-TABLE WITHOUT ID link(file.name) AS "NPC Name", Gender, Race, Age, Location, AssociatedGroup  
-FROM "3-Mechanics/NPCs"
-WHERE (NoteIcon = "npc") 
+TABLE WITHOUT ID
+  link(file.name) AS "Location Name", MyContainer, MyCategory
+FROM "2-World"
+WHERE
+  contains(tags, "Category/People")
+  OR contains(tags, "Category/Groups")
 SORT file.mtime DESC
 LIMIT 10
 ```
@@ -53,9 +56,13 @@ LIMIT 10
 #### Recently Modified Locations
 
 ```dataview  
-TABLE WITHOUT ID link(file.name) AS "Location Name", type, Government, Community-Size, size, population  
+TABLE WITHOUT ID
+  link(file.name) AS "Location Name", MyContainer, MyCategory
 FROM "2-World"
-WHERE (NoteIcon = "Settlement")  
+WHERE
+  contains(tags, "Category/Place")
+  OR contains(tags, "Category/Hub")
+  OR contains(tags, "Category/Region")
 SORT file.mtime DESC
 LIMIT 10
 ```

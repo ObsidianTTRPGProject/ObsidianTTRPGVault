@@ -2,19 +2,18 @@
 obsidianUIMode: preview
 ---
 
-
 > [!cards|4]
-> **Map**
-> [![[Northern Faerun Map.jpg\|sban htiny ctr]]](Lampoteuo)
+> **[[Island of Screams]]**
+> ![[The Island of Screams.jpg\|sban htiny ctr]]
 > 
-> **Journey Board**
+> **[[Journey Board]]**
 > [![[JourneyBoard.png\|sban htiny ctr]]](Journey%20Board)
 >
-> **Link**
-> [![[AdventureIcon.png\|sban htiny ctr]]](Lampoteuo)
+> **[[City of Trade]]**
+> ![[AdventureIcon.png\|sban htiny ctr]]
 > 
-> **Party**
-> [![[PartyLogo.jpg\|sban htiny ctr p+t]]|](Party%201%2FExample%20Party%201)
+> **[[Example Party 1]]**
+> ![[PartyLogo.jpg\|sban htiny ctr p+t]]
 
 > [!NOTE|no-title]
 > ~~~meta-bind
