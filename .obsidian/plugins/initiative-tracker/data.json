@@ -100,24 +100,28 @@
   "state": {
     "creatures": [
       {
-        "name": "Pixie",
-        "initiative": 11,
+        "name": "Aerial Servant (FEF)",
+        "initiative": 9,
         "static": false,
-        "modifier": 0,
-        "hp": 0,
-        "currentMaxHP": 0,
-        "id": "ID_8bbb19d89b49",
-        "currentHP": 0,
+        "modifier": 4,
+        "hp": 152,
+        "currentMaxHP": 152,
+        "cr": "9",
+        "ac": 18,
+        "currentAC": 18,
+        "id": "ID_daf879a93889",
+        "currentHP": 152,
         "tempHP": 0,
         "status": [],
         "enabled": true,
         "active": false,
         "hidden": false,
-        "friendly": false
+        "friendly": false,
+        "hit_dice": "16d8 + 80"
       }
     ],
     "state": false,
-    "name": "Pixie",
+    "name": null,
     "round": 1,
     "logFile": "",
     "rollHP": false

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1-DM Toolkit/Home.md",
-                "mode": "preview",
-                "source": false
+                "file": "0-Scratch Notes/Add Random Notes Here.md",
+                "mode": "source",
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "Add Random Notes Here"
             }
           }
         ]
@@ -243,7 +243,23 @@
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 7
+      },
+      {
+        "id": "0cf92ab678b2867b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "57a39fb8643c7f75",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-creature-view",
+              "state": {},
+              "icon": "initiative-tracker-creature-view",
+              "title": "Combatant"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
@@ -273,52 +289,52 @@
   },
   "active": "c1c665f639704e2a",
   "lastOpenFiles": [
-    "0-Scratch Notes/Add Random Notes Here.md",
-    "z_Templates/3_Dataview Templates/Dataview - Query TTRPG Statblocks.md",
     "0-Scratch Notes/Random Dungeon.md",
-    "1-DM Toolkit/Home.md",
-    "3-Mechanics/CLI/backgrounds/urchin.md",
-    "3-Mechanics/CLI/backgrounds/soldier.md",
-    "3-Mechanics/CLI/backgrounds/sage.md",
-    "3-Mechanics/CLI/backgrounds/noble-knight-variant.md",
-    "3-Mechanics/CLI/backgrounds/guild-artisan-guild-merchant-variant.md",
-    "3-Mechanics/CLI/backgrounds/criminal-spy-variant.md",
-    "3-Mechanics/CLI/bestiary/construct/animated-armor.md",
-    "3-Mechanics/Bestiary/animated-armor 1.md",
+    "3-Mechanics/CLI/bestiary/fiend/aerial-servant-fef.md",
+    "3-Mechanics/CLI/CLI.md",
+    "3-Mechanics/CLI/adventures/ghosts-of-saltmarsh/09-appendix-a-of-ships-and-the-sea.md",
+    "3-Mechanics/CLI/adventures/ghosts-of-saltmarsh/08-chapter-8-the-styes.md",
+    "3-Mechanics/CLI/adventures/ghosts-of-saltmarsh/07-chapter-7-tammerauts-fate.md",
+    "3-Mechanics/CLI/adventures/ghosts-of-saltmarsh/06-chapter-6-the-final-enemy.md",
+    "3-Mechanics/CLI/adventures/ghosts-of-saltmarsh/05-chapter-5-isle-of-the-abbey.md",
+    "3-Mechanics/CLI/adventures/ghosts-of-saltmarsh/04-chapter-4-salvage-operation.md",
+    "3-Mechanics/CLI/adventures/ghosts-of-saltmarsh/03-chapter-3-danger-at-dunwater.md",
+    "3-Mechanics/CLI/adventures/ghosts-of-saltmarsh/02-chapter-2-the-sinister-secret-of-saltmarsh.md",
+    "3-Mechanics/Bestiary/Custom Homebrew Monster.md",
+    "3-Mechanics/CLI/bestiary/fiend/alpha-yek-ccodex.md",
+    "1-DM Toolkit/DnD5e-DM Screen-2014.md",
     "3-Mechanics/Bestiary",
-    "3-Mechanics/CLI/bestiary/celestial/fidele-angel-tob.md",
-    "3-Mechanics/CLI/bestiary/celestial/planetar.md",
-    "3-Mechanics/CLI/bestiary/celestial/unicorn.md",
-    "3-Mechanics/CLI/bestiary/celestial/chained-angel-tob.md",
-    "3-Mechanics/CLI/items/img/winged-boots.webp",
-    "3-Mechanics/CLI/items/img/wand-of-wonder.webp",
-    "3-Mechanics/CLI/items/img/wand-of-magic-detection.webp",
-    "3-Mechanics/CLI/items/img/wand-of-paralysis.webp",
-    "3-Mechanics/CLI/items/img/universal-solvent.webp",
-    "3-Mechanics/CLI/items/img/staff-of-the-magi.webp",
-    "3-Mechanics/CLI/items/img/staff-of-fire.webp",
-    "3-Mechanics/CLI/items/img/ring-of-regeneration.webp",
-    "3-Mechanics/CLI/items/img/spellguard-shield.webp",
-    "3-Mechanics/CLI/items/img/rope-of-entanglement.webp",
-    "3-Mechanics/CLI/items/zircon.md",
-    "3-Mechanics/CLI/items/yew-wand.md",
-    "3-Mechanics/CLI/items/yester-hill-axe-cos.md",
-    "3-Mechanics/CLI/items/yellow-sapphire.md",
-    "3-Mechanics/CLI/items/wyvern-poison.md",
-    "3-Mechanics/CLI/items/wyrmblood-venom-tob.md",
-    "3-Mechanics/CLI/items/wooden-staff.md",
-    "3-Mechanics/CLI/items/woodcarvers-tools.md",
-    "3-Mechanics/CLI/items/wings-of-flying.md",
-    "3-Mechanics/CLI/items/winged-boots.md",
-    "3-Mechanics/CLI/items/img",
-    "3-Mechanics/CLI/items",
-    "3-Mechanics/CLI/feats",
-    "3-Mechanics/CLI/deities",
-    "3-Mechanics/CLI/decks/img",
-    "3-Mechanics/CLI/decks",
-    "3-Mechanics/CLI/classes/img",
-    "3-Mechanics/CLI/classes",
-    "3-Mechanics/CLI/books/players-handbook-2014/img",
+    "3-Mechanics/CLI/bestiary/undead/zombie-xmm.md",
+    "3-Mechanics/CLI/bestiary/undead/zombie-raven-fef.md",
+    "3-Mechanics/CLI/bestiary/undead/wraith-xmm.md",
+    "3-Mechanics/CLI/bestiary/undead/wormhearted-suffragan-tob.md",
+    "3-Mechanics/CLI/bestiary/undead/wolf-spirit-swarm-tob.md",
+    "3-Mechanics/CLI/bestiary/undead/wind-eater-ccodex.md",
+    "3-Mechanics/CLI/bestiary/undead/will-o-wisp-xmm.md",
+    "3-Mechanics/CLI/bestiary/undead/wight-xmm.md",
+    "3-Mechanics/CLI/bestiary/undead/warhorse-skeleton-xmm.md",
+    "3-Mechanics/CLI/bestiary/undead/vosskyriss-serpentfolk-ghost-tdcsr.md",
+    "3-Mechanics/CLI/bestiary/undead/venomous-mummy-tob.md",
+    "3-Mechanics/CLI/bestiary/undead/vampiric-knight-ccodex.md",
+    "3-Mechanics/CLI/bestiary/undead/token",
+    "3-Mechanics/CLI/bestiary/undead/img",
+    "3-Mechanics/CLI/bestiary/token/otherworldly-steed-xphb.webp",
+    "3-Mechanics/CLI/bestiary/token/empyrean-xmm.webp",
+    "3-Mechanics/CLI/bestiary/token/empyrean-iota-xmm.webp",
+    "3-Mechanics/CLI/bestiary/plant/token",
+    "3-Mechanics/CLI/bestiary/plant/img",
+    "3-Mechanics/CLI/bestiary/ooze/token",
+    "3-Mechanics/CLI/bestiary/ooze/img",
+    "3-Mechanics/CLI/bestiary/npc/token",
+    "3-Mechanics/CLI/bestiary/npc/img",
+    "3-Mechanics/CLI/bestiary/monstrosity/token",
+    "3-Mechanics/CLI/bestiary/img/otherworldly-steed.webp",
+    "3-Mechanics/CLI/bestiary/img/empyreans.webp",
+    "3-Mechanics/CLI/bastions/img/scriptorium.webp",
+    "3-Mechanics/CLI/bastions/img/observatory.webp",
+    "3-Mechanics/CLI/bastions/img/library.webp",
+    "3-Mechanics/CLI/backgrounds/img/wayfarer.webp",
+    "3-Mechanics/CLI/backgrounds/img/scribe.webp",
     "0-Scratch Notes/Untitled.canvas",
     "Untitled.canvas"
   ]
