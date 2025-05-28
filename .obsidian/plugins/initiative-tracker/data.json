@@ -1,9 +1,9 @@
 {
   "players": [
     {
-      "note": "Template-Player",
-      "path": "z_Templates/Template-Player.md",
-      "name": "Template-Player",
+      "note": "Test",
+      "path": "1-Party/Test.md",
+      "name": "Test",
       "ac": 66,
       "hp": 60,
       "level": 11,
@@ -13,13 +13,13 @@
   ],
   "parties": [
     {
-      "name": "Test",
+      "name": "Test Party",
       "players": [
-        "Template-Player"
+        "Test"
       ]
     }
   ],
-  "defaultParty": "Test",
+  "defaultParty": "Test Party",
   "statuses": [
     {
       "name": "Blinded",
@@ -184,7 +184,7 @@
         "rollHP": false
       },
       {
-        "name": "Template-Player",
+        "name": "Test",
         "initiative": 0,
         "static": false,
         "modifier": 2,
@@ -192,10 +192,10 @@
         "currentMaxHP": 60,
         "ac": 66,
         "currentAC": 66,
-        "note": "Template-Player",
-        "path": "z_Templates/Template-Player.md",
-        "id": "ID_cabacbb8ca7a",
-        "currentHP": 60,
+        "note": "Test",
+        "path": "1-Party/Test.md",
+        "id": "ID_2a6bb8fa59ea",
+        "currentHP": 50,
         "tempHP": 0,
         "status": [],
         "enabled": true,

@@ -43,6 +43,8 @@ enemies:
   - Enemy
 siblings:
   - Sister
+obsidianUIMode: preview
+MyContainer:
 ---
 
 <%*

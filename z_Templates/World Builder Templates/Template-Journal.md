@@ -3,7 +3,7 @@ NoteIcon: journal
 aat-render-enabled: true
 fc-category:
   - Event Category 1
-fc-display-name: 
+fc-display-name:
 sessionstatus:
   - Occured
 type: Session Journal
@@ -17,6 +17,7 @@ timelines:
 tags:
   - journal
   - "#Category/Journal"
+obsidianUIMode: preview
 ---
 
 <%*

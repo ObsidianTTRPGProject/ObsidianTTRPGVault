@@ -346,6 +346,14 @@ var AppHelper = class {
       alias: aliases
     };
   }
+  getTagsProperty(file) {
+    var _a, _b, _c;
+    const frontMatter = (_a = this.unsafeApp.metadataCache.getFileCache(file)) == null ? void 0 : _a.frontmatter;
+    if (!frontMatter) {
+      return [];
+    }
+    return (_c = (_b = (0, import_obsidian.parseFrontMatterTags)(frontMatter)) == null ? void 0 : _b.map((x) => x.slice(1))) != null ? _c : [];
+  }
   getBoolFrontMatter(file, key) {
     var _a, _b;
     return Boolean(
@@ -443,6 +451,12 @@ var AppHelper = class {
     return Object.entries(this.unsafeApp.metadataCache.unresolvedLinks).flatMap(
       ([path, obj]) => Object.keys(obj).map((link) => ({ path, link }))
     );
+  }
+  getResolvedLinks(file) {
+    var _a, _b;
+    return (_b = Object.keys(
+      (_a = this.unsafeApp.metadataCache.resolvedLinks[file.path]) != null ? _a : {}
+    )) != null ? _b : [];
   }
   getUnresolvedLinks(file) {
     var _a;
@@ -620,6 +634,9 @@ function uniqWith(arr, fn) {
   return arr.filter(
     (element2, index) => arr.findIndex((step) => fn(element2, step)) === index
   );
+}
+function hasSameElement(arr1, arr2) {
+  return arr1.some((x) => arr2.includes(x));
 }
 function setEquals(set1, set2) {
   if (set1.size !== set2.size) {
@@ -1717,13 +1734,17 @@ var InternalLinkWordProvider = class {
       if (option.excludePathPrefixPatterns.some((x) => f.path.startsWith(x))) {
         return false;
       }
-      if (!option.frontMatterKeyForExclusion) {
-        return true;
+      const fmkfc = option.frontMatterKeyForExclusion;
+      if (fmkfc && this.appHelper.getBoolFrontMatter(f, fmkfc)) {
+        return false;
       }
-      return !this.appHelper.getBoolFrontMatter(
-        f,
-        option.frontMatterKeyForExclusion
-      );
+      if (option.tagsForExclusion.length > 0) {
+        const tags = this.appHelper.getTagsProperty(f);
+        if (hasSameElement(option.tagsForExclusion, tags)) {
+          return false;
+        }
+      }
+      return true;
     }).flatMap((x) => {
       const aliases = this.appHelper.getAliases(x);
       if (option.wordAsInternalLinkAlias) {
@@ -4144,6 +4165,13 @@ var AutoCompleteSuggest = class _AutoCompleteSuggest extends import_obsidian5.Ed
             }
           );
         }
+        if (this.settings.excludeExistingInActiveFileInternalLinks) {
+          const activeFile = this.appHelper.getActiveFile();
+          const linkPaths = this.appHelper.getResolvedLinks(activeFile);
+          words = words.filter(
+            (x) => x.type !== "internalLink" || !linkPaths.includes(x.createdPath)
+          );
+        }
         cb(
           uniqWith(words, suggestionUniqPredicate).slice(
             0,
@@ -4337,7 +4365,8 @@ var AutoCompleteSuggest = class _AutoCompleteSuggest extends import_obsidian5.Ed
       excludePathPrefixPatterns: this.excludeInternalLinkPrefixPathPatterns,
       makeSynonymAboutEmoji: this.settings.matchingWithoutEmoji,
       makeSynonymAboutAccentsDiacritics: this.settings.treatAccentDiacriticsAsAlphabeticCharacters,
-      frontMatterKeyForExclusion: this.settings.frontMatterKeyForExclusionInternalLink
+      frontMatterKeyForExclusion: this.settings.frontMatterKeyForExclusionInternalLink,
+      tagsForExclusion: this.settings.tagsForExclusionInternalLink
     });
     this.statusBar.setInternalLinkIndexed(
       this.internalLinkWordProvider.wordCount
@@ -4842,6 +4871,7 @@ var DEFAULT_SETTINGS = {
   suggestInternalLinkWithAlias: false,
   excludeInternalLinkPathPrefixPatterns: "",
   excludeSelfInternalLink: false,
+  excludeExistingInActiveFileInternalLinks: false,
   updateInternalLinksOnSave: true,
   insertAliasTransformedFromDisplayedInternalLink: {
     enabled: false,
@@ -4849,6 +4879,7 @@ var DEFAULT_SETTINGS = {
     after: ""
   },
   frontMatterKeyForExclusionInternalLink: "",
+  tagsForExclusionInternalLink: [],
   // front matter complement
   enableFrontMatterComplement: false,
   frontMatterComplementMatchStrategy: "inherit",
@@ -5434,8 +5465,19 @@ var VariousComplementsSettingTab = class extends import_obsidian7.PluginSettingT
         tc.setValue(this.plugin.settings.excludeSelfInternalLink).onChange(
           async (value) => {
             this.plugin.settings.excludeSelfInternalLink = value;
+            await this.plugin.saveSettings({ internalLink: true });
           }
         );
+      });
+      new import_obsidian7.Setting(containerEl).setName("Exclude existing in active file internal links").setDesc(
+        "Exclude internal links present in the current file from the suggestions. Note that the number of excluded suggestions will reduce the total suggestions by the value set in the 'Max number of suggestions' option."
+      ).addToggle((tc) => {
+        tc.setValue(
+          this.plugin.settings.excludeExistingInActiveFileInternalLinks
+        ).onChange(async (value) => {
+          this.plugin.settings.excludeExistingInActiveFileInternalLinks = value;
+          await this.plugin.saveSettings({ internalLink: true });
+        });
       });
       new import_obsidian7.Setting(containerEl).setName(
         "Insert an alias that is transformed from the displayed internal link"
@@ -5485,6 +5527,18 @@ var VariousComplementsSettingTab = class extends import_obsidian7.PluginSettingT
         }).setValue(
           this.plugin.settings.frontMatterKeyForExclusionInternalLink
         );
+      });
+      new import_obsidian7.Setting(containerEl).setName("Tags for exclusion").setDesc(
+        "Tags to exclude suggestions for internal links. If specifying multiple tags, separate them with line breaks."
+      ).addTextArea((tc) => {
+        const el = tc.setValue(
+          this.plugin.settings.tagsForExclusionInternalLink.join("\n")
+        ).onChange(async (value) => {
+          this.plugin.settings.tagsForExclusionInternalLink = smartLineBreakSplit(value);
+          await this.plugin.saveSettings();
+        });
+        el.inputEl.className = "various-complements__settings__text-area-path-mini";
+        return el;
       });
     }
   }

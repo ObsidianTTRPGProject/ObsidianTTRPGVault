@@ -26,18 +26,18 @@ obsidianUIMode: preview
 > class(tabbed)
 > )]
 > ~~~
-> >[!tabbed-box]
+> >[!tabbed-box-maxh]
 > > >[!div-m|no-title]
-> > > ![[Home Embeds#Party|no-h1 clean]]
+> > > ![[Home Embeds - DV#Party|no-h1 clean]]
 > >
 > > >[!div-m|no-title]
-> > > ![[Home Embeds#Session Journals|no-h clean]]
+> > > ![[Home Embeds - DV#Session Journals|no-h clean]]
 > >
 > > >[!div-m|no-title]
-> > > ![[Home Embeds#Create New|no-h1 clean]]
+> > > ![[Home Embeds - DV#Create New|no-h1 clean]]
 > >
 > > > [!div-m|no-title]
-> > > ![[Home Embeds#Recently Modified|no-h1 clean]]
+> > > ![[Home Embeds - DV#Recently Modified|no-h1 clean]]
 > > 
 > > > [!div-m|no-title]
-> > > ![[Home Embeds#Vault Graph|no-h clean]]
+> > > ![[Home Embeds - DV#Vault Graph|no-h clean]]

@@ -127,19 +127,21 @@
       "tooltip": "Click here to create a new Magic Item"
     },
     {
-      "label": "New Player",
+      "label": "Player",
       "hidden": false,
-      "id": "newPlayer",
+      "id": "button_player",
       "style": "primary",
       "actions": [
         {
           "type": "templaterCreateNote",
-          "templateFile": "z_Templates/Template-Player.md",
+          "templateFile": "z_Templates/World Builder Templates/Template-Player.md",
+          "folderPath": "1-Party",
           "fileName": "NewPlayer",
-          "folderPath": "1-Party"
+          "openNote": true,
+          "openIfAlreadyExists": false
         }
       ],
-      "icon": "person-standing",
+      "icon": "plus",
       "tooltip": "Click here to create a new player."
     },
     {

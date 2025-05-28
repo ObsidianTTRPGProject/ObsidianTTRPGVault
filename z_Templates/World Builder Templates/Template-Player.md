@@ -20,7 +20,7 @@ faction_standing:
   Faction Name 1: 1
   Faction Name 3: 3
 char_race: Human
-char_class: 
+char_class:
 char_gender: Male
 char_status: Alive
 char_age: Young Adult
@@ -43,6 +43,8 @@ allies:
 siblings:
   - Brother
   - Sister
+obsidianUIMode: preview
+MyContainer:
 ---
 
 <%*

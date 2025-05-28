@@ -1,6 +1,6 @@
 ---
 MyContainer: []
-MyCategory: 
+MyCategory:
 tags:
   - Category/People
 obsidianUIMode: preview
@@ -10,13 +10,14 @@ NoteStatus: ❓
 char_status: Alive
 char_race: Human
 char_gender: Male
-char_items: 
+char_items:
 char_age: Adult
 parents:
   - Josh
   - Susan
 children:
   - Bob
+  - Fred
 enemies:
   - Zander
 allies:

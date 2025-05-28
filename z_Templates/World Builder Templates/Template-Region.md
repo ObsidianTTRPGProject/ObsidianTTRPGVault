@@ -2,6 +2,7 @@
 tags:
   - Category/Region
 obsidianUIMode: preview
+MyContainer:
 ---
 <%*
 const hasTitle = !tp.file.title.startsWith("NewRegion");

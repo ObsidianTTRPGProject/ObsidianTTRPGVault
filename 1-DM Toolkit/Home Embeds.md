@@ -1,17 +1,43 @@
 # Party
 
-```dataview  
-TABLE WITHOUT ID link(file.name) AS "Character Name", Player, Class, Race, level, Role  
-from "1-Party"  
-where (Role = "Player")  
-where (Status = "Active")  
+```base
+formulas:
+  Untitled: ""
+display:
+  property.char_race: Race
+  property.char_gender: Gender
+  property.char_status: Status
+  property.char_class: Class
+  property.char_age: Age
+  property.char_items: Inventory
+  file.name: Character Name
+  property.Player: Player Name
+  property.level: Level
+views:
+  - type: table
+    name: Party Members
+    filters:
+      and:
+        - property.tags == "Category/Player"
+        - file.folder != "z_Templates/World Builder Templates"
+    order:
+      - file.name
+      - Player
+      - char_race
+      - char_gender
+      - level
+      - char_status
+      - char_class
+      - char_age
+      - char_items
+
 ```
 
 # Create New
 
 #### Player Elements
 
-`BUTTON[newPlayer]`
+`BUTTON[button_player]`
 
 `BUTTON[newJournal]` 
 
@@ -40,59 +66,244 @@ where (Status = "Active")
 
 # Recently Modified
 
-#### Recently Modified People and Groups 
+```base
+formulas:
+  Untitled: ""
+  Untitled 2: ""
+views:
+  - type: table
+    name: Recently Modified - All
+    order:
+      - file.name
+      - MyContainer
+      - MyCategory
+      - file.folder
+      - file.ctime
+      - file.mtime
+      - obsidianUIMode
+    columnSize:
+      file.name: 177
+      property.MyContainer: 244
+      property.MyCategory: 175
+      file.folder: 273
+      file.ctime: 208
+    sort:
+      - column: file.folder
+        direction: DESC
+      - column: formula.Untitled 2
+        direction: DESC
+      - column: property.MyCategory
+        direction: ASC
+      - column: property.Status
+        direction: DESC
+    limit: 10
+  - type: table
+    name: Regions
+    filters:
+      and:
+        - file.folder == "2-World/Regions"
+    order:
+      - file.name
+      - MyContainer
+      - MyCategory
+      - file.folder
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 177
+      property.MyContainer: 244
+      property.MyCategory: 175
+      file.folder: 273
+      file.ctime: 208
+    sort:
+      - column: property.Status
+        direction: DESC
+    limit: 10
+  - type: table
+    name: Hubs
+    filters:
+      and:
+        - file.folder == "2-World/Hubs"
+    order:
+      - file.name
+      - MyContainer
+      - MyCategory
+      - file.folder
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 177
+      property.MyContainer: 244
+      property.MyCategory: 175
+      file.folder: 273
+      file.ctime: 208
+    sort:
+      - column: file.name
+        direction: DESC
+      - column: property.Status
+        direction: DESC
+    limit: 10
+  - type: table
+    name: Places
+    filters:
+      and:
+        - file.folder == "2-World/Places"
+    order:
+      - file.name
+      - MyContainer
+      - MyCategory
+      - file.folder
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 177
+      property.MyContainer: 244
+      property.MyCategory: 175
+      file.folder: 273
+      file.ctime: 208
+    sort:
+      - column: file.name
+        direction: ASC
+      - column: property.Status
+        direction: DESC
+    limit: 10
+  - type: table
+    name: Places of Interest
+    filters:
+      and:
+        - file.folder == "2-World/Points of Interest"
+    order:
+      - file.name
+      - MyContainer
+      - MyCategory
+      - file.folder
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 177
+      property.MyContainer: 244
+      property.MyCategory: 175
+      file.folder: 273
+      file.ctime: 208
+    sort:
+      - column: property.Status
+        direction: DESC
+    limit: 10
+  - type: table
+    name: People
+    filters:
+      and:
+        - file.folder == "2-World/People"
+    order:
+      - file.name
+      - MyContainer
+      - MyCategory
+      - file.folder
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 177
+      property.MyContainer: 244
+      property.MyCategory: 175
+      file.folder: 273
+      file.ctime: 208
+    sort:
+      - column: property.Status
+        direction: DESC
+    limit: 10
+  - type: table
+    name: Groups
+    filters:
+      and:
+        - file.folder == "2-World/Groups"
+    order:
+      - file.name
+      - MyContainer
+      - MyCategory
+      - file.folder
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 177
+      property.MyContainer: 244
+      property.MyCategory: 175
+      file.folder: 273
+      file.ctime: 208
+    sort:
+      - column: file.ctime
+        direction: ASC
+      - column: file.name
+        direction: ASC
+      - column: property.Status
+        direction: DESC
+    limit: 10
+  - type: table
+    name: Quests
+    filters:
+      and:
+        - file.folder == "2-World/Quests"
+    order:
+      - file.name
+      - MyContainer
+      - MyCategory
+      - file.folder
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 177
+      property.MyContainer: 244
+      property.MyCategory: 175
+      file.folder: 273
+      file.ctime: 208
+    sort:
+      - column: property.Status
+        direction: DESC
+    limit: 10
+  - type: table
+    name: Session Journals
+    filters:
+      and:
+        - file.folder == "1-Session Journals"
+    order:
+      - file.name
+      - MyContainer
+      - MyCategory
+      - file.folder
+      - file.ctime
+      - file.mtime
+    columnSize:
+      file.name: 177
+      property.MyContainer: 244
+      property.MyCategory: 175
+      file.folder: 273
+      file.ctime: 208
+    sort:
+      - column: file.name
+        direction: ASC
+      - column: property.Status
+        direction: DESC
+    limit: 10
 
-```dataview  
-TABLE WITHOUT ID
-  link(file.name) AS "Location Name", MyContainer, MyCategory
-FROM "2-World"
-WHERE
-  contains(tags, "Category/People")
-  OR contains(tags, "Category/Groups")
-SORT file.mtime DESC
-LIMIT 10
 ```
 
-#### Recently Modified Locations
 
-```dataview  
-TABLE WITHOUT ID
-  link(file.name) AS "Location Name", MyContainer, MyCategory
-FROM "2-World"
-WHERE
-  contains(tags, "Category/Place")
-  OR contains(tags, "Category/Hub")
-  OR contains(tags, "Category/Region")
-SORT file.mtime DESC
-LIMIT 10
-```
-
-#### Recently Modified Notes
-
-```dataview
-TABLE WITHOUT ID
-    link(file.path, file.folder + " / " + file.name) AS "Note",
-    file.mtime AS "Last modified"
-FROM "/"
-WHERE file.mtime >= date(today) - dur(30 days)
-AND file.name != this.file.name
-    AND !contains(file.path, "z_Assets")
-    AND !contains(file.path, "Inline Scripts")
-    AND !contains(file.path, "z_Templates")
-    AND !contains(file.path, "daily notes")
-    AND !contains(file.path, "BRAT")
-SORT file.mtime DESC
-LIMIT 10
-```
 
 
 # Session Journals
 
-```dataview
-TABLE WITHOUT ID link(file.name) AS "Session Date", Status, players
-from "1-Session Journals"
-where (type = "Session Journal")
-SORT file.name DESC
+```base
+views:
+  - type: table
+    name: Session Journals
+    filters:
+      and:
+        - file.folder == "1-Session Journals"
+    order:
+      - file.name
+      - Status
+      - players
+    limit: 15
+
 ```
 
 # Vault Graph

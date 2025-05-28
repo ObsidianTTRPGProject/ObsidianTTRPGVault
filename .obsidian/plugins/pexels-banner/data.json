@@ -55,8 +55,14 @@
   "customBannerIconField": [
     "icon"
   ],
+  "customBannerIconImageField": [
+    "icon-image"
+  ],
   "customBannerIconSizeField": [
     "icon-size"
+  ],
+  "customBannerIconRotateField": [
+    "icon-rotate"
   ],
   "customBannerIconXPositionField": [
     "icon-x"
@@ -85,6 +91,9 @@
   "customBannerIconVeritalOffsetField": [
     "icon-y"
   ],
+  "customBannerIconImageAlignmentField": [
+    "banner-icon-image-alignment"
+  ],
   "customFlagColorField": [
     "pixel-banner-flag-color"
   ],
@@ -99,7 +108,7 @@
   "showPinIcon": false,
   "pinnedImageFolder": "pixel-banner-images",
   "showReleaseNotes": true,
-  "lastVersion": "3.4.5",
+  "lastVersion": "3.5.2",
   "showRefreshIcon": false,
   "showViewImageIcon": false,
   "hidePixelBannerFields": true,
@@ -113,6 +122,7 @@
   "selectImageIconOpacity": 40,
   "selectImageIconFlag": "red",
   "defaultSelectImagePath": "z_Assets/banners",
+  "defaultSelectIconPath": "",
   "useShortPath": true,
   "bannerGap": 12,
   "bannerIconSize": 70,
@@ -125,7 +135,8 @@
   "bannerIconPaddingY": "0",
   "bannerIconBorderRadius": "17",
   "bannerIconVeritalOffset": "0",
-  "openBannerIconModalAfterSelectingBanner": true,
+  "bannerIconImageAlignment": "left",
   "openTargetingModalAfterSelectingBannerOrIcon": true,
-  "enableDailyGame": false
+  "enableDailyGame": false,
+  "openBannerIconModalAfterSelectingBanner": true
 }
