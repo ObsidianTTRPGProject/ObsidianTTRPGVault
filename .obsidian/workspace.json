@@ -41,16 +41,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2-World/Regions/Island of Skulls.md",
+                "file": "2-World/Quests/The Giants Skull.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Island of Skulls"
+              "title": "The Giants Skull"
+            }
+          },
+          {
+            "id": "e2d2511929a755b8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-DM Toolkit/Home - DV.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Home - DV"
+            }
+          },
+          {
+            "id": "2c4fad23592184ba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-Party/Example Party 1/Bob.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Bob"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -327,37 +355,37 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "b5dbd14dabb7d39b",
+  "active": "2911de48d50d504c",
   "lastOpenFiles": [
     "1-DM Toolkit/Home - DV.md",
+    "1-Party/Example Party 1/Bob.md",
+    "2-World/Quests/The Giants Skull.md",
     "2-World/Regions/Island of Skulls.md",
+    "2-World/Groups/Cult of Screams.md",
+    "2-World/Points of Interest/Skull Cave.md",
+    "2-World/Hubs/City of Screams.md",
+    "2-World/Places/Shop of Stuff.md",
+    "2-World/People/Frank the Tank.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
     "z_Templates/World Builder Templates/Template-Region.md",
     "1-DM Toolkit/DM Board.md",
-    "2-World/People/NewNPC.md",
     "1-DM Toolkit/Home.md",
-    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
     "0-Scratch Notes/Add Random Notes Here.md",
     "0-Scratch Notes/Untitled.md",
     "z_Templates/World Builder Templates/Template-PointofInterest.md",
     "z_Templates/World Builder Templates/Template-Quest.md",
     "z_Templates/World Builder Templates/Jungle of Screams.md",
     "1-DM Toolkit/Home Embeds.md",
-    "1-Party/NewPlayer.md",
     "1-Session Journals/NewJournal.md",
     "z_Assets/Fighter Gemmy.png",
     "z_Templates/World Builder Templates/Template-Person.md",
     "z_Templates/World Builder Templates/Template-Player.md",
-    "2-World/Places/NewPlace.md",
     "2-World/People/Bob.md",
     "1-Session Journals/2025-01-01.md",
     "0-Scratch Notes/Random Dungeon.md",
     "0-Scratch Notes/Template Design.md",
-    "0-Scratch Notes/Untitled 1.md",
     "0-Scratch Notes/Untitled.base",
     "0-Scratch Notes/Untitled.canvas",
-    "1-Party/Test.md",
-    "z_Templates/World Builder Templates/Template-Place.md",
-    "1-DM Toolkit/Home Embeds - DV.md",
     "z_Assets/Pasted image 20250427093259.png",
     "z_Assets/Pasted image 20250425220102.png",
     "z_Assets/Pasted image 20250427102611.png",

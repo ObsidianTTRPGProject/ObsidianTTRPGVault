@@ -34,7 +34,7 @@
         {
           "type": "templaterCreateNote",
           "templateFile": "z_Templates/World Builder Templates/Template-Quest.md",
-          "folderPath": "2-Campaign/Quests",
+          "folderPath": "2-World/Quests",
           "fileName": "NewQuest",
           "openNote": true
         }
