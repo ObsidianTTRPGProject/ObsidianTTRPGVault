@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Templates/World Builder Templates/Template-Player-Demiplane.md",
+                "file": "z_Templates/World Builder Templates/Template-Quest.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Template-Player-Demiplane"
+              "title": "Template-Quest"
             }
           }
         ],
@@ -371,6 +371,11 @@
   },
   "active": "198ac325be1750ce",
   "lastOpenFiles": [
+    "z_Templates/World Builder Templates/Template-PointofInterest.md",
+    "z_Templates/World Builder Templates/Template-Quest.md",
+    "z_Templates/World Builder Templates/Template-Place.md",
+    "z_Templates/World Builder Templates/Template-Region.md",
+    "z_Templates/World Builder Templates/Template-Player-Demiplane.md",
     "z_Templates/World Builder Templates/Template-Player.md",
     "z_Templates/World Builder Templates/Template-Person.md",
     "1-DM Toolkit/DM Board.md",
@@ -392,11 +397,6 @@
     "1-Party/Example Party 1/Example Party 1.md",
     "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
     "2-World/Quests/The Giants Skull.md",
-    "2-World/Quests/NewQuest.md",
-    "2-World/Groups/NewGroup.md",
-    "2-World/Points of Interest/NewPointofInterest.md",
-    "2-World/People/NewNPC.md",
-    "2-World/Places/NewPlace.md",
     "z_Assets/Fighter Gemmy.png",
     "0-Scratch Notes/Untitled.base",
     "0-Scratch Notes/Untitled.canvas",

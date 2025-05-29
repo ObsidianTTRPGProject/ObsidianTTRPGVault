@@ -1,19 +1,20 @@
 ---
-tags: Category/Quest
+tags:
+  - Category/Quest
 MyContainer:
   - "[[z_Templates/World Builder Templates/Template-PointofInterest.md|Template-PointofInterest]]"
   - "[[z_Templates/World Builder Templates/Template-Place.md|Template-Place]]"
   - "[[z_Templates/World Builder Templates/Template-Hub.md|Template-Hub]]"
-MyCategory: 
+MyCategory:
 obsidianUIMode: preview
-questObtained: 
+questObtained:
 questStatus: Not Started
-questGiver: 
-questLocationObtained: 
-questSessionObtained: 
-questNotes: 
-questLootAvail: 
-questLookEarned: 
+questGiver:
+questLocationObtained:
+questSessionObtained:
+questNotes:
+questLootAvail:
+questLookEarned:
 NoteIcon: quest
 ---
 
