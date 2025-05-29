@@ -1114,7 +1114,8 @@ function judge(word, query, queryStartWithUpper, options) {
           ...word,
           value: c,
           hit: c,
-          fuzzy: matched.type === "fuzzy_match"
+          fuzzy: matched.type === "fuzzy_match",
+          query
         },
         value: c,
         alias: false
@@ -1124,7 +1125,8 @@ function judge(word, query, queryStartWithUpper, options) {
         word: {
           ...word,
           hit: word.value,
-          fuzzy: matched.type === "fuzzy_match"
+          fuzzy: matched.type === "fuzzy_match",
+          query
         },
         value: word.value,
         alias: false
@@ -1139,7 +1141,8 @@ function judge(word, query, queryStartWithUpper, options) {
       word: {
         ...word,
         hit: matchedAlias.aliases,
-        fuzzy: matchedAlias.matched.type === "fuzzy_match"
+        fuzzy: matchedAlias.matched.type === "fuzzy_match",
+        query
       },
       value: matchedAlias.aliases,
       alias: true
@@ -1246,7 +1249,8 @@ function judgeByPartialMatch(word, query, queryStartWithUpper, options) {
           ...word,
           value: c,
           hit: c,
-          fuzzy: startsWithMatched.type === "fuzzy_match"
+          fuzzy: startsWithMatched.type === "fuzzy_match",
+          query
         },
         value: c,
         alias: false
@@ -1256,7 +1260,8 @@ function judgeByPartialMatch(word, query, queryStartWithUpper, options) {
         word: {
           ...word,
           hit: word.value,
-          fuzzy: startsWithMatched.type === "fuzzy_match"
+          fuzzy: startsWithMatched.type === "fuzzy_match",
+          query
         },
         value: word.value,
         alias: false
@@ -1271,7 +1276,8 @@ function judgeByPartialMatch(word, query, queryStartWithUpper, options) {
       word: {
         ...word,
         hit: startsWithAliasMatched.aliases,
-        fuzzy: startsWithAliasMatched.matched.type === "fuzzy_match"
+        fuzzy: startsWithAliasMatched.matched.type === "fuzzy_match",
+        query
       },
       value: startsWithAliasMatched.aliases,
       alias: true
@@ -1283,7 +1289,8 @@ function judgeByPartialMatch(word, query, queryStartWithUpper, options) {
       word: {
         ...word,
         hit: word.value,
-        fuzzy: includesMatched.type === "fuzzy_match"
+        fuzzy: includesMatched.type === "fuzzy_match",
+        query
       },
       value: word.value,
       alias: false
@@ -1297,7 +1304,8 @@ function judgeByPartialMatch(word, query, queryStartWithUpper, options) {
       word: {
         ...word,
         hit: matchedAliasIncluded.aliases,
-        fuzzy: matchedAliasIncluded.matched.type === "fuzzy_match"
+        fuzzy: matchedAliasIncluded.matched.type === "fuzzy_match",
+        query
       },
       value: matchedAliasIncluded.aliases,
       alias: true
@@ -1960,16 +1968,25 @@ var SelectionHistoryStorage = class {
     if (!this.data[word.hit]) {
       this.data[word.hit] = {};
     }
-    if (!this.data[word.hit][word.value]) {
-      this.data[word.hit][word.value] = {};
+    let valueRef;
+    if (word.valueForHistory) {
+      if (!this.data[word.hit][word.valueForHistory]) {
+        this.data[word.hit][word.valueForHistory] = {};
+      }
+      valueRef = this.data[word.hit][word.valueForHistory];
+    } else {
+      if (!this.data[word.hit][word.value]) {
+        this.data[word.hit][word.value] = {};
+      }
+      valueRef = this.data[word.hit][word.value];
     }
-    if (this.data[word.hit][word.value][word.type]) {
-      this.data[word.hit][word.value][word.type] = {
-        count: this.data[word.hit][word.value][word.type].count + 1,
+    if (valueRef[word.type]) {
+      valueRef[word.type] = {
+        count: valueRef[word.type].count + 1,
         lastUpdated: Date.now()
       };
     } else {
-      this.data[word.hit][word.value][word.type] = {
+      valueRef[word.type] = {
         count: 1,
         lastUpdated: Date.now()
       };
@@ -3822,6 +3839,27 @@ async function selectWithCustomAlias(popup, evt) {
   item.value = input;
   return item;
 }
+function selectWithQueryAlias(popup, evt) {
+  var _a, _b;
+  if (!popup.context || evt.isComposing) {
+    return null;
+  }
+  if (popup.selectionLock) {
+    popup.close();
+    return null;
+  }
+  const item = popup.suggestions.values[popup.suggestions.selectedItem];
+  if (item.type !== "internalLink") {
+    select(popup, evt);
+    return null;
+  }
+  item.aliasMeta = {
+    origin: (_b = (_a = item.aliasMeta) == null ? void 0 : _a.origin) != null ? _b : item.value
+  };
+  item.valueForHistory = item.value;
+  item.value = item.query;
+  return item;
+}
 function insertAsText(popup, evt) {
   if (!popup.context || evt.isComposing) {
     return;
@@ -4250,6 +4288,16 @@ var AutoCompleteSuggest = class _AutoCompleteSuggest extends import_obsidian5.Ed
               this.selectSuggestion(item);
             }
           });
+          return false;
+        }
+      ],
+      [
+        "select with query alias",
+        (evt) => {
+          const item = selectWithQueryAlias(this, evt);
+          if (item) {
+            this.selectSuggestion(item);
+          }
           return false;
         }
       ],
@@ -4829,6 +4877,7 @@ var DEFAULT_SETTINGS = {
   hotkeys: {
     select: [{ modifiers: [], key: "Enter" }],
     "select with custom alias": [],
+    "select with query alias": [],
     up: [{ modifiers: [], key: "ArrowUp" }],
     down: [{ modifiers: [], key: "ArrowDown" }],
     "select 1st": [],

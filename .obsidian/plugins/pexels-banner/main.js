@@ -877,7 +877,7 @@ var init_selectPixelBannerModal = __esm({
       }
       // Initialize the basic UI (non-API dependent)
       async initializeBasicUI() {
-        var _a, _b;
+        var _a;
         const { contentEl } = this;
         const titleContainer = contentEl.createEl("h2", {
           cls: "pixel-banner-selector-title",
@@ -936,7 +936,12 @@ var init_selectPixelBannerModal = __esm({
           openSettings();
         });
         const activeFile = this.app.workspace.getActiveFile();
-        const hasBanner = activeFile ? this.plugin.hasBannerFrontmatter(activeFile) || ((_b = (_a = this.plugin.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a.frontmatter) == null ? void 0 : _b[this.plugin.settings.customBannerShuffleField[0]]) : false;
+        const hasBanner = activeFile ? this.plugin.hasBannerFrontmatter(activeFile) || ((_a = this.plugin.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a.frontmatter) && this.plugin.settings.customBannerShuffleField.some(
+          (field) => {
+            var _a2, _b;
+            return (_b = (_a2 = this.plugin.app.metadataCache.getFileCache(activeFile)) == null ? void 0 : _a2.frontmatter) == null ? void 0 : _b[field];
+          }
+        ) : false;
         const mainContainer = contentEl.createDiv({ cls: "pixel-banner-main-container" });
         const bannerSourceSection = mainContainer.createDiv({ cls: "pixel-banner-section" });
         bannerSourceSection.createEl("h3", {
@@ -3014,7 +3019,7 @@ var init_generateAIBannerModal = __esm({
           }
         });
         const historyContainerDescription = contentEl.createEl("p", {
-          text: `Click an image to download and use as a banner. These downloads are always FREE as you have already paid to generate them.`,
+          text: `Click an image to download and use as a banner. These downloads are always FREE as you have already paid to generate them. Images older than one month are subject to deletion from our servers.`,
           cls: "pixel-banner-history-description",
           attr: {
             style: `
@@ -4361,6 +4366,12 @@ var init_targetPositionModal = __esm({
           frontmatter[bannerIconSizeField] = size;
         });
       }
+      updateBannerIconImageSizeMultiplier(sizeMultiplier) {
+        const bannerIconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconImageSizeMultiplierField] = sizeMultiplier;
+        });
+      }
       updateBannerIconRotate(rotate) {
         const bannerIconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
         this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
@@ -4429,6 +4440,12 @@ var init_targetPositionModal = __esm({
         const bannerIconVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
         this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
           frontmatter[bannerIconVerticalOffsetField] = verticalOffset;
+        });
+      }
+      updateBannerIconTextVerticalOffset(textVerticalOffset) {
+        const bannerIconTextVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconTextVerticalOffsetField) ? this.plugin.settings.customBannerIconTextVerticalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconTextVerticalOffsetField;
+        this.app.fileManager.processFrontMatter(this.app.workspace.getActiveFile(), (frontmatter) => {
+          frontmatter[bannerIconTextVerticalOffsetField] = textVerticalOffset;
         });
       }
       updateBannerIconImageAlignment(alignment) {
@@ -5363,7 +5380,7 @@ var init_targetPositionModal = __esm({
           }
         });
         const bannerIconXPositionLabel = bannerIconXPositionContainer.createEl("div", {
-          text: "X Position",
+          text: "Icon X Position",
           cls: "banner-icon-x-position-label",
           attr: {
             style: `
@@ -5417,7 +5434,7 @@ var init_targetPositionModal = __esm({
           }
         });
         const bannerIconVerticalOffsetLabel = bannerIconVerticalOffsetContainer.createEl("div", {
-          text: "Y Position",
+          text: "Icon Y Position",
           cls: "banner-icon-vertical-offset-label",
           attr: {
             style: `
@@ -5473,7 +5490,7 @@ var init_targetPositionModal = __esm({
           }
         });
         const bannerIconSizeLabel = bannerIconSizeContainer.createEl("div", {
-          text: "Size",
+          text: "Icon Size",
           cls: "banner-icon-size-label",
           attr: {
             style: `
@@ -5513,6 +5530,118 @@ var init_targetPositionModal = __esm({
           this.currentBannerIconSize = parseInt(bannerIconSizeSlider.value);
           bannerIconSizeValue.setText(`${this.currentBannerIconSize}`);
           this.updateBannerIconSize(this.currentBannerIconSize);
+        });
+        const bannerIconImageSizeMultiplierContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-image-size-multiplier-container",
+          attr: {
+            style: `
+                    display: ${hasBannerIconImage ? "flex" : "none"};
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconImageSizeMultiplierLabel = bannerIconImageSizeMultiplierContainer.createEl("div", {
+          text: "Icon Image Size Multiplier",
+          cls: "banner-icon-image-size-multiplier-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
+        this.currentBannerIconImageSizeMultiplier = (frontmatter == null ? void 0 : frontmatter[iconImageSizeMultiplierField]) || 1;
+        const bannerIconImageSizeMultiplierSlider = bannerIconImageSizeMultiplierContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-image-size-multiplier-slider",
+          attr: {
+            min: ".2",
+            max: "3",
+            step: "0.1",
+            value: this.currentBannerIconImageSizeMultiplier,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconImageSizeMultiplierValue = bannerIconImageSizeMultiplierContainer.createDiv({
+          cls: "banner-icon-image-size-multiplier-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconImageSizeMultiplierValue.setText(`${this.currentBannerIconImageSizeMultiplier}`);
+        bannerIconImageSizeMultiplierSlider.addEventListener("input", () => {
+          this.currentBannerIconImageSizeMultiplier = parseFloat(bannerIconImageSizeMultiplierSlider.value);
+          bannerIconImageSizeMultiplierValue.setText(`${this.currentBannerIconImageSizeMultiplier}`);
+          this.updateBannerIconImageSizeMultiplier(this.currentBannerIconImageSizeMultiplier);
+        });
+        const bannerIconTextVerticalOffsetContainer = bannerIconControlsContainer.createDiv({
+          cls: "banner-icon-text-vertical-offset-container",
+          attr: {
+            style: `
+                    display: ${hasBannerIconText ? "flex" : "none"};
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+                    min-width: 60px;
+                    flex: 0 auto;
+                    margin-top: 10px;
+                `
+          }
+        });
+        const bannerIconTextVerticalOffsetLabel = bannerIconTextVerticalOffsetContainer.createEl("div", {
+          text: "Icon Text Vertical Offset",
+          cls: "banner-icon-text-vertical-offset-label",
+          attr: {
+            style: `
+                    color: var(--text-muted); 
+                    font-size: 0.9em;
+                `
+          }
+        });
+        const iconTextVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconTextVerticalOffsetField) ? this.plugin.settings.customBannerIconTextVerticalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconTextVerticalOffsetField;
+        this.currentBannerIconTextVerticalOffset = (frontmatter == null ? void 0 : frontmatter[iconTextVerticalOffsetField]) || this.plugin.settings.bannerIconTextVerticalOffset || 0;
+        const bannerIconTextVerticalOffsetSlider = bannerIconTextVerticalOffsetContainer.createEl("input", {
+          type: "range",
+          cls: "banner-icon-text-vertical-offset-slider",
+          attr: {
+            min: "-50",
+            max: "50",
+            step: "1",
+            value: this.currentBannerIconTextVerticalOffset,
+            style: `
+                    flex: 1;
+                    writing-mode: horizontal-tb;
+                    direction: ltr;
+                `
+          }
+        });
+        const bannerIconTextVerticalOffsetValue = bannerIconTextVerticalOffsetContainer.createDiv({
+          cls: "banner-icon-text-vertical-offset-value",
+          attr: {
+            style: `
+                    font-family: var(--font-monospace);
+                    font-size: 0.9em;
+                `
+          }
+        });
+        bannerIconTextVerticalOffsetValue.setText(`${this.currentBannerIconTextVerticalOffset}`);
+        bannerIconTextVerticalOffsetSlider.addEventListener("input", () => {
+          this.currentBannerIconTextVerticalOffset = parseInt(bannerIconTextVerticalOffsetSlider.value);
+          bannerIconTextVerticalOffsetValue.setText(`${this.currentBannerIconTextVerticalOffset}`);
+          this.updateBannerIconTextVerticalOffset(this.currentBannerIconTextVerticalOffset);
         });
         const bannerIconRotateContainer = bannerIconControlsContainer.createDiv({
           cls: "banner-icon-rotate-container",
@@ -5583,7 +5712,7 @@ var init_targetPositionModal = __esm({
           }
         });
         const bannerIconColorLabel = bannerIconColorContainer.createEl("div", {
-          text: "Color",
+          text: "Icon Text Color",
           cls: "banner-icon-color-label",
           attr: {
             style: `
@@ -5665,7 +5794,7 @@ var init_targetPositionModal = __esm({
           }
         });
         const bannerIconFontWeightLabel = bannerIconFontWeightContainer.createEl("div", {
-          text: "Font Weight",
+          text: "Icon Text Font Weight",
           cls: "banner-icon-font-weight-label",
           attr: {
             style: `
@@ -5706,7 +5835,7 @@ var init_targetPositionModal = __esm({
           }
         });
         const bannerIconBgColorLabel = bannerIconBgColorContainer.createEl("div", {
-          text: "Background Color",
+          text: "Icon Background Color",
           cls: "banner-icon-bg-color-label",
           attr: {
             style: `
@@ -5887,7 +6016,7 @@ var init_targetPositionModal = __esm({
           }
         });
         const bannerIconPaddingXLabel = bannerIconPaddingXContainer.createEl("div", {
-          text: "Padding X",
+          text: "Icon Padding X",
           cls: "banner-icon-padding-x-label",
           attr: {
             style: `
@@ -5943,7 +6072,7 @@ var init_targetPositionModal = __esm({
           }
         });
         const bannerIconPaddingYLabel = bannerIconPaddingYContainer.createEl("div", {
-          text: "Padding Y",
+          text: "Icon Padding Y",
           cls: "banner-icon-padding-y-label",
           attr: {
             style: `
@@ -5999,7 +6128,7 @@ var init_targetPositionModal = __esm({
           }
         });
         const bannerIconBorderRadiusLabel = bannerIconBorderRadiusContainer.createEl("div", {
-          text: "Border Radius",
+          text: "Icon Border Radius",
           cls: "banner-icon-border-radius-label",
           attr: {
             style: `
@@ -6281,6 +6410,9 @@ var init_targetPositionModal = __esm({
           const currentTheme = getCurrentTheme_default();
           let defaultColor = currentTheme === "dark" ? "#ffffff" : "#000000";
           if (bannerIconSizeSlider) bannerIconSizeSlider.value = this.plugin.settings.bannerIconSize;
+          if (bannerIconImageSizeMultiplierSlider) bannerIconImageSizeMultiplierSlider.value = this.plugin.settings.bannerIconImageSizeMultiplier;
+          if (bannerIconRotateSlider) bannerIconRotateSlider.value = 0;
+          if (bannerIconTextVerticalOffsetSlider) bannerIconTextVerticalOffsetSlider.value = this.plugin.settings.bannerIconTextVerticalOffset;
           if (bannerIconColorInput) {
             const defaultIconColor = this.plugin.settings.bannerIconColor || defaultColor;
             bannerIconColorInput.value = defaultIconColor;
@@ -6336,6 +6468,8 @@ var init_targetPositionModal = __esm({
             alignmentSelect.value = "center";
           }
           if (bannerIconSizeValue) bannerIconSizeValue.setText(`${this.plugin.settings.bannerIconSize}`);
+          if (bannerIconImageSizeMultiplierValue) bannerIconImageSizeMultiplierValue.setText(`${this.plugin.settings.bannerIconImageSizeMultiplier}`);
+          if (bannerIconTextVerticalOffsetValue) bannerIconTextVerticalOffsetValue.setText(`${this.plugin.settings.bannerIconTextVerticalOffset}`);
           if (bannerIconPaddingXValue) bannerIconPaddingXValue.setText(`${this.plugin.settings.bannerIconPaddingX}`);
           if (bannerIconPaddingYValue) bannerIconPaddingYValue.setText(`${this.plugin.settings.bannerIconPaddingY}`);
           if (bannerIconBorderRadiusValue) bannerIconBorderRadiusValue.setText(`${this.plugin.settings.bannerIconBorderRadius}`);
@@ -6367,6 +6501,8 @@ var init_targetPositionModal = __esm({
             const bannerIconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
             const bannerIconVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
             const bannerIconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
+            const bannerIconTextVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconTextVerticalOffsetField) ? this.plugin.settings.customBannerIconTextVerticalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconTextVerticalOffsetField;
+            const bannerIconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
             const bannerIconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
             delete frontmatter2[displayField];
             delete frontmatter2[heightField];
@@ -6386,6 +6522,8 @@ var init_targetPositionModal = __esm({
             delete frontmatter2[bannerIconBorderRadiusField];
             delete frontmatter2[bannerIconVerticalOffsetField];
             delete frontmatter2[bannerIconSizeField];
+            delete frontmatter2[bannerIconTextVerticalOffsetField];
+            delete frontmatter2[bannerIconImageSizeMultiplierField];
             delete frontmatter2[bannerIconRotateField];
             const alignmentField = Array.isArray(this.plugin.settings.customBannerAlignmentField) ? this.plugin.settings.customBannerAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerAlignmentField;
             delete frontmatter2[alignmentField];
@@ -6511,7 +6649,7 @@ var init_targetPositionModal = __esm({
         let offsetX, offsetY;
         let isCrosshairDragging = false;
         modalEl.addEventListener("mousedown", (e) => {
-          if (e.target === zoomSlider || e.target === heightSlider || e.target === maxWidthSlider || e.target === contentStartPositionSlider || e.target === bannerFadeSlider || e.target === borderRadiusSlider || e.target === bannerIconXPositionSlider || e.target === bannerIconSizeSlider || e.target === bannerIconRotateSlider || e.target === bannerIconColorPicker || e.target === bannerIconColorInput || e.target === bannerIconPaddingXSlider || e.target === bannerIconPaddingYSlider || e.target === bannerIconBorderRadiusSlider || e.target === bannerIconVerticalOffsetSlider || e.target === alphaSlider || e.target === bannerIconBgColorPicker || e.target === bannerIconBgColorInput || e.target === titleColorPicker || e.target === titleColorInput || e.target === targetArea || e.target === verticalLine || e.target === horizontalLine) return;
+          if (e.target === zoomSlider || e.target === heightSlider || e.target === maxWidthSlider || e.target === contentStartPositionSlider || e.target === bannerFadeSlider || e.target === borderRadiusSlider || e.target === bannerIconXPositionSlider || e.target === bannerIconSizeSlider || e.target === bannerIconImageSizeMultiplierSlider || e.target === bannerIconTextVerticalOffsetSlider || e.target === bannerIconRotateSlider || e.target === bannerIconColorPicker || e.target === bannerIconColorInput || e.target === bannerIconPaddingXSlider || e.target === bannerIconPaddingYSlider || e.target === bannerIconBorderRadiusSlider || e.target === bannerIconVerticalOffsetSlider || e.target === alphaSlider || e.target === bannerIconBgColorPicker || e.target === bannerIconBgColorInput || e.target === titleColorPicker || e.target === titleColorInput || e.target === targetArea || e.target === verticalLine || e.target === horizontalLine) return;
           isDragging = true;
           offsetX = e.clientX - modalEl.getBoundingClientRect().left;
           offsetY = e.clientY - modalEl.getBoundingClientRect().top;
@@ -7223,6 +7361,7 @@ var init_iconImageSelectionModal = __esm({
               const bannerIconField = Array.isArray(this.plugin.settings.customBannerIconField) ? this.plugin.settings.customBannerIconField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconField;
               const bannerIconImageAlignmentField = Array.isArray(this.plugin.settings.customBannerIconImageAlignmentField) ? this.plugin.settings.customBannerIconImageAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageAlignmentField;
               const iconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
+              const iconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
               const iconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
               const iconYPositionField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
               const iconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
@@ -7238,6 +7377,7 @@ var init_iconImageSelectionModal = __esm({
                 delete frontmatter[bannerIconImageField];
                 delete frontmatter[bannerIconImageAlignmentField];
                 delete frontmatter[iconSizeField];
+                delete frontmatter[iconImageSizeMultiplierField];
                 delete frontmatter[iconRotateField];
                 delete frontmatter[iconYPositionField];
                 delete frontmatter[iconXPositionField];
@@ -7248,6 +7388,8 @@ var init_iconImageSelectionModal = __esm({
                 delete frontmatter[iconBorderRadiusField];
               } else {
                 delete frontmatter[bannerIconImageField];
+                delete frontmatter[iconImageSizeMultiplierField];
+                delete frontmatter[bannerIconImageAlignmentField];
               }
             });
             this.onChoose(null);
@@ -27801,6 +27943,7 @@ var init_emojiSelectionModal = __esm({
                 const bannerIconField2 = Array.isArray(this.plugin.settings.customBannerIconField) ? this.plugin.settings.customBannerIconField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconField;
                 const bannerIconImageAlignmentField = Array.isArray(this.plugin.settings.customBannerIconImageAlignmentField) ? this.plugin.settings.customBannerIconImageAlignmentField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageAlignmentField;
                 const iconSizeField = Array.isArray(this.plugin.settings.customBannerIconSizeField) ? this.plugin.settings.customBannerIconSizeField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconSizeField;
+                const iconTextVerticalOffsetField = Array.isArray(this.plugin.settings.customBannerIconTextVerticalOffsetField) ? this.plugin.settings.customBannerIconTextVerticalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconTextVerticalOffsetField;
                 const iconRotateField = Array.isArray(this.plugin.settings.customBannerIconRotateField) ? this.plugin.settings.customBannerIconRotateField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconRotateField;
                 const iconYPositionField = Array.isArray(this.plugin.settings.customBannerIconVeritalOffsetField) ? this.plugin.settings.customBannerIconVeritalOffsetField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconVeritalOffsetField;
                 const iconXPositionField = Array.isArray(this.plugin.settings.customBannerIconXPositionField) ? this.plugin.settings.customBannerIconXPositionField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconXPositionField;
@@ -27810,11 +27953,13 @@ var init_emojiSelectionModal = __esm({
                 const iconYPaddingField = Array.isArray(this.plugin.settings.customBannerIconPaddingYField) ? this.plugin.settings.customBannerIconPaddingYField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconPaddingYField;
                 const iconBorderRadiusField = Array.isArray(this.plugin.settings.customBannerIconBorderRadiusField) ? this.plugin.settings.customBannerIconBorderRadiusField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconBorderRadiusField;
                 const bannerIconImageField = Array.isArray(this.plugin.settings.customBannerIconImageField) ? this.plugin.settings.customBannerIconImageField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageField;
+                const iconImageSizeMultiplierField = Array.isArray(this.plugin.settings.customBannerIconImageSizeMultiplierField) ? this.plugin.settings.customBannerIconImageSizeMultiplierField[0].split(",")[0].trim() : this.plugin.settings.customBannerIconImageSizeMultiplierField;
                 const hasBannerIconImage = frontmatter2[bannerIconImageField] !== void 0 && frontmatter2[bannerIconImageField] !== null && frontmatter2[bannerIconImageField] !== "";
                 if (!hasBannerIconImage) {
                   delete frontmatter2[bannerIconField2];
                   delete frontmatter2[bannerIconImageAlignmentField];
                   delete frontmatter2[iconSizeField];
+                  delete frontmatter2[iconTextVerticalOffsetField];
                   delete frontmatter2[iconRotateField];
                   delete frontmatter2[iconYPositionField];
                   delete frontmatter2[iconXPositionField];
@@ -27823,9 +27968,12 @@ var init_emojiSelectionModal = __esm({
                   delete frontmatter2[iconXPaddingField];
                   delete frontmatter2[iconYPaddingField];
                   delete frontmatter2[iconBorderRadiusField];
+                  delete frontmatter2[iconImageSizeMultiplierField];
                 } else {
                   delete frontmatter2[bannerIconField2];
+                  delete frontmatter2[iconTextVerticalOffsetField];
                   delete frontmatter2[iconColorField];
+                  delete frontmatter2[bannerIconImageAlignmentField];
                 }
               });
             }
@@ -29831,7 +29979,7 @@ module.exports = __toCommonJS(main_exports);
 var import_obsidian30 = require("obsidian");
 
 // virtual-module:virtual:release-notes
-var releaseNotes = '<a href="https://www.youtube.com/watch?v=fwvVX7to7-4">\n  <img src="https://pixel-banner.online/img/pixel-banner-v3.5.jpg" alt="Pixel Banner" style="max-width: 400px;">\n</a>\n\n<h2>\u{1F389} What&#39;s New</h2>\n<h3>v3.5.2 - 2025-05-21</h3>\n<h4>\u{1F41B} Fixed</h4>\n<ul>\n<li>Updated styles to remove overflow on images for mobile devices</li>\n<li>Resolved issue with icon image selection modal not using the correct extension for non-svg images</li>\n</ul>\n<h3>v3.5.1 - 2025-05-19</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>Added Command Palette command for selecting a <code>Banner Icon Image</code></li>\n</ul>\n<h3>v3.5.0 - 2025-05-18</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>New &quot;Banner Icon Rotation&quot; option to rotate the banner icon from 0 to 360 degrees</li>\n<li>New &quot;Icon Image&quot; support to allow banner icons to contain both text/emojis and an image</li>\n<li>Added Banner Icon Image controls to the Position, Size &amp; Style Modal (image source and alignment)</li>\n<li>Banner Icon Image sources include:<ul>\n<li>Local images</li>\n<li>Web URL</li>\n<li>Online Collections (FREE downloadable icons)</li>\n</ul>\n</li>\n<li>Banner Icon Image alignment options include:<ul>\n<li>Left or Right (set the position of the icon image relative to the text/emojis)</li>\n</ul>\n</li>\n<li>New Border Radius slider control available in the Position, Size &amp; Style Modal</li>\n<li>Four new AI Models to choose from when generating an image for a banner</li>\n</ul>\n<h4>\u{1F4E6} Updated</h4>\n<ul>\n<li>Embedded notes now respect custom frontmatter settings (border radius, banner height, etc.)</li>\n<li>Any system action that sets the frontmatter value for a Banner or Icon Image now uses <code>![[image]]</code> format vs <code>[[image]]</code></li>\n<li>Updated Token currency to allow for fractional tokens (e.g. 0.5 tokens) for better pricing where applicable</li>\n</ul>\n<h4>\u{1F41B} Fixed</h4>\n<ul>\n<li>Resolved issue with content being pushed down when banner was present in embedded notes</li>\n<li>Resolved issue with max-width slider being disabled even when a custom max-width was set in frontmatter</li>\n<li>Addressed background color preventing banner from showing in reading mode for some themes</li>\n</ul>\n<a href="https://www.youtube.com/watch?v=pJFsMfrWak4">\n  <img src="https://pixel-banner.online/img/pixel-banner-transparent-bg.png" alt="Pixel Banner" style="max-width: 400px;">\n</a>';
+var releaseNotes = '<a href="https://www.youtube.com/watch?v=fwvVX7to7-4">\n  <img src="https://pixel-banner.online/img/pixel-banner-v3.5.jpg" alt="Pixel Banner" style="max-width: 400px;">\n</a>\n\n<h2>\u{1F389} What&#39;s New</h2>\n<h3>v3.5.4 - 2025-05-27</h3>\n<h4>\u{1F41B} Fixed</h4>\n<ul>\n<li>Resolve issue with not evaluating all defined custom field names for &quot;banner&quot; frontmatter</li>\n<li>Revert aggresive css change impacting the background color of some theme variations and plugins</li>\n</ul>\n<h3>v3.5.3 - 2025-05-23</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>New <code>Icon Image Size Multiplier</code> control:<br>allows for changing the icon image size relative to the Banner Icon elements size (perfect to when you want the image to be larger or smaller than any accompanying icon text)</li>\n<li>New <code>Icon Text Vertical Offset</code> control:<br>allows for adjusting the vertical offset of the Icon Text relative to the Icon Image if set (perfect for fine-tuning center alignment of text)</li>\n</ul>\n<h4>\u{1F4E6} Updated</h4>\n<ul>\n<li>Updated some labels on the &quot;Position, Size &amp; Style&quot; modal for clarity</li>\n</ul>\n<h3>v3.5.2 - 2025-05-21</h3>\n<h4>\u{1F41B} Fixed</h4>\n<ul>\n<li>Updated styles to remove overflow on images for mobile devices</li>\n<li>Resolved issue with icon image selection modal not using the correct extension for non-svg images</li>\n</ul>\n<h3>v3.5.1 - 2025-05-19</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>Added Command Palette command for selecting a <code>Banner Icon Image</code></li>\n</ul>\n<h3>v3.5.0 - 2025-05-18</h3>\n<h4>\u2728 Added</h4>\n<ul>\n<li>New &quot;Banner Icon Rotation&quot; option to rotate the banner icon from 0 to 360 degrees</li>\n<li>New &quot;Icon Image&quot; support to allow banner icons to contain both text/emojis and an image</li>\n<li>Added Banner Icon Image controls to the Position, Size &amp; Style Modal (image source and alignment)</li>\n<li>Banner Icon Image sources include:<ul>\n<li>Local images</li>\n<li>Web URL</li>\n<li>Online Collections (FREE downloadable icons)</li>\n</ul>\n</li>\n<li>Banner Icon Image alignment options include:<ul>\n<li>Left or Right (set the position of the icon image relative to the text/emojis)</li>\n</ul>\n</li>\n<li>New Border Radius slider control available in the Position, Size &amp; Style Modal</li>\n<li>Four new AI Models to choose from when generating an image for a banner</li>\n</ul>\n<h4>\u{1F4E6} Updated</h4>\n<ul>\n<li>Embedded notes now respect custom frontmatter settings (border radius, banner height, etc.)</li>\n<li>Any system action that sets the frontmatter value for a Banner or Icon Image now uses <code>![[image]]</code> format vs <code>[[image]]</code></li>\n<li>Updated Token currency to allow for fractional tokens (e.g. 0.5 tokens) for better pricing where applicable</li>\n</ul>\n<h4>\u{1F41B} Fixed</h4>\n<ul>\n<li>Resolved issue with content being pushed down when banner was present in embedded notes</li>\n<li>Resolved issue with max-width slider being disabled even when a custom max-width was set in frontmatter</li>\n<li>Addressed background color preventing banner from showing in reading mode for some themes</li>\n</ul>\n<a href="https://www.youtube.com/watch?v=pJFsMfrWak4">\n  <img src="https://pixel-banner.online/img/pixel-banner-transparent-bg.png" alt="Pixel Banner" style="max-width: 400px;">\n</a>';
 
 // src/settings/settings.js
 var import_obsidian6 = require("obsidian");
@@ -30704,6 +30852,20 @@ function createCustomFieldsSettings(containerEl, plugin) {
       placeholder: "banner-icon-size, icon-size"
     },
     {
+      setting: "customBannerIconImageSizeMultiplierField",
+      name: "Banner Icon Image Size Multiplier Field Names",
+      desc: "Set custom field names for the banner icon image size multiplier in frontmatter",
+      values: ".5, 1.5, 2",
+      placeholder: "banner-icon-image-size-multiplier, icon-image-size-multiplier"
+    },
+    {
+      setting: "customBannerIconTextVerticalOffsetField",
+      name: "Banner Icon Text Vertical Offset Field Names",
+      desc: "Set custom field names for the banner icon text vertical offset in frontmatter",
+      values: "-10, 0, 10",
+      placeholder: "banner-icon-text-vertical-offset, icon-text-vertical-offset"
+    },
+    {
       setting: "customBannerIconRotateField",
       name: "Banner Icon Rotate Field Names",
       desc: "Set custom field names for the banner icon rotate in frontmatter",
@@ -31359,6 +31521,10 @@ function createGeneralSettings(containerEl, plugin) {
   })).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
     plugin.settings.bannerIconPaddingX = DEFAULT_SETTINGS.bannerIconPaddingX;
     await plugin.saveSettings();
+    const sliderInput = button.extraSettingsEl.parentElement.querySelector('input[type="range"]');
+    sliderInput.value = DEFAULT_SETTINGS.bannerIconPaddingX;
+    const event = new Event("input", { bubbles: true, cancelable: true });
+    sliderInput.dispatchEvent(event);
   }));
   new import_obsidian4.Setting(containerEl).setName("Default Banner Icon Padding Y").setDesc("Set the default padding Y for the banner icon").addSlider((slider) => slider.setLimits(0, 100, 1).setValue(plugin.settings.bannerIconPaddingY).setDynamicTooltip().onChange(async (value) => {
     plugin.settings.bannerIconPaddingY = value;
@@ -31366,6 +31532,10 @@ function createGeneralSettings(containerEl, plugin) {
   })).addExtraButton((button) => button.setIcon("reset").setTooltip("Reset to default").onClick(async () => {
     plugin.settings.bannerIconPaddingY = DEFAULT_SETTINGS.bannerIconPaddingY;
     await plugin.saveSettings();
+    const sliderInput = button.extraSettingsEl.parentElement.querySelector('input[type="range"]');
+    sliderInput.value = DEFAULT_SETTINGS.bannerIconPaddingY;
+    const event = new Event("input", { bubbles: true, cancelable: true });
+    sliderInput.dispatchEvent(event);
   }));
   new import_obsidian4.Setting(containerEl).setName("Default Banner Icon Border Radius").setDesc("Set the default border radius for the banner icon").addSlider((slider) => slider.setLimits(0, 100, 1).setValue(plugin.settings.bannerIconBorderRadius).setDynamicTooltip().onChange(async (value) => {
     plugin.settings.bannerIconBorderRadius = value;
@@ -31693,6 +31863,8 @@ var DEFAULT_SETTINGS = {
   customBannerIconField: ["icon"],
   customBannerIconImageField: ["icon-image"],
   customBannerIconSizeField: ["icon-size"],
+  customBannerIconImageSizeMultiplierField: ["icon-image-size-multiplier"],
+  customBannerIconTextVerticalOffsetField: ["icon-text-vertical-offset"],
   customBannerIconRotateField: ["icon-rotate"],
   customBannerIconXPositionField: ["icon-x"],
   customBannerIconOpacityField: ["icon-opacity"],
@@ -31734,13 +31906,15 @@ var DEFAULT_SETTINGS = {
   useShortPath: true,
   bannerGap: 12,
   bannerIconSize: 70,
+  bannerIconImageSizeMultiplier: 1,
+  bannerIconTextVerticalOffset: 0,
   bannerIconXPosition: 75,
   bannerIconOpacity: 100,
   bannerIconColor: "",
   bannerIconFontWeight: "normal",
   bannerIconBackgroundColor: "",
-  bannerIconPaddingX: "0",
-  bannerIconPaddingY: "0",
+  bannerIconPaddingX: "10",
+  bannerIconPaddingY: "10",
   bannerIconBorderRadius: "17",
   bannerIconVeritalOffset: "0",
   bannerIconImageAlignment: "left",
@@ -32563,13 +32737,13 @@ async function addPixelBanner(plugin, el, ctx) {
           getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingXField),
           folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingX,
           plugin.settings.bannerIconPaddingX,
-          0
+          10
         ]);
         const bannerIconPaddingY = getValueWithZeroCheck([
           getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingYField),
           folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingY,
           plugin.settings.bannerIconPaddingY,
-          0
+          10
         ]);
         const bannerIconBorderRadius = getValueWithZeroCheck([
           getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBorderRadiusField),
@@ -32587,6 +32761,16 @@ async function addPixelBanner(plugin, el, ctx) {
           getFrontmatterValue(frontmatter, plugin.settings.customBannerIconRotateField),
           0
         ]);
+        const bannerIconImageSizeMultiplier = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconImageSizeMultiplierField),
+          plugin.settings.bannerIconImageSizeMultiplier,
+          1
+        ]);
+        const bannerIconTextVerticalOffset = getValueWithZeroCheck([
+          getFrontmatterValue(frontmatter, plugin.settings.customBannerIconTextVerticalOffsetField),
+          plugin.settings.bannerIconTextVerticalOffset,
+          0
+        ]);
         previewViewEl.style.setProperty("--pixel-banner-icon-size", `${bannerIconSize}px`);
         previewViewEl.style.setProperty("--pixel-banner-icon-x", `${bannerIconXPosition}%`);
         previewViewEl.style.setProperty("--pixel-banner-icon-opacity", `${bannerIconOpacity}%`);
@@ -32598,6 +32782,8 @@ async function addPixelBanner(plugin, el, ctx) {
         previewViewEl.style.setProperty("--pixel-banner-icon-border-radius", `${bannerIconBorderRadius}px`);
         previewViewEl.style.setProperty("--pixel-banner-icon-vertical-offset", `${bannerIconVerticalOffset}px`);
         previewViewEl.style.setProperty("--pixel-banner-icon-rotate", `${bannerIconRotate}deg`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-image-size-multiplier", `${bannerIconImageSizeMultiplier}em`);
+        previewViewEl.style.setProperty("--pixel-banner-icon-text-vertical-offset", `${bannerIconTextVerticalOffset}px`);
         const bannerHeight = getFrontmatterValue(frontmatter, plugin.settings.customBannerHeightField) || (folderSpecific == null ? void 0 : folderSpecific.bannerHeight) || plugin.settings.bannerHeight || 150;
         const embedMinHeight = `${parseInt(bannerHeight) + parseInt(bannerIconSize) / 2}px`;
         previewViewEl.style.setProperty("--pixel-banner-embed-min-height", embedMinHeight);
@@ -33244,16 +33430,18 @@ async function updateBanner(plugin, view, isContentChange, updateMode = plugin.U
           imgElement.className = "banner-icon-image";
         }
       }
-      let textNode = null;
+      let textElement = null;
       if (cleanIcon) {
-        textNode = document.createTextNode(cleanIcon);
+        textElement = document.createElement("div");
+        textElement.className = "banner-icon-text";
+        textElement.textContent = cleanIcon;
       }
       if (imageAlignment === "right") {
-        if (textNode) bannerIconOverlay.appendChild(textNode);
+        if (textElement) bannerIconOverlay.appendChild(textElement);
         if (imgElement) bannerIconOverlay.appendChild(imgElement);
       } else {
         if (imgElement) bannerIconOverlay.appendChild(imgElement);
-        if (textNode) bannerIconOverlay.appendChild(textNode);
+        if (textElement) bannerIconOverlay.appendChild(textElement);
       }
       bannerIconOverlay.style.display = "block";
       bannerIconOverlay.style.fontSize = `${currentIconState.size}px`;
@@ -33322,13 +33510,13 @@ function applyBannerSettings(plugin, bannerDiv, ctx, isEmbedded) {
     getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingXField),
     folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingX,
     plugin.settings.bannerIconPaddingX,
-    0
+    10
   ]);
   const bannerIconPaddingY = getValueWithZeroCheck([
     getFrontmatterValue(frontmatter, plugin.settings.customBannerIconPaddingYField),
     folderSpecific == null ? void 0 : folderSpecific.bannerIconPaddingY,
     plugin.settings.bannerIconPaddingY,
-    0
+    10
   ]);
   const bannerIconBorderRadius = getValueWithZeroCheck([
     getFrontmatterValue(frontmatter, plugin.settings.customBannerIconBorderRadiusField),
@@ -33343,7 +33531,17 @@ function applyBannerSettings(plugin, bannerDiv, ctx, isEmbedded) {
     0
   ]);
   const bannerIconRotate = getValueWithZeroCheck([
-    Number(getFrontmatterValue(frontmatter, plugin.settings.customBannerIconRotateField)),
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconRotateField),
+    0
+  ]);
+  const bannerIconImageSizeMultiplier = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconImageSizeMultiplierField),
+    plugin.settings.bannerIconImageSizeMultiplier,
+    1
+  ]);
+  const bannerIconTextVerticalOffset = getValueWithZeroCheck([
+    getFrontmatterValue(frontmatter, plugin.settings.customBannerIconTextVerticalOffsetField),
+    plugin.settings.bannerIconTextVerticalOffset,
     0
   ]);
   const hideEmbeddedNoteBanners = getFrontmatterValue(frontmatter, plugin.settings.customHideEmbeddedNoteBannersField) || (folderSpecific == null ? void 0 : folderSpecific.hideEmbeddedNoteBanners) || plugin.settings.hideEmbeddedNoteBanners || false;
@@ -33375,6 +33573,8 @@ function applyBannerSettings(plugin, bannerDiv, ctx, isEmbedded) {
     "--pixel-banner-icon-border-radius": `${bannerIconBorderRadius}px`,
     "--pixel-banner-icon-vertical-offset": `${bannerIconVeritalOffset}px`,
     "--pixel-banner-icon-rotate": `${bannerIconRotate}deg`,
+    "--pixel-banner-icon-image-size-multiplier": `${bannerIconImageSizeMultiplier}em`,
+    "--pixel-banner-icon-text-vertical-offset": `${bannerIconTextVerticalOffset}px`,
     "--pixel-banner-embed-min-height": !hideEmbeddedNoteBanners ? `${parseInt(bannerHeight) + parseInt(bannerIconSize) / 2 + parseInt(bannerIconVeritalOffset) + parseInt(bannerIconPaddingY)}px` : "0px",
     "--pixel-banner-alignment": alignmentValue
   };
@@ -33644,9 +33844,11 @@ function getActiveApiProvider() {
   return availableProviders[Math.floor(Math.random() * availableProviders.length)];
 }
 function hasBannerFrontmatter(file) {
-  var _a;
   const metadata = this.app.metadataCache.getFileCache(file);
-  return ((_a = metadata == null ? void 0 : metadata.frontmatter) == null ? void 0 : _a.banner) !== void 0;
+  if (!(metadata == null ? void 0 : metadata.frontmatter)) return false;
+  return this.settings.customBannerField.some(
+    (fieldName) => metadata.frontmatter[fieldName] !== void 0
+  );
 }
 function createFolderImageSettings(folderImage) {
   const settings = { ...folderImage };
@@ -33946,6 +34148,8 @@ function updateFieldVisibility(view) {
     ...this.settings.customBannerIconImageField,
     ...this.settings.customBannerIconImageAlignmentField,
     ...this.settings.customBannerIconSizeField,
+    ...this.settings.customBannerIconImageSizeMultiplierField,
+    ...this.settings.customBannerIconTextVerticalOffsetField,
     ...this.settings.customBannerIconRotateField,
     ...this.settings.customBannerIconXPositionField,
     ...this.settings.customBannerIconOpacityField,
@@ -34298,6 +34502,9 @@ var PixelBannerPlugin = class extends import_obsidian30.Plugin {
           ...this.settings.customBannerShuffleField,
           ...this.settings.customBannerIconField,
           ...this.settings.customBannerIconSizeField,
+          ...this.settings.customBannerIconImageSizeMultiplierField,
+          ...this.settings.customBannerIconTextVerticalOffsetField,
+          ...this.settings.customBannerIconRotateField,
           ...this.settings.customBannerIconImageAlignmentField,
           ...this.settings.customBannerIconXPositionField,
           ...this.settings.customBannerIconOpacityField,
@@ -34634,6 +34841,8 @@ var PixelBannerPlugin = class extends import_obsidian30.Plugin {
             ...this.settings.customBannerShuffleField,
             ...this.settings.customBannerIconField,
             ...this.settings.customBannerIconSizeField,
+            ...this.settings.customBannerIconImageSizeMultiplierField,
+            ...this.settings.customBannerIconTextVerticalOffsetField,
             ...this.settings.customBannerIconRotateField,
             ...this.settings.customBannerIconImageAlignmentField,
             ...this.settings.customBannerIconXPositionField,

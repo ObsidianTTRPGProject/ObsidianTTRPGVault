@@ -61,6 +61,12 @@
   "customBannerIconSizeField": [
     "icon-size"
   ],
+  "customBannerIconImageSizeMultiplierField": [
+    "icon-image-size-multiplier"
+  ],
+  "customBannerIconTextVerticalOffsetField": [
+    "icon-text-vertical-offset"
+  ],
   "customBannerIconRotateField": [
     "icon-rotate"
   ],
@@ -108,7 +114,7 @@
   "showPinIcon": false,
   "pinnedImageFolder": "pixel-banner-images",
   "showReleaseNotes": true,
-  "lastVersion": "3.5.2",
+  "lastVersion": "3.5.4",
   "showRefreshIcon": false,
   "showViewImageIcon": false,
   "hidePixelBannerFields": true,
@@ -126,6 +132,8 @@
   "useShortPath": true,
   "bannerGap": 12,
   "bannerIconSize": 70,
+  "bannerIconImageSizeMultiplier": 1,
+  "bannerIconTextVerticalOffset": 0,
   "bannerIconXPosition": 75,
   "bannerIconOpacity": 100,
   "bannerIconColor": "",

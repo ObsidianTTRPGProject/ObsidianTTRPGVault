@@ -1,5 +1,6 @@
 ---
-MyContainer: []
+MyContainer:
+  - "[[z_Templates/World Builder Templates/Template-Place.md|Template-Place]]"
 MyCategory:
 tags:
   - Category/People

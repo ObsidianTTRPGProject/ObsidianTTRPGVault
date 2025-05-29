@@ -4,7 +4,7 @@ www.obsidianttrpgtutorials.com is the home for all my tutorials and templates.
 
 # Patreon Vault
 
-This vault is designed as a foundation for people wanting some help on their Obsidian journey. I don't believe in providing a fully fledged out of the box solution. I tried that historically and people struggled to use it. Obsidian is a very customisable solution and as such I believe it's better to teach you to do this yourself instead of provide you a solution that you won't know how to modify for your needs. 
+![[Fighter Gemmy.png|left|210]]This vault is designed as a foundation for people wanting some help on their Obsidian journey. I don't believe in providing a fully fledged out of the box solution. I tried that historically and people struggled to use it. Obsidian is a very customisable solution and as such I believe it's better to teach you to do this yourself instead of provide you a solution that you won't know how to modify for your needs. 
 
 <div align="center">
   <a href="https://obsidian.md/"><img src="https://img.shields.io/badge/Obsidian-483699?style=for-the-badge&logo=Obsidian" alt="[System]"></a>
