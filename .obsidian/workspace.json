@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Templates/World Builder Templates/Template-Quest.md",
+                "file": "z_Templates/3_Dataview Templates/Dataview - Query TTRPG Statblocks.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Template-Quest"
+              "title": "Dataview - Query TTRPG Statblocks"
             }
           }
         ],
@@ -371,8 +371,9 @@
   },
   "active": "198ac325be1750ce",
   "lastOpenFiles": [
-    "z_Templates/World Builder Templates/Template-PointofInterest.md",
+    "z_Templates/How To Create New Templates.md",
     "z_Templates/World Builder Templates/Template-Quest.md",
+    "z_Templates/World Builder Templates/Template-PointofInterest.md",
     "z_Templates/World Builder Templates/Template-Place.md",
     "z_Templates/World Builder Templates/Template-Region.md",
     "z_Templates/World Builder Templates/Template-Player-Demiplane.md",
@@ -396,7 +397,6 @@
     "1-Party/Example Party 2/Example Party 2.md",
     "1-Party/Example Party 1/Example Party 1.md",
     "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
-    "2-World/Quests/The Giants Skull.md",
     "z_Assets/Fighter Gemmy.png",
     "0-Scratch Notes/Untitled.base",
     "0-Scratch Notes/Untitled.canvas",
