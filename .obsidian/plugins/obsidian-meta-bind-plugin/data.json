@@ -45,7 +45,7 @@
       "label": "Person",
       "hidden": false,
       "id": "button_person",
-      "style": "destructive",
+      "style": "primary",
       "actions": [
         {
           "type": "templaterCreateNote",
