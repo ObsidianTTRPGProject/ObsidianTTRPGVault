@@ -189,7 +189,7 @@ This is the persons description.
 | -------- | ---------------------------- |
 | Status   | `INPUT[inlineSelect(option(Alive), option(Dead)):char_status]`                             |
 | Race     |   `INPUT[template-Race][:char_race]`                            |
-| Class    | `INPUT[inlineSelect(option(Infant), option(Child), option(Teenager), option(Young Adult), option(Adult), option(Elder)):char_class]`                              |
+| Class    | `INPUT[inlineSelect(option(Artificer), option(Barbarian), option(Bard), option(Cleric), option(Druid), option(Fighter), option(Monk), option(Paladin), option(Ranger), option(Rogue), option(Sorcerer), option(Warlock), option(Wizard)):char_class]`                              |
 | Level    | `INPUT[number:level]`        |
 | Gender   | `INPUT[inlineSelect(option(Male), option(Female), option(Other)):char_gender]`                              |
 | Age      | `INPUT[inlineSelect(option(Infant), option(Child), option(Teenager), option(Young Adult), option(Adult), option(Elder)):char_age]`                              |

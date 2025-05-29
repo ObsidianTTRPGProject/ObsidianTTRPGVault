@@ -7,7 +7,7 @@
   "ITS-AT@@mini": false,
   "ITS-AT@@its-d": false,
   "ITS-AT@@select": "wotc-beyond",
-  "ITS@@justified": true,
+  "ITS@@justified": false,
   "ITS@@s-d": false,
   "ITS@@file-explorer-flat": false,
   "ITS@@hr-center-vertically": false,
@@ -38,5 +38,6 @@
   "supercharged-links@@39b9-b976-before": "⚔️",
   "supercharged-links@@39b9-b976-color": "#AE1099",
   "supercharged-links@@71fe-7d8c-before": "🧑‍🦰",
-  "supercharged-links@@71fe-7d8c-color": "#9FDC17"
+  "supercharged-links@@71fe-7d8c-color": "#9FDC17",
+  "ITS@@writing": false
 }
