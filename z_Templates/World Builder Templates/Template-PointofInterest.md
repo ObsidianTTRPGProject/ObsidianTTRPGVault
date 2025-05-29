@@ -2,7 +2,7 @@
 tags:
   - Category/PointofInterest
 MyContainer:
-  - "[[z_Templates/World Builder Templates/Template-Region.md|Template-Region]]"
+  - "[[Jungle of Screams|Jungle of Screams]]"
 MyCategory: Encounter
 obsidianUIMode: preview
 ---

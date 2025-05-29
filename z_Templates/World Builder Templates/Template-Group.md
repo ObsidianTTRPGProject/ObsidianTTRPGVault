@@ -2,7 +2,7 @@
 tags:
   - Category/Group
 MyContainer:
-  - "[[z_Templates/World Builder Templates/Template-Region.md|Template-Region]]"
+  - "[[Jungle of Screams|Jungle of Screams]]"
 MyCategory: Knightly Order
 obsidianUIMode: preview
 leader: Bob

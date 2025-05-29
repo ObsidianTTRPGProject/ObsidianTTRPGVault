@@ -10,7 +10,7 @@ where contains(Role, "Player")
 where contains(Status, "Active")
 ```
 
-`BUTTON[newJournal]` `BUTTON[newPlayer]`
+`BUTTON[newJournal]` `BUTTON[button_player]`
 %% These are Inline Buttons. Inline allows the buttons to be placed on the same line next to each other. Button's are defined within the Meta Bind Plugin. See Button Templates. %%
 `BUTTON[button_region]`  `BUTTON[button_hub]` `BUTTON[button_place]`
 

@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "0-Obsidian TTRPG Tutorial"
             }
+          },
+          {
+            "id": "b5dbd14dabb7d39b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2-World/Regions/Island of Skulls.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Island of Skulls"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -313,36 +327,37 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "0d9aece2957b003f",
+  "active": "b5dbd14dabb7d39b",
   "lastOpenFiles": [
+    "1-DM Toolkit/Home - DV.md",
+    "2-World/Regions/Island of Skulls.md",
+    "z_Templates/World Builder Templates/Template-Region.md",
+    "1-DM Toolkit/DM Board.md",
+    "2-World/People/NewNPC.md",
+    "1-DM Toolkit/Home.md",
+    "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "0-Scratch Notes/Add Random Notes Here.md",
+    "0-Scratch Notes/Untitled.md",
+    "z_Templates/World Builder Templates/Template-PointofInterest.md",
+    "z_Templates/World Builder Templates/Template-Quest.md",
+    "z_Templates/World Builder Templates/Jungle of Screams.md",
+    "1-DM Toolkit/Home Embeds.md",
+    "1-Party/NewPlayer.md",
+    "1-Session Journals/NewJournal.md",
     "z_Assets/Fighter Gemmy.png",
     "z_Templates/World Builder Templates/Template-Person.md",
     "z_Templates/World Builder Templates/Template-Player.md",
-    "1-DM Toolkit/Home - DV.md",
     "2-World/Places/NewPlace.md",
     "2-World/People/Bob.md",
-    "1-DM Toolkit/Home Embeds.md",
-    "1-DM Toolkit/Home.md",
     "1-Session Journals/2025-01-01.md",
     "0-Scratch Notes/Random Dungeon.md",
     "0-Scratch Notes/Template Design.md",
     "0-Scratch Notes/Untitled 1.md",
-    "0-Scratch Notes/Untitled.md",
     "0-Scratch Notes/Untitled.base",
     "0-Scratch Notes/Untitled.canvas",
     "1-Party/Test.md",
     "z_Templates/World Builder Templates/Template-Place.md",
     "1-DM Toolkit/Home Embeds - DV.md",
-    "z_Templates/World Builder Templates/Template-Group.md",
-    "2-World/Groups/NewGroup.md",
-    "2-World/Groups/The Guild.md",
-    "0-Scratch Notes/Drawing 2025-05-22 21.02.07.excalidraw.md",
-    "2-World/Hubs/City of Thieves.md",
-    "z_Templates/World Builder Templates/Template-Region.md",
-    "z_Templates/World Builder Templates/Template-Journal.md",
-    "1-Party/Example Party 1/Example Party 1.md",
-    "1-Party/Example Party 1/Untitled.md",
-    "1-Session Journals/NewJournal.md",
     "z_Assets/Pasted image 20250427093259.png",
     "z_Assets/Pasted image 20250425220102.png",
     "z_Assets/Pasted image 20250427102611.png",
@@ -352,7 +367,6 @@
     "z_Assets/Pasted Image 20240630114135_050.png",
     "z_Assets/Pasted image 20240627201658.png",
     "z_Assets/Pasted image 20240607151510.png",
-    "z_Assets/Pasted image 20240630203445.png",
     "2-World/Quests",
     "0-Scratch Notes/MoC - Canvas Home Page.canvas",
     "3-Mechanics/races",

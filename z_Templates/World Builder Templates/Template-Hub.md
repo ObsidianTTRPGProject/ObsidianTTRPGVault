@@ -2,7 +2,7 @@
 tags:
   - Category/Hub
 container: Test
-MyContainer: "[[z_Templates/World Builder Templates/Template-Region.md|Template-Region]]"
+MyContainer: "[[Jungle of Screams|Jungle of Screams]]"
 MyCategory: Hamlet <80
 obsidianUIMode: preview
 ---
