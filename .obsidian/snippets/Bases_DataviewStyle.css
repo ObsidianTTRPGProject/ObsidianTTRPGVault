@@ -1,0 +1,27 @@
+.bases-table-header-label {
+    --icon-size: var(--icon-xs);
+    --icon-stroke: var(--icon-xs-stroke-width);
+    --table-header-color: var(--dataview-th-color);
+    --table-header-font: var(--dataview-th-font);
+    display: flex;
+    gap: var(--size-4-1);
+    align-items: stretch;
+    cursor: var(--cursor);
+    user-select: none;
+    text-align: start;
+    font-size: var(--dataview-th-font-size);
+    font-weight: var(--dataview-th-font-weight);
+    padding-inline-start: var(--size-4-2);
+    padding-inline-end: var(--size-4-2);
+    color: var(--dataview-th-color);
+}
+
+
+.text-icon-button .text-button-label {
+    font-size: var(--dataview-th-font-size);
+    font-weight: var(--dataview-th-font-weight);
+    color: var(--dataview-th-color);
+    padding-inline-end: var(--size-2-2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,43 @@
+formulas:
+  TestForm: file.file
+  This Note Name: this.file.name
+  This Note Path: this.file.path
+  This File File: this.file.file
+views:
+  - type: table
+    name: People View
+    filters:
+      and:
+        - contains(file.folder, "2-World/People")
+    order:
+      - file.name
+      - allies
+      - char_age
+      - char_gender
+      - char_items
+      - char_race
+      - char_status
+      - formula.TestForm
+    columnSize:
+      file.name: 177
+      property.allies: 224
+      formula.TestForm: 241
+  - type: table
+    name: Places View
+    filters:
+      and:
+        - contains(file.folder, "2-World/People")
+    order:
+      - file.name
+      - MyCategory
+      - MyContainer
+      - formula.This Note Name
+      - formula.This Note Path
+      - formula.This File File
+    sort:
+      - column: file.name
+        direction: ASC
+    columnSize:
+      file.name: 147
+      formula.This Note Path: 243
+      formula.This File File: 249

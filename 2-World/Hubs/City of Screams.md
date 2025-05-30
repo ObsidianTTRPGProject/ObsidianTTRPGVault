@@ -212,7 +212,18 @@ WHERE contains(MyContainer, this.file.link)
 SORT file.name ASC
 ```
 
+```base
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - contains(file.folder, "2-World/Places")
+        - contains(property.MyCategory, "Commerce")
+    columnSize:
+      file.name: 248
 
+```
 
 ## Agriculture
 

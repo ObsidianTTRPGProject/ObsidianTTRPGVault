@@ -83,10 +83,10 @@ views:
       - obsidianUIMode
     columnSize:
       file.name: 177
-      property.MyContainer: 244
+      property.MyContainer: 189
       property.MyCategory: 175
       file.folder: 273
-      file.ctime: 208
+      file.ctime: 170
     sort:
       - column: file.folder
         direction: DESC
@@ -203,7 +203,7 @@ views:
       - file.mtime
     columnSize:
       file.name: 177
-      property.MyContainer: 244
+      property.MyContainer: 154
       property.MyCategory: 175
       file.folder: 273
       file.ctime: 208

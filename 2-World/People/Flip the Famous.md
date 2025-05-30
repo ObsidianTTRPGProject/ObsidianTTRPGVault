@@ -1,6 +1,5 @@
 ---
-MyContainer:
-  - "[[2-World/Places/Shop of Stuff.md|Shop of Stuff]]"
+MyContainer: "[[2-World/Regions/Island of Skulls.md|Island of Skulls]]"
 MyCategory:
 tags:
   - Category/People
@@ -11,7 +10,7 @@ NoteStatus: ❓
 char_status: Alive
 char_race: Human
 char_gender: Male
-char_items: []
+char_items:
 char_age: Adult
 parents:
   - Josh

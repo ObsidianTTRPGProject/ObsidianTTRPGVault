@@ -1,5 +1,6 @@
 ---
-tags: Category/Quest
+tags:
+  - Category/Quest
 MyContainer: "[[2-World/Regions/Island of Skulls.md|Island of Skulls]]"
 MyCategory:
 obsidianUIMode: preview

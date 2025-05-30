@@ -233,6 +233,10 @@ FROM "2-Campaign/Quests"
 WHERE contains(Connected_Groups, this.file.link)
 SORT file.name ASC
 ```
+```base
+
+```
+
 
 # Services
 

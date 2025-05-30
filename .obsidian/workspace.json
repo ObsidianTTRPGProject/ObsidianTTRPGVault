@@ -64,35 +64,62 @@
             }
           },
           {
-            "id": "2c4fad23592184ba",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-Party/Example Party 1/Bob.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Bob"
-            }
-          },
-          {
             "id": "198ac325be1750ce",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "z_Templates/3_Dataview Templates/Dataview - Query TTRPG Statblocks.md",
+                "file": "0-Scratch Notes/Untitled.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "Dataview - Query TTRPG Statblocks"
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "f922b0db3e9201c3",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "0-Scratch Notes/Bases Test.base",
+                "viewName": "People View"
+              },
+              "icon": "lucide-layout-list",
+              "title": "Bases Test"
+            }
+          },
+          {
+            "id": "c102904adb5ce561",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3-Mechanics/Bestiary/Bestiary.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Bestiary"
+            }
+          },
+          {
+            "id": "8a03d7a00d24080c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3-Mechanics/CLI/CLI.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CLI"
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -124,7 +151,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:Ca",
+                "query": "[\"char_gender\"]",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -181,7 +208,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 255.5
+    "width": 292.5
   },
   "right": {
     "id": "4376769ea3073bd6",
@@ -197,7 +224,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-DM Toolkit/Home.md",
+                "file": "2-World/Places/Shop of Stuff.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -207,7 +234,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Home"
+              "title": "Backlinks for Shop of Stuff"
             }
           },
           {
@@ -216,12 +243,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "0-Scratch Notes/New World.md",
+                "file": "2-World/Places/Shop of Stuff.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from New World"
+              "title": "Outgoing links from Shop of Stuff"
             }
           },
           {
@@ -231,7 +258,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
@@ -243,44 +272,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "1-DM Toolkit/Home.md"
-              },
-              "icon": "lucide-list",
-              "title": "Outline of Home"
-            }
-          },
-          {
-            "id": "89c85e720490d000",
-            "type": "leaf",
-            "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
-            }
-          },
-          {
-            "id": "082d00d22d181097",
-            "type": "leaf",
-            "state": {
-              "type": "help-mate",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
-            }
-          },
-          {
-            "id": "1d54d43c1cb242fe",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
+                "file": "2-World/Places/Shop of Stuff.md",
+                "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
-              "icon": "lucide-archive",
-              "title": "All properties"
+              "icon": "lucide-list",
+              "title": "Outline of Shop of Stuff"
             }
           },
           {
@@ -289,8 +287,8 @@
             "state": {
               "type": "initiative-tracker-view",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "initiative-tracker",
+              "title": "Initiative Tracker"
             }
           },
           {
@@ -322,35 +320,34 @@
               "icon": "dices",
               "title": "Dice Tray"
             }
-          }
-        ],
-        "currentTab": 9
-      },
-      {
-        "id": "3327e6e45ad0f342",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "206aac58d0e8536e",
+            "id": "3939dbe56020682d",
             "type": "leaf",
             "state": {
-              "type": "initiative-tracker-creature-view",
-              "state": {},
-              "icon": "initiative-tracker-creature-view",
-              "title": "Combatant"
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           }
-        ]
+        ],
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
-    "width": 297.5
+    "width": 433.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
       "obsidian-leaflet-plugin:Open Leaflet Map": false,
-      "command-palette:Open command palette": false,
       "switcher:Open quick switcher": false,
+      "command-palette:Open command palette": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
@@ -369,36 +366,37 @@
       "pexels-banner:🚩 Pixel Banner Menu": false
     }
   },
-  "active": "198ac325be1750ce",
+  "active": "8a03d7a00d24080c",
   "lastOpenFiles": [
-    "z_Templates/How To Create New Templates.md",
-    "z_Templates/World Builder Templates/Template-Quest.md",
-    "z_Templates/World Builder Templates/Template-PointofInterest.md",
-    "z_Templates/World Builder Templates/Template-Place.md",
-    "z_Templates/World Builder Templates/Template-Region.md",
-    "z_Templates/World Builder Templates/Template-Player-Demiplane.md",
-    "z_Templates/World Builder Templates/Template-Player.md",
-    "z_Templates/World Builder Templates/Template-Person.md",
-    "1-DM Toolkit/DM Board.md",
-    "1-DM Toolkit/Vault Report.md",
-    "1-DM Toolkit/Travel Calculator.md",
-    "1-DM Toolkit/PF2e-DM Screen.md",
-    "1-DM Toolkit/Map Calculator.md",
-    "1-DM Toolkit/Journey Board.md",
-    "1-DM Toolkit/Home - DV.md",
-    "1-DM Toolkit/Home.md",
-    "1-DM Toolkit/DnD5e-SideScreen-2024.md",
-    "1-DM Toolkit/DnD5e-SideScreen-2014.md",
-    "1-DM Toolkit/DnD5e-DM Screen-2014.md",
-    "0-Scratch Notes/Random Dungeon.md",
-    "0-Scratch Notes/Add Random Notes Here.md",
-    "0-Scratch Notes/Template Design.md",
-    "1-DM Toolkit/Home Embeds.md",
-    "1-Party/Example Party 2/Example Party 2.md",
-    "1-Party/Example Party 1/Example Party 1.md",
+    "3-Mechanics/Bestiary/Bestiary.md",
+    "3-Mechanics/races/races.md",
+    "3-Mechanics/Items/Items.md",
     "0-Obsidian TTRPG Tutorial/0-Obsidian TTRPG Tutorial.md",
+    "z_Templates/World Builder Templates/Template-Journal.md",
+    "z_Templates/World Builder Templates/Template-Player.md",
+    "2-World/Places/Shop of Stuff.md",
+    "z_Templates/World Builder Templates/Template-Group.md",
+    "2-World/People/Frank the Tank.md",
+    "z_Templates/World Builder Templates/Template-Person.md",
+    "1-DM Toolkit/Home.md",
+    "1-DM Toolkit/Home Embeds.md",
+    "1-DM Toolkit/Home Embeds - DV.md",
+    "1-DM Toolkit/Home - DV.md",
+    "0-Scratch Notes/Untitled.md",
+    "z_Templates/World Builder Templates/Template-Place.md",
+    "z_Assets/Pasted image 20250529234903.png",
+    "2-World/People/Flip the Famous.md",
+    "0-Scratch Notes/Bases Test.base",
+    "0-Scratch Notes/Template Design.md",
+    "2-World/People/Fred the Slow.md",
+    "1-Party/Example Party 1/Bob.md",
+    "z_Templates/World Builder Templates/Template-Quest.md",
+    "z_Templates/World Builder Templates/Template-Hub.md",
+    "2-World/Hubs/City of Screams.md",
+    "2-World/Quests/The Giants Skull.md",
+    "0-Scratch Notes/Untitled 1.md",
+    "0-Scratch Notes/Random Names.md",
     "z_Assets/Fighter Gemmy.png",
-    "0-Scratch Notes/Untitled.base",
     "0-Scratch Notes/Untitled.canvas",
     "z_Assets/Pasted image 20250427093259.png",
     "z_Assets/Pasted image 20250425220102.png",
@@ -408,7 +406,6 @@
     "z_Assets/Pasted image 20240630203442.png",
     "z_Assets/Pasted Image 20240630114135_050.png",
     "z_Assets/Pasted image 20240627201658.png",
-    "z_Assets/Pasted image 20240607151510.png",
     "2-World/Quests",
     "0-Scratch Notes/MoC - Canvas Home Page.canvas",
     "3-Mechanics/races",

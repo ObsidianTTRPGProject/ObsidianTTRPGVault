@@ -45,6 +45,7 @@ siblings:
   - Sister
 obsidianUIMode: preview
 MyContainer:
+MyCategory:
 ---
 
 <%*

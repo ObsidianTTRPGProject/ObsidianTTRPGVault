@@ -128,6 +128,71 @@ WHERE contains(MyContainer, this.file.link)
 SORT file.name ASC
 ```
 
+```base
+display:
+  property.char_status: Status
+  property.char_race: Race
+  property.char_gender: Gender
+  property.char_age: Age Range
+  file.name: Name
+views:
+  - type: table
+    name: People
+    filters:
+      and:
+        - contains(file.folder, "2-World/People")
+        - contains(property.MyContainer, concat("[[", this.file.path, "|", this.file.name, "]]"))
+        - property.char_status != "Deceased"
+    order:
+      - file.name
+      - MyCategory
+      - MyContainer
+      - char_status
+      - char_race
+      - char_gender
+      - char_age
+    sort:
+      - column: file.name
+        direction: ASC
+    columnSize:
+      file.name: 147
+      property.MyCategory: 156
+      property.MyContainer: 161
+      property.char_status: 128
+      property.char_race: 121
+      property.char_gender: 134
+      property.char_age: 125
+      property.char_items: 159
+  - type: table
+    name: People (Deceased)
+    filters:
+      and:
+        - contains(file.folder, "2-World/People")
+        - contains(property.MyContainer, concat("[[", this.file.path, "|", this.file.name, "]]"))
+        - property.char_status == "Deceased"
+    order:
+      - file.name
+      - MyCategory
+      - MyContainer
+      - char_status
+      - char_race
+      - char_gender
+      - char_age
+    sort:
+      - column: file.name
+        direction: ASC
+    columnSize:
+      file.name: 147
+      property.MyCategory: 156
+      property.MyContainer: 161
+      property.char_status: 128
+      property.char_race: 121
+      property.char_gender: 134
+      property.char_age: 125
+      property.char_items: 159
+
+```
+
 # GM Notes
 
 Make notes of what you need to track in the town here. 
