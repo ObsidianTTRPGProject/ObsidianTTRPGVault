@@ -1,6 +1,6 @@
 ---
-MyContainer: []
-MyCategory: 
+MyContainer: "[[The Giants Skull]]"
+MyCategory:
 tags:
   - Category/Item
 obsidianUIMode: preview
@@ -11,45 +11,6 @@ Connected_Quests:
 Connected_Groups:
   - "[[z_Templates/World Builder Templates/Template-Group.md|Template-Group]]"
 ---
-
-<%_*
-
-// 1) Prompt for item name
-const poiName = await tp.system.prompt("Enter Item Name", tp.file.title);
-if (!poiName) return;
-await tp.file.rename(poiName);
-
-// 2) Gather and pick a container from multiple directories
-const containerPaths = [
-  "2-World/Quests/",
-  "2-World/People/",
-  "2-World/Groups/",
-  "2-World/Points of Interest/",
-  "2-World/Places/"
-];
-const containerFiles = tp.app.vault.getMarkdownFiles()
-  .filter(f => containerPaths.some(path => f.path.startsWith(path)));
-
-const containerChoices = containerFiles.map(f => f.basename);
-const containerValues = containerFiles.map(f => f.path);
-
-const chosenPath = await tp.system.suggester(containerChoices, containerValues, true);
-if (!chosenPath) return;
-
-// 3) Build full wiki-link for MyContainer
-const containerFileName = chosenPath.split("/").pop().replace(/\.md$/, "");
-const regionLink = `[[${containerFileName}]]`;
-
-// 4) Write MyContainer into front-matter
-setTimeout(() => {
-  const file = app.vault.getAbstractFileByPath(tp.file.path(true));
-  if (!file) return;
-  app.fileManager.processFrontMatter(file, fm => {
-    fm["MyContainer"] = regionLink;
-  });
-}, 100);
-
-%>
 
 
 
